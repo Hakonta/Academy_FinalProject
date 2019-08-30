@@ -20,13 +20,16 @@ namespace Academy_FinalProject.ImportAPI {
                             if (data != null) {
                                 dataJson = JObject.Parse(data);
                                 // TODO: Return data
-                                
+                                Console.WriteLine(dataJson);
+
                             }
                             else {
                                 Console.WriteLine("No data found");
+                                return null;
                             }
                         }
                     }
+                       
                 }
                 return dataJson;
             }
