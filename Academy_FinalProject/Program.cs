@@ -12,11 +12,16 @@ using Microsoft.Extensions.Logging;
 namespace Academy_FinalProject
 {
     public class Program
-    {
+    {   
         public static void Main(string[] args)
         {
-            FetchData fetchData = new FetchData();
-            fetchData.FetchScooterData();
+            string tierUrl = $"https://platform.tier-services.io/vehicle?zoneId=OSLO";
+            string tierKeyType = "X-Api-Key";
+            string tierKeyName = "bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2";
+
+
+            FetchTierData fetchTierData = new FetchTierData();
+            Console.WriteLine(fetchTierData.FetchScooterData(tierUrl, tierKeyType, tierKeyName));
             CreateWebHostBuilder(args).Build().Run();
         }
 

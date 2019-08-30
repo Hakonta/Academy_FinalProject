@@ -5,41 +5,36 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
-namespace Academy_FinalProject.ImportAPI
-{
-    public class FetchData
-    {
-        public async void FetchScooterData()
-        {
-            string baseURL = $"https://platform.tier-services.io/vehicle?zoneId=OSLO";
-            try
-            {
-                using (HttpClient client = new HttpClient())
-                    
-                {
-                    client.DefaultRequestHeaders.Add("X-Api-Key", "bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2 ");
-                    using (HttpResponseMessage res = await client.GetAsync(baseURL))
-                    {
-                        using (HttpContent content = res.Content)
-                        {
+namespace Academy_FinalProject.ImportAPI {
+    public class FetchData {
+
+       
+
+       
+
+        public async Task<JObject> FetchScooterData(string baseUrl, string keyType, string keyName) {
+            JObject dataJson = null;
+            try {
+                using (HttpClient client = new HttpClient()) {
+                    client.DefaultRequestHeaders.Add(keyType, keyName);
+                    using (HttpResponseMessage res = await client.GetAsync(baseUrl)) {
+                        using (HttpContent content = res.Content) {
                             string data = await content.ReadAsStringAsync();
-                            if (data != null)
-                            {
-                                var dataJson = JObject.Parse(data);
+                            if (data != null) {
+                                dataJson = JObject.Parse(data);
                                 // TODO: Return data
-                                Console.WriteLine(dataJson);
                             }
-                            else
-                            {
+                            else {
                                 Console.WriteLine("No data found");
                             }
                         }
                     }
                 }
+                return dataJson;
             }
-            catch (Exception exception)
-            {
+            catch (Exception exception) {
                 Console.WriteLine(exception);
+                return null;
             }
         }
     }
