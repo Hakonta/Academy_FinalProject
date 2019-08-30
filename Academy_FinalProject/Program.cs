@@ -8,7 +8,6 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json.Linq;
 
 namespace Academy_FinalProject
 {
@@ -20,11 +19,9 @@ namespace Academy_FinalProject
             string tierKeyType = "X-Api-Key";
             string tierKeyName = "bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2";
 
-
             FetchTierData fetchTierData = new FetchTierData();
-            var test = fetchTierData.FetchScooterData(tierUrl, tierKeyType, tierKeyName);
-            Console.WriteLine(test);
-
+           
+            Console.WriteLine(fetchTierData.FetchScooterData(tierUrl, tierKeyType, tierKeyName));
             CreateWebHostBuilder(args).Build().Run();
         }
 
