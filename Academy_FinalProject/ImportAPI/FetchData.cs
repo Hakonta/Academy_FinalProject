@@ -8,9 +8,6 @@ using Newtonsoft.Json.Linq;
 namespace Academy_FinalProject.ImportAPI {
     public class FetchData {
 
-       
-
-       
 
         public async Task<JObject> FetchScooterData(string baseUrl, string keyType, string keyName) {
             JObject dataJson = null;
@@ -23,6 +20,7 @@ namespace Academy_FinalProject.ImportAPI {
                             if (data != null) {
                                 dataJson = JObject.Parse(data);
                                 // TODO: Return data
+                                
                             }
                             else {
                                 Console.WriteLine("No data found");

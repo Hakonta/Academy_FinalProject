@@ -19,8 +19,8 @@ namespace Academy_FinalProject
             string tierKeyType = "X-Api-Key";
             string tierKeyName = "bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2";
 
-
             FetchTierData fetchTierData = new FetchTierData();
+           
             Console.WriteLine(fetchTierData.FetchScooterData(tierUrl, tierKeyType, tierKeyName));
             CreateWebHostBuilder(args).Build().Run();
         }
