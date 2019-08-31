@@ -8,6 +8,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
 
 namespace Academy_FinalProject
 {
@@ -22,6 +23,8 @@ namespace Academy_FinalProject
             FetchTierData fetchTierData = new FetchTierData();
            
             Console.WriteLine(fetchTierData.FetchScooterData(tierUrl, tierKeyType, tierKeyName));
+            var test = fetchTierData.FetchScooterData(tierUrl, tierKeyType, tierKeyName);
+            Console.WriteLine(test);
             CreateWebHostBuilder(args).Build().Run();
         }
 
