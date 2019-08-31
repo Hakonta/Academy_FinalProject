@@ -35,7 +35,6 @@ namespace Academy_FinalProject.ImportAPI {
             }
             catch (Exception exception) {
                 Console.WriteLine(exception);
-                Console.WriteLine("Halla balla");
                 return null;
             }
         }
