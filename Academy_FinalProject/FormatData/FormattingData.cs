@@ -4,32 +4,30 @@ using System.Linq;
 using System.Threading.Tasks;
 using Academy_FinalProject.FormatData;
 using Academy_FinalProject.ImportAPI;
+using Academy_FinalProject.Models;
 using Newtonsoft.Json.Linq;
 
-namespace Academy_FinalProject.FormatData
-{
-    public class FormattingData
+namespace Academy_FinalProject.FormatData {
+    public class FormattingData {
+        
 
-    {
-        string tierKeyType = "X-Api-Key";
-        string tierKeyName = "bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2";
-        string tierUrl = $"https://platform.tier-services.io/vehicle?zoneId=OSLO";
+        
+        public List<Scooter> ExtractScooterInfoToList(JObject rawScooterJsonData) {
+            //Method takes a JObject (FetchScooterData() ) and return a C# list of scooters.
+            List<Scooter> allScooters = new List<Scooter>();
 
-        FetchTierData fetchTierData = new FetchTierData();
+            JToken data = rawScooterJsonData["data"];
+            foreach (var scooter in data) {
 
-        private Task<JObject> jsonObj;
-
-        public FormattingData()
-        {
-            jsonObj = fetchTierData.FetchScooterData(tierUrl, tierKeyType, tierKeyName);
+                allScooters.Add(new Scooter {
+                    ProviderName = "Tier",
+                    Latitude = (double)scooter["lat"],
+                    Longitude = (double)scooter["lng"],
+                    BatteryCapacity = (int)scooter["batteryLevel"],
+                    IsAvailable = (bool)scooter["isRentable"]
+                });
+            }
+            return allScooters;
         }
-
-
-
-
-
-
-
-
     }
 }

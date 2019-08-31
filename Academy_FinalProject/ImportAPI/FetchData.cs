@@ -20,8 +20,6 @@ namespace Academy_FinalProject.ImportAPI {
                             if (data != null) {
                                 dataJson = JObject.Parse(data);
                                 // TODO: Return data
-                                Console.WriteLine(dataJson);
-
                             }
                             else {
                                 Console.WriteLine("No data found");
@@ -35,7 +33,6 @@ namespace Academy_FinalProject.ImportAPI {
             }
             catch (Exception exception) {
                 Console.WriteLine(exception);
-                Console.WriteLine("Halla balla");
                 return null;
             }
         }
