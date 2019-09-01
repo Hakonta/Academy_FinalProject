@@ -23,6 +23,8 @@ namespace Academy_FinalProject {
             string tierKeyName = "bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2";
             string tierUrl = $"https://platform.tier-services.io/vehicle?zoneId=OSLO";
 
+
+
             //Fetching data from Tier API
             FetchTierData fetchTier = new FetchTierData();
             JObject rawData = fetchTier.FetchScooterData(tierUrl, tierKeyType, tierKeyName).Result;
@@ -41,6 +43,10 @@ namespace Academy_FinalProject {
                     $"Batterylevel: {scooter.BatteryCapacity} %\n" +
                     $"{scooterAvailable}\n");
             }
+            // Fetching scooterdata from VOI
+            FetchVoiData fetchVoiData = new FetchVoiData();
+            var voiScooterData = fetchVoiData.FetchVoiScooter();
+
 
             CreateWebHostBuilder(args).Build().Run();
         }
