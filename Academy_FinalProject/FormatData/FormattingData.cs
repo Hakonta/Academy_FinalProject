@@ -43,6 +43,8 @@ namespace Academy_FinalProject.FormatData {
                 {
                     ProviderName = "Voi",
                     BatteryCapacity = (int)scooter["battery"],
+                    Latitude = (double)scooter["location"].First,
+                    Longitude = (double)scooter["location"][1]
                 });
             }
             return allScooters;

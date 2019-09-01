@@ -54,7 +54,9 @@ namespace Academy_FinalProject {
             foreach (var scooter in scootersVoi)
             {
                 Console.WriteLine($"{scooter.ProviderName} scooter\n" +
-                                  $"Batterylevel: {scooter.BatteryCapacity} %\n");
+                                  $"Batterylevel: {scooter.BatteryCapacity} %\n" +
+                                  $"Latitude: {scooter.Latitude} \n" +
+                                  $"Longitude: {scooter.Longitude} \n");
             }
 
 
