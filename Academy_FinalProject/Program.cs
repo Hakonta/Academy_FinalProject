@@ -45,7 +45,17 @@ namespace Academy_FinalProject {
             }
             // Fetching scooterdata from VOI
             FetchVoiData fetchVoiData = new FetchVoiData();
-            var voiScooterData = fetchVoiData.FetchVoiScooter();
+            var voiScooterData = fetchVoiData.FetchVoiScooter().Result;
+
+            //Formating data and making a list of scooters with prefered properties
+            FormattingData formattingDataVoi = new FormattingData();
+            List<Scooter> scootersVoi = formattingData.ExtractScooterInfoToList(voiScooterData);
+
+            foreach (var scooter in scootersVoi)
+            {
+                Console.WriteLine($"{scooter.ProviderName} scooter\n" +
+                                  $"Batterylevel: {scooter.BatteryCapacity} %\n");
+            }
 
 
             CreateWebHostBuilder(args).Build().Run();

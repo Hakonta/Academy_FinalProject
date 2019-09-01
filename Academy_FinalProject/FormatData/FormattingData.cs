@@ -29,5 +29,23 @@ namespace Academy_FinalProject.FormatData {
             }
             return allScooters;
         }
+
+        public List<Scooter> ExtractScooterInfoToList(JArray rawScooterJsonData)
+        {
+            //Method takes a JObject (FetchScooterData() ) and return a C# list of scooters.
+            List<Scooter> allScooters = new List<Scooter>();
+
+            //JToken data = rawScooterJsonData["data"];
+            foreach (var scooter in rawScooterJsonData)
+            {
+
+                allScooters.Add(new Scooter
+                {
+                    ProviderName = "Voi",
+                    BatteryCapacity = (int)scooter["battery"],
+                });
+            }
+            return allScooters;
+        }
     }
 }

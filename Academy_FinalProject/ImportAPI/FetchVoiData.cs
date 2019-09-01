@@ -11,7 +11,7 @@ namespace Academy_FinalProject.ImportAPI
 {
     public class FetchVoiData
     {
-        public async Task<JObject> FetchVoiScooter()
+        public async Task<JArray> FetchVoiScooter()
         {
             var url = "https://api.voiapp.io/v1/vehicle/status/ready?lat=59.329323&lng=18.068581";
             // TODO: latitude and longitude should be insertable parameters
@@ -24,7 +24,7 @@ namespace Academy_FinalProject.ImportAPI
             var responseReader = new StreamReader(webStream);
             var response = responseReader.ReadToEnd();
             Console.WriteLine("Response: " + response);
-            var dataJson = JObject.Parse(response);
+            var dataJson = JArray.Parse(response);
             responseReader.Close();
             return dataJson;
         }
