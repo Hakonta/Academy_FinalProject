@@ -16,7 +16,7 @@ export class CurrentLocation extends React.Component {
     this.state = {
       currentLocation: {
         lat: lat,
-        lng: lng
+        lng: lng,
       }
     };
   }
@@ -107,6 +107,7 @@ export class CurrentLocation extends React.Component {
       <div>
         <div style={style} ref="map">
           Loading map...
+          
         </div>
         {this.renderChildren()}
       </div>
