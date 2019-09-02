@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
-import CurrentLocation from '../../components/Map/';
+import CurrentLocation from '../../Components/Map/';
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -36,7 +36,7 @@ componentDidMount() {
       .catch((error) => { console.log(error); });
   }
 
-
+  
   onMarkerClick = (props, marker, e) =>
     this.setState({
       selectedPlace: props,
