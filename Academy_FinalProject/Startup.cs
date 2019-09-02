@@ -60,6 +60,7 @@ namespace Academy_FinalProject
 
             app.UseCors(MyAllowSpecificOrigins);
 
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
