@@ -67,14 +67,9 @@ export class MapContainer extends Component {
             <Marker
               key={index}
               onClick={this.onMarkerClick}
-<<<<<<< HEAD
-              name={scooter.Provider}
-              position={{ 'lat': {...this.state.scooters.latitude}, 'lng': {...this.state.scooters.longitude} }}
-=======
               name={scooter.providerName}
               battery={scooter. batteryCapacity}
               position={{ lat: scooter.latitude, lng: scooter.longitude }}
->>>>>>> 619311bc563b918cc6bb89022134acd9903a0f43
             />
 
           )
