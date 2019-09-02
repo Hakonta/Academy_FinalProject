@@ -24,6 +24,7 @@ namespace Academy_FinalProject.Controllers
         [HttpGet]
         public List<Scooter> Get()
         {
+           
             //Fetching data from Tier API
             FetchTierData fetchTier = new FetchTierData();
             JObject rawData = fetchTier.FetchScooterData(tierUrl, tierKeyType, tierKeyName).Result;
@@ -31,6 +32,7 @@ namespace Academy_FinalProject.Controllers
             //Formating data and making a list of scooters with prefered properties
             FormattingData formattingData = new FormattingData();
             List<Scooter> scooters = formattingData.ExtractScooterInfoToList(rawData);
+
             return scooters;
         }
 
