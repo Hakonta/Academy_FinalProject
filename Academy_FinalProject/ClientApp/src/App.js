@@ -16,14 +16,10 @@ export class MapContainer extends Component {
     showingInfoWindow: false,  //Hides or the shows the infoWindow
     activeMarker: {},          //Shows the active marker upon click
     selectedPlace: {},          //Shows the infoWindow to the selected place upon a marker
-    scooters: [{
-      "Provider": "",
-      "lat": 0,
-      "lng": 0,
-    }]
+    scooters: []
   };
 
-  fetchScooterData() {
+   fetchScooterData = () => {
     fetch('https://localhost:44359/api/scooter', {
       headers: {
         'content-type': 'application/json'
@@ -32,15 +28,17 @@ export class MapContainer extends Component {
       .then(response => response)
       .then((result) => {
         this.setState({ scooters: result });
-        console.log(result)
-
+        
+        console.log(result);
       })
       .catch((error) => { console.log(error); });
   }
 
   componentDidMount() {
     this.fetchScooterData();
-  }
+    console.log(this.state.scooters.length)
+    console.log(this.state.scooters)
+  } 
 
   onMarkerClick = (props, marker, e) =>
     this.setState({
@@ -64,11 +62,15 @@ export class MapContainer extends Component {
       <CurrentLocation
         centerAroundCurrentLocation
         google={this.props.google} >
-        {this.state.scooters.map((scooter, index) => {
+
+
+        {/* {this.state.scooters.map((scooter, index) => {
           const coords = {
             lat: scooter.lat,
             lng: scooter.lng,
           };
+
+
           return (
             <Marker
               onClick={this.onMarkerClick}
@@ -76,12 +78,12 @@ export class MapContainer extends Component {
               position={coords}
             />
           )
-        })}
+        })} */}
         <Marker
-              onClick={this.onMarkerClick}
-              name={'Current Location'}
-              And more text
-            />
+          onClick={this.onMarkerClick}
+          name={'Current Location'}
+          And more text
+        />
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
