@@ -44,20 +44,20 @@ namespace Academy_FinalProject {
                     $"{scooterAvailable}\n");
             }
             // Fetching scooterdata from VOI
-            FetchVoiData fetchVoiData = new FetchVoiData();
-            var voiScooterData = fetchVoiData.FetchVoiScooter().Result;
+            //FetchVoiData fetchVoiData = new FetchVoiData();
+            //var voiScooterData = fetchVoiData.FetchVoiScooter().Result;
 
-            //Formating data and making a list of scooters with prefered properties
-            FormattingData formattingDataVoi = new FormattingData();
-            List<Scooter> scootersVoi = formattingData.ExtractScooterInfoToList(voiScooterData);
+            ////Formating data and making a list of scooters with prefered properties
+            //FormattingData formattingDataVoi = new FormattingData();
+            //List<Scooter> scootersVoi = formattingData.ExtractScooterInfoToList(voiScooterData);
 
-            foreach (var scooter in scootersVoi)
-            {
-                Console.WriteLine($"{scooter.ProviderName} scooter\n" +
-                                  $"Batterylevel: {scooter.BatteryCapacity} %\n" +
-                                  $"Latitude: {scooter.Latitude} \n" +
-                                  $"Longitude: {scooter.Longitude} \n");
-            }
+            //foreach (var scooter in scootersVoi)
+            //{
+            //    Console.WriteLine($"{scooter.ProviderName} scooter\n" +
+            //                      $"Batterylevel: {scooter.BatteryCapacity} %\n" +
+            //                      $"Latitude: {scooter.Latitude} \n" +
+            //                      $"Longitude: {scooter.Longitude} \n");
+            //}
 
 
             CreateWebHostBuilder(args).Build().Run();
