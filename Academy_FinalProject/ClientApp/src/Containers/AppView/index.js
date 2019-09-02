@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
-import CurrentLocation from '../../Components/Map';
+import CurrentLocation from '../../Components/Map/';
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -27,15 +27,14 @@ componentDidMount() {
       'Content-Type': 'application/json',
       }
     })
-        .then((response) => {
-            return response.json()})
-        .then(
-            (result) => {
-                this.setState({
-                    scooters: result,
-            });
-        })
-    }
+      .then(response => response.json())
+      .then((result) => {
+        this.setState({ scooters: result });
+        console.log(result)
+
+      })
+      .catch((error) => { console.log(error); });
+  }
 
 
   onMarkerClick = (props, marker, e) =>
