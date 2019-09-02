@@ -3,8 +3,10 @@ import {GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from '../../Components/Map';
 
 export class MapContainer extends Component {
-  state = {
-    showingInfoWindow: false,  //Hides or the shows the infoWindow
+  constructor(props) {
+    super(props);
+    this.state = {
+        showingInfoWindow: false,  //Hides or the shows the infoWindow
     activeMarker: {},          //Shows the active marker upon click
     selectedPlace: {},          //Shows the infoWindow to the selected place upon a marker
     scooters: [{
@@ -12,26 +14,29 @@ export class MapContainer extends Component {
       "lat": 0,
       "lng": 0,
     }]
-  };
+    }
+}
+componentDidMount() {
+  this.fetchScooterData();
+}
 
-  fetchScooterData() {
-    fetch('https://localhost:44359/api/scooter', {
+  fetchScooterData = () => {
+    fetch("https://localhost:44359/api/scooter",
+    {
       headers: {
-        'content-type': 'application/json'
+      'Content-Type': 'application/json',
       }
     })
-      .then(response => response)
-      .then((result) => {
-        this.setState({ scooters: result });
-        console.log(result)
+        .then((response) => {
+            return response.json()})
+        .then(
+            (result) => {
+                this.setState({
+                    scooters: result,
+            });
+        })
+    }
 
-      })
-      .catch((error) => { console.log(error); });
-  }
-
-  componentDidMount() {
-    this.fetchScooterData();
-  }
 
   onMarkerClick = (props, marker, e) =>
     this.setState({
@@ -64,7 +69,7 @@ export class MapContainer extends Component {
             <Marker
               onClick={this.onMarkerClick}
               name={scooter.Provider}
-              position={{ lat: scooter.lat, lng: scooter.lng }}
+              position={{ lat: {...this.state.scooters.lat}, lng: {...this.state.scooters.lng} }}
             />
           )
         })}
