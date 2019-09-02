@@ -66,14 +66,14 @@ export class MapContainer extends Component {
         google={this.props.google} >
         {this.state.scooters.map((scooter, index) => {
           const coords = {
-            latitude: scooter.lat,
-            longitude: scooter.lng,
+            lat: scooter.lat,
+            lng: scooter.lng,
           };
           return (
             <Marker
               onClick={this.onMarkerClick}
               name={scooter.Provider}
-              position={{ lat: scooter.lat, lng: scooter.lng }}
+              position={coords}
             />
           )
         })}
