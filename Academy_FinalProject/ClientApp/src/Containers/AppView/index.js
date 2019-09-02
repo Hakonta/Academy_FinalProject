@@ -22,7 +22,7 @@ componentDidMount() {
 
   fetchScooterData = () => {
     fetch("https://localhost:44359/api/scooter",
-    {//kommentar lagt til
+    {//kommentar lagt til//mermer
       headers: {
       'Content-Type': 'application/json',
       }
