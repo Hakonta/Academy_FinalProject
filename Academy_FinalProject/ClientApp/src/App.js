@@ -1,24 +1,38 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper,InfoWindow, Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from './Map';
 import ReactDOM from 'react-dom';
 
 const mapStyles = {
-  map:{
-    position:'absolute',
+  map: {
+    position: 'absolute',
     width: '100%',
     height: '100%'
   }
 };
 
 export class MapContainer extends Component {
-    state = {
-     showingInfoWindow: false,  //Hides or the shows the infoWindow
-     activeMarker: {},          //Shows the active marker upon click
-     selectedPlace: {}          //Shows the infoWindow to the selected place upon a marker
-   };
+  state = {
+    showingInfoWindow: false,  //Hides or the shows the infoWindow
+    activeMarker: {},          //Shows the active marker upon click
+    selectedPlace: {},          //Shows the infoWindow to the selected place upon a marker
+    scooters: [{
+      "Provider": "Tier",
+      "lat": 59.9278406666667,
+      "lng": 10.7609473333333,
+    },
+    {
+      "Provider": "Tier",
+      "lat": 59.9273406666667,
+      "lng": 10.7609473333333,
+    }, {
+      "Provider": "voi",
+      "lat": 59.9279406666667,
+      "lng": 10.7609473333333,
+    }]
+  };
 
-   onMarkerClick = (props, marker, e) =>
+  onMarkerClick = (props, marker, e) =>
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -33,17 +47,32 @@ export class MapContainer extends Component {
       });
     }
   };
-  
+
   render() {
     return (
-      
+
       <CurrentLocation
-      centerAroundCurrentLocation
-      google={this.props.google} >
-        <Marker
-          onClick={this.onMarkerClick}
-          name={'You are here'}
-        />
+        centerAroundCurrentLocation
+        google={this.props.google} >
+          
+
+
+        {this.state.scooters.map((scooter, index) => {
+          const coords = {
+            latitude: scooter.lat,
+            longitude: scooter.lng,
+          };
+          return (
+            <Marker
+              onClick={this.onMarkerClick}
+              name={scooter.Provider}
+              position={{lat: scooter.lat, lng: scooter.lng}}
+            />
+          )
+        })}
+
+
+
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
