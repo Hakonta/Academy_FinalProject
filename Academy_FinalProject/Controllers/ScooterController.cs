@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Academy_FinalProject.FormatData;
 using Academy_FinalProject.ImportAPI;
 using Academy_FinalProject.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 
@@ -15,6 +15,7 @@ namespace Academy_FinalProject.Controllers
     [ApiController]
     public class ScooterController : ControllerBase
     {
+
         //Inputparameters for Fetch method
         string tierKeyType = "X-Api-Key";
         string tierKeyName = "bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2";
