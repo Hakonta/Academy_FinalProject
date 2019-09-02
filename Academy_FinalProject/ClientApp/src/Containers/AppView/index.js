@@ -68,7 +68,7 @@ componentDidMount() {
             <Marker
               onClick={this.onMarkerClick}
               name={scooter.Provider}
-              position={{ lat: {...this.state.scooters.lat}, lng: {...this.state.scooters.lng} }}
+              position={{ 'lat': {...this.state.scooters.latitude}, 'lng': {...this.state.scooters.longitude} }}
             />
           )
         })}
