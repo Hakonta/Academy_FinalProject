@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper,InfoWindow, Marker } from 'google-maps-react';
+import { GoogleApiWrapper,InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from './Map';
-import ReactDOM from 'react-dom';
 
-const mapStyles = {
-  map:{
-    position:'absolute',
-    width: '100%',
-    height: '100%'
-  }
-};
-
+// KAN VÆRE I EN CONTAINER/COMPONENT
 export class MapContainer extends Component {
     state = {
      showingInfoWindow: false,  //Hides or the shows the infoWindow
@@ -33,7 +25,7 @@ export class MapContainer extends Component {
       });
     }
   };
-  
+
   render() {
     return (
       
@@ -53,7 +45,6 @@ export class MapContainer extends Component {
             <h4>{this.state.selectedPlace.name}</h4>
           </div>
         </InfoWindow>
-
       </CurrentLocation>
     );
   }
