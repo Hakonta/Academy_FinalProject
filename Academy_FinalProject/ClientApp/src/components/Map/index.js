@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from './node_modules/react';
+import ReactDOM from './node_modules/react-dom';
 
 const mapStyles = {
   map: {
@@ -107,7 +107,6 @@ export class CurrentLocation extends React.Component {
       <div>
         <div style={style} ref="map">
           Loading map...
-          
         </div>
         {this.renderChildren()}
       </div>
