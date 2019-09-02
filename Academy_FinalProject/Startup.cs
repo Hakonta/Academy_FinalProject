@@ -30,6 +30,7 @@ namespace Academy_FinalProject
                         builder.WithOrigins
                             ("https://localhost:44359/api/scooter")
                             .AllowAnyHeader()
+                            .AllowAnyOrigin()
                             .AllowAnyMethod();
                     });
             });
