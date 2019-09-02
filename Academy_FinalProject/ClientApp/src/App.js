@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
-import CurrentLocation from './Map';
+import CurrentLocation from '../src/components/Map';
 import ReactDOM from 'react-dom';
 
 const mapStyles = {
