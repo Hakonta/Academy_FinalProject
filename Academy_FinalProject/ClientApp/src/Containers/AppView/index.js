@@ -57,15 +57,7 @@ export class MapContainer extends Component {
         google={this.props.google} >
 
         {this.state.scooters.map((scooter, index) => {
-          
-
-          
-
           return (
-
-            
-            
-              
             <Marker
               key={index}
               onClick={this.onMarkerClick}
@@ -73,10 +65,8 @@ export class MapContainer extends Component {
               battery={scooter. batteryCapacity}
               position={{ lat: scooter.latitude, lng: scooter.longitude }}
             />
-
-          )
-          }
-        )}
+          )}
+        )};
 
         <InfoWindow
           marker={this.state.activeMarker}
@@ -84,10 +74,8 @@ export class MapContainer extends Component {
           onClose={this.onClose}
         >
           <div>
-            <h4>
-             Scooter provider:  {this.state.selectedPlace.name} 
-             {this.state.selectedPlace.battery}
-            </h4>
+            <h4>  Scooter provider:  {this.state.selectedPlace.name} </h4>
+            <h2>Battery:   {this.state.selectedPlace.battery}% </h2>
           </div>
         </InfoWindow>
 
