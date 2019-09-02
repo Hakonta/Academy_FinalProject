@@ -47,7 +47,7 @@ export class CurrentLocation extends React.Component {
       this.map = new maps.Map(node, mapConfig);
     }
   }
-  
+
   componentDidMount() {
     if (this.props.centerAroundCurrentLocation) {
       if (navigator && navigator.geolocation) {
@@ -126,8 +126,13 @@ export default CurrentLocation;
 CurrentLocation.defaultProps = {
   zoom: 18,
   initialCenter: {
+<<<<<<< HEAD
     lat: 59.946548,
     lng: 10.766970
+=======
+    // lat: 59.8937806,
+    // lng: 10.6450349
+>>>>>>> f31a7a4eafabd6f6ddd15f8d15b541c8aebff3f7
   },
   centerAroundCurrentLocation: false,
   visible: true
