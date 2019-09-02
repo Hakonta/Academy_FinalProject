@@ -20,7 +20,7 @@ export class MapContainer extends Component {
         'content-type': 'application/json'
       }
     })
-      .then(response => response)
+      .then(response => response.json())
       .then((result) => {
         this.setState({ scooters: result });
         console.log(result)
