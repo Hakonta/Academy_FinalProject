@@ -60,16 +60,18 @@ export class MapContainer extends Component {
 
 
           return (
-           
 
+            
 
-              <Marker
-                onClick={this.onMarkerClick}
-                name={scooter.ProviderName}
-                position={{ lat: scooter.latitude, lng: scooter.longitude }}
-              />
+              
+            <Marker
+              key={index}
+              onClick={this.onMarkerClick}
+              name={scooter.providerName}
+              battery={scooter. batteryCapacity}
+              position={{ lat: scooter.latitude, lng: scooter.longitude }}
+            />
 
-           
           )
         })}
 
@@ -80,7 +82,8 @@ export class MapContainer extends Component {
         >
           <div>
             <h4>
-
+             Scooter provider:  {this.state.selectedPlace.name} 
+             {this.state.selectedPlace.battery}
             </h4>
           </div>
         </InfoWindow>
