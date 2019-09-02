@@ -64,9 +64,6 @@ export class MapContainer extends Component {
       <CurrentLocation
         centerAroundCurrentLocation
         google={this.props.google} >
-
-
-
         {this.state.scooters.map((scooter, index) => {
           const coords = {
             latitude: scooter.lat,
@@ -80,9 +77,11 @@ export class MapContainer extends Component {
             />
           )
         })}
-
-
-
+        <Marker
+              onClick={this.onMarkerClick}
+              name={'Current Location'}
+              And more text
+            />
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
@@ -90,6 +89,7 @@ export class MapContainer extends Component {
         >
           <div>
             <h4>{this.state.selectedPlace.name}</h4>
+            Tekstet
           </div>
         </InfoWindow>
 
