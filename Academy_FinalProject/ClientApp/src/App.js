@@ -17,20 +17,30 @@ export class MapContainer extends Component {
     activeMarker: {},          //Shows the active marker upon click
     selectedPlace: {},          //Shows the infoWindow to the selected place upon a marker
     scooters: [{
-      "Provider": "Tier",
-      "lat": 59.9278406666667,
-      "lng": 10.7609473333333,
-    },
-    {
-      "Provider": "Tier",
-      "lat": 59.9273406666667,
-      "lng": 10.7609473333333,
-    }, {
-      "Provider": "voi",
-      "lat": 59.9279406666667,
-      "lng": 10.7609473333333,
+      "Provider": "",
+      "lat": 0,
+      "lng": 0,
     }]
   };
+
+  fetchScooterData() {
+    fetch('https://localhost:44359/api/scooter', {
+      method: 'GET',
+      header: "'Access-Control-Allow-Headers', 'Content-Type, Accept, X-Requested-With, remember-me'"
+      
+    })
+      .then(response => response)
+      .then((result) => {
+        this.setState({ scooters: result });
+        console.log(result)
+
+      })
+      .catch((error) => { console.log(error); });
+  }
+
+  componentDidMount(){
+    this.fetchScooterData();
+  }
 
   onMarkerClick = (props, marker, e) =>
     this.setState({
@@ -54,7 +64,7 @@ export class MapContainer extends Component {
       <CurrentLocation
         centerAroundCurrentLocation
         google={this.props.google} >
-          
+
 
 
         {this.state.scooters.map((scooter, index) => {
@@ -66,7 +76,7 @@ export class MapContainer extends Component {
             <Marker
               onClick={this.onMarkerClick}
               name={scooter.Provider}
-              position={{lat: scooter.lat, lng: scooter.lng}}
+              position={{ lat: scooter.lat, lng: scooter.lng }}
             />
           )
         })}
