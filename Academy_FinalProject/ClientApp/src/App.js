@@ -24,10 +24,10 @@ export class MapContainer extends Component {
   };
 
   fetchScooterData() {
-    fetch('https://localhost:5000/api/scooter', {
-      method: 'GET',
-      
-      
+    fetch('https://localhost:44359/api/scooter', {
+      headers: {
+        'content-type': 'application/json'
+      }
     })
       .then(response => response)
       .then((result) => {
@@ -38,7 +38,7 @@ export class MapContainer extends Component {
       .catch((error) => { console.log(error); });
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.fetchScooterData();
   }
 
@@ -92,8 +92,8 @@ export class MapContainer extends Component {
             <h4>{this.state.selectedPlace.name}</h4>
           </div>
         </InfoWindow>
-        
-    </CurrentLocation>
+
+      </CurrentLocation>
     );
   }
 }
