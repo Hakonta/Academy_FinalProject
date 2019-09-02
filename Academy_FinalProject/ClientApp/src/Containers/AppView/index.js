@@ -57,12 +57,14 @@ export class MapContainer extends Component {
         google={this.props.google} >
 
         {this.state.scooters.map((scooter, index) => {
+          
 
+          
 
           return (
 
             
-
+            
               
             <Marker
               key={index}
@@ -73,7 +75,8 @@ export class MapContainer extends Component {
             />
 
           )
-        })}
+          }
+        )}
 
         <InfoWindow
           marker={this.state.activeMarker}

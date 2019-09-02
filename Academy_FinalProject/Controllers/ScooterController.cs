@@ -33,7 +33,7 @@ namespace Academy_FinalProject.Controllers
             FetchTierData fetchTier = new FetchTierData();
             JObject rawData = fetchTier.FetchScooterData(tierUrl, tierKeyType, tierKeyName).Result;
 
-            //Formating data and making a list of scooters with prefered properties
+            //Formating data and making a list of scooters with prefered propertiesC:\Users\jacob\Documents\GitHub\Hakonta\Academy_FinalProject\Academy_FinalProject\Controllers\ScooterController.cs
             FormattingData formattingData = new FormattingData();
             List<Scooter> scootersFromTier = formattingData.ExtractScooterInfoToList(rawData);
 
