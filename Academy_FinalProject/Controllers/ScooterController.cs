@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http.Cors;
+using System.Xml;
 using Academy_FinalProject.FormatData;
 using Academy_FinalProject.ImportAPI;
 using Academy_FinalProject.Models;
@@ -34,9 +35,17 @@ namespace Academy_FinalProject.Controllers
 
             //Formating data and making a list of scooters with prefered properties
             FormattingData formattingData = new FormattingData();
-            List<Scooter> scooters = formattingData.ExtractScooterInfoToList(rawData);
+            List<Scooter> scootersFromTier = formattingData.ExtractScooterInfoToList(rawData);
 
-            return scooters;
+            // Fetching data from Voi API
+            FetchVoiData fetchVoiData = new FetchVoiData();
+            var voiScooterData = fetchVoiData.FetchVoiScooter().Result;
+
+            // Formatting data and making a list of scooters from Voi and Tier
+            FormattingData formattingDataVoi = new FormattingData();
+            List<Scooter> scootersFromVoiAndTier = formattingData.ExtractScooterInfoToList(voiScooterData, scootersFromTier);
+
+            return scootersFromVoiAndTier;
         }
 
         // GET: api/Scooter/5
