@@ -23,7 +23,7 @@ namespace Academy_FinalProject.ImportAPI
             var webStream = webResponse.GetResponseStream();
             var responseReader = new StreamReader(webStream);
             var response = responseReader.ReadToEnd();
-            Console.WriteLine("Response: " + response);
+            // Console.WriteLine("Response: " + response);
             var dataJson = JArray.Parse(response);
             responseReader.Close();
             return dataJson;

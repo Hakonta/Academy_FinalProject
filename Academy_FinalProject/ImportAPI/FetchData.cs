@@ -19,7 +19,6 @@ namespace Academy_FinalProject.ImportAPI {
                             string data = await content.ReadAsStringAsync();
                             if (data != null) {
                                 dataJson = JObject.Parse(data);
-                                // TODO: Return data
                             }
                             else {
                                 Console.WriteLine("No data found");
