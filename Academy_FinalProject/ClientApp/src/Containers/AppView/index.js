@@ -18,20 +18,14 @@ export class MapContainer extends Component {
 
   fetchScooterData = () => {
     fetch("https://localhost:44359/api/scooter",
-      {//kommentar lagt til//mermer
-        headers: {
-          'Content-Type': 'application/json',
-        }
+      {headers: {
+        'Content-Type': 'application/json'}
       })
       .then(response => response.json())
-      .then((result) => {
-        this.setState({ scooters: result });
-        console.log(result)
-
+      .then((result) => {this.setState({ scooters: result });
       })
       .catch((error) => { console.log(error); });
   }
-
 
   onMarkerClick = (props, marker, e) =>
     this.setState({
@@ -51,7 +45,6 @@ export class MapContainer extends Component {
 
   render() {
     return (
-
       <CurrentLocation
         centerAroundCurrentLocation
         google={this.props.google} >
@@ -66,16 +59,16 @@ export class MapContainer extends Component {
               position={{ lat: scooter.latitude, lng: scooter.longitude }}
             />
           )}
-        )};
+        )}
 
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
           onClose={this.onClose}
         >
-          <div>
-            <h4>  Scooter provider:  {this.state.selectedPlace.name} </h4>
-            <h2>Battery:   {this.state.selectedPlace.battery}% </h2>
+          <div  style={{color:'blue'}} >
+            <h4>Scooter provider: {this.state.selectedPlace.name}</h4>
+            <h5>Battery: {this.state.selectedPlace.battery}%</h5>
           </div>
         </InfoWindow>
 
