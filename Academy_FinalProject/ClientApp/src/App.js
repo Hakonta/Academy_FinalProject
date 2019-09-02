@@ -24,9 +24,9 @@ export class MapContainer extends Component {
   };
 
   fetchScooterData() {
-    fetch('https://localhost:44359/api/scooter', {
+    fetch('https://localhost:5000/api/scooter', {
       method: 'GET',
-      header: "'Access-Control-Allow-Headers', 'Content-Type, Accept, X-Requested-With, remember-me'"
+      
       
     })
       .then(response => response)
@@ -92,8 +92,8 @@ export class MapContainer extends Component {
             <h4>{this.state.selectedPlace.name}</h4>
           </div>
         </InfoWindow>
-
-      </CurrentLocation>
+        
+    </CurrentLocation>
     );
   }
 }
