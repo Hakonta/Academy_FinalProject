@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from '../../Components/Map/';
+import Footer from '../../Components/FooterBar/index';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -71,9 +73,11 @@ export class MapContainer extends Component {
             <h5>Battery: {this.state.selectedPlace.battery}%</h5>
           </div>
         </InfoWindow>
-
-
+        <Footer/>
       </CurrentLocation>
+  
+
+
     );
   }
 }
