@@ -48,5 +48,23 @@ namespace Academy_FinalProject.FormatData {
             }
             return allScooters;
         }
+        public List<Bysykkel> ExtractBysyklerInfoToList(BysykkelResponse rawBikeJsonData)
+        {
+            List<Bysykkel> allBikes = new List<Bysykkel>();
+
+            foreach (var bike in rawBikeJsonData.Data.Stations)
+            {
+
+                allBikes.Add(new Bysykkel
+                {
+                    StationName = bike.Name,
+                    Latitude = bike.Lat,
+                    Longitude = bike.Lon,
+                    StationCapacity = bike.Capacity,
+                    // TODO: Show bikes available?
+                });
+            }
+            return allBikes;
+        }
     }
 }

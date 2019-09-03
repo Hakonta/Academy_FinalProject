@@ -5,13 +5,36 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Academy_FinalProject.ImportAPI
 {
+    public class BysykkelResponse
+    {
+        public BysykkelData Data { get; set; }
+    }
+
+    public class BysykkelData
+    {
+        public BysykkelStation[] Stations { get; set; }
+    }
+
+    public class BysykkelStation
+    {
+        [JsonProperty("station_id")]
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public double Lat { get; set; }
+        public double Lon { get; set; }
+        public int Capacity { get; set; }
+    }
+
     public class FetchBysykler
     {
-        public async Task<JObject> FetchBysyklerData()
+        public async Task<BysykkelResponse> FetchBysyklerData()
         {
             JObject dataJson = null;
             try
@@ -24,22 +47,24 @@ namespace Academy_FinalProject.ImportAPI
                         using (HttpContent content = res.Content)
                         {
                             string data = await content.ReadAsStringAsync();
-                            if (data != null)
-                            {
-                                dataJson = JObject.Parse(data);
-                            }
-                            else
-                            {
-                                Console.WriteLine("No data found");
-                                return null;
-                            }
+                            var bysykkelResponse = JsonConvert.DeserializeObject<BysykkelResponse>(data);
+                            return bysykkelResponse;
+                            //if (data != null)
+                            //{
+                            //    dataJson = JObject.Parse(data);
+                            //}
+                            //else
+                            //{
+                            //    Console.WriteLine("No data found");
+                            //    return null;
+                            //}
                         }
                     }
 
                 }
 
-                Console.WriteLine(dataJson);
-                return dataJson;
+                //Console.WriteLine(dataJson);
+                //return dataJson;
             }
             catch (Exception exception)
             {

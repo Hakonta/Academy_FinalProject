@@ -24,7 +24,17 @@ namespace Academy_FinalProject {
             string tierUrl = $"https://platform.tier-services.io/vehicle?zoneId=OSLO";
 
             FetchBysykler fetchBysykler = new FetchBysykler();
-            var test = fetchBysykler.FetchBysyklerData();
+            var test = fetchBysykler.FetchBysyklerData().Result;
+
+            FormattingData formattingData = new FormattingData();
+            //var bikes = formattingData.ExtractBysyklerInfoToList(test);
+
+            //foreach (var bike in bikes)
+            //{
+            //    Console.WriteLine($"{bike.StationName} bike\n" +
+            //        $"With possition: {bike.Latitude} - {bike.Longitude}\n" +
+            //        $"Station Capacity: {bike.StationCapacity} %\n");
+            //}
 
             //Fetching data from Tier API
             //FetchTierData fetchTier = new FetchTierData();
