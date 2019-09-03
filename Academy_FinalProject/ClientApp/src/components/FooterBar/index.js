@@ -19,7 +19,7 @@ export class FooterBar extends React.Component{
   return (
       <div className="fixed-bottom">
       <Navbar bg="dark" expand="lg" fixed='bottom'>
-
+        {/* TODO: her burde vi få sentrert de to knappene(QR scan og nearby) */}
           <ButtonToolbar style={styles2}>
             <Button variant="outline-secondary" size="lg">QR Scan</Button>
             <Button variant="outline-secondary" size="lg">Nearby</Button>
