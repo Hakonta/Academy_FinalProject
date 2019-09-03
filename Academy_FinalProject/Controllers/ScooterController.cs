@@ -18,7 +18,6 @@ namespace Academy_FinalProject.Controllers
     [ApiController]
     public class ScooterController : ControllerBase
     {
-
         //Inputparameters for Fetch method
         string tierKeyType = "X-Api-Key";
         string tierKeyName = "bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2";
@@ -26,20 +25,19 @@ namespace Academy_FinalProject.Controllers
 
         // GET: api/Scooter
         [HttpGet]
-        public List<Scooter> Get()
+        public async Task<List<Scooter>> Get()
         {
-           
             //Fetching data from Tier API
             FetchTierData fetchTier = new FetchTierData();
-            JObject rawData = fetchTier.FetchScooterData(tierUrl, tierKeyType, tierKeyName).Result;
+            JObject rawData = await fetchTier.FetchScooterData(tierUrl, tierKeyType, tierKeyName);
 
             //Formating data and making a list of scooters with prefered propertiesC:\Users\jacob\Documents\GitHub\Hakonta\Academy_FinalProject\Academy_FinalProject\Controllers\ScooterController.cs
             FormattingData formattingData = new FormattingData();
-            List<Scooter> scootersFromTier = formattingData.ExtractScooterInfoToList(rawData);
+            List<Scooter> scootersFromTier =  formattingData.ExtractScooterInfoToList(rawData);
 
             // Fetching data from Voi API
             FetchVoiData fetchVoiData = new FetchVoiData();
-            var voiScooterData = fetchVoiData.FetchVoiScooter().Result;
+            var voiScooterData = await fetchVoiData.FetchVoiScooter();
 
             // Formatting data and making a list of scooters from Voi and Tier
             FormattingData formattingDataVoi = new FormattingData();
