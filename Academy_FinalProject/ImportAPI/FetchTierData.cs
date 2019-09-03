@@ -11,17 +11,19 @@ namespace Academy_FinalProject.ImportAPI {
     public class FetchTierData : FetchData {
 
         public async Task<TierResponse> FetchTierDataMethod() {
-            var url = "https://api.goflash.com/api/Mobile/Scooters?userLatitude=59.8937806&userLongitude=10.6450349&lang=de&latitude=59.8937806&longitude=10.6450349&latitudeDelta=2.50&longitudeDelta=2.50";
 
+            var url = $"https://platform.tier-services.io/vehicle?zoneId=OSLO";
+            var keyType = "X-Api-Key";
+            var KeyName = "bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2";
 
-            var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync(url);
-            var content = await response.Content.ReadAsStringAsync();
-            var tierResponse = JsonConvert.DeserializeObject<TierResponse>(content);
+            using (var httpClient = new HttpClient()) {
+                httpClient.DefaultRequestHeaders.Add(keyType, KeyName);
+                var response = await httpClient.GetAsync(url);
+                var content = await response.Content.ReadAsStringAsync();
+                var tierResponse = JsonConvert.DeserializeObject<TierResponse>(content);
 
-            return tierResponse;
+                return tierResponse;
+            }
         }
-
-
     }
 }
