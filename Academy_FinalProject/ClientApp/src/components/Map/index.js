@@ -17,7 +17,7 @@ export class CurrentLocation extends React.Component {
     this.state = {
       currentLocation: {
         lat: lat,
-        lng: lng
+        lng: lng,
       }
     };
   }
