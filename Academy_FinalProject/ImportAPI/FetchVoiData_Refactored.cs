@@ -11,7 +11,7 @@ namespace Academy_FinalProject.ImportAPI
 {
     public class FetchVoidData_Refactored
     {
-        public async Task<VoiResponse> FetchScooterDataFromVoi()
+        public async Task<JArray> FetchScooterDataFromVoi()
         {
             try
             {
@@ -23,7 +23,8 @@ namespace Academy_FinalProject.ImportAPI
                         using (HttpContent content = res.Content)
                         {
                             string data = await content.ReadAsStringAsync();
-                            var voiResponse = JsonConvert.DeserializeObject<VoiResponse>(data);
+                            //var voiResponse = JsonConvert.DeserializeObject<VoiResponse>(data);
+                            var voiResponse = JArray.Parse(data);
 
                             return voiResponse;
                         }

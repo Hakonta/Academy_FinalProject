@@ -40,7 +40,16 @@ namespace Academy_FinalProject {
 
             FetchVoidData_Refactored fetchVoidDataRefactored = new FetchVoidData_Refactored();
             var voiSCooters = fetchVoidDataRefactored.FetchScooterDataFromVoi().Result;
-            Console.WriteLine(fetchVoidDataRefactored.FetchScooterDataFromVoi());
+
+            List<Scooter> someList = new List<Scooter>();
+
+            FormattingData formattingData = new FormattingData();
+            var voiList = formattingData.ExtractScooterInfoToList(voiSCooters, someList);
+
+            foreach (var scooter in voiList)
+            {
+                Console.WriteLine(scooter.BatteryCapacity);
+            }
 
             //Fetching data from Tier API
             //FetchTierData fetchTier = new FetchTierData();
