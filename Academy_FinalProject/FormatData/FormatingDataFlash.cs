@@ -24,7 +24,7 @@ namespace Academy_FinalProject.FormatData {
 
                     });
             }
-            Console.WriteLine(listOfScooters.Count());
+            
             return listOfScooters;
         }
     }

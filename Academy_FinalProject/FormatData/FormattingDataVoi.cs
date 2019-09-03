@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Academy_FinalProject.ImportAPI.VehicleResponse;
 using Academy_FinalProject.Models;
-using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace Academy_FinalProject.FormatData
 {
     public class FormattingDataVoi
     {
-        public List<Scooter> ExtractScooterInfoToList(JArray rawScooterJsonData)
+        public List<Scooter> ExtractVoiScooterInfoToList(ICollection<VoiResponse> rawScooterJsonData)
         {
-            //Method takes a JObject (FetchScooterData() ) and return a C# list of scooters.
             List<Scooter> allScooters = new List<Scooter>();
 
             foreach (var scooter in rawScooterJsonData)
@@ -20,10 +20,24 @@ namespace Academy_FinalProject.FormatData
                 allScooters.Add(new Scooter
                 {
                     ProviderName = "Voi",
-                    BatteryCapacity = (int)scooter["battery"],
+                    Latitude = scooter.Location[0],
+                    Longitude = scooter.Location[1],
+                    BatteryCapacity = scooter.Battery,
                 });
             }
+
             return allScooters;
         }
+    }
+
+    //Creating filestructure for making C# object
+
+    public class VoiResponse
+    {
+        [JsonProperty("Id")]
+        public Guid ScooterId { get; set; }
+        public double[] Location { get; set; }
+        public int Battery { get; set; }
+        public string Status { get; set; }
     }
 }

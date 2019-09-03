@@ -18,7 +18,6 @@ namespace Academy_FinalProject {
 
 
         public static void Main(string[] args) {
-            
 
             CreateWebHostBuilder(args).Build().Run();
         }

@@ -23,11 +23,12 @@ namespace Academy_FinalProject.FormatData {
         }
     }
 
+
+    //Creating filestructure for making C# object
     public class TierResponse {
         [JsonProperty("data")]
         public Data[] Data { get; set; }
     }
-
     public class Data {
         [JsonProperty("lat")]
         public double Latitude { get; set; }
