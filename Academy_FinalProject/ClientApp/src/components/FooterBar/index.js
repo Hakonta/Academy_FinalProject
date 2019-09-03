@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 const styles={
   color:'grey',
   textAlign: 'center',
-  height: '40px'
+  height: '100px'
   // display: flex,
   // flexFlow: row-wrap,
   // justifyContent: flex-end
