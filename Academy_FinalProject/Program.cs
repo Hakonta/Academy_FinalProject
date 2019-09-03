@@ -23,26 +23,27 @@ namespace Academy_FinalProject {
             string tierKeyName = "bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2";
             string tierUrl = $"https://platform.tier-services.io/vehicle?zoneId=OSLO";
 
-
+            FetchBysykler fetchBysykler = new FetchBysykler();
+            var test = fetchBysykler.FetchBysyklerData();
 
             //Fetching data from Tier API
-            FetchTierData fetchTier = new FetchTierData();
-            JObject rawData = fetchTier.FetchScooterData(tierUrl, tierKeyType, tierKeyName).Result;
+            //FetchTierData fetchTier = new FetchTierData();
+            //JObject rawData = fetchTier.FetchScooterData(tierUrl, tierKeyType, tierKeyName).Result;
 
             //Formating data and makin a list of scooters with prefered properties
-            FormattingData formattingData = new FormattingData();
-            List<Scooter> scooters = formattingData.ExtractScooterInfoToList(rawData);
+            //FormattingData formattingData = new FormattingData();
+            //List<Scooter> scooters = formattingData.ExtractScooterInfoToList(rawData);
 
-            //Printing the list of scooters to console
-            foreach (var scooter in scooters) {
+            ////Printing the list of scooters to console
+            //foreach (var scooter in scooters) {
 
-                string scooterAvailable = scooter.IsAvailable ? "Is available for renting" : "is taken";
+            //    string scooterAvailable = scooter.IsAvailable ? "Is available for renting" : "is taken";
 
-                Console.WriteLine($"{scooter.ProviderName} scooter\n" +
-                    $"With possition: {scooter.Latitude} - {scooter.Longitude}\n" +
-                    $"Batterylevel: {scooter.BatteryCapacity} %\n" +
-                    $"{scooterAvailable}\n");
-            }
+            //    Console.WriteLine($"{scooter.ProviderName} scooter\n" +
+            //        $"With possition: {scooter.Latitude} - {scooter.Longitude}\n" +
+            //        $"Batterylevel: {scooter.BatteryCapacity} %\n" +
+            //        $"{scooterAvailable}\n");
+            //}
             // Fetching scooterdata from VOI
             //FetchVoiData fetchVoiData = new FetchVoiData();
             //var voiScooterData = fetchVoiData.FetchVoiScooter().Result;
