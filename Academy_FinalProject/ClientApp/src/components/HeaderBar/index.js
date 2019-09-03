@@ -1,7 +1,6 @@
 import React from "react"
 import "./sideNav.css"
 import {Navbar, Button} from 'react-bootstrap';
-import Sidebar from "react-sidebar";
 import logo from '../../Assets/SQT.png'
 export class HeaderBar extends React.Component {
   state = {
@@ -54,14 +53,14 @@ export class HeaderBar extends React.Component {
           style={navCoverStyle}
         />
         <div name="side-nav" class="side-nav" style={sideNavStyle}>
-          <a href="#" onClick={this.closeNavClick} class="close-nav">
+          <a href="/" onClick={this.closeNavClick} class="close-nav">
             &times;
           </a>
-          <a>{<img src={logo} height='40px' width='40px'/>}</a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Clients</a>
-          <a href="#">Contact</a>
+          <a>{<img src={logo} height='60x' width='60px'/>}</a>
+          <h5>Hei Cez!</h5>
+          <a href="/brukerinfo">Om meg</a>
+          <a href="/noe">Om noe</a>
+          <a href="/noe annet">Noe annet</a>
         </div>
         <Button variant="dark" onClick={this.openNavClick}>
           <i class="material-icons">

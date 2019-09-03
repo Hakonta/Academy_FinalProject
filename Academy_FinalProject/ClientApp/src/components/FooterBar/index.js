@@ -1,17 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-import { Navbar, Card } from 'react-bootstrap';
+import { Navbar} from 'react-bootstrap';
 
-const styles2={
-  color:'grey',
-  textAlign: 'center',
-  fontSize: '10px',
-  display: 'center',
-  height: '70px',
-  display: 'flex',
-  justifyContent: 'center'
-}
 
 export class FooterBar extends React.Component{
   render(){
