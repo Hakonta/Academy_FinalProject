@@ -37,8 +37,7 @@ namespace Academy_FinalProject.FormatData {
         public Scooters[] Scooters { get; set; }
     }
     public class Scooters {
-        [JsonProperty("idScooter")]
-        public int Id { get; set; }
+        
         [JsonProperty("PowerPercentInt")]
         public int PowerPercent { get; set; }
         public bool IsBookable { get; set; }
