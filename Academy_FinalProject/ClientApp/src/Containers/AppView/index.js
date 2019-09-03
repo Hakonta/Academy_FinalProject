@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from '../../Components/Map/';
+import { HeaderBar } from '../../Components/HeaderBar';
 import Footer from '../../Components/FooterBar/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -29,6 +30,7 @@ export class MapContainer extends Component {
       .catch((error) => { console.log(error); });
   }
 
+  
   onMarkerClick = (props, marker, e) =>
     this.setState({
       selectedPlace: props,
@@ -47,10 +49,10 @@ export class MapContainer extends Component {
 
   render() {
     return (
+      <HeaderBar/>
       <CurrentLocation
         centerAroundCurrentLocation
         google={this.props.google} >
-
         {this.state.scooters.map((scooter, index) => {
           return (
             <Marker
@@ -62,7 +64,6 @@ export class MapContainer extends Component {
             />
           )}
         )}
-
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
@@ -71,13 +72,9 @@ export class MapContainer extends Component {
           <div  style={{color:'blue'}} >
             <h4>Scooter provider: {this.state.selectedPlace.name}</h4>
             <h5>Battery: {this.state.selectedPlace.battery}%</h5>
-          </div>
         </InfoWindow>
-        <Footer/>
       </CurrentLocation>
-  
-
-
+       <FooterBar/>
     );
   }
 }
