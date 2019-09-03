@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Academy_FinalProject.FormatData;
 using Academy_FinalProject.ImportAPI;
-using Academy_FinalProject.ImportAPI.BysykkelResponse;
 using Academy_FinalProject.Models;
 using Newtonsoft.Json.Linq;
 

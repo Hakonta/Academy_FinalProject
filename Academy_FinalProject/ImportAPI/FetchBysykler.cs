@@ -5,9 +5,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Academy_FinalProject.FormatData;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Academy_FinalProject.ImportAPI.BysykkelResponse;
+
 
 namespace Academy_FinalProject.ImportAPI
 {
@@ -15,7 +16,7 @@ namespace Academy_FinalProject.ImportAPI
 
     public class FetchBysykler
     {
-        public async Task<BysykkelResponse.BysykkelResponse> FetchBysyklerData()
+        public async Task<BysykkelResponse> FetchBysyklerData()
         {
             JObject dataJson = null;
             try
@@ -28,7 +29,7 @@ namespace Academy_FinalProject.ImportAPI
                         using (HttpContent content = res.Content)
                         {
                             string data = await content.ReadAsStringAsync();
-                            var bysykkelResponse = JsonConvert.DeserializeObject<BysykkelResponse.BysykkelResponse>(data);
+                            var bysykkelResponse = JsonConvert.DeserializeObject<BysykkelResponse>(data);
                             return bysykkelResponse;
                             //if (data != null)
                             //{
