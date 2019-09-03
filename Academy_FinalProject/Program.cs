@@ -25,19 +25,28 @@ namespace Academy_FinalProject {
             FormatingDataFlash formatingDataFlash = new FormatingDataFlash();
             FetchFlashData fetchFlashData = new FetchFlashData();
 
-            foreach (var scooter in formatingDataFlash.CreateFlashScooters(fetchFlashData.FetchFlashDataMethod().Result)) {
-                Console.WriteLine(scooter.ProviderName + scooter.BatteryCapacity + scooter.Latitude + scooter.Longitude + scooter.IsAvailable );
+            FetchBysykler fetchBysykler = new FetchBysykler();
+            var bysyklerStations = fetchBysykler.FetchBysyklerData().Result;
+
+            FormattingData formattingData = new FormattingData();
+            var listOfBysyklerStations = formattingData.ExtractBysyklerInfoToList(bysyklerStations);
+
+            foreach (var bike in listOfBysyklerStations)
+            {
+                Console.WriteLine($"{bike.StationName} station\n" +
+                    $"With possition: {bike.Latitude} - {bike.Longitude}\n" +
+                    $"Station Capacity: {bike.StationCapacity} bikes\n");
             }
 
-            ////Fetching data from Tier API
+            //Fetching data from Tier API
             //FetchTierData fetchTier = new FetchTierData();
             //JObject rawData = fetchTier.FetchScooterData(tierUrl, tierKeyType, tierKeyName).Result;
 
-            ////Formating data and makin a list of scooters with prefered properties
+            //Formating data and makin a list of scooters with prefered properties
             //FormattingData formattingData = new FormattingData();
-            
+            //List<Scooter> scooters = formattingData.ExtractScooterInfoToList(rawData);
 
-            //Printing the list of scooters to console
+            ////Printing the list of scooters to console
             //foreach (var scooter in scooters) {
 
             //    string scooterAvailable = scooter.IsAvailable ? "Is available for renting" : "is taken";
@@ -47,7 +56,7 @@ namespace Academy_FinalProject {
             //        $"Batterylevel: {scooter.BatteryCapacity} %\n" +
             //        $"{scooterAvailable}\n");
             //}
-            //// Fetching scooterdata from VOI
+            // Fetching scooterdata from VOI
             //FetchVoiData fetchVoiData = new FetchVoiData();
             //var voiScooterData = fetchVoiData.FetchVoiScooter().Result;
 
