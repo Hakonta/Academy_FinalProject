@@ -13,7 +13,7 @@ namespace Academy_FinalProject.ImportAPI
     {
         public async Task<JArray> FetchVoiScooter()
         {
-            var url = "https://api.voiapp.io/v1/vehicle/status/ready?lat=59.329323&lng=18.068581";
+            var url = "https://api.voiapp.io/v1/vehicle/status/ready?lat=59.911491&lng=10.757933";
             // TODO: latitude and longitude should be insertable parameters
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";

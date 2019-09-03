@@ -1,16 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from './node_modules/react';
+import ReactDOM from './node_modules/react-dom';
 
 const mapStyles = {
   map: {
     position: 'absolute',
-    top: '50px',
-    bottom: '75px',
     width: '100%',
+    height: '100%'
   }
 };
 
-export class CurrentLocation extends React.Component {
+export class Markers extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,9 +17,34 @@ export class CurrentLocation extends React.Component {
     this.state = {
       currentLocation: {
         lat: lat,
-        lng: lng,
+        lng: lng
       }
     };
+  }
+  componentDidMount() {
+    if (this.props.centerAroundCurrentLocation) {
+      if (navigator && navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(pos => {
+          const coords = pos.coords;
+          this.setState({
+            currentLocation: {
+              lat: coords.latitude,
+              lng: coords.longitude
+            }
+          });
+        });
+      }
+    }
+    this.loadMap();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.google !== this.props.google) {
+      this.loadMap();
+    }
+    if (prevState.currentLocation !== this.state.currentLocation) {
+      this.recenterMap();
+    }
   }
 
   loadMap() {
@@ -49,34 +73,6 @@ export class CurrentLocation extends React.Component {
     }
   }
 
-  componentDidMount() {
-    if (this.props.centerAroundCurrentLocation) {
-      if (navigator && navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(pos => {
-          const coords = pos.coords;
-          this.setState({
-            currentLocation: {
-              lat: coords.latitude,
-              lng: coords.longitude
-            }
-          });
-        });
-      }
-    }
-    this.loadMap();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.google !== this.props.google) {
-      this.loadMap();
-    }
-    if (prevState.currentLocation !== this.state.currentLocation) {
-      this.recenterMap();
-    }
-  }
-
-
-
   recenterMap() {
     const map = this.map;
     const current = this.state.currentLocation;
@@ -90,10 +86,6 @@ export class CurrentLocation extends React.Component {
     }
   }
 
-
-  // We need to ensure that our previous Marker picks our currenct location ie the browsers current 
-  // location and so we need to introduce Parent-Child concept through the renderChildren() method 
-  //which will be responsible for actually calling the method on the child component.
   renderChildren() {
     const { children } = this.props;
 
@@ -127,8 +119,8 @@ export default CurrentLocation;
 CurrentLocation.defaultProps = {
   zoom: 14,
   initialCenter: {
-    lat: 59.946548,
-    lng: 10.766970
+    lat: -1.2884,
+    lng: 36.8233
   },
   centerAroundCurrentLocation: false,
   visible: true
