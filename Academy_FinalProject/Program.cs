@@ -18,32 +18,36 @@ namespace Academy_FinalProject {
 
 
         public static void Main(string[] args) {
-            //Inputparameters for Fetch method
-            string tierKeyType = "X-Api-Key";
-            string tierKeyName = "bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2";
-            string tierUrl = $"https://platform.tier-services.io/vehicle?zoneId=OSLO";
+            ////Inputparameters for Fetch method
+            //string tierKeyType = "X-Api-Key";
+            //string tierKeyName = "bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2";
+            //string tierUrl = $"https://platform.tier-services.io/vehicle?zoneId=OSLO";
+            FormatingDataFlash formatingDataFlash = new FormatingDataFlash();
+            FetchFlashData fetchFlashData = new FetchFlashData();
 
+            foreach (var scooter in formatingDataFlash.CreateFlashScooters(fetchFlashData.FetchFlashDataMethod().Result)) {
+                Console.WriteLine(scooter.ProviderName + scooter.BatteryCapacity + scooter.Latitude + scooter.Longitude + scooter.IsAvailable );
+            }
 
+            ////Fetching data from Tier API
+            //FetchTierData fetchTier = new FetchTierData();
+            //JObject rawData = fetchTier.FetchScooterData(tierUrl, tierKeyType, tierKeyName).Result;
 
-            //Fetching data from Tier API
-            FetchTierData fetchTier = new FetchTierData();
-            JObject rawData = fetchTier.FetchScooterData(tierUrl, tierKeyType, tierKeyName).Result;
-
-            //Formating data and makin a list of scooters with prefered properties
-            FormattingData formattingData = new FormattingData();
-            List<Scooter> scooters = formattingData.ExtractScooterInfoToList(rawData);
+            ////Formating data and makin a list of scooters with prefered properties
+            //FormattingData formattingData = new FormattingData();
+            
 
             //Printing the list of scooters to console
-            foreach (var scooter in scooters) {
+            //foreach (var scooter in scooters) {
 
-                string scooterAvailable = scooter.IsAvailable ? "Is available for renting" : "is taken";
+            //    string scooterAvailable = scooter.IsAvailable ? "Is available for renting" : "is taken";
 
-                Console.WriteLine($"{scooter.ProviderName} scooter\n" +
-                    $"With possition: {scooter.Latitude} - {scooter.Longitude}\n" +
-                    $"Batterylevel: {scooter.BatteryCapacity} %\n" +
-                    $"{scooterAvailable}\n");
-            }
-            // Fetching scooterdata from VOI
+            //    Console.WriteLine($"{scooter.ProviderName} scooter\n" +
+            //        $"With possition: {scooter.Latitude} - {scooter.Longitude}\n" +
+            //        $"Batterylevel: {scooter.BatteryCapacity} %\n" +
+            //        $"{scooterAvailable}\n");
+            //}
+            //// Fetching scooterdata from VOI
             //FetchVoiData fetchVoiData = new FetchVoiData();
             //var voiScooterData = fetchVoiData.FetchVoiScooter().Result;
 

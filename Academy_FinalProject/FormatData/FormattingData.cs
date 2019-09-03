@@ -48,5 +48,6 @@ namespace Academy_FinalProject.FormatData {
             }
             return allScooters;
         }
+       
     }
 }
