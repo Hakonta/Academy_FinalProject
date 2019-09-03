@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from '../../Components/Map/';
+import { HeaderBar } from '../../Components/HeaderBar';
+
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -51,24 +53,18 @@ export class MapContainer extends Component {
 
   render() {
     return (
-
+      <div>
+      <HeaderBar/>
       <CurrentLocation
         centerAroundCurrentLocation
         google={this.props.google} >
-
         {this.state.scooters.map((scooter, index) => {
-
-
           return (
-
-            
-
-              
             <Marker
               key={index}
               onClick={this.onMarkerClick}
               name={scooter.providerName}
-              battery={scooter. batteryCapacity}
+              battery={scooter.batteryCapacity}
               position={{ lat: scooter.latitude, lng: scooter.longitude }}
             />
 
@@ -87,9 +83,9 @@ export class MapContainer extends Component {
             </h4>
           </div>
         </InfoWindow>
-
-
       </CurrentLocation>
+      </div>
+
     );
   }
 }

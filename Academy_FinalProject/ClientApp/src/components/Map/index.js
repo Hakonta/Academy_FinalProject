@@ -4,8 +4,9 @@ import ReactDOM from 'react-dom';
 const mapStyles = {
   map: {
     position: 'absolute',
+    top: '50px',
+    bottom: '75px',
     width: '100%',
-    height: '100%'
   }
 };
 export class CurrentLocation extends React.Component {
