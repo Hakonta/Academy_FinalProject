@@ -22,21 +22,25 @@ namespace Academy_FinalProject {
             //string tierKeyType = "X-Api-Key";
             //string tierKeyName = "bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2";
             //string tierUrl = $"https://platform.tier-services.io/vehicle?zoneId=OSLO";
-            FormatingDataFlash formatingDataFlash = new FormatingDataFlash();
-            FetchFlashData fetchFlashData = new FetchFlashData();
+            //FormatingDataFlash formatingDataFlash = new FormatingDataFlash();
+            //FetchFlashData fetchFlashData = new FetchFlashData();
 
-            FetchBysykler fetchBysykler = new FetchBysykler();
-            var bysyklerStations = fetchBysykler.FetchBysyklerData().Result;
+            //FetchBysykler fetchBysykler = new FetchBysykler();
+            //var bysyklerStations = fetchBysykler.FetchBysyklerData().Result;
 
-            FormattingData formattingData = new FormattingData();
-            var listOfBysyklerStations = formattingData.ExtractBysyklerInfoToList(bysyklerStations);
+            //FormattingData formattingData = new FormattingData();
+            //var listOfBysyklerStations = formattingData.ExtractBysyklerInfoToList(bysyklerStations);
 
-            foreach (var bike in listOfBysyklerStations)
-            {
-                Console.WriteLine($"{bike.StationName} station\n" +
-                    $"With possition: {bike.Latitude} - {bike.Longitude}\n" +
-                    $"Station Capacity: {bike.StationCapacity} bikes\n");
-            }
+            //foreach (var bike in listOfBysyklerStations)
+            //{
+            //    Console.WriteLine($"{bike.StationName} station\n" +
+            //        $"With possition: {bike.Latitude} - {bike.Longitude}\n" +
+            //        $"Station Capacity: {bike.StationCapacity} bikes\n");
+            //}
+
+            FetchVoidData_Refactored fetchVoidDataRefactored = new FetchVoidData_Refactored();
+            var voiSCooters = fetchVoidDataRefactored.FetchScooterDataFromVoi().Result;
+            Console.WriteLine(fetchVoidDataRefactored.FetchScooterDataFromVoi());
 
             //Fetching data from Tier API
             //FetchTierData fetchTier = new FetchTierData();
