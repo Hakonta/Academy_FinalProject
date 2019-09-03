@@ -4,6 +4,7 @@ import CurrentLocation from '../../Components/Map/';
 import { HeaderBar } from '../../Components/HeaderBar';
 import {FooterBar} from '../../Components/FooterBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import scooterPicture from '../../Assets/scooter.png'
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -69,6 +70,7 @@ export class MapContainer extends Component {
       )}
       <Marker
             onClick={this.onMarkerClick}
+            icon={scooterPicture}
             name='Her er du'
       />
       <InfoWindow
