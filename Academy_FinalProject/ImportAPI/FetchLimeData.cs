@@ -4,6 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Academy_FinalProject.ImportAPI {
-    public class FetchLimeData : FetchData {
+    public class FetchLimeData {
     }
 }

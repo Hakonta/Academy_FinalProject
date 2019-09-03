@@ -12,63 +12,55 @@ using Microsoft.AspNetCore.Identity.UI.V4.Pages.Account.Manage.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 
-namespace Academy_FinalProject.Controllers
-{
+namespace Academy_FinalProject.Controllers {
     [Route("api/[controller]")]
     [ApiController]
-    public class ScooterController : ControllerBase
-    {
-        //Inputparameters for Fetch method
-        string tierKeyType = "X-Api-Key";
-        string tierKeyName = "bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2";
-        string tierUrl = $"https://platform.tier-services.io/vehicle?zoneId=OSLO";
+    public class ScooterController : ControllerBase {
 
         // GET: api/Scooter
         [HttpGet]
-        public async Task<List<Scooter>> Get()
-        {
-            //Fetching data from Tier API
-            FetchTierData fetchTier = new FetchTierData();
-            JObject rawData = await fetchTier.FetchScooterData(tierUrl, tierKeyType, tierKeyName);
+        public async Task<ActionResult<List<Scooter>>> Get() {
+            //----------      fetching data from Api's:       -----------//
+            //FLASH:
+            FetchFlashData flash = new FetchFlashData();
+            FormatingDataFlash formattingFlash = new FormatingDataFlash();
+            var allFlashScooters = formattingFlash.CreateFlashScooters(await flash.FetchFlashDataMethod());
+            //VOI:
+            FetchVoiData voi = new FetchVoiData();
+            FormattingDataVoi formattingVoi = new FormattingDataVoi();
+            var allVoiScooters = formattingVoi.CreateVoiScooters(await voi.FetchVoiDataMethod());
+            //TIER:
+            FetchTierData tier = new FetchTierData();
+            FormattingDataTier formattingTier = new FormattingDataTier();
+            var allTierScooters = formattingTier.CreateTierScooters(await tier.FetchTierDataMethod());
 
-            //Formating data and making a list of scooters with prefered propertiesC:\Users\jacob\Documents\GitHub\Hakonta\Academy_FinalProject\Academy_FinalProject\Controllers\ScooterController.cs
-            FormattingData formattingData = new FormattingData();
-            List<Scooter> scootersFromTier =  formattingData.ExtractScooterInfoToList(rawData);
 
-            // Fetching data from Voi API
-            FetchVoiData fetchVoiData = new FetchVoiData();
-            var voiScooterData = await fetchVoiData.FetchVoiScooter();
+            //Concating all lists to one list
+            var allScooters = allFlashScooters.Concat(allTierScooters).Concat(allVoiScooters).ToList();
 
-            // Formatting data and making a list of scooters from Voi and Tier
-            FormattingData formattingDataVoi = new FormattingData();
-            List<Scooter> scootersFromVoiAndTier = formattingData.ExtractScooterInfoToList(voiScooterData, scootersFromTier);
-
-            return scootersFromVoiAndTier;
+            //Returning list with all scooters
+            return Ok(allScooters);
         }
 
         // GET: api/Scooter/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
+        public string Get(int id) {
             return "value";
         }
 
         // POST: api/Scooter
         [HttpPost]
-        public void Post([FromBody] string value)
-        {
+        public void Post([FromBody] string value) {
         }
 
         // PUT: api/Scooter/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
+        public void Put(int id, [FromBody] string value) {
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+        public void Delete(int id) {
         }
     }
 }

@@ -5,28 +5,31 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Academy_FinalProject.FormatData;
+
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Academy_FinalProject.ImportAPI
 {
     public class FetchVoiData
     {
-        public async Task<JArray> FetchVoiScooter()
-        {
-            var url = "https://api.voiapp.io/v1/vehicle/status/ready?lat=59.911491&lng=10.757933";
-            // TODO: latitude and longitude should be insertable parameters
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.Method = "GET";
-
-
-            var webResponse = await request.GetResponseAsync();
-            var webStream = webResponse.GetResponseStream();
-            var responseReader = new StreamReader(webStream);
-            var response = responseReader.ReadToEnd();
-            // Console.WriteLine("Response: " + response);
-            var dataJson = JArray.Parse(response);
-            responseReader.Close();
-            return dataJson;
+        public async Task<VoiResponse[]> FetchVoiDataMethod() {
+            try {
+                using (HttpClient client = new HttpClient()) {
+                    using (HttpResponseMessage res = await client.GetAsync($"https://api.voiapp.io/v1/vehicle/status/ready?lat=59.911491&lng=10.757933")) {
+                        using (HttpContent content = res.Content) {
+                            string data = await content.ReadAsStringAsync();
+                            var voiResponse = JsonConvert.DeserializeObject<VoiResponse[]>(data);
+                            return voiResponse;
+                        }
+                    }
+                }
+            }
+            catch (Exception exception) {
+                Console.WriteLine(exception);
+                return null;
+            }
         }
     }
 }
