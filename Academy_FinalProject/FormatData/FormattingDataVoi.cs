@@ -10,7 +10,7 @@ namespace Academy_FinalProject.FormatData
 {
     public class FormattingDataVoi
     {
-        public List<Scooter> ExtractVoiScooterInfoToList(ICollection<VoiResponse> rawScooterJsonData)
+        public List<Scooter> CreateVoiScooters(ICollection<VoiResponse> rawScooterJsonData)
         {
             List<Scooter> allScooters = new List<Scooter>();
 

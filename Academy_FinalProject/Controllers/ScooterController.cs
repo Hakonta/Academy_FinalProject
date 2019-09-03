@@ -16,11 +16,11 @@ namespace Academy_FinalProject.Controllers {
     [Route("api/[controller]")]
     [ApiController]
     public class ScooterController : ControllerBase {
-        
+
         // GET: api/Scooter
         [HttpGet]
         public async Task<ActionResult<List<Scooter>>> Get() {
-            //fetching data from Api's:
+            //----------      fetching data from Api's:       -----------//
             //FLASH:
             FetchFlashData flash = new FetchFlashData();
             FormatingDataFlash formattingFlash = new FormatingDataFlash();
@@ -28,7 +28,7 @@ namespace Academy_FinalProject.Controllers {
             //VOI:
             FetchVoiData voi = new FetchVoiData();
             FormattingDataVoi formattingVoi = new FormattingDataVoi();
-            var allVoiScooters = formattingVoi.ExtractVoiScooterInfoToList(await voi.FetchScooterDataFromVoi());
+            var allVoiScooters = formattingVoi.CreateVoiScooters(await voi.FetchVoiDataMethod());
             //TIER:
             FetchTierData tier = new FetchTierData();
             FormattingDataTier formattingTier = new FormattingDataTier();
@@ -37,8 +37,8 @@ namespace Academy_FinalProject.Controllers {
 
             //Concating all lists to one list
             var allScooters = allFlashScooters.Concat(allTierScooters).Concat(allVoiScooters).ToList();
-            
-           
+
+            //Returning list with all scooters
             return Ok(allScooters);
         }
 

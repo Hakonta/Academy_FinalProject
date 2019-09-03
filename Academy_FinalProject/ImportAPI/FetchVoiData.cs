@@ -14,7 +14,7 @@ namespace Academy_FinalProject.ImportAPI
 {
     public class FetchVoiData
     {
-        public async Task<VoiResponse[]> FetchScooterDataFromVoi() {
+        public async Task<VoiResponse[]> FetchVoiDataMethod() {
             try {
                 using (HttpClient client = new HttpClient()) {
                     using (HttpResponseMessage res = await client.GetAsync($"https://api.voiapp.io/v1/vehicle/status/ready?lat=59.911491&lng=10.757933")) {
