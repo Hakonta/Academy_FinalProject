@@ -13,7 +13,7 @@ const styles={
 }
 
 
-export class Footer extends React.Component{
+export class FooterBar extends React.Component{
   render(){
   return (
       <div className="fixed-bottom">
@@ -24,4 +24,3 @@ export class Footer extends React.Component{
 );
 }}
 
-export default Footer;

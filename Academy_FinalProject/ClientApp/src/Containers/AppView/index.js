@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from '../../Components/Map/';
 import { HeaderBar } from '../../Components/HeaderBar';
-import Footer from '../../Components/FooterBar/index';
+import {FooterBar} from '../../Components/FooterBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export class MapContainer extends Component {
@@ -49,32 +49,38 @@ export class MapContainer extends Component {
 
   render() {
     return (
+      <div>
       <HeaderBar/>
       <CurrentLocation
-        centerAroundCurrentLocation
-        google={this.props.google} >
-        {this.state.scooters.map((scooter, index) => {
-          return (
-            <Marker
-              key={index}
-              onClick={this.onMarkerClick}
-              name={scooter.providerName}
-              battery={scooter.batteryCapacity}
-              position={{ lat: scooter.latitude, lng: scooter.longitude }}
-            />
-          )}
+      centerAroundCurrentLocation
+      google={this.props.google} >
+
+      {this.state.scooters.map((scooter, index) => {
+        return (
+          <Marker
+            key={index}
+            onClick={this.onMarkerClick}
+            name={scooter.providerName}
+                battery={scooter.batteryCapacity}
+                position={{ lat: scooter.latitude, lng: scooter.longitude }}
+          />
         )}
-        <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
-          onClose={this.onClose}
-        >
-          <div  style={{color:'blue'}} >
-            <h4>Scooter provider: {this.state.selectedPlace.name}</h4>
-            <h5>Battery: {this.state.selectedPlace.battery}%</h5>
-        </InfoWindow>
-      </CurrentLocation>
-       <FooterBar/>
+      )}
+
+      <InfoWindow
+        marker={this.state.activeMarker}
+        visible={this.state.showingInfoWindow}
+        onClose={this.onClose}
+      >
+        <div  style={{color:'blue'}} >
+          <h4>Scooter provider: {this.state.selectedPlace.name}</h4>
+          <h5>Battery: {this.state.selectedPlace.battery}%</h5>
+        </div>
+      </InfoWindow>
+    </CurrentLocation>
+    <FooterBar/>
+    </div>
+       
     );
   }
 }
