@@ -49,7 +49,6 @@ export class MapContainer extends Component {
 
   render() {
     return (
-      <div>
       <HeaderBar/>
       <CurrentLocation
         centerAroundCurrentLocation
@@ -76,10 +75,6 @@ export class MapContainer extends Component {
         </InfoWindow>
       </CurrentLocation>
        <FooterBar/>
-       </div>
-  
-
-
     );
   }
 }
