@@ -1,46 +1,75 @@
-import React from 'react';
+import React from "react"
+import "./sideNav.css"
 import {Navbar, Button} from 'react-bootstrap';
 import Sidebar from "react-sidebar";
-
+import logo from '../../Assets/SQT.png'
 export class HeaderBar extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      sidebarOpen: false
-    };
-    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
-  }
- 
-  onSetSidebarOpen(open) {
-    this.setState({ sidebarOpen: open });
+  state = {
+    state: {
+      showNav: false
+    }
   }
 
- 
- render() {
+  openNavClick = e => {
+    e.preventDefault()
+    this.openNav()
+  }
+
+  closeNavClick = e => {
+    e.preventDefault()
+    this.closeNav()
+  }
+
+  openNav = () => {
+    this.setState({
+      showNav: true
+    })
+
+    document.addEventListener("keydown", this.handleEscKey)
+  }
+  closeNav = () => {
+    this.setState({
+      showNav: false
+    })
+
+    document.removeEventListener("keydown", this.handleEscKey)
+  }
+
+  handleEscKey = e => {
+    if (e.key === "Escape") {
+      this.closeNav()
+    }
+  }
+
+  render() {
+    const { showNav } = this.state
+    let navCoverStyle = { width: showNav ? "100%" : "0" }
+    let sideNavStyle = { width: showNav ? "100%" : "0" }
     return (
-      <div>
-        <Sidebar
-          sidebar={<div><i class="material-icons">
-          sentiment_satisfied_alt
-        </i>
-        <p>Sidebar</p>
-        <p>Sidebar2</p>
-        <p>Sidebar3</p></div>}
-          open={this.state.sidebarOpen}
-          onSetOpen={this.onSetSidebarOpen}
-          styles={{ sidebar: { background: "#353a40", color: "white", width:"300px", fontSize: '30px', textAlign: 'center'}}}
-        >
-        <Navbar bg="dark" expand="xl">
-        <Button variant="dark" onClick={() => this.onSetSidebarOpen(true)}>
+      <React.Fragment>
+         <Navbar bg="dark" expand="xl" class="open-nav">
+         <div
+          onClick={this.navCoverClick}
+          class="nav-cover"
+          style={navCoverStyle}
+        />
+        <div name="side-nav" class="side-nav" style={sideNavStyle}>
+          <a href="#" onClick={this.closeNavClick} class="close-nav">
+            &times;
+          </a>
+          <a>{<img src={logo} height='40px' width='40px'/>}</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Clients</a>
+          <a href="#">Contact</a>
+        </div>
+        <Button variant="dark" onClick={this.openNavClick}>
           <i class="material-icons">
             person
           </i>
            </Button>
         <Button variant="dark" href="/">
-          <i class="material-icons">
-            sentiment_satisfied_alt
-           </i>
+        {<img src={logo} height='40px' width='40px'/>}
           </Button>
             <Button variant="dark">
           <i class="material-icons">
@@ -48,10 +77,7 @@ export class HeaderBar extends React.Component {
           </i>
           </Button>
           </Navbar>
-          </Sidebar>
-        </div>
-
-      
-    );
+      </React.Fragment>
+    )
   }
 }
