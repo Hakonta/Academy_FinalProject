@@ -55,7 +55,7 @@ export class MapContainer extends Component {
               key={index}
               onClick={this.onMarkerClick}
               name={scooter.providerName}
-              battery={scooter. batteryCapacity}
+              battery={scooter.batteryCapacity}
               position={{ lat: scooter.latitude, lng: scooter.longitude }}
             />
           )}
