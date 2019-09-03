@@ -16,46 +16,30 @@ namespace Academy_FinalProject.Controllers {
     [Route("api/[controller]")]
     [ApiController]
     public class ScooterController : ControllerBase {
-        //Inputparameters for Fetch method
-        string tierKeyType = "X-Api-Key";
-        string tierKeyName = "bpEUTJEBTf74oGRWxaIcW7aeZMzDDODe1yBoSxi2";
-        string tierUrl = $"https://platform.tier-services.io/vehicle?zoneId=OSLO";
-
+        
         // GET: api/Scooter
         [HttpGet]
         public async Task<ActionResult<List<Scooter>>> Get() {
             //fetching data from Api's:
-
+            //FLASH:
             FetchFlashData flash = new FetchFlashData();
             FormatingDataFlash formattingFlash = new FormatingDataFlash();
             var allFlashScooters = formattingFlash.CreateFlashScooters(await flash.FetchFlashDataMethod());
-            
+            //VOI:
             FetchVoiData voi = new FetchVoiData();
+            FormattingDataVoi formattingVoi = new FormattingDataVoi();
+            var allVoiScooters = formattingVoi.ExtractVoiScooterInfoToList(await voi.FetchScooterDataFromVoi());
+            //TIER:
             FetchTierData tier = new FetchTierData();
+            FormattingDataTier formattingTier = new FormattingDataTier();
+            var allTierScooters = formattingTier.CreateTierScooters(await tier.FetchTierDataMethod());
+
+
+            //Concating all lists to one list
+            var allScooters = allFlashScooters.Concat(allTierScooters).Concat(allVoiScooters).ToList();
             
-            //Add all scooters to one list:
-
-            
-
-            //Fetching data from Tier API
-            FetchTierData fetchTier = new FetchTierData();
-            JObject rawData = await fetchTier.FetchScooterData(tierUrl, tierKeyType, tierKeyName);
-
-            //Formating data and making a list of scooters with prefered propertiesC:\Users\jacob\Documents\GitHub\Hakonta\Academy_FinalProject\Academy_FinalProject\Controllers\ScooterController.cs
-            FormattingData formattingData = new FormattingData();
-            List<Scooter> scootersFromTier = formattingData.ExtractScooterInfoToList(rawData);
-
-            
-
-            // Fetching data from Voi API
-            var fetchVoiData = new FetchVoiData();
-            var voiScooters = fetchVoiData.FetchScooterDataFromVoi();
-
-            // Formatting data and making a list of scooters from Voi and Tier
-            FormattingData formattingDataVoi = new FormattingData();
-            //  List<Scooter> scootersFromVoiAndTier = formattingData.ExtractScooterInfoToList(voiScooterData, scootersFromTier);
            
-            return Ok();
+            return Ok(allScooters);
         }
 
         // GET: api/Scooter/5
