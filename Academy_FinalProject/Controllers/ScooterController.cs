@@ -28,11 +28,11 @@ namespace Academy_FinalProject.Controllers {
 
             FetchFlashData flash = new FetchFlashData();
             FormatingDataFlash formattingFlash = new FormatingDataFlash();
-            List<Scooter> allFlashScooters = formattingFlash.CreateFlashScooters(flash.FetchFlashDataMethod());
+            var allFlashScooters = formattingFlash.CreateFlashScooters(await flash.FetchFlashDataMethod());
             
             FetchVoiData voi = new FetchVoiData();
             FetchTierData tier = new FetchTierData();
-
+            
             //Add all scooters to one list:
 
             
