@@ -1,7 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-import {Navbar} from 'react-bootstrap';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
+import { Navbar } from 'react-bootstrap';
 
 const styles2={
   color:'grey',
@@ -11,7 +12,6 @@ const styles2={
   height: '70px',
   display: 'flex',
   justifyContent: 'center'
-  
 }
 
 export class FooterBar extends React.Component{
