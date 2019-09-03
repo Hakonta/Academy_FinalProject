@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Academy_FinalProject.ImportAPI.VehicleResponse;
 using Academy_FinalProject.Models;
+using Newtonsoft.Json;
 
 namespace Academy_FinalProject.FormatData
 {
@@ -27,5 +28,16 @@ namespace Academy_FinalProject.FormatData
 
             return allScooters;
         }
+    }
+
+    //Creating filestructure for making C# object
+
+    public class VoiResponse
+    {
+        [JsonProperty("Id")]
+        public Guid ScooterId { get; set; }
+        public double[] Location { get; set; }
+        public int Battery { get; set; }
+        public string Status { get; set; }
     }
 }
