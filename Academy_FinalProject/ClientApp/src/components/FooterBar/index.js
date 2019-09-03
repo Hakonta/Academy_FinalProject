@@ -1,26 +1,35 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
+import {Nav, Navbar, Button} from 'react-bootstrap';
 
 const styles={
+  backgroundColor: 'black',
   color:'grey',
-  textAlign: 'center',
-  height: '100px'
-  // display: flex,
-  // flexFlow: row-wrap,
-  // justifyContent: flex-end
-  
+  height: '60px'
+ 
 }
 
 
 export class FooterBar extends React.Component{
-  render(){
-  return (
-      <div className="fixed-bottom">
-      <Card>
-        <Card.Header style={styles}>This webpage was created by Academy students from batch #1</Card.Header>
-      </Card>
-    </div>
-);
-}}
+  render() {
+    return (
+        <Navbar bg="dark" expand="xl" fixed="bottom">
+          <br></br>
+          <Button href="bruker" variant="dark">
+          <i class="material-icons">
+            person
+            </i>
+          </Button>
+          <Button href="meny" variant="dark">
+          <i class="material-icons">
+            person
+            </i>
+          </Button>
+          <br></br>
+        </Navbar>
+    );
+  }
+}
+
 

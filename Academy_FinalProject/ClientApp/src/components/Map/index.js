@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 const mapStyles = {
   map: {
     position: 'absolute',
-    top: '50px',
-    bottom: '75px',
+    top: '60px',
+    bottom: '57px',
     width: '100%',
   }
 };
@@ -57,7 +57,7 @@ export class CurrentLocation extends React.Component {
           this.setState({
             currentLocation: {
               lat: coords.latitude,
-              lng: coords.longitude
+              lng: coords.longitude,
             }
           });
         });
@@ -75,8 +75,6 @@ export class CurrentLocation extends React.Component {
     }
   }
 
-
-
   recenterMap() {
     const map = this.map;
     const current = this.state.currentLocation;
@@ -89,11 +87,6 @@ export class CurrentLocation extends React.Component {
       map.panTo(center);
     }
   }
-
-
-  // We need to ensure that our previous Marker picks our currenct location ie the browsers current 
-  // location and so we need to introduce Parent-Child concept through the renderChildren() method 
-  //which will be responsible for actually calling the method on the child component.
   renderChildren() {
     const { children } = this.props;
 
@@ -104,7 +97,7 @@ export class CurrentLocation extends React.Component {
       return React.cloneElement(c, {
         map: this.map,
         google: this.props.google,
-        mapCenter: this.state.currentLocation
+        mapCenter: this.state.currentLocation,
       });
     });
   }
@@ -125,7 +118,7 @@ export class CurrentLocation extends React.Component {
 export default CurrentLocation;
 
 CurrentLocation.defaultProps = {
-  zoom: 14,
+  zoom: 18,
   initialCenter: {
     lat: 59.946548,
     lng: 10.766970

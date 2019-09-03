@@ -65,16 +65,20 @@ export class MapContainer extends Component {
                 position={{ lat: scooter.latitude, lng: scooter.longitude }}
           />
         )}
+        
       )}
-
+      <Marker
+            onClick={this.onMarkerClick}
+            name='Her er du'
+      />
       <InfoWindow
         marker={this.state.activeMarker}
         visible={this.state.showingInfoWindow}
         onClose={this.onClose}
       >
-        <div  style={{color:'blue'}} >
-          <h4>Scooter provider: {this.state.selectedPlace.name}</h4>
-          <h5>Battery: {this.state.selectedPlace.battery}%</h5>
+        <div  style={{color:'black'}} >
+          <h6>Scooter provider: {this.state.selectedPlace.name}</h6>
+          <p>Battery: {this.state.selectedPlace.battery}%</p>
         </div>
       </InfoWindow>
     </CurrentLocation>
