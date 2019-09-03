@@ -7,34 +7,15 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Academy_FinalProject.ImportAPI.BysykkelResponse;
 
 namespace Academy_FinalProject.ImportAPI
 {
-    public class BysykkelResponse
-    {
-        public BysykkelData Data { get; set; }
-    }
 
-    public class BysykkelData
-    {
-        public BysykkelStation[] Stations { get; set; }
-    }
-
-    public class BysykkelStation
-    {
-        [JsonProperty("station_id")]
-        public int Id { get; set; }
-
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public double Lat { get; set; }
-        public double Lon { get; set; }
-        public int Capacity { get; set; }
-    }
 
     public class FetchBysykler
     {
-        public async Task<BysykkelResponse> FetchBysyklerData()
+        public async Task<BysykkelResponse.BysykkelResponse> FetchBysyklerData()
         {
             JObject dataJson = null;
             try
@@ -47,7 +28,7 @@ namespace Academy_FinalProject.ImportAPI
                         using (HttpContent content = res.Content)
                         {
                             string data = await content.ReadAsStringAsync();
-                            var bysykkelResponse = JsonConvert.DeserializeObject<BysykkelResponse>(data);
+                            var bysykkelResponse = JsonConvert.DeserializeObject<BysykkelResponse.BysykkelResponse>(data);
                             return bysykkelResponse;
                             //if (data != null)
                             //{
