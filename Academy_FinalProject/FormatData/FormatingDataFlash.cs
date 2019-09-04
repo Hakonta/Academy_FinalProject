@@ -10,8 +10,7 @@ using System.Threading.Tasks;
 namespace Academy_FinalProject.FormatData {
     public class FormatingDataFlash {
 
-
-       public List<Scooter> CreateFlashScooters(FlashResponse flashResponse) {
+        public List<Scooter> CreateFlashScooters(FlashResponse flashResponse) {
             var listOfScooters = new List<Scooter>();
             foreach (var scooter in flashResponse.Data.Scooters) {
                 listOfScooters.Add(
@@ -21,7 +20,6 @@ namespace Academy_FinalProject.FormatData {
                         Longitude = scooter.location.longitude,
                         BatteryCapacity = scooter.PowerPercent,
                         IsAvailable = scooter.IsBookable
-
                     });
             }
             
