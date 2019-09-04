@@ -15,6 +15,7 @@ export class MapContainer extends Component {
       activeMarker: {},          //Shows the active marker upon click
       selectedPlace: {},          //Shows the infoWindow to the selected place upon a marker
       scooters: [],
+      bikes: []
     }
   }
   componentDidMount() {
@@ -32,10 +33,18 @@ export class MapContainer extends Component {
       .catch((error) => { console.log(error); });
   }
   
-
-  onColor = props => {
-    this.setS
+  fetchBikeData = () => {
+    fetch("https://localhost:44359/api/citybike",
+      {headers: {
+        'Content-Type': 'application/json'}
+      })
+      .then(response => response.json())
+      .then((result) => {this.setState({ bikes: result });
+      })
+      .catch((error) => { console.log(error); });
   }
+
+
   
   onMarkerClick = (props, marker, e) =>
     this.setState({
