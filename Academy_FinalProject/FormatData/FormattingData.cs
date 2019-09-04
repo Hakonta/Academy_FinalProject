@@ -58,7 +58,7 @@ namespace Academy_FinalProject.FormatData {
 
                 allBikes.Add(new Bysykkel
                 {
-                    StationName = bike.StationName,
+                    StationName = bike.Name,
                     Latitude = bike.Lat,
                     Longitude = bike.Lon,
                     StationCapacity = bike.Capacity,
