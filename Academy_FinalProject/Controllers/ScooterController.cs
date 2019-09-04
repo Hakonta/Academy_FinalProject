@@ -20,7 +20,7 @@ namespace Academy_FinalProject.Controllers {
 
         // GET: api/Scooter
         [HttpGet]
-        public async Task<ActionResult<List<Scooter>>> GetScooters() {
+        public async Task<ActionResult<List<Scooter>>> Get() {
             //----------      fetching data from Api's:       -----------//
             //FLASH:
             FetchFlashData flash = new FetchFlashData();
@@ -48,21 +48,7 @@ namespace Academy_FinalProject.Controllers {
             //Returning list with all scooters
             return Ok(allScooters);
         }
-        [HttpGet]
-        public async Task<ActionResult<List<Bysykkel>>> GetBikes()
-        {
-            FetchBysykler bysykler = new FetchBysykler();
-            FormattingDataBysykkel formattingBysykkel = new FormattingDataBysykkel();
-            var fetchBysykkelTask = bysykler.FetchStationInfoData();
-            var fetchBysykkelTask2 = bysykler.FetchBikeData();
-
-            var allBysykkel = formattingBysykkel.CreateBikesInfo(await fetchBysykkelTask, await fetchBysykkelTask2);
-
-            var allBikes = allBysykkel.ToList();
-
-            return Ok(allBikes);
-        }
-        
+      
 
 
         // GET: api/Scooter/5
