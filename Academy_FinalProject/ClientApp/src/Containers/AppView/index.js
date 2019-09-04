@@ -20,6 +20,7 @@ export class MapContainer extends Component {
   }
   componentDidMount() {
     this.fetchScooterData();
+    this.fetchBikeData();
   }
 
   fetchScooterData = () => {
