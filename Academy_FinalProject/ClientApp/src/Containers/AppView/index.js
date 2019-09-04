@@ -4,7 +4,8 @@ import CurrentLocation from '../../Components/Map/';
 import { HeaderBar } from '../../Components/HeaderBar';
 import {FooterBar} from '../../Components/FooterBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import scooterPicture from '../../Assets/guy.png'
+import voiDot from '../../Assets/voi-dot.png'
+import tierDot from '../../Assets/tier-dot.png'
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -70,7 +71,7 @@ export class MapContainer extends Component {
           //   icon={ { 
           //   url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png' // The old method
           // }}
-          icon= {scooter.providerName === 'Voi' ? 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png' : 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'}
+          icon= {scooter.providerName === 'Voi' ? 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' : 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'}
 
             onClick={this.onMarkerClick}
             name={scooter.providerName}
@@ -82,8 +83,8 @@ export class MapContainer extends Component {
       )}
       <Marker
             onClick={this.onMarkerClick}
-            icon={scooterPicture}
-            name='Her er du'
+            icon="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+            name='<p><a href="/">Reserver sparkesykkel</a></p>'
       />
       <InfoWindow
         marker={this.state.activeMarker}
