@@ -34,8 +34,8 @@ namespace Academy_FinalProject.FormatData
             foreach (var bike in bikeInfoResponse.Data.Stations)
             {
                 var station = listOfStations.Find(x => x.StationId == bike.StationId);
-                station.BikesAvailable = bike.BikesAvailable;
-                station.DocksAvailable = bike.DocksAvailable;
+                station.BikesAvailable = bike.Num_Bikes_Available;
+                station.DocksAvailable = bike.Num_Docks_Available;
             }
             return listOfStations;
         }
@@ -61,9 +61,9 @@ namespace Academy_FinalProject.FormatData
         public double Lat { get; set; }
         public double Lon { get; set; }
         public int Capacity { get; set; }
-        public int BikesAvailable { get; set; }
+        public int Num_Bikes_Available { get; set; }
 
-        public int DocksAvailable { get; set; }
+        public int Num_Docks_Available { get; set; }
 
 
 
