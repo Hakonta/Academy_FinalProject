@@ -21,8 +21,8 @@ namespace Academy_FinalProject.FormatData
                     new Bysykkel()
                     {
                         StationId = station.StationId,
-                        StationName = station.StationName,
-                        StationAddress = station.StationAddress,
+                        StationName = station.Name,
+                        StationAddress = station.Address,
                         Latitude = station.Lat,
                         Longitude = station.Lon,
                         StationCapacity = station.Capacity,
@@ -56,8 +56,8 @@ namespace Academy_FinalProject.FormatData
         [JsonProperty("station_id")]
         public int StationId { get; set; }
 
-        public string StationName { get; set; }
-        public string StationAddress { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
         public double Lat { get; set; }
         public double Lon { get; set; }
         public int Capacity { get; set; }
