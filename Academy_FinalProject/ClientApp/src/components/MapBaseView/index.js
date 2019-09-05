@@ -5,6 +5,8 @@ import under10 from '../../Assets/Under10.png'
 import over10 from '../../Assets/Over10.png'
 import over100 from '../../Assets/Over100.png'
 import over1000 from '../../Assets/Over1000.png'
+import mapStyle from './mapStyle'
+
 
 
 export default class MapBaseLayer extends Component {
@@ -83,6 +85,7 @@ export default class MapBaseLayer extends Component {
 
         <GoogleMap
           id='example-map'
+          options={{styles: mapStyle}}
           zoom={18}
           center={
             this.state.currentCenter
