@@ -17,15 +17,21 @@ export default class MapBaseLayer extends Component {
       selectedScooter: null,
       selectedBikeStation: null,
       currentCenter: {
-        lat: 59.92,
+        lat: 60.92,
         lng: 10.723
       }
     }
   }
+  //Ny
+  componentWillUpdate(){
+    this.getGeoLocation()
+  }
 
+//ny get geo
   componentDidMount() {
     this.fetchScooterData();
     this.fetchBikeData();
+    this.getGeoLocation()
   }
 
   fetchScooterData = () => {
@@ -57,7 +63,25 @@ export default class MapBaseLayer extends Component {
       .catch((error) => { console.log(error); });
   }
 
-
+  
+  getGeoLocation = () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                console.log(position.coords);
+                this.setState(prevState => ({
+                    currentCenter: {
+                        ...prevState.currentCenter,
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    }
+                }))
+            }
+        )
+    } else {
+        error => console.log(error)
+    }
+}
 
   render() {
     return (
@@ -68,7 +92,7 @@ export default class MapBaseLayer extends Component {
 
         <GoogleMap
           id='example-map'
-          zoom={12}
+          zoom={18}
           center={
             this.state.currentCenter
           }
