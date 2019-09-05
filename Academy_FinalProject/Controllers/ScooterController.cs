@@ -21,31 +21,38 @@ namespace Academy_FinalProject.Controllers {
         [HttpGet]
         public async Task<ActionResult<List<Scooter>>> Get() {
             //----------      fetching data from Api's:       -----------//
-            //FLASH:
+            // FLASH:
             FetchFlashData flash = new FetchFlashData();
             FormatingDataFlash formattingFlash = new FormatingDataFlash();
             var fetchFlashTask = flash.FetchFlashDataMethod();
             
-            //VOI:
+            // VOI:
             FetchVoiData voi = new FetchVoiData();
             FormattingDataVoi formattingVoi = new FormattingDataVoi();
             var fetchVoiTask = voi.FetchVoiDataMethod();
 
-            //TIER:
+            // TIER:
             FetchTierData tier = new FetchTierData();
             FormattingDataTier formattingTier = new FormattingDataTier();
             var fetchTierTask = tier.FetchTierDataMethod();
 
-            //Running paralell fetch
-            var allFlashScooters = formattingFlash.CreateFlashScooters(await fetchFlashTask);
+			// ZVIPP:
+			FetchZvippData zvipp = new FetchZvippData();
+			FormattingDataZvipp formattingZvipp = new FormattingDataZvipp();
+			var fetchZvippTask = zvipp.FetchZvippDataMethod();
+
+			// Running paralell fetch
+			var allFlashScooters = formattingFlash.CreateFlashScooters(await fetchFlashTask);
             var allVoiScooters = formattingVoi.CreateVoiScooters(await fetchVoiTask);
             var allTierScooters = formattingTier.CreateTierScooters(await fetchTierTask);
+			var allZvippScooters = formattingZvipp.CreateZvippScooters(await fetchZvippTask);
 
-            //Concating all lists to one list
-            var allScooters = allFlashScooters.Concat(allTierScooters).Concat(allVoiScooters).ToList();
+			// Concating all lists to one list
+			var allScooters = allFlashScooters.Concat(allTierScooters).Concat(allVoiScooters).Concat(allZvippScooters).ToList();
+			// 
 
-            //Returning list with all scooters
-            return Ok(allScooters);
+			// Returning list with all scooters
+			return Ok(allScooters);
         }
       
 

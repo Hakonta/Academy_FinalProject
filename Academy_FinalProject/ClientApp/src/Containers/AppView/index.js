@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
-import CurrentLocation from '../../Components/Map/';
 import { HeaderBar } from '../../Components/HeaderBar';
+<<<<<<< HEAD
 import {FooterBar} from '../../Components/FooterBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import voiDot from '../../Assets/voi-dot.png'
@@ -44,29 +43,18 @@ export class MapContainer extends Component {
       })
       .catch((error) => { console.log(error); });
   }
+=======
+import { FooterBar } from '../../Components/FooterBar';
+import MapBase from '../../Components/MapBaseView'
+>>>>>>> 7f95eb21d1cb01941971662d32473073a31e8f1d
 
 
-  
-  onMarkerClick = (props, marker, e) =>
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    });
-
-  onClose = props => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null
-      });
-    }
-  };
-
+export class AppView extends Component {
 
   render() {
     return (
       <div>
+<<<<<<< HEAD
       <HeaderBar/>
       <CurrentLocation
       centerAroundCurrentLocation
@@ -135,10 +123,13 @@ export class MapContainer extends Component {
     <FooterBar/>
     </div>
        
+=======
+        <HeaderBar />
+          <MapBase />
+          {/* SIDEBAR COMPONENT HERE */}
+        <FooterBar />
+      </div>
+>>>>>>> 7f95eb21d1cb01941971662d32473073a31e8f1d
     );
   }
 }
-
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAooUPBzTGsLMvMXUvUsLxSBR0D6gTAQk8'
-})(MapContainer);
