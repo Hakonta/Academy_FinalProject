@@ -45,6 +45,4 @@ namespace Academy_FinalProject.FormatData {
         public double latitude { get; set; }
         public double longitude { get; set; }
     }
-   
-    
 }
