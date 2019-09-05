@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { HeaderBar } from '../../Components/HeaderBar';
-<<<<<<< HEAD
 import {FooterBar} from '../../Components/FooterBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import voiDot from '../../Assets/voi-dot.png'
@@ -43,10 +42,6 @@ export class MapContainer extends Component {
       })
       .catch((error) => { console.log(error); });
   }
-=======
-import { FooterBar } from '../../Components/FooterBar';
-import MapBase from '../../Components/MapBaseView'
->>>>>>> 7f95eb21d1cb01941971662d32473073a31e8f1d
 
 
 export class AppView extends Component {
