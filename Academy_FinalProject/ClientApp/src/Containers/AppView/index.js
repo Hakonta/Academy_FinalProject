@@ -38,7 +38,7 @@ export class MapContainer extends Component {
     fetch("https://localhost:44359/api/citybike",
       {headers: {
         'Content-Type': 'application/json'}
-      })
+      }) 
       .then(response => response.json())
       .then((result) => {this.setState({ bikes: result });
       })
@@ -90,7 +90,32 @@ export class MapContainer extends Component {
           />
         )}
         
+
+        
       )}
+    {this.state.bikes.map((bike, index) => {
+        return (
+          <Marker
+            key={index}
+            // label= {scooter.providerName === 'Voi' ? 'V' : 'T'} // Inserts a letter into the label
+          //   icon={ { 
+          //   url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png' // The old method
+          // }}
+          icon= 'http://maps.google.com/mapfiles/kml/paddle/B.png'
+
+            onClick={this.onMarkerClick}
+            name={bike.stationName}
+            capacity={bike.stationCapacity}
+            available={bike.bikesAvailable}
+            docks={bike.docksAvailable}
+            position={{ lat: bike.latitude, lon: bike.longitude }}
+          />
+        )}
+        
+
+        
+      )}
+
       <Marker
             onClick={this.onMarkerClick}
             icon="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
