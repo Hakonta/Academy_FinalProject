@@ -4,7 +4,7 @@ import { FooterBar } from '../../Components/FooterBar';
 import MapBase from '../../Components/MapBaseView'
 
 
-export class MapContainer extends Component {
+export default class AppView extends Component {
   constructor(props) {
     super(props);
     this.state = {

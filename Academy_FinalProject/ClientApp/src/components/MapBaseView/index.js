@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 import { GoogleMap, LoadScript, Marker, InfoWindow, MarkerClusterer } from '@react-google-maps/api'
+import ScooterMarker from '../ScooterMarker'
+import under10 from '../../Assets/Under10.png'
+import over10 from '../../Assets/Over10.png'
+import over100 from '../../Assets/Over100.png'
+import over1000 from '../../Assets/Over1000.png'
 
-import under10 from '../../Assets/Under10'
-import over10 from '../../../Assets/Over10.png'
-import over100 from '../../../Assets/Over100.png'
-import over1000 from '../../../Assets/Over1000.png'
 
 export default class MapBaseLayer extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      bikes: [],
       scooters: [],
       selectedScooter: null,
       currentCenter: {
@@ -21,18 +23,16 @@ export default class MapBaseLayer extends Component {
 
   componentDidMount() {
     this.fetchScooterData();
+    this.fetchBikeData();
   }
 
   fetchScooterData = () => {
     fetch("https://localhost:44359/api/scooter",
-      {
-        headers: {
-          'Content-Type': 'application/json'
-        }
+      {headers: {
+          'Content-Type': 'application/json' }
       })
       .then(response => response.json())
-      .then((result) => {
-        this.setState({ scooters: result });
+      .then((result) => {this.setState({ scooters: result });
       })
       .catch((error) => { console.log(error); });
   }
@@ -76,23 +76,17 @@ export default class MapBaseLayer extends Component {
             averageCenter
             minimumClusterSize={3}
             maxZoom={20}
-
             styles={clusterIcons}
           >
             {
-              (clusterer) => this.state.scooters.map((scooter, i) => (
-                <Marker
-                  key={i}
-                  position={{ lat: scooter.latitude, lng: scooter.longitude }}
-                  clusterer={clusterer}
-                  onClick={() => {
-                    this.setState({
-                      selectedScooter: scooter,
-                    })
-                  }}
-                />
+              (clusterer) => this.state.scooters.map((scooter, index) => (
+                <div>
+                <Marker key={index} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} onClick={() => { this.setState({selectedScooter: scooter})}}/>
+                </div>
               ))
             }
+
+           
 
           </MarkerClusterer>
 
