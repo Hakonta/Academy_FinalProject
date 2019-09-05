@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { GoogleMap, LoadScript, Marker, InfoWindow, MarkerClusterer } from '@react-google-maps/api'
+import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer } from '@react-google-maps/api'
 import ScooterMarker from '../ScooterMarker'
 import under10 from '../../Assets/Under10.png'
 import over10 from '../../Assets/Over10.png'
@@ -80,13 +80,11 @@ export default class MapBaseLayer extends Component {
           >
             {
               (clusterer) => this.state.scooters.map((scooter, index) => (
-                <div>
-                <Marker key={index} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} onClick={() => { this.setState({selectedScooter: scooter})}}/>
+                <div key={index}>
+                <ScooterMarker  position={{lat: scooter.latitude, lng: scooter.longitude}} clusterer={clusterer} markerClicked={() => {this.setState({selectedScooter: scooter})}}/>
                 </div>
               ))
             }
-
-           
 
           </MarkerClusterer>
 
