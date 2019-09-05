@@ -4,7 +4,8 @@ import CurrentLocation from '../../Components/Map/';
 import { HeaderBar } from '../../Components/HeaderBar';
 import {FooterBar} from '../../Components/FooterBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import scooterPicture from '../../Assets/scooter.png'
+import voiDot from '../../Assets/voi-dot.png'
+import tierDot from '../../Assets/tier-dot.png'
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -13,11 +14,13 @@ export class MapContainer extends Component {
       showingInfoWindow: false,  //Hides or the shows the infoWindow
       activeMarker: {},          //Shows the active marker upon click
       selectedPlace: {},          //Shows the infoWindow to the selected place upon a marker
-      scooters: []
+      scooters: [],
+      bikes: []
     }
   }
   componentDidMount() {
     this.fetchScooterData();
+    this.fetchBikeData();
   }
 
   fetchScooterData = () => {
@@ -30,6 +33,18 @@ export class MapContainer extends Component {
       })
       .catch((error) => { console.log(error); });
   }
+  
+  fetchBikeData = () => {
+    fetch("https://localhost:44359/api/citybike",
+      {headers: {
+        'Content-Type': 'application/json'}
+      })
+      .then(response => response.json())
+      .then((result) => {this.setState({ bikes: result });
+      })
+      .catch((error) => { console.log(error); });
+  }
+
 
   
   onMarkerClick = (props, marker, e) =>
@@ -48,6 +63,7 @@ export class MapContainer extends Component {
     }
   };
 
+
   render() {
     return (
       <div>
@@ -56,10 +72,17 @@ export class MapContainer extends Component {
       centerAroundCurrentLocation
       google={this.props.google} >
 
+
       {this.state.scooters.map((scooter, index) => {
         return (
           <Marker
             key={index}
+            // label= {scooter.providerName === 'Voi' ? 'V' : 'T'} // Inserts a letter into the label
+          //   icon={ { 
+          //   url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png' // The old method
+          // }}
+          icon= {scooter.providerName === 'Voi' ? 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' : 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'}
+
             onClick={this.onMarkerClick}
             name={scooter.providerName}
                 battery={scooter.batteryCapacity}
@@ -70,8 +93,8 @@ export class MapContainer extends Component {
       )}
       <Marker
             onClick={this.onMarkerClick}
-            icon={scooterPicture}
-            name='Her er du'
+            icon="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+            name='<p><a href="/">Reserver sparkesykkel</a></p>'
       />
       <InfoWindow
         marker={this.state.activeMarker}

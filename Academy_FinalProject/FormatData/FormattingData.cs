@@ -47,6 +47,7 @@ namespace Academy_FinalProject.FormatData {
                 });
             }
             return allScooters;
+
         }
         public List<Bysykkel> ExtractBysyklerInfoToList(BysykkelResponse rawBikeJsonData)
         {
