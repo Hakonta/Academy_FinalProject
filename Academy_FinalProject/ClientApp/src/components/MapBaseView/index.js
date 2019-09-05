@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { GoogleMap, LoadScript, Marker, InfoWindow, MarkerClusterer } from '@react-google-maps/api'
 
-import under10 from '../../../img/Under10.png'
-import over10 from '../../../img/Over10.png'
-import over100 from '../../../img/Over100.png'
-import over1000 from '../../../img/Over1000.png'
+import under10 from '../../Assets/Under10'
+import over10 from '../../../Assets/Over10.png'
+import over100 from '../../../Assets/Over100.png'
+import over1000 from '../../../Assets/Over1000.png'
 
 export default class MapBaseLayer extends Component {
   constructor(props) {
