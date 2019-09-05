@@ -114,7 +114,7 @@ export default class MapBaseLayer extends Component {
             {
               (clusterer) => this.state.scooters.map((scooter, index) => (
                 <div key={index}>
-                  <ScooterMarker position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
+                  <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter })  }} />
                 </div>
               ))
             }
