@@ -26,11 +26,11 @@ export default class MapBaseLayer extends Component {
     }
   }
   //Ny
-  componentWillUpdate(){
+  componentWillUpdate() {
     this.getGeoLocation()
   }
 
-//ny get geo
+  //ny get geo
   componentDidMount() {
     this.fetchScooterData();
     this.fetchBikeData();
@@ -66,25 +66,25 @@ export default class MapBaseLayer extends Component {
       .catch((error) => { console.log(error); });
   }
 
-  
+
   getGeoLocation = () => {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            position => {
-                console.log(position.coords);
-                this.setState(prevState => ({
-                    currentCenter: {
-                        ...prevState.currentCenter,
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    }
-                }))
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          console.log(position.coords);
+          this.setState(prevState => ({
+            currentCenter: {
+              ...prevState.currentCenter,
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
             }
-        )
+          }))
+        }
+      )
     } else {
-        error => console.log(error)
+      error => console.log(error)
     }
-}
+  }
 
   render() {
     return (
@@ -118,7 +118,7 @@ export default class MapBaseLayer extends Component {
             {
               (clusterer) => this.state.scooters.map((scooter, index) => (
                 <div key={index}>
-                  <ScooterMarker position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
+                  <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
                 </div>
               ))
             }
