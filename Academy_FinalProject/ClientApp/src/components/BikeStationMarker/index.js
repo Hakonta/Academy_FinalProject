@@ -1,19 +1,15 @@
 import React from 'react'
 import { Marker } from '@react-google-maps/api'
+import BikeIcon from '../../Assets/CityBikeIcon.jpg'
 
-const scooterMarker = (props) => {
+const bikeMarker = (props) => {
 
     return (
-
-
         <Marker
             position={props.position}
-            clusterer={props.clusterer}
             onClick={() => { props.markerClicked() }}
+            icon={{url:BikeIcon}}
         />
-
-
-
     )
 }
-export default scooterMarker
+export default bikeMarker
