@@ -34,12 +34,6 @@ export class HeaderBar extends React.Component {
     document.removeEventListener("keydown", this.handleEscKey)
   }
 
-  handleEscKey = e => {
-    if (e.key === "Escape") {
-      this.closeNav()
-    }
-  }
-
   render() {
     const { showNav } = this.state
     let navCoverStyle = { width: showNav ? "100%" : "0" }
