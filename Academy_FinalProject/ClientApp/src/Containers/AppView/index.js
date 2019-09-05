@@ -32,17 +32,7 @@ export class MapContainer extends Component {
       .catch((error) => { console.log(error); });
   }
   
-  fetchBikeData = () => {
-    fetch("https://localhost:44359/api/citybike",
-      {headers: {
-        'Content-Type': 'application/json'}
-      }) 
-      .then(response => response.json())
-      .then((result) => {this.setState({ bikes: result });
-      })
-      .catch((error) => { console.log(error); });
-  }
-
+  
 
 export class AppView extends Component {
 
