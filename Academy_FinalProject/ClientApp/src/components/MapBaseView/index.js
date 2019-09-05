@@ -37,6 +37,19 @@ export default class MapBaseLayer extends Component {
       .catch((error) => { console.log(error); });
   }
 
+  fetchBikeData = () => {
+    fetch("https://localhost:44359/api/citybike",
+      {headers: {
+        'Content-Type': 'application/json'}
+      }) 
+      .then(response => response.json())
+      .then((result) => {this.setState({ bikes: result });
+      })
+      .catch((error) => { console.log(error); });
+  }
+
+
+
   render() {
     return (
       <LoadScript
