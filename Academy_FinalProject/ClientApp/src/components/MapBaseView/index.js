@@ -9,6 +9,7 @@ import over1000 from '../../Assets/Over1000.png'
 import mapStyle from './mapStyle'
 import InfoCard from '../InfoCard'
 import { ThemeProvider } from 'react-bootstrap';
+import RideCard from '../RideCard';
 
 
 
@@ -17,6 +18,7 @@ export default class MapBaseLayer extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      showDefaultCard: true,
       bikeStations: [],
       scooters: [],
       selectedScooter: null,
@@ -88,6 +90,7 @@ export default class MapBaseLayer extends Component {
     }
   }
 
+
   render() {
     return (
       <LoadScript
@@ -142,8 +145,11 @@ export default class MapBaseLayer extends Component {
 
               <div>
                 {/* CARD COMPONENT HERE */}
-                <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} />
-              </div>
+                {this.state.showDefaultCard ? 
+
+                <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard})}} />
+              : <RideCard/>}
+                </div>
             </InfoWindow>
           )}
 
