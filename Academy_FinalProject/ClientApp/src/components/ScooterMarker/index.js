@@ -4,15 +4,18 @@ import { Marker } from '@react-google-maps/api'
 // import VoiIcon from '../../Assets/voi-dot.png'
 import FlasIcon from '../../Assets/yellow-dot.png'
 
+const decideMarkerIcon = (provider) => {
+    switch (provider) {
+        case 'Tier': return 'http://maps.google.com/mapfiles/kml/paddle/grn-blank_maps.png'
+        case 'Voi': return 'http://maps.google.com/mapfiles/kml/paddle/red-blank_maps.png'
+        case 'Zvipp': return 'http://maps.google.com/mapfiles/kml/paddle/blu-blank_maps.png'
+        case 'Flash': return 'http://maps.google.com/mapfiles/kml/paddle/pink-blank_maps.png'
+    }
+}
+
 const scooterMarker = (props) => {
 
-    // const decideMarkerIcon = (props) => {
-    //     switch (props.provider) {
-    //         case 'Tier': return TierIcon
-    //         case 'Voi': return VoiIcon
-    //         case 'Flash': return FlasIcon
-    //     }
-    // }
+
 
     return (
 
@@ -21,7 +24,7 @@ const scooterMarker = (props) => {
             position={props.position}
             clusterer={props.clusterer}
             onClick={() => { props.markerClicked() }}
-            icon={{ url: FlasIcon }}
+            icon={{ url: decideMarkerIcon(props.provider) }}
         />
 
 
