@@ -39,7 +39,8 @@ export class HeaderBar extends React.Component {
     let navCoverStyle = { width: showNav ? "100%" : "0" }
     let sideNavStyle = { width: showNav ? "100%" : "0" }
     return (
-      <React.Fragment>
+      <div style={{height: '10vh', width: '100vw'}}>
+      
          <Navbar bg="dark" expand="xl" class="open-nav">
          <div
           onClick={this.navCoverClick}
@@ -70,7 +71,8 @@ export class HeaderBar extends React.Component {
           </i>
           </Button>
           </Navbar>
-      </React.Fragment>
+     
+      </div>
     )
   }
 }

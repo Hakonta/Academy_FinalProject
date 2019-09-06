@@ -9,6 +9,7 @@ import over1000 from '../../Assets/Over1000.png'
 import mapStyle from './mapStyle'
 import InfoCard from '../InfoCard'
 import { ThemeProvider } from 'react-bootstrap';
+import SortCard from '../../Components/SortCard';
 
 
 
@@ -90,6 +91,7 @@ export default class MapBaseLayer extends Component {
 
   render() {
     return (
+      <div>
       <LoadScript
         id="script-loader"
         googleMapsApiKey="AIzaSyAp2jh1zbAqgoQH8qpd8Af622VYmIdfeVY"
@@ -103,8 +105,8 @@ export default class MapBaseLayer extends Component {
             this.state.currentCenter
           }
           mapContainerStyle={{
-            height: '600px',
-            width: '100%',
+            height: '80vh',
+            width: '100vw',
             margin: 0,
             padding: 0,
           }}
@@ -178,9 +180,11 @@ export default class MapBaseLayer extends Component {
             </InfoWindow>
           )}
 
-
+             
         </GoogleMap>
       </LoadScript>
+      {/* <SortCard/>  */}
+      </div>
     )
   }
 }
