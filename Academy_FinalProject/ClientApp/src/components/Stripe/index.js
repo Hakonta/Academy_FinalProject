@@ -1,5 +1,6 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class Checkout extends React.Component {
   onToken = (token, addresses) => {
@@ -8,6 +9,8 @@ export default class Checkout extends React.Component {
     // server, wait for the response, and update the UI
     // accordingly. How this is done is up to you. Using
     // XHR, fetch, or a GraphQL mutation is typical.
+
+    fetch, backend implementasjonen mot stripe, backend må ha et api-endepunkt som går mot klienten
   };
 
   render() {
@@ -25,12 +28,11 @@ export default class Checkout extends React.Component {
         label="Pay with 💳"
         panelLabel="Cost of your ride: kr{{amount}}"
       />
+      // -- For å teste et kredittkort:
+      // Card information	Value
+      // Card number	4111 1111 1111 1111
+      // Expiration date	12/21
+      // CVV	111
     )
   }
 }
-
-// -- For å teste et kredittkort:
-// Card information	Value
-// Card number	4111 1111 1111 1111
-// Expiration date	12/21
-// CVV	111
