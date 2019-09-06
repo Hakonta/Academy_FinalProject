@@ -40,14 +40,14 @@ export class HeaderBar extends React.Component {
     let sideNavStyle = { width: showNav ? "100%" : "0" }
     return (
       <React.Fragment>
-         <Navbar bg="dark" expand="xl" class="open-nav">
+         <Navbar bg="dark" expand="xl" className="open-nav">
          <div
           onClick={this.navCoverClick}
-          class="nav-cover"
+          className="nav-cover"
           style={navCoverStyle}
         />
-        <div name="side-nav" class="side-nav" style={sideNavStyle}>
-          <a href="/" onClick={this.closeNavClick} class="close-nav">
+        <div name="side-nav" className="side-nav" style={sideNavStyle}>
+          <a href="/" onClick={this.closeNavClick} className="close-nav">
             &times;
           </a>
           <a>{<img src={logo} alt={''} height='60x' width='60px'/>}</a>
