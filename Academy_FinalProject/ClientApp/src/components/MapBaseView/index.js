@@ -27,10 +27,6 @@ export default class MapBaseLayer extends Component {
       }
     }
   }
-  //Ny
-  componentWillUpdate() {
-    this.getGeoLocation()
-  }
 
   //ny get geo
   componentDidMount() {
