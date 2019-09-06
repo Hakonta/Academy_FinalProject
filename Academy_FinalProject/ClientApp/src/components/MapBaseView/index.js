@@ -8,6 +8,7 @@ import over100 from '../../Assets/Over100.png'
 import over1000 from '../../Assets/Over1000.png'
 import mapStyle from './mapStyle'
 import InfoCard from '../InfoCard'
+import config from '../../config'
 //import { ThemeProvider } from 'react-bootstrap';
 
 
@@ -36,7 +37,8 @@ export default class MapBaseLayer extends Component {
   }
 
   fetchScooterData = () => {
-    fetch("https://localhost:44359/api/scooter",
+    console.log(config.apiUrl)
+    fetch(config.apiUrl+"/scooter",
       {
         headers: {
           'Content-Type': 'application/json'
@@ -50,7 +52,7 @@ export default class MapBaseLayer extends Component {
   }
 
   fetchBikeData = () => {
-    fetch("https://localhost:44359/api/citybike",
+    fetch(config.apiUrl+"/citybike",
       {
         headers: {
           'Content-Type': 'application/json'
