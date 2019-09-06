@@ -7,6 +7,8 @@ import over10 from '../../Assets/Over10.png'
 import over100 from '../../Assets/Over100.png'
 import over1000 from '../../Assets/Over1000.png'
 import mapStyle from './mapStyle'
+import InfoCard from '../InfoCard'
+import { ThemeProvider } from 'react-bootstrap';
 
 
 
@@ -132,10 +134,13 @@ export default class MapBaseLayer extends Component {
               position={{ lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
               onCloseClick={() => {
                 this.setState({ selectedScooter: null })
-              }} >
+              }} 
+              
+              >
 
               <div>
-                CARD COMPONENT HERE
+                {/* CARD COMPONENT HERE */}
+                <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} />
               </div>
             </InfoWindow>
           )}
