@@ -25,8 +25,8 @@ const styles = {
         color: '#ffffff',
         padding: 2,
         position: 'fixed',
-        left: '5%',
-        bottom: '20%',
+        left: '45%',
+        bottom: '11%',
         zIndex: 100,
     },
 }
