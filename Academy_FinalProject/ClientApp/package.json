@@ -14,7 +14,8 @@
     "react-sidebar": "^3.0.2",
     "react-stripe-checkout": "^2.6.3",
     "reactstrap": "^6.3.0",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "stripe": "^7.8.0"
   },
   "devDependencies": {
     "ajv": "^6.0.0",
