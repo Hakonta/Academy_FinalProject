@@ -1,19 +1,26 @@
 import React, { Component } from 'react'
-import { GoogleMap, LoadScript, Marker, InfoWindow, MarkerClusterer } from '@react-google-maps/api'
+import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer } from '@react-google-maps/api'
 import ScooterMarker from '../ScooterMarker'
+import BikeStationMarker from '../BikeStationMarker'
 import under10 from '../../Assets/Under10.png'
 import over10 from '../../Assets/Over10.png'
 import over100 from '../../Assets/Over100.png'
 import over1000 from '../../Assets/Over1000.png'
+import mapStyle from './mapStyle'
+import InfoCard from '../InfoCard'
+import { ThemeProvider } from 'react-bootstrap';
+
+
 
 
 export default class MapBaseLayer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      bikes: [],
+      bikeStations: [],
       scooters: [],
       selectedScooter: null,
+      selectedBikeStation: null,
       currentCenter: {
         lat: 60.92,
         lng: 10.723
@@ -21,11 +28,11 @@ export default class MapBaseLayer extends Component {
     }
   }
   //Ny
-  componentWillUpdate(){
+  componentWillUpdate() {
     this.getGeoLocation()
   }
 
-//ny get geo
+  //ny get geo
   componentDidMount() {
     this.fetchScooterData();
     this.fetchBikeData();
@@ -34,45 +41,52 @@ export default class MapBaseLayer extends Component {
 
   fetchScooterData = () => {
     fetch("https://localhost:44359/api/scooter",
-      {headers: {
-          'Content-Type': 'application/json' }
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
       })
       .then(response => response.json())
-      .then((result) => {this.setState({ scooters: result });
+      .then((result) => {
+        this.setState({ scooters: result });
       })
       .catch((error) => { console.log(error); });
   }
 
   fetchBikeData = () => {
     fetch("https://localhost:44359/api/citybike",
-      {headers: {
-        'Content-Type': 'application/json'}
-      }) 
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
       .then(response => response.json())
-      .then((result) => {this.setState({ bikes: result });
+      .then((result) => {
+
+        this.setState({ bikeStations: result });
       })
       .catch((error) => { console.log(error); });
   }
 
-  
+
   getGeoLocation = () => {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            position => {
-                console.log(position.coords);
-                this.setState(prevState => ({
-                    currentCenter: {
-                        ...prevState.currentCenter,
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    }
-                }))
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          console.log(position.coords);
+          this.setState(prevState => ({
+            currentCenter: {
+              ...prevState.currentCenter,
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
             }
-        )
+          }))
+        }
+      )
     } else {
-        error => console.log(error)
+      error => console.log(error)
     }
-}
+  }
 
   render() {
     return (
@@ -83,6 +97,7 @@ export default class MapBaseLayer extends Component {
 
         <GoogleMap
           id='example-map'
+          options={{styles: mapStyle}}
           zoom={18}
           center={
             this.state.currentCenter
@@ -104,13 +119,11 @@ export default class MapBaseLayer extends Component {
           >
             {
               (clusterer) => this.state.scooters.map((scooter, index) => (
-                <div>
-                <Marker key={index} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} onClick={() => { this.setState({selectedScooter: scooter})}}/>
+                <div key={index}>
+                  <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }}/>
                 </div>
               ))
             }
-
-           
 
           </MarkerClusterer>
 
@@ -121,15 +134,47 @@ export default class MapBaseLayer extends Component {
               position={{ lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
               onCloseClick={() => {
                 this.setState({ selectedScooter: null })
-              }} >
-            
-            <div>
-                CARD COMPONENT HERE
+              }} 
+              
+              >
+
+              <div>
+                {/* CARD COMPONENT HERE */}
+                <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} />
               </div>
             </InfoWindow>
           )}
 
 
+
+
+
+          {
+            this.state.bikeStations.map((bikeStation, index) => {
+              return (
+
+                <div key={index}>
+                  <BikeStationMarker position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
+                </div>
+              )
+
+            })
+          }
+
+          {this.state.selectedBikeStation && (
+            <InfoWindow
+              style={{ backgroundColor: 'red' }}
+              position={{ lat: this.state.selectedBikeStation.latitude, lng: this.state.selectedBikeStation.longitude }}
+              onCloseClick={() => {
+                this.setState({ selectedBikeStation: null })
+              }} >
+
+              <div>
+                CITYBIKE STATION
+                CARD COMPONENT HERE
+              </div>
+            </InfoWindow>
+          )}
 
 
         </GoogleMap>

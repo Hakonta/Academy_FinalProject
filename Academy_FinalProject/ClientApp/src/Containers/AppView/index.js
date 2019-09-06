@@ -19,7 +19,7 @@ export default class AppView extends Component {
       <div>
         <HeaderBar />
         <MapBase/>
-
+      {/* FILTERBUTTON COMPONENT HERE? */}
         <FooterBar />
       </div>
     )
