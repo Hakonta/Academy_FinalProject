@@ -103,9 +103,10 @@ export default class MapBaseLayer extends Component {
             this.state.currentCenter
           }
           mapContainerStyle={{
-            height: 800,
+            height: '600px',
             width: '100%',
-            margin: 'auto'
+            margin: 0,
+            padding: 0,
           }}
         >
 
