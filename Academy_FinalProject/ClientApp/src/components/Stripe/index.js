@@ -19,3 +19,9 @@ export default class Checkout extends React.Component {
     )
   }
 }
+
+// -- For å teste et kredittkort:
+// Card information	Value
+// Card number	4111 1111 1111 1111
+// Expiration date	12/21
+// CVV	111
