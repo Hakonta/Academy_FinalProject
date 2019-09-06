@@ -6,7 +6,7 @@ import { Navbar} from 'react-bootstrap';
 const footerBar = (props) => {
   
   return (
-      <div >
+      <div style={{height: '10vh', width: '100vw'}}>
       <Navbar bg="dark" expand="xl" >
         
         {/* TODO: her burde vi få sentrert de to knappene(QR scan og nearby) */}
