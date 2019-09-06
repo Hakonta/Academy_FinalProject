@@ -4,7 +4,19 @@ import Voi from '../../Assets/Voi.png'
 import Battery from '../../Assets/Battery.png'
 
 const styles = {
+outerContainer: {
+    display:"flex"
+},
+innerContainer: {
+    display:"flex", flexDirection:"column", justifyContent:"center"
+},
+cardDiv:  { 
+    display:"flex", flexDirection:"column",  alignItems:"center"
+},
+button: { 
+    backgroundColor:"darkGreen", color:"white", alignText: "center", fontSize: "26px"
 
+},
 }
 
 const getProviderImage = (provider) => {
@@ -20,8 +32,9 @@ export default function InfoCard(props)
 {
 // TODO: Replace inline styling with an style variable. 
     return (
-        <div style={{ backgroundColor: 'white'}}><h1>{props.providerName}</h1><img src={getProviderImage(props.providerName)} alt={'So empty...'}></img><br></br>
-        <h1><img src={Battery}></img>&nbsp;{props.battery} %<br></br></h1><h2>10 kr + 2 kr/min<br></br><br></br><button style={{backgroundColor: 'darkGreen', color: 'white'}}>Start Ride</button></h2>
-        </div>
+        <div style={styles.outerContainer}><div style={styles.innerContainer}>
+        <div style={styles.cardDiv}><img src={getProviderImage(props.providerName)} alt={props.providerName}></img>
+        <h1><img src={Battery}></img>&nbsp;{props.battery} %</h1><h3>10 kr + 2 kr/min<br></br></h3><button onClick={() => { props.toggleRideCard()}} style={styles.button}>Start Ride</button><br></br>
+        </div></div></div>
     )
 }
