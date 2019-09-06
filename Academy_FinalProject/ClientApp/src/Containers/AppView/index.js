@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { HeaderBar } from '../../Components/HeaderBar';
 import { FooterBar } from '../../Components/FooterBar';
-import MapBase from '../../Components/MapBaseView';
-import SortCard from '../../Components/SortCard';
+import MapBase from '../../Components/MapBaseView'
+import StripeCheckout from 'react-stripe-checkout';
 
 
 export default class AppView extends Component {
@@ -19,10 +19,8 @@ export default class AppView extends Component {
     return (
       <div >
         <HeaderBar />
-        <MapBase />
-        {/* FILTERBUTTON COMPONENT HERE? */}
-        {this.state.showSortcard ? <SortCard /> : null}
-        
+        <MapBase/>
+      {/* FILTERBUTTON COMPONENT HERE? */}
         <FooterBar />
       </div>
     )
