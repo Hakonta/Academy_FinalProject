@@ -109,9 +109,10 @@ export default class MapBaseLayer extends Component {
             id='example-map'
             options={{
               styles: mapStyle,
-              fullscreenControl: false,
-              mapTypeControl: false,
-              streetViewControl:false
+              //Toggle buttons on map
+              fullscreenControl: true,
+              mapTypeControl: true,
+              streetViewControl:true
             }}
             zoom={18}
             center={
