@@ -1,10 +1,28 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const sortCard = () => {
-    return(
+    return (
         <div style={styles.card}>
-            Sort Card
+            <form>
+                <label>
+                    Voi
+                      <input type="checkbox" name="Voi" />
+                </label>
+                <label>
+                    Tier
+                     <input type="checkbox" name="Tier" />
+                </label>
+                <label>
+                    Flash
+                      <input type="checkbox" name="Flash" />
+                </label>
+                <label>
+                    Zwipp
+                      <input type="checkbox" name="Zwipp" />
+                </label>
+
+
+            </form>
         </div>
 
     )
@@ -14,11 +32,18 @@ export default sortCard;
 
 const styles = {
 
-    card:{
+    card: {
         height: 100,
-        width: '100%',
+        width: '80%',
         backgroundColor: '#343a40',
         color: '#ffffff',
-        padding: 20
+        padding: 20,
+        margin: 'auto',
+        position: 'fixed',
+        left: '10%',
+        bottom: '20%',
+        zIndex: 100,
+        
+
     }
 }
