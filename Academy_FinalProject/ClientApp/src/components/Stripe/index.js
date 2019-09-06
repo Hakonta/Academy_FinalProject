@@ -4,24 +4,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class Checkout extends React.Component {
   onToken = (token, addresses) => {
+    console.log(token)
+    console.log(addresses)
     // TODO: Send the token information and any other
     // relevant information to your payment process
     // server, wait for the response, and update the UI
     // accordingly. How this is done is up to you. Using
     // XHR, fetch, or a GraphQL mutation is typical.
 
-    fetch, backend implementasjonen mot stripe, backend må ha et api-endepunkt som går mot klienten
+    //fetch, backend implementasjonen mot stripe, backend må ha et api-endepunkt som går mot klienten
   };
 
   render() {
     return (
       <StripeCheckout
-        amount="500"
+        amount={500}
         billingAddress
-        description="Awesome Product"
+        description="Your SQT-ride"
         image="https://yourdomain.tld/images/logo.svg"
         locale="auto"
-        name="YourDomain.tld"
+        name="SQT"
         stripeKey="pk_test_7fR8mYhqOb4p5RkeTP2Qlb3a00u5AA68Ufy"
         token={this.onToken}
         zipCode
