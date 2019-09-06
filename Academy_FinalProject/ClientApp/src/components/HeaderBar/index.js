@@ -39,15 +39,16 @@ export class HeaderBar extends React.Component {
     let navCoverStyle = { width: showNav ? "100%" : "0" }
     let sideNavStyle = { width: showNav ? "100%" : "0" }
     return (
-      <React.Fragment>
+      <div style={{height: '10vh', width: '100vw'}}>
+      
          <Navbar bg="dark" expand="xl" class="open-nav">
          <div
           onClick={this.navCoverClick}
-          class="nav-cover"
+          className="nav-cover"
           style={navCoverStyle}
         />
-        <div name="side-nav" class="side-nav" style={sideNavStyle}>
-          <a href="/" onClick={this.closeNavClick} class="close-nav">
+        <div name="side-nav" className="side-nav" style={sideNavStyle}>
+          <a href="/" onClick={this.closeNavClick} className="close-nav">
             &times;
           </a>
           <a>{<img src={logo} alt={''} height='60x' width='60px'/>}</a>
@@ -57,7 +58,7 @@ export class HeaderBar extends React.Component {
           <a href="/noe annet">Noe annet</a>
         </div>
         <Button variant="dark" onClick={this.openNavClick}>
-          <i class="material-icons">
+          <i className="material-icons">
             person
           </i>
            </Button>
@@ -65,12 +66,13 @@ export class HeaderBar extends React.Component {
         {<img src={logo} alt={''} height='40px' width='40px'/>}
           </Button>
             <Button variant="dark">
-          <i class="material-icons">
+          <i className="material-icons">
             menu
           </i>
           </Button>
           </Navbar>
-      </React.Fragment>
+     
+      </div>
     )
   }
 }
