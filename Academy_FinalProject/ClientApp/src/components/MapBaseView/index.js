@@ -13,6 +13,7 @@ import config from '../../config'
 import { ThemeProvider } from 'react-bootstrap';
 import SortCard from '../../Components/SortCard';
 import RideCard from '../RideCard';
+import SortButton from '../../Components/SortButton'
 
 
 
@@ -21,6 +22,13 @@ export default class MapBaseLayer extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      filter:{ 
+        voiChecked: true,
+        tierChecked: true,
+        flashChecked: true,
+        zwippChecked: true,
+      },
+      showSortcard: true,
       showDefaultCard: true,
       bikeStations: [],
       scooters: [],
@@ -104,6 +112,7 @@ export default class MapBaseLayer extends Component {
           center={
             this.state.currentCenter
           }
+          
           mapContainerStyle={{
             height: '80vh',
             width: '100vw',
@@ -186,7 +195,8 @@ export default class MapBaseLayer extends Component {
              
         </GoogleMap>
       </LoadScript>
-      {/* <SortCard/>  */}
+      {this.state.showSortcard ? <SortCard /> : null}
+      <SortButton toggleSortCard={() => { this.setState({ showSortcard: !this.state.showSortcard})}} />
       </div>
     )
   }

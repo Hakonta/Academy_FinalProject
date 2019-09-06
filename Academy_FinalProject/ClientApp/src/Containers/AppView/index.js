@@ -9,7 +9,7 @@ export default class AppView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showSortcard: false
+      
     }
   }
 
@@ -21,9 +21,9 @@ export default class AppView extends Component {
         <HeaderBar />
         <MapBase />
         {/* FILTERBUTTON COMPONENT HERE? */}
-        {this.state.showSortcard ? <SortCard /> : null}
+        
 
-        <FooterBar toggleSortCard={() => { this.setState({ showSortcard: !this.state.showSortcard})}}/>
+        <FooterBar />
       </div>
     )
   }
