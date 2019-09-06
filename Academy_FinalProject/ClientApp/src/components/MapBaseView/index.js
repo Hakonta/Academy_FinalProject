@@ -8,7 +8,7 @@ import over100 from '../../Assets/Over100.png'
 import over1000 from '../../Assets/Over1000.png'
 import mapStyle from './mapStyle'
 import InfoCard from '../InfoCard'
-import { ThemeProvider } from 'react-bootstrap';
+//import { ThemeProvider } from 'react-bootstrap';
 
 
 
@@ -79,8 +79,6 @@ export default class MapBaseLayer extends Component {
           }))
         }
       )
-    } else {
-      error => console.log(error)
     }
   }
 

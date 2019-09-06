@@ -57,7 +57,7 @@ export class HeaderBar extends React.Component {
           <a href="/noe annet">Noe annet</a>
         </div>
         <Button variant="dark" onClick={this.openNavClick}>
-          <i class="material-icons">
+          <i className="material-icons">
             person
           </i>
            </Button>
@@ -65,7 +65,7 @@ export class HeaderBar extends React.Component {
         {<img src={logo} alt={''} height='40px' width='40px'/>}
           </Button>
             <Button variant="dark">
-          <i class="material-icons">
+          <i className="material-icons">
             menu
           </i>
           </Button>
