@@ -33,8 +33,8 @@ export default function InfoCard(props)
 // TODO: Replace inline styling with an style variable. 
     return (
         <div style={styles.outerContainer}><div style={styles.innerContainer}>
-        <div style={styles.cardDiv}><h1>{props.providerName}</h1><img src={getProviderImage(props.providerName)} alt={'So empty...'}></img>
-        <h1><img src={Battery}></img>&nbsp;{props.battery} %</h1><h2>10 kr + 2 kr/min<br></br><br></br></h2><button style={styles.button}>Start Ride</button>
+        <div style={styles.cardDiv}><img src={getProviderImage(props.providerName)} alt={props.providerName}></img>
+        <h1><img src={Battery}></img>&nbsp;{props.battery} %</h1><h3>10 kr + 2 kr/min<br></br></h3><button style={styles.button}>Start Ride</button><br></br>
         </div></div></div>
     )
 }
