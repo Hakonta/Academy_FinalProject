@@ -9,7 +9,7 @@ export default class AppView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showSortcard:false
+      showSortcard: true
     }
   }
 
@@ -20,10 +20,10 @@ export default class AppView extends Component {
       <div >
         <HeaderBar />
         <MapBase />
-      {/* FILTERBUTTON COMPONENT HERE? */}
-      {this.state.showSortcard ? <SortCard/> : null}
-      
-        <FooterBar  />
+        {/* FILTERBUTTON COMPONENT HERE? */}
+        {this.state.showSortcard ? <SortCard /> : null}
+        
+        <FooterBar />
       </div>
     )
   }
@@ -46,7 +46,7 @@ export default class AppView extends Component {
 //   },
 //   mappBase:{
 //     gridArea: '2 / 1 / 7 / 6'
-    
+
 //   },
 //   footerBar:{
 //     gridArea: '7 / 1 / 8 / 6'
