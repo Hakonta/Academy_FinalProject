@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { HeaderBar } from '../../Components/HeaderBar';
 import FooterBar from '../../Components/FooterBar';
 import MapBase from '../../Components/MapBaseView';
-import SortCard from '../../Components/SortCard';
+
 
 
 export default class AppView extends Component {
@@ -20,9 +20,6 @@ export default class AppView extends Component {
       <div  >
         <HeaderBar />
         <MapBase />
-        {/* FILTERBUTTON COMPONENT HERE? */}
-        
-
         <FooterBar />
       </div>
     )

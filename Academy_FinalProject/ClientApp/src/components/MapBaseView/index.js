@@ -22,13 +22,13 @@ export default class MapBaseLayer extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      showFiltercard: false,
       filter:{ 
         voiChecked: true,
         tierChecked: true,
         flashChecked: true,
         zwippChecked: true,
       },
-      showSortcard: true,
       showDefaultCard: true,
       bikeStations: [],
       scooters: [],
@@ -195,8 +195,8 @@ export default class MapBaseLayer extends Component {
              
         </GoogleMap>
       </LoadScript>
-      {this.state.showSortcard ? <SortCard /> : null}
-      <SortButton toggleSortCard={() => { this.setState({ showSortcard: !this.state.showSortcard})}} />
+      {this.state.showFiltercard ? <SortCard /> : null}
+      <SortButton toggleSortCard={() => { this.setState({ showFiltercard: !this.state.showFiltercard})}} />
       </div>
     )
   }

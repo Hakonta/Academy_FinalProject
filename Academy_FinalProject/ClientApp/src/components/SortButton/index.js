@@ -4,7 +4,7 @@ import FilterIcon from '../../Assets/filterIcon.png'
 const sortButton = (props) => {
     return (
         <React.Fragment>
-            <button style={styles.sortButton} onClick={() => { props.toggleSortCard() }}> <img src={FilterIcon} style={{width:30}}/>  </button>
+            <button style={styles.sortButton} onClick={() => { props.toggleSortCard() }}> <img src={FilterIcon} alt={'sorticon'} style={{width:30}}/>  </button>
         </React.Fragment>
 
 
