@@ -122,8 +122,8 @@ export default class MapBaseLayer extends Component {
               onCloseClick={() => {
                 this.setState({ selectedScooter: null })
               }} >
-
-              <div>
+            
+            <div>
                 CARD COMPONENT HERE
               </div>
             </InfoWindow>
