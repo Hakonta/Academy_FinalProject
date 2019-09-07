@@ -17,19 +17,20 @@ export default class Checkout extends React.Component {
 
   render() {
     return (
-      <StripeCheckout
-        amount={500}
-        billingAddress
-        description="Your SQT-ride"
-        image="https://yourdomain.tld/images/logo.svg"
-        locale="auto"
-        name="SQT"
-        stripeKey="pk_test_7fR8mYhqOb4p5RkeTP2Qlb3a00u5AA68Ufy"
-        token={this.onToken}
-        zipCode
-        label="Pay with 💳"
-        panelLabel="Cost of your ride: kr{{amount}}"
-      />
+      // <StripeCheckout
+      //   amount="500"
+      //   billingAddress
+      //   description="Your SQT-ride"
+      //   image="https://yourdomain.tld/images/logo.svg"
+      //   locale="auto"
+      //   name="SQT"
+      //   stripeKey="pk_test_7fR8mYhqOb4p5RkeTP2Qlb3a00u5AA68Ufy"
+      //   token={this.onToken}
+      //   zipCode
+      //   label="Pay with 💳"
+      //   panelLabel="Cost of your ride: kr{amount}"
+      // />
+      
       // -- For å teste et kredittkort:
       // Card information	Value
       // Card number	4111 1111 1111 1111
