@@ -56,16 +56,22 @@ class CounterComponent extends React.Component {
       else
       {
           this.setState(() => ({
-              seconds: (checkSeconds/1000).toFixed(0)
+              seconds: (this.state.time/1000).toFixed(0)
           }));
-        // this.setState({
-        //     seconds:(this.state.time/1000).toFixed(0),
-        //     minutes:((this.state.time/1000)/60).toFixed(0)
-        // })
+          this.setState({ 
+              seconds: (this.state.time/1000).toFixed(0), 
+              minutes: ((this.state.time/1000)/60).toFixed(0),  
+              hours: (((this.state.time/1000)/60)/60).toFixed(0)  
+            
+            }, () => {
+            console.log(this.state.seconds, 'seconds')
+            console.log(this.state.minutes, 'minutes')
+            console.log(this.state.hours, 'hours');
+            ;
+            ;
+          }); 
       }
       
-      console.log(this.state.time);
-      console.log('Seconds value is: ' + this.state.seconds)
   }
   calculatePrice() {
     this.setState({price: 0})
