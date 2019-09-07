@@ -13,7 +13,7 @@ import config from '../../config'
 import { ThemeProvider } from 'react-bootstrap';
 
 import RideCard from '../RideCard';
-import SortButton from '../../Components/SortButton'
+import SortButton from '../FilterButton'
 
 
 
