@@ -37,9 +37,9 @@ class CounterComponent extends React.Component {
     }), 1);
   }
   stopTimer() {
+    this.calculateSeconds()
     this.setState({isOn: false})
     clearInterval(this.timer)
-    this.calculateSeconds()
 
   }
 //   resetTimer() {
@@ -55,21 +55,26 @@ class CounterComponent extends React.Component {
       }
       else
       {
-        this.setState({
-            seconds:(this.state.time/1000).toFixed(0),
-            minutes:((this.state.time/1000)/60).toFixed(0)
-        })
-        console.log(this.state.isOn)
-        console.log(this.state.seconds)
-        console.log(this.state.minutes)
-
+          this.setState(() => ({
+              seconds: (checkSeconds/1000).toFixed(0)
+          }));
+        // this.setState({
+        //     seconds:(this.state.time/1000).toFixed(0),
+        //     minutes:((this.state.time/1000)/60).toFixed(0)
+        // })
       }
       
       console.log(this.state.time);
+      console.log('Seconds value is: ' + this.state.seconds)
   }
   calculatePrice() {
-    console.log('This method runs')  
     this.setState({price: 0})
+
+  }
+  checkIfSecondsHasUpdatet()
+  {
+      console.log('Seconds value is: ' + this.state.seconds)
+      console.log('Minutes value is' + this.state.minutes)
 
   }
 
