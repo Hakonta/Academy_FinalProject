@@ -68,8 +68,8 @@ export default sortButton;
 
 const styles = {
     sortButton: {
-        height: 40,
-        width: 40,
+        height: 50,
+        width: 50,
         borderRadius: '10px 10px 10px 10px',
         border: '1px solid grey',
         backgroundColor: '#343a40',
@@ -77,21 +77,22 @@ const styles = {
         position: 'fixed',
         left: '5%',
         bottom: '11%',
-        boxShadow: '0 2px #999',
+        boxShadow: ' 20px 21px 63px -9px rgba(0,0,0,0.58)',
         zIndex: 100,
         outline: 'none'
     },
     buttonClicked: {
-        backgroundColor: '#4e5861',
-        boxShadow: '0 0px #999',
+        
+        boxShadow: ' 20px 21px 63px -9px rgba(0,0,0,0.58)',
         border: 'none'
     },
     card: {
-        width: 40,
-        height: 200,
+        width: 50,
+        height: 250,
         borderRadius: '10px 10px 10px 10px',
         border: '1px solid grey',
-        backgroundColor: '#4e5861',
+        boxShadow: ' 20px 21px 63px -9px rgba(0,0,0,0.58)',
+        backgroundColor: '#343a40',
         color: '#ffffff',
         padding: 2,
         position: 'fixed',
@@ -102,7 +103,7 @@ const styles = {
     },
     cardInActive: {
         height: 50,
-        width: 40,
+        width: 50,
         borderRadius: '10px 10px 10px 10px',
         border: '1px solid grey',
         backgroundColor: '#343a40',
@@ -117,13 +118,13 @@ const styles = {
     images:{
         borderRadius: '10px 10px 10px 10px',
         width: '100%', 
-        padding: 5
+        padding: 10
     },
     imagesInactive:{
         opacity: '0.5',
         borderRadius: '10px 10px 10px 10px',
         width: '100%', 
-        padding: 5
+        padding: 10
     }
 }
 
