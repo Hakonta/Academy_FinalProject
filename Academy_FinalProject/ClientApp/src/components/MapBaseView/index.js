@@ -106,7 +106,7 @@ export default class MapBaseLayer extends Component {
         break;
       case 'zvipp': this.setState(prevState => ({ filter: { ...prevState.filter, zvippChecked: !this.state.filter.zvippChecked } }))
         break;
-      case 'citybike': this.setState(prevState => ({ filter: { ...prevState.filter, citybikeChecked: !this.state.filter.circChecked } }))
+      case 'citybike': this.setState(prevState => ({ filter: { ...prevState.filter, citybikeChecked: !this.state.filter.citybikeChecked } }))
         break;
       default: this.setState(prevState => (this.state = prevState))
     }
@@ -127,9 +127,12 @@ export default class MapBaseLayer extends Component {
             options={{
               styles: mapStyle,
               //Toggle buttons on map
-              fullscreenControl: true,
-              mapTypeControl: true,
-              streetViewControl: true
+              fullscreenControl: false,
+              mapTypeControl: false,
+              streetViewControl: false,
+              
+              
+
             }}
             zoom={18}
             center={
@@ -137,7 +140,7 @@ export default class MapBaseLayer extends Component {
             }
 
             mapContainerStyle={{
-              height: '82.1vh',
+              height: '80vh',
               width: '100vw',
               margin: 0,
               padding: 0,
@@ -154,13 +157,22 @@ export default class MapBaseLayer extends Component {
               styles={clusterIcons}
             >
               {
+
                 (clusterer) => this.state.scooters.map((scooter, index) => (
                   <div key={index}>
-                    
-                    
+                    <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
+                    {/* {this.state.filter.voiChecked && scooter.providerName === 'Voi' ?
                       <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
-                      
-
+                      : null}
+                      {this.state.filter.tierChecked && scooter.providerName === 'Tier' ?
+                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
+                      : null}
+                      {this.state.filter.circChecked && scooter.providerName === 'Flash' ?
+                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
+                      : null}
+                      {this.state.filter.zvippChecked && scooter.providerName === 'Zvipp' ?
+                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
+                      : null} */}
                   </div>
                 ))
               }
@@ -196,10 +208,8 @@ export default class MapBaseLayer extends Component {
                 return (
                   <div key={index}>
                     <BikeStationMarker position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
-                  </div>
-                )
-              })
-              : null}
+                  </div>)
+              }) : null}
 
             {this.state.selectedBikeStation && (
               <InfoWindow

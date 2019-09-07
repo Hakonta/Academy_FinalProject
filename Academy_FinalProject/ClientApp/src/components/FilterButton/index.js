@@ -9,6 +9,14 @@ import Zvipp from '../../Assets/Zvipp.png'
 const sortButton = (props) => {
 
     const [isClicked, setIsClicked] = useState(false);
+    const [voiIsClicked, setVoiIsClicked] = useState(true);
+    const [tierIsClicked, setTierIsClicked] = useState(true);
+    const [circIsClicked, setCircIsClicked] = useState(true);
+    const [zvippIsClicked, setZvippIsClicked] = useState(true);
+    const [citybikeIsClicked, setcitybikeIsClicked] = useState(true);
+
+
+
 
     return (
         <React.Fragment>
@@ -27,35 +35,30 @@ const sortButton = (props) => {
                     <img 
                         src={Voi} 
                         alt={'voi icon'}
-                        style={{width: '100%',padding: 5,paddingTop: 10}}
-                        onClick={()=>{props.setFilter('voi')}} />
+                        style={voiIsClicked ? styles.images : styles.imagesInactive}
+                        onClick={()=>{props.setFilter('voi'), setVoiIsClicked(!voiIsClicked)}} />
                     <img
                         src={Tier}
                         alt={'tier icon'}
-                        style={{ width: '100%',padding: 5}}
-                        onClick={()=>{props.setFilter('tier')}} />
+                        style={tierIsClicked ? styles.images : styles.imagesInactive}
+                        onClick={()=>{props.setFilter('tier'), setTierIsClicked(!tierIsClicked)}} />
                     <img
                         src={Circ} alt={'circ icon'}
-                        style={{ width: '100%', padding: 5 }}
-                        onClick={()=>{props.setFilter('circ')}} />
+                        style={circIsClicked ? styles.images : styles.imagesInactive}
+                        onClick={()=>{props.setFilter('circ'), setCircIsClicked(!circIsClicked)}} />
                     <img
                         src={Zvipp}
                         alt={'zvipp icon'}
-                        style={{ width: '100%', padding: 5 }}
-                        onClick={()=>{props.setFilter('zvipp')}} />
+                        style={zvippIsClicked ? styles.images : styles.imagesInactive}
+                        onClick={()=>{props.setFilter('zvipp'), setZvippIsClicked(!zvippIsClicked)}} />
                     <img
                         src={BikeIcon}
                         alt={'citybike icon'}
-                        style={{ width: '100%', padding: 5 }}
-                        onClick={()=>{props.setFilter('citybike')}} />
+                        style={citybikeIsClicked ? styles.images : styles.imagesInactive}
+                        onClick={()=>{props.setFilter('citybike'), setcitybikeIsClicked(!citybikeIsClicked)}} />
                 </div>
-
-
-
             </div>
         </React.Fragment>
-
-
     )
 }
 
@@ -110,7 +113,17 @@ const styles = {
         bottom: '15%',
         zIndex: -100000,
         opacity: '0',
+    },
+    images:{
+        borderRadius: '10px 10px 10px 10px',
+        width: '100%', 
+        padding: 5
+    },
+    imagesInactive:{
+        opacity: '0.5',
+        borderRadius: '10px 10px 10px 10px',
+        width: '100%', 
+        padding: 5
     }
-
 }
 
