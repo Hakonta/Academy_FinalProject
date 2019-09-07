@@ -27,19 +27,11 @@ const sortButton = (props) => {
                 </button>
                
                     <div style={isClicked ? styles.card : styles.cardInActive}>
-
-                        
-                            <img src={Voi} alt={'voi icon'} style={{ width: 25 }} /> 
-                            <img src={Tier} alt={'tier icon'} style={{ width: 25 }} /> 
-                            <img src={Circ} alt={'circ icon'} style={{ width: 25 }} /> 
-                            <img src={Zvipp} alt={'zwipp icon'} style={{ width: 25 }} /> 
-                            <img src={BikeIcon} alt={'citybike icon'} style={{ width: 25 }} /> 
-
-                    
-                        
-                           
-                        
-
+                            <img src={Voi} alt={'voi icon'} style={{ width: '100%', padding: 5, paddingTop: 10 }} /> 
+                            <img src={Tier} alt={'tier icon'} style={{ width: '100%', padding: 5 }} /> 
+                            <img src={Circ} alt={'circ icon'} style={{ width: '100%', padding: 5 }} /> 
+                            <img src={Zvipp} alt={'zwipp icon'} style={{ width: '100%', padding: 5 }} /> 
+                            <img src={BikeIcon} alt={'citybike icon'} style={{ width: '100%', padding: 5 }} /> 
                     </div>
                     
               
@@ -64,7 +56,7 @@ const styles = {
         backgroundColor: '#343a40',
         padding: 2,
         position: 'fixed',
-        left: '45%',
+        left: '5%',
         bottom: '11%',
         boxShadow: '0 2px #999',
         zIndex: 100,
@@ -84,13 +76,13 @@ const styles = {
         color: '#ffffff',
         padding: 2,
         position: 'fixed',
-        left: '45%',
-        bottom: '12%',
+        left: '5%',
+        bottom: '15%',
         opacity: '1',
-        transition: '300ms ease-out'
+        transition: '100ms ease-out'
     },
     cardInActive:{
-        height: 40,
+        height: 50,
         width: 40,
         borderRadius: '10px 10px 10px 10px',
         border: '1px solid grey',
@@ -98,11 +90,10 @@ const styles = {
         color: '#ffffff',
         padding: 2,
         position: 'fixed',
-        left: '45%',
-        bottom: '11%',
+        left: '5%',
+        bottom: '15%',
         zIndex: -100000,
         opacity: '0',
-        transition: '1s ease-out'
     }
 
 }
