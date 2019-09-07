@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FilterIcon from '../../Assets/filterIcon.png'
 
 const sortButton = (props) => {
+
+    const [isClicked, setIsClicked] = useState(false);
+
     return (
         <React.Fragment>
-            <button style={styles.sortButton} onClick={() => { props.toggleSortCard() }}> <img src={FilterIcon} alt={'sorticon'} style={{width:30}}/>  </button>
+            <button
+                
+                onClick={() => { props.toggleSortCard(), setIsClicked(!isClicked)}}
+                  style={{
+                    ...styles.sortButton,
+                    ...(isClicked ? styles.buttonClicked : null)
+                  }}
+                >
+
+                <img src={FilterIcon} alt={'sorticon'} style={{ width: 30 }} />
+
+            </button>
         </React.Fragment>
 
 
@@ -29,5 +43,13 @@ const styles = {
         bottom: '11%',
         zIndex: 100,
     },
+    buttonClicked:{
+        "&:hover": {
+            backgroundColor: "#efefef"
+        },
+        height: 50,
+        width: 50,
+    }
+
 }
 
