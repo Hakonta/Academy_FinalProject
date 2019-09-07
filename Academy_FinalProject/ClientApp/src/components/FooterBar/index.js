@@ -18,8 +18,8 @@ const footerBar = (props) => {
             <StripeCheckout
               amount="500"
               billingAddress
-              description="Your SQT-ride"
-              image= "🦄" // kanskje legge inn vår logo her?
+              description="You will not be charged during checkout"
+              image= "" // kanskje legge inn vår logo her?
               locale="auto"
               name="SQT - Find all rides"
               stripeKey="pk_test_7fR8mYhqOb4p5RkeTP2Qlb3a00u5AA68Uf"
