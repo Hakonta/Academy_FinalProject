@@ -4,28 +4,19 @@ import React from 'react';
 const sortCard = () => {
     return (
         <div style={styles.card}>
-            <form>
+           
                 <div>
-                    <label for="voi" style={styles.label} >Voi</label>
-                    <input 
-                    type="checkbox" 
-                    name="scooter" 
-                    id="voi" 
-                    style={styles.checkbox} 
-                    
-                    />
-
-                    <label for="tier"style={styles.label} >Tier</label>
-                    <input type="checkbox" name="scooter" id="tier" style={styles.checkbox} />
+                   <button>Voi</button>
+                   <button>Tier</button>
                 </div>
                 <div>
-                    <label for="flash"style={styles.label} >Flash</label>
-                    <input type="checkbox" name="scooter" id="flash" style={styles.checkbox} />
-
-                    <label for="zwipp"style={styles.label} >Zwipp</label>
-                    <input type="checkbox" name="scooter" id="zwipp" style={styles.checkbox} />
+                   <button>Circ</button>
+                   <button>Zwipp</button>
                 </div>
-            </form>
+                <div>
+                    <button>Bysykkel</button>
+                </div>
+            
         </div>
 
     )
@@ -48,6 +39,7 @@ const styles = {
         left: '15%',
         bottom: '20%',
         zIndex: 100,
+        transition: 'width 2s'
     },
     checkbox: {
         marginLeft: 5
