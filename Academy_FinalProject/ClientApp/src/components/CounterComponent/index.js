@@ -6,8 +6,16 @@ const styles = {
     },
     stopButton: {
         backgroundColor:"darkRed", color:"white"
+    },
+    prizeText: {
+        color: "red"
     }
 }
+let tickerSeconds = 0;
+let tickerMinutes = 0;
+let fareTicker = 0;
+
+// TODO: The time values should be fetched from the backend, for security reasons and to avoid other issues that could happen client side
 
 class CounterComponent extends React.Component {
   constructor(props){
@@ -60,7 +68,7 @@ class CounterComponent extends React.Component {
           }));
           this.setState({ 
               seconds: (this.state.time/1000).toFixed(0), 
-              minutes: ((this.state.time/1000)/60).toFixed(0),  
+              minutes: ((this.state.time/1000).toFixed(0)/120).toFixed(0),  
               hours: (((this.state.time/1000)/60)/60).toFixed(0)  
             
             }, () => {
@@ -73,15 +81,28 @@ class CounterComponent extends React.Component {
       }
       
   }
-  calculatePrice() {
-    this.setState({price: 0})
-
+  showPrice() {
+      return 10 + fareTicker;
   }
-  checkIfSecondsHasUpdatet()
+  showSeconds()
   {
-      console.log('Seconds value is: ' + this.state.seconds)
-      console.log('Minutes value is' + this.state.minutes)
+      if (Math.floor(((this.state.time)/1000) - (60 * tickerSeconds)) === 60)
+      {
+          tickerSeconds += 1;
+          fareTicker += 2;
+      }
 
+      return Math.floor(((this.state.time)/1000)) - (60 * tickerSeconds);
+  }
+  showMinutes()
+  {
+      if (Math.floor((((this.state.time)/1000/60)) - (60 * tickerMinutes)) === 60)
+      {
+          tickerMinutes += 1;
+
+      }
+
+      return Math.floor((((this.state.time)/1000/60)) - (60 * tickerMinutes));
   }
 
   render() {
@@ -99,9 +120,10 @@ class CounterComponent extends React.Component {
     //   <button onClick={this.resetTimer}>reset</button>
     return(
       <div>
-        <h3>{((this.state.time)/1000).toFixed(0)}s / {(((this.state.time)/1000)/60).toFixed(0)}m / {((((this.state.time)/1000)/60)/60).toFixed(0)}h</h3>
+        <h3>{this.showSeconds()}s / {this.showMinutes()}m / {Math.floor(((((this.state.time)/1000)/60)/60))}h</h3>
         {start}
         {/* {resume} */}
+        <p>Current cost: {this.showPrice()}</p>
         {stop}
         {/* {reset} */}
       </div>
