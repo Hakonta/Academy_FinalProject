@@ -28,26 +28,26 @@ const sortButton = (props) => {
                         src={Voi} 
                         alt={'voi icon'}
                         style={{width: '100%',padding: 5,paddingTop: 10}}
-                        onClick={()=>{props.setVoiChecked()}} />
+                        onClick={()=>{props.setFilter('voi')}} />
                     <img
                         src={Tier}
                         alt={'tier icon'}
                         style={{ width: '100%',padding: 5}}
-                        onClick={()=>{props.setTierChecked()}} />
+                        onClick={()=>{props.setFilter('tier')}} />
                     <img
                         src={Circ} alt={'circ icon'}
                         style={{ width: '100%', padding: 5 }}
-                        onClick={()=>{props.setCircChecked()}} />
+                        onClick={()=>{props.setFilter('circ')}} />
                     <img
                         src={Zvipp}
-                        alt={'zwipp icon'}
+                        alt={'zvipp icon'}
                         style={{ width: '100%', padding: 5 }}
-                        onClick={()=>{props.setZvippChecked()}} />
+                        onClick={()=>{props.setFilter('zvipp')}} />
                     <img
                         src={BikeIcon}
                         alt={'citybike icon'}
                         style={{ width: '100%', padding: 5 }}
-                        onClick={()=>{props.setCityBikeChecked()}} />
+                        onClick={()=>{props.setFilter('citybike')}} />
                 </div>
 
 
