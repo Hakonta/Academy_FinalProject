@@ -36,26 +36,26 @@ const sortButton = (props) => {
                         src={Voi} 
                         alt={'voi icon'}
                         style={voiIsClicked ? styles.images : styles.imagesInactive}
-                        onClick={()=>{props.setFilter('voi'), setVoiIsClicked(!voiIsClicked)}} />
+                        onClick={()=>{props.setFilter('voi'); setVoiIsClicked(!voiIsClicked)}} />
                     <img
                         src={Tier}
                         alt={'tier icon'}
                         style={tierIsClicked ? styles.images : styles.imagesInactive}
-                        onClick={()=>{props.setFilter('tier'), setTierIsClicked(!tierIsClicked)}} />
+                        onClick={()=>{props.setFilter('tier'); setTierIsClicked(!tierIsClicked)}} />
                     <img
                         src={Circ} alt={'circ icon'}
                         style={circIsClicked ? styles.images : styles.imagesInactive}
-                        onClick={()=>{props.setFilter('circ'), setCircIsClicked(!circIsClicked)}} />
+                        onClick={()=>{props.setFilter('circ'); setCircIsClicked(!circIsClicked)}} />
                     <img
                         src={Zvipp}
                         alt={'zvipp icon'}
                         style={zvippIsClicked ? styles.images : styles.imagesInactive}
-                        onClick={()=>{props.setFilter('zvipp'), setZvippIsClicked(!zvippIsClicked)}} />
+                        onClick={()=>{props.setFilter('zvipp'); setZvippIsClicked(!zvippIsClicked)}} />
                     <img
                         src={BikeIcon}
                         alt={'citybike icon'}
                         style={citybikeIsClicked ? styles.images : styles.imagesInactive}
-                        onClick={()=>{props.setFilter('citybike'), setcitybikeIsClicked(!citybikeIsClicked)}} />
+                        onClick={()=>{props.setFilter('citybike'); setcitybikeIsClicked(!citybikeIsClicked)}} />
                 </div>
             </div>
         </React.Fragment>

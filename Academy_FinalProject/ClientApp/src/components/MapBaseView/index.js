@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer } from '@react-google-maps/api'
+import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer, } from '@react-google-maps/api'
 import ScooterMarker from '../ScooterMarker'
 import BikeStationMarker from '../BikeStationMarker'
 import under10 from '../../Assets/Under10.png'
@@ -11,7 +11,7 @@ import InfoCard from '../InfoCard'
 import config from '../../config'
 //import { ThemeProvider } from 'react-bootstrap';
 import { ThemeProvider } from 'react-bootstrap';
-
+//import CurrentPositionMarker from '../../Components/CurrentPositionMarker'
 import RideCard from '../RideCard';
 import FilterButton from '../FilterButton'
 
@@ -109,7 +109,7 @@ export default class MapBaseLayer extends Component {
         break;
       case 'citybike': this.setState(prevState => ({ filter: { ...prevState.filter, citybikeChecked: !this.state.filter.citybikeChecked } }))
         break;
-      default: this.setState(prevState => (this.state = prevState))
+      default: 
     }
   }
 
@@ -149,12 +149,12 @@ export default class MapBaseLayer extends Component {
           >
 
 
-
+           
 
             <MarkerClusterer
               averageCenter
+              maxZoom={15}
               minimumClusterSize={3}
-              maxZoom={20}
               styles={clusterIcons}
             >
               {
@@ -239,13 +239,13 @@ export default class MapBaseLayer extends Component {
 }
 
 const clusterIcons = [
-  {
-    url: under10,
-    height: 15,
-    width: 15,
-    fontFamily: "Lato",
-    textColor: "#96504b",
-  },
+  // {
+  //   url: under10,
+  //   height: 15,
+  //   width: 15,
+  //   fontFamily: "Lato",
+  //   textColor: "#96504b",
+  // },
   {
     url: under10,
     height: 20,
@@ -267,11 +267,11 @@ const clusterIcons = [
     fontFamily: "Lato",
     textColor: "#96504b",
   },
-  {
-    url: over1000,
-    height: 100,
-    width: 100,
-    fontFamily: "Lato",
-    textColor: "#96504b",
-  }
+  // {
+  //   url: over1000,
+  //   height: 100,
+  //   width: 100,
+  //   fontFamily: "Lato",
+  //   textColor: "#96504b",
+  // }
 ]
