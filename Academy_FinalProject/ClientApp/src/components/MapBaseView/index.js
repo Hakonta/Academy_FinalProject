@@ -98,127 +98,133 @@ export default class MapBaseLayer extends Component {
 
   filter = (provider) => {
     switch (provider) {
-      case 'voi': this.setState(prevState => ({filter: {...prevState.filter, voiChecked: !this.state.filter.voiChecked}})) 
-      break;
-      case 'tier': this.setState(prevState => ({filter: {...prevState.filter, tierChecked: !this.state.filter.tierChecked}}))
-      break;
-      case 'circ': this.setState(prevState => ({filter: {...prevState.filter, circChecked: !this.state.filter.circChecked}}))
-      break;
-      case 'zvipp': this.setState(prevState => ({filter: {...prevState.filter, zvippChecked: !this.state.filter.zvippChecked}}))
-      break;
-      case 'citybike': this.setState(prevState => ({filter: {...prevState.filter, citybikeChecked: !this.state.filter.circChecked}}))
-      break;
+      case 'voi': this.setState(prevState => ({ filter: { ...prevState.filter, voiChecked: !this.state.filter.voiChecked } }))
+        break;
+      case 'tier': this.setState(prevState => ({ filter: { ...prevState.filter, tierChecked: !this.state.filter.tierChecked } }))
+        break;
+      case 'circ': this.setState(prevState => ({ filter: { ...prevState.filter, circChecked: !this.state.filter.circChecked } }))
+        break;
+      case 'zvipp': this.setState(prevState => ({ filter: { ...prevState.filter, zvippChecked: !this.state.filter.zvippChecked } }))
+        break;
+      case 'citybike': this.setState(prevState => ({ filter: { ...prevState.filter, citybikeChecked: !this.state.filter.circChecked } }))
+        break;
       default: this.setState(prevState => (this.state = prevState))
-    }}
+    }
+  }
 
 
 
-render() {
-  return (
-    <div>
-      <LoadScript
-        id="script-loader"
-        googleMapsApiKey="AIzaSyAp2jh1zbAqgoQH8qpd8Af622VYmIdfeVY"
-      >
-
-        <GoogleMap
-          id='example-map'
-          options={{
-            styles: mapStyle,
-            //Toggle buttons on map
-            fullscreenControl: true,
-            mapTypeControl: true,
-            streetViewControl: true
-          }}
-          zoom={18}
-          center={
-            this.state.currentCenter
-          }
-
-          mapContainerStyle={{
-            height: '82.1vh',
-            width: '100vw',
-            margin: 0,
-            padding: 0,
-          }}
+  render() {
+    return (
+      <div>
+        <LoadScript
+          id="script-loader"
+          googleMapsApiKey="AIzaSyAp2jh1zbAqgoQH8qpd8Af622VYmIdfeVY"
         >
 
-
-
-
-          <MarkerClusterer
-            averageCenter
-            minimumClusterSize={3}
-            maxZoom={20}
-            styles={clusterIcons}
-          >
-            {
-              (clusterer) => this.state.scooters.map((scooter, index) => (
-                <div key={index}>
-                  <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
-                </div>
-              ))
+          <GoogleMap
+            id='example-map'
+            options={{
+              styles: mapStyle,
+              //Toggle buttons on map
+              fullscreenControl: true,
+              mapTypeControl: true,
+              streetViewControl: true
+            }}
+            zoom={18}
+            center={
+              this.state.currentCenter
             }
 
-          </MarkerClusterer>
+            mapContainerStyle={{
+              height: '82.1vh',
+              width: '100vw',
+              margin: 0,
+              padding: 0,
+            }}
+          >
 
 
-          {this.state.selectedScooter && (
-            <InfoWindow
-              style={{ backgroundColor: 'blue' }}
-              position={{ lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
-              onCloseClick={() => {
-                this.setState({ selectedScooter: null })
-              }}
 
+
+            <MarkerClusterer
+              averageCenter
+              minimumClusterSize={3}
+              maxZoom={20}
+              styles={clusterIcons}
             >
+              {
+                (clusterer) => this.state.scooters.map((scooter, index) => (
+                  <div key={index}>
+                    
+                    
+                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
+                      
 
-              <div>
-                {/* CARD COMPONENT HERE */}
-                {this.state.showDefaultCard ?
+                  </div>
+                ))
+              }
 
-                  <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
-                  : <RideCard />}
-              </div>
-            </InfoWindow>
-          )}
+            </MarkerClusterer>
 
 
+            {this.state.selectedScooter && (
+              <InfoWindow
+                style={{ backgroundColor: 'blue' }}
+                position={{ lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
+                onCloseClick={() => {
+                  this.setState({ selectedScooter: null })
+                }}
 
+              >
 
-          {this.state.filter.citybikeChecked ? 
-          this.state.bikeStations.map((bikeStation, index) => {
-              return (
-                <div key={index}>
-                  <BikeStationMarker position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
+                <div>
+                  {/* CARD COMPONENT HERE */}
+                  {this.state.showDefaultCard ?
+
+                    <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
+                    : <RideCard />}
                 </div>
-              )})
-           : null }
+              </InfoWindow>
+            )}
 
-          {this.state.selectedBikeStation && (
-            <InfoWindow
-              style={{ backgroundColor: 'red' }}
-              position={{ lat: this.state.selectedBikeStation.latitude, lng: this.state.selectedBikeStation.longitude }}
-              onCloseClick={() => {
-                this.setState({ selectedBikeStation: null })
-              }} >
 
-              <div>
-                CITYBIKE STATION
-                CARD COMPONENT HERE
+
+
+            {this.state.filter.citybikeChecked ?
+              this.state.bikeStations.map((bikeStation, index) => {
+                return (
+                  <div key={index}>
+                    <BikeStationMarker position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
+                  </div>
+                )
+              })
+              : null}
+
+            {this.state.selectedBikeStation && (
+              <InfoWindow
+                style={{ backgroundColor: 'red' }}
+                position={{ lat: this.state.selectedBikeStation.latitude, lng: this.state.selectedBikeStation.longitude }}
+                onCloseClick={() => {
+                  this.setState({ selectedBikeStation: null })
+                }} >
+
+                <div>
+                  CITYBIKE STATION
+                  CARD COMPONENT HERE
               </div>
-            </InfoWindow>
-          )}
+              </InfoWindow>
+            )}
 
 
-        </GoogleMap>
-      </LoadScript>
+          </GoogleMap>
+        </LoadScript>
 
-      <SortButton
-        setFilter={this.filter} />
-    </div>
-  )
-}
+        <SortButton
+          setFilter={this.filter} />
+      </div>
+    )
+  }
 }
 
 const clusterIcons = [
