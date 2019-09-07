@@ -13,7 +13,7 @@ import config from '../../config'
 import { ThemeProvider } from 'react-bootstrap';
 
 import RideCard from '../RideCard';
-import SortButton from '../FilterButton'
+import FilterButton from '../FilterButton'
 
 
 
@@ -27,7 +27,8 @@ export default class MapBaseLayer extends Component {
         tierChecked: true,
         circChecked: true,
         zvippChecked: true,
-        citybikeChecked: true
+        citybikeChecked: true,
+        
       },
       showDefaultCard: true,
       bikeStations: [],
@@ -157,11 +158,11 @@ export default class MapBaseLayer extends Component {
               styles={clusterIcons}
             >
               {
-
+                
                 (clusterer) => this.state.scooters.map((scooter, index) => (
                   <div key={index}>
-                    <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
-                    {/* {this.state.filter.voiChecked && scooter.providerName === 'Voi' ?
+                    {/* <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} /> */}
+                    {this.state.filter.voiChecked && scooter.providerName === 'Voi' ?
                       <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
                       : null}
                       {this.state.filter.tierChecked && scooter.providerName === 'Tier' ?
@@ -172,7 +173,7 @@ export default class MapBaseLayer extends Component {
                       : null}
                       {this.state.filter.zvippChecked && scooter.providerName === 'Zvipp' ?
                       <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
-                      : null} */}
+                      : null}
                   </div>
                 ))
               }
@@ -230,7 +231,7 @@ export default class MapBaseLayer extends Component {
           </GoogleMap>
         </LoadScript>
 
-        <SortButton
+        <FilterButton
           setFilter={this.filter} />
       </div>
     )
