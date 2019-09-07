@@ -93,7 +93,7 @@ const styles = {
         padding: 2,
         position: 'fixed',
         left: '5%',
-        bottom: '15%',
+        bottom: '14%',
         opacity: '1',
         transition: '100ms ease-out'
     },
