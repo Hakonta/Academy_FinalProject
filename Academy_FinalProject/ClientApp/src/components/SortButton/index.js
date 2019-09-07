@@ -14,27 +14,43 @@ const sortButton = (props) => {
         <React.Fragment>
             <div>
                 <button
-
                     onClick={() => { setIsClicked(!isClicked) }}
                     style={{
                         ...styles.sortButton,
                         ...(isClicked ? styles.buttonClicked : null)
                     }}
                 >
-
                     <img src={FilterIcon} alt={'sorticon'} style={{ width: 30 }} />
-
                 </button>
-               
-                    <div style={isClicked ? styles.card : styles.cardInActive}>
-                            <img src={Voi} alt={'voi icon'} style={{ width: '100%', padding: 5, paddingTop: 10 }} /> 
-                            <img src={Tier} alt={'tier icon'} style={{ width: '100%', padding: 5 }} /> 
-                            <img src={Circ} alt={'circ icon'} style={{ width: '100%', padding: 5 }} /> 
-                            <img src={Zvipp} alt={'zwipp icon'} style={{ width: '100%', padding: 5 }} /> 
-                            <img src={BikeIcon} alt={'citybike icon'} style={{ width: '100%', padding: 5 }} /> 
-                    </div>
-                    
-              
+
+                <div style={isClicked ? styles.card : styles.cardInActive}>
+                    <img 
+                        src={Voi} 
+                        alt={'voi icon'}
+                        style={{width: '100%',padding: 5,paddingTop: 10}}
+                        onClick={()=>{props.setVoiChecked()}} />
+                    <img
+                        src={Tier}
+                        alt={'tier icon'}
+                        style={{ width: '100%',padding: 5}}
+                        onClick={()=>{props.setTierChecked()}} />
+                    <img
+                        src={Circ} alt={'circ icon'}
+                        style={{ width: '100%', padding: 5 }}
+                        onClick={()=>{props.setCircChecked()}} />
+                    <img
+                        src={Zvipp}
+                        alt={'zwipp icon'}
+                        style={{ width: '100%', padding: 5 }}
+                        onClick={()=>{props.setZvippChecked()}} />
+                    <img
+                        src={BikeIcon}
+                        alt={'citybike icon'}
+                        style={{ width: '100%', padding: 5 }}
+                        onClick={()=>{props.setCityBikeChecked()}} />
+                </div>
+
+
 
             </div>
         </React.Fragment>
@@ -67,7 +83,7 @@ const styles = {
         boxShadow: '0 0px #999',
         border: 'none'
     },
-    card:{
+    card: {
         width: 40,
         height: 200,
         borderRadius: '10px 10px 10px 10px',
@@ -81,7 +97,7 @@ const styles = {
         opacity: '1',
         transition: '100ms ease-out'
     },
-    cardInActive:{
+    cardInActive: {
         height: 50,
         width: 40,
         borderRadius: '10px 10px 10px 10px',
