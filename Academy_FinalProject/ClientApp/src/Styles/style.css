@@ -1,0 +1,15 @@
+.gm-control-active{
+    height: 40;
+    width: 40;
+    border-radius: 10px 10px 10px 10px;
+    border: 1px solid grey;
+    background-color: #343a40;
+    padding: 2;
+    position: fixed;
+    right:  5%;
+    bottom: 11%;
+    box-shadow: 0 2px #999;
+    z-index: 10000000;
+    outline: none
+    
+}
