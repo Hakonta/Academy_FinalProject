@@ -23,10 +23,10 @@ const footerBar = (props) => {
               locale="auto"
               name="SQT - Find all rides"
               stripeKey="pk_test_7fR8mYhqOb4p5RkeTP2Qlb3a00u5AA68Uf"
-              token={this.onToken}
+              //token={this.onToken}
               zipCode
               label="Pay with 💩" //Copy-paste emoji from https://getemoji.com/
-              panelLabel="Cost of your ride: kr {amount}"
+              panelLabel="Cost of your ride: kr 37,5"
             />
             
         {/* <div className="fixed-bottom">
