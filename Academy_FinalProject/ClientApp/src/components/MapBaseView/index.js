@@ -3,7 +3,7 @@ import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer, } from '@react-goog
 import ScooterMarker from '../ScooterMarker'
 import BikeStationMarker from '../BikeStationMarker'
 import under10 from '../../Assets/Under10.png'
-import clusterpink from '../../Assets/cluster_pink.png'
+import clusterpink from '../../Assets/clusterPink.png'
 
 import over10 from '../../Assets/Over10.png'
 import over100 from '../../Assets/Over100.png'
