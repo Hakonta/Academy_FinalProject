@@ -10,10 +10,10 @@ import mapStyle from './mapStyle'
 import InfoCard from '../InfoCard'
 import config from '../../config'
 //import { ThemeProvider } from 'react-bootstrap';
+import { ThemeProvider } from 'react-bootstrap';
 //import CurrentPositionMarker from '../../Components/CurrentPositionMarker'
 import RideCard from '../RideCard';
 import FilterButton from '../FilterButton'
-import LoadingSpinner from '../loadingspinner'
 
 
 
@@ -38,8 +38,7 @@ export default class MapBaseLayer extends Component {
       currentCenter: {
         lat: 60.92,
         lng: 10.723
-      },
-      mapIsLoadiong: true,
+      }
     }
   }
 
@@ -122,34 +121,29 @@ export default class MapBaseLayer extends Component {
         <LoadScript
           id="script-loader"
           googleMapsApiKey="AIzaSyAp2jh1zbAqgoQH8qpd8Af622VYmIdfeVY"
-          onLoad={()=>{console.log('loading..' + this.state.mapIsLoadiong)}}
         >
           <GoogleMap
             id='example-map'
-            onTilesLoaded={()=>{this.setState({mapIsLoadiong: false}) ;console.log('map has loaded.' + this.state.mapIsLoadiong)}}
             options={{
               styles: mapStyle,
               //Toggle buttons on map
               fullscreenControl: false,
               mapTypeControl: false,
               streetViewControl: false,
-              clickableIcons: false,
-             // disableDefaultUI: true,
+              clickableIcons: false
             }}
             zoom={18}
             center={
               this.state.currentCenter
             }
-            
+
             mapContainerStyle={{
               height: '83vh',
               width: '100vw',
               margin: 0,
               padding: 0,
-              border: '0.6px solid #343a40'
             }}
           >
-            {this.state.mapIsLoadiong ? <LoadingSpinner /> : null }
             <MarkerClusterer
               averageCenter
               maxZoom={15}
@@ -213,7 +207,7 @@ export default class MapBaseLayer extends Component {
                 }} >
 
                 <div>
-                  <h3>{this.state.selectedBikeStation.stationName} stasjon</h3>
+                <h3>{this.state.selectedBikeStation.stationName} stasjon</h3>
                   CITYBIKE STATION
                   CARD COMPONENT HERE
               </div>
