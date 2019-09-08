@@ -9,6 +9,7 @@ const bikeMarker = (props) => {
             position={props.position}
             onClick={() => { props.markerClicked() }}
             icon={{url:BikeIcon}}
+            //  e
         />
     )
 }

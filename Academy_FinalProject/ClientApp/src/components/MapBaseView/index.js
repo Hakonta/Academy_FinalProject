@@ -10,7 +10,6 @@ import mapStyle from './mapStyle'
 import InfoCard from '../InfoCard'
 import config from '../../config'
 //import { ThemeProvider } from 'react-bootstrap';
-import { ThemeProvider } from 'react-bootstrap';
 //import CurrentPositionMarker from '../../Components/CurrentPositionMarker'
 import RideCard from '../RideCard';
 import FilterButton from '../FilterButton'
