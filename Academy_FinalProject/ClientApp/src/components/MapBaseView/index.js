@@ -11,6 +11,7 @@ import { ThemeProvider } from 'react-bootstrap';
 //import CurrentPositionMarker from '../../Components/CurrentPositionMarker'
 import RideCard from '../RideCard';
 import FilterButton from '../FilterButton'
+import LoadingSpinner from '../loadingspinner'
 
 
 
@@ -27,6 +28,7 @@ export default class MapBaseLayer extends Component {
         citybikeChecked: true,
 
       },
+      mapIsLoadiong: true,
       showDefaultCard: true,
       bikeStations: [],
       scooters: [],
@@ -121,6 +123,7 @@ export default class MapBaseLayer extends Component {
         >
           <GoogleMap
             id='example-map'
+            onTilesLoaded={()=>{this.setState({mapIsLoadiong: false}) ;console.log('map has loaded.')}}
             options={{
               styles: mapStyle,
               //Toggle buttons on map
@@ -139,8 +142,10 @@ export default class MapBaseLayer extends Component {
               width: '100vw',
               margin: 0,
               padding: 0,
+             // border: '0.6px solid #343a40'
             }}
           >
+             {this.state.mapIsLoadiong ? <LoadingSpinner /> : null }
             <MarkerClusterer
               averageCenter
               maxZoom={15}
@@ -236,7 +241,7 @@ const clusterIcons = [
     width: 20,
     borderRadius: 20/2,
     fontFamily: "Lato",
-    textColor: "#96504b",
+    textColor: "#fff",
   },
   {
     url: clusterPink,
@@ -244,7 +249,7 @@ const clusterIcons = [
     width: 30,
     borderRadius: 30/2,
     fontFamily: "Lato",
-    textColor: "#96504b",
+    textColor: "#fff",
   },
   {
     url: clusterPink,
@@ -252,7 +257,7 @@ const clusterIcons = [
     width: 50,
     borderRadius: 50/2,
     fontFamily: "Lato",
-    textColor: "#96504b",
+    textColor: "#fff",
   },
   // {
   //   url: over1000,
