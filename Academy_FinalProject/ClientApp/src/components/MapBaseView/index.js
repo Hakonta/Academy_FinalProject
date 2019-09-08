@@ -3,8 +3,8 @@ import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer, } from '@react-goog
 import ScooterMarker from '../ScooterMarker'
 import BikeStationMarker from '../BikeStationMarker'
 import under10 from '../../Assets/Under10.png'
-import clusterpink from '../../Assets/clusterPink.png'
-
+import clusterPink from '../../Assets/clusterPink.png'
+import clusterBlue from '../../Assets/clusterBlue.png'
 import over10 from '../../Assets/Over10.png'
 import over100 from '../../Assets/Over100.png'
 import over1000 from '../../Assets/Over1000.png'
@@ -237,21 +237,21 @@ const clusterIcons = [
   //   textColor: "#96504b",
   // },
   {
-    url: clusterpink,
+    url: clusterBlue,
     height: 20,
     width: 20,
     fontFamily: "Lato",
     textColor: "#96504b",
   },
   {
-    url: over10,
+    url: clusterBlue,
     height: 30,
     width: 30,
     fontFamily: "Lato",
     textColor: "#96504b",
   },
   {
-    url: over100,
+    url: clusterBlue,
     height: 50,
     width: 50,
     fontFamily: "Lato",
