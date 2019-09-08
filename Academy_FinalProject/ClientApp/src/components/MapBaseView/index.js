@@ -14,6 +14,7 @@ import { ThemeProvider } from 'react-bootstrap';
 //import CurrentPositionMarker from '../../Components/CurrentPositionMarker'
 import RideCard from '../RideCard';
 import FilterButton from '../FilterButton'
+import LoadingSpinner from '../loadingspinner'
 
 
 
@@ -38,7 +39,8 @@ export default class MapBaseLayer extends Component {
       currentCenter: {
         lat: 60.92,
         lng: 10.723
-      }
+      },
+      mapIsLoadiong: true,
     }
   }
 
@@ -121,22 +123,25 @@ export default class MapBaseLayer extends Component {
         <LoadScript
           id="script-loader"
           googleMapsApiKey="AIzaSyAp2jh1zbAqgoQH8qpd8Af622VYmIdfeVY"
+          onLoad={()=>{console.log('loading..' + this.state.mapIsLoadiong)}}
         >
           <GoogleMap
             id='example-map'
+            onTilesLoaded={()=>{this.setState({mapIsLoadiong: false}) ;console.log('map has loaded.' + this.state.mapIsLoadiong)}}
             options={{
               styles: mapStyle,
               //Toggle buttons on map
               fullscreenControl: false,
               mapTypeControl: false,
               streetViewControl: false,
-              clickableIcons: false
+              clickableIcons: false,
+             // disableDefaultUI: true,
             }}
             zoom={18}
             center={
               this.state.currentCenter
             }
-
+            
             mapContainerStyle={{
               height: '83vh',
               width: '100vw',
@@ -144,6 +149,7 @@ export default class MapBaseLayer extends Component {
               padding: 0,
             }}
           >
+            {this.state.mapIsLoadiong ? <LoadingSpinner /> : null }
             <MarkerClusterer
               averageCenter
               maxZoom={15}
