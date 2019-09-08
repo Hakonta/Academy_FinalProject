@@ -204,9 +204,8 @@ export default class MapBaseLayer extends Component {
                 }} >
 
                 <div>
-                <h3>{this.state.selectedBikeStation.stationName} stasjon</h3>
-                  CITYBIKE STATION
-                  CARD COMPONENT HERE
+                <h3>{this.state.selectedBikeStation.stationName} station</h3>
+                <h4>Bikes available: {this.state.selectedBikeStation.bikesAvailable}</h4>
               </div>
               </InfoWindow>
             )}
