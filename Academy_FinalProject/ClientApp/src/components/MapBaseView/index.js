@@ -128,21 +128,20 @@ export default class MapBaseLayer extends Component {
           <GoogleMap
             id='example-map'
             onTilesLoaded={()=>{this.setState({mapIsLoadiong: false}) ;console.log('map has loaded.' + this.state.mapIsLoadiong)}}
-            
-            
             options={{
               styles: mapStyle,
               //Toggle buttons on map
               fullscreenControl: false,
               mapTypeControl: false,
               streetViewControl: false,
-              clickableIcons: false
+              clickableIcons: false,
+             // disableDefaultUI: true,
             }}
             zoom={18}
             center={
               this.state.currentCenter
             }
-
+            
             mapContainerStyle={{
               height: '83vh',
               width: '100vw',
