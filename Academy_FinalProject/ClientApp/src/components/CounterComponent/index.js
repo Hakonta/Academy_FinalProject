@@ -112,15 +112,15 @@ class CounterComponent extends React.Component {
 
   render() {
     let start = (this.state.time === 0) ?
-      <div><h1>Have a safe ride!</h1><p>(Press the unlock button to begin your ride)</p><button style={styles.startButton} onClick={this.startTimer}>Unlock Scooter</button></div> :
+      <div><h3>Have a safe ride!</h3><p>(Press the unlock button to begin your ride)</p><button style={styles.startButton} onClick={this.startTimer}>Unlock Scooter</button></div> :
       null
     let stop = (this.state.time === 0 || !this.state.isOn) ?
       null :
-      <div><h2>Ride in progress</h2><h2>Time passed:</h2><h3>{this.showSeconds()}s / {this.showMinutes()}m / {Math.floor(((((this.state.time)/1000)/60)/60))}h</h3>
+      <div><h3>Ride in progress</h3><h4>Time passed:</h4><h4>{this.showSeconds()}s / {this.showMinutes()}m / {Math.floor(((((this.state.time)/1000)/60)/60))}h</h4>
       <p>Current cost: {this.showPrice()}</p><button style={styles.stopButton} onClick={this.stopTimer}>End Ride</button></div>
     let endRide = (this.state.time == 0 || this.state.isOn) ?
       null :
-      <div><h2>Thank you for the ride!</h2><h3>Total ride cost: {this.showPrice()}</h3></div>
+      <div><h4>Thank you for the ride!</h4><h4>Total ride cost: kr {this.showPrice()}</h4></div>
     // let reset = (this.state.time == 0 || this.state.isOn) ?
     //   null :
     //   <button onClick={this.resetTimer}>reset</button>
