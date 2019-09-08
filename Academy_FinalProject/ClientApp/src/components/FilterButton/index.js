@@ -15,22 +15,16 @@ const sortButton = (props) => {
     const [zvippIsClicked, setZvippIsClicked] = useState(true);
     const [citybikeIsClicked, setcitybikeIsClicked] = useState(true);
 
-
-
-
     return (
         <React.Fragment>
-            <div>
                 <button
                     onClick={() => { setIsClicked(!isClicked) }}
                     style={{
                         ...styles.sortButton,
                         ...(isClicked ? styles.buttonClicked : null)
-                    }}
-                >
+                    }}>
                     <img src={FilterIcon} alt={'sorticon'} style={{ width: 30 }} />
                 </button>
-
                 <div style={isClicked ? styles.card : styles.cardInActive}>
                     <img 
                         src={Voi} 
@@ -57,14 +51,10 @@ const sortButton = (props) => {
                         style={citybikeIsClicked ? styles.images : styles.imagesInactive}
                         onClick={()=>{props.setFilter('citybike'); setcitybikeIsClicked(!citybikeIsClicked)}} />
                 </div>
-            </div>
         </React.Fragment>
     )
 }
-
 export default sortButton;
-
-
 
 const styles = {
     sortButton: {

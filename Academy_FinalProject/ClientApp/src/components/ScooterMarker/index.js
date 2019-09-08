@@ -12,23 +12,14 @@ const decideMarkerIcon = (provider) => {
         case 'Flash': return 'http://maps.google.com/mapfiles/kml/paddle/pink-blank_maps.png'
     }
 }
-
 const scooterMarker = (props) => {
-
-
-
     return (
-
-
         <Marker
             position={props.position}
             clusterer={props.clusterer}
             onClick={() => { props.markerClicked() }}
             icon={{ url: decideMarkerIcon(props.provider) }}
         />
-
-
-
     )
 }
 export default scooterMarker
