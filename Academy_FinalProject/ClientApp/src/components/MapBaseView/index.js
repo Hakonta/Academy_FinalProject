@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer } from '@react-google-maps/api'
+import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer, } from '@react-google-maps/api'
 import ScooterMarker from '../ScooterMarker'
 import BikeStationMarker from '../BikeStationMarker'
 import under10 from '../../Assets/Under10.png'
@@ -11,8 +11,8 @@ import InfoCard from '../InfoCard'
 import config from '../../config'
 //import { ThemeProvider } from 'react-bootstrap';
 import { ThemeProvider } from 'react-bootstrap';
-
-import RideCard from '../RideCard/index_old';
+//import CurrentPositionMarker from '../../Components/CurrentPositionMarker'
+import RideCard from '../RideCard';
 import FilterButton from '../FilterButton'
 
 
@@ -28,7 +28,7 @@ export default class MapBaseLayer extends Component {
         circChecked: true,
         zvippChecked: true,
         citybikeChecked: true,
-        
+
       },
       showDefaultCard: true,
       bikeStations: [],
@@ -109,7 +109,7 @@ export default class MapBaseLayer extends Component {
         break;
       case 'citybike': this.setState(prevState => ({ filter: { ...prevState.filter, citybikeChecked: !this.state.filter.citybikeChecked } }))
         break;
-      default: this.setState(prevState => (this.state = prevState))
+      default:
     }
   }
 
@@ -122,7 +122,6 @@ export default class MapBaseLayer extends Component {
           id="script-loader"
           googleMapsApiKey="AIzaSyAp2jh1zbAqgoQH8qpd8Af622VYmIdfeVY"
         >
-
           <GoogleMap
             id='example-map'
             options={{
@@ -131,9 +130,7 @@ export default class MapBaseLayer extends Component {
               fullscreenControl: false,
               mapTypeControl: false,
               streetViewControl: false,
-              
-              
-
+              clickableIcons: false
             }}
             zoom={18}
             center={
@@ -141,47 +138,42 @@ export default class MapBaseLayer extends Component {
             }
 
             mapContainerStyle={{
-              height: '80vh',
+              height: '83vh',
               width: '100vw',
               margin: 0,
               padding: 0,
             }}
           >
-
-
-
-
             <MarkerClusterer
               averageCenter
+              maxZoom={15}
               minimumClusterSize={3}
-              maxZoom={20}
               styles={clusterIcons}
             >
               {
-                
                 (clusterer) => this.state.scooters.map((scooter, index) => (
                   <div key={index}>
                     {/* <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} /> */}
                     {this.state.filter.voiChecked && scooter.providerName === 'Voi' ?
                       <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
                       : null}
-                      {this.state.filter.tierChecked && scooter.providerName === 'Tier' ?
+                    {this.state.filter.tierChecked && scooter.providerName === 'Tier' ?
                       <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
                       : null}
-                      {this.state.filter.circChecked && scooter.providerName === 'Flash' ?
+                    {this.state.filter.circChecked && scooter.providerName === 'Flash' ?
                       <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
                       : null}
-                      {this.state.filter.zvippChecked && scooter.providerName === 'Zvipp' ?
+                    {this.state.filter.zvippChecked && scooter.providerName === 'Zvipp' ?
                       <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
                       : null}
                   </div>
                 ))
               }
 
-            </MarkerClusterer>
+            </MarkerClusterer> 
 
 
-            {this.state.selectedScooter && (
+             {this.state.selectedScooter && (
               <InfoWindow
                 style={{ backgroundColor: 'blue' }}
                 position={{ lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
@@ -190,14 +182,9 @@ export default class MapBaseLayer extends Component {
                 }}
 
               >
-
-                <div>
-                  {/* CARD COMPONENT HERE */}
-                  {this.state.showDefaultCard ?
-
-                    <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
-                    : <RideCard />}
-                </div>
+                {this.state.showDefaultCard ?
+                  <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
+                  : <RideCard />}
               </InfoWindow>
             )}
 
@@ -207,9 +194,8 @@ export default class MapBaseLayer extends Component {
             {this.state.filter.citybikeChecked ?
               this.state.bikeStations.map((bikeStation, index) => {
                 return (
-                  <div key={index}>
-                    <BikeStationMarker position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
-                  </div>)
+                  <BikeStationMarker key={index} position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
+                )
               }) : null}
 
             {this.state.selectedBikeStation && (
@@ -235,17 +221,18 @@ export default class MapBaseLayer extends Component {
           setFilter={this.filter} />
       </div>
     )
+
   }
 }
 
 const clusterIcons = [
-  {
-    url: under10,
-    height: 15,
-    width: 15,
-    fontFamily: "Lato",
-    textColor: "#96504b",
-  },
+  // {
+  //   url: under10,
+  //   height: 15,
+  //   width: 15,
+  //   fontFamily: "Lato",
+  //   textColor: "#96504b",
+  // },
   {
     url: under10,
     height: 20,
@@ -267,11 +254,11 @@ const clusterIcons = [
     fontFamily: "Lato",
     textColor: "#96504b",
   },
-  {
-    url: over1000,
-    height: 100,
-    width: 100,
-    fontFamily: "Lato",
-    textColor: "#96504b",
-  }
+  // {
+  //   url: over1000,
+  //   height: 100,
+  //   width: 100,
+  //   fontFamily: "Lato",
+  //   textColor: "#96504b",
+  // }
 ]
