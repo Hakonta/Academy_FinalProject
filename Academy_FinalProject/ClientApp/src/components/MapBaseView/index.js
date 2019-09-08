@@ -212,6 +212,7 @@ export default class MapBaseLayer extends Component {
                 }} >
 
                 <div>
+                  <h3>{this.state.selectedBikeStation.stationName} stasjon</h3>
                   CITYBIKE STATION
                   CARD COMPONENT HERE
               </div>

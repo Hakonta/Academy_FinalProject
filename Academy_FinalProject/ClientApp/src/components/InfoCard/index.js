@@ -2,6 +2,8 @@ import React from 'react'
 import Tier from '../../Assets/Tier.png'
 import Voi from '../../Assets/Voi.png'
 import Battery from '../../Assets/Battery.png'
+import Zvipp from '../../Assets/Zvipp.png' 
+import Circ from '../../Assets/circ.png'
 
 const styles = {
 outerContainer: {
@@ -23,7 +25,8 @@ const getProviderImage = (provider) => {
     switch (provider) {
         case 'Tier': return Tier
         case 'Voi': return Voi
-        // TODO: Add cases and images for Zvipp and Flash
+        case 'Zvipp': return Zvipp
+        case 'Flash': return Circ
 
     }
 }
