@@ -1,6 +1,12 @@
 import React from 'react'
 
 const styles = {
+    outerContainer: {
+        style: "flex", justifyContent:"center", alignItems:"center"
+      },
+      innerContainer: {
+        display:"flex", flexDirection:"column", justifyContent:"center", textAlign:"center"
+    },
     startButton: {
         backgroundColor:"darkGreen", color:"white"
     },
@@ -117,7 +123,8 @@ class CounterComponent extends React.Component {
     //   null :
     //   <button onClick={this.resetTimer}>reset</button>
     return(
-      <div>
+      <div style={styles.outerContainer}>
+          <div style={styles.innerContainer}>
         <h1>Have a safe ride!</h1>
         <h2>Time passed:</h2>
         <h3>{this.showSeconds()}s / {this.showMinutes()}m / {Math.floor(((((this.state.time)/1000)/60)/60))}h</h3>
@@ -126,7 +133,7 @@ class CounterComponent extends React.Component {
         <p>Current cost: {this.showPrice()}</p>
         {stop}
         {/* {reset} */}
-      </div>
+      </div></div>
     )
   }
 }

@@ -5,6 +5,9 @@ const styles = {
     outerContainer: {
       style: "flex", justifyContent:"center", alignItems:"center"
     },
+    innerContainer: {
+      display:"flex", flexDirection:"column", justifyContent:"center", textAlign:"center"
+  },
     startButton: {
         backgroundColor:"darkGreen", color:"white"
     },
@@ -40,9 +43,10 @@ class RideCard extends React.Component {
   render() {
     let verifyMenu = (!this.state.isOn) ?
       <div style={styles.outerContainer}>
+        <div style={styles.innerContainer}>
           <h1>Almost there...</h1>
           <h2>Please verify that you want to begin your ride and that you comply with the safety requirements</h2>
-          <button style={styles.startButton} onClick={this.unlockScooter}>Unlock Scooter</button></div> :
+          <button style={styles.startButton} onClick={this.unlockScooter}>I agree</button></div></div> :
       null
     let verified = (!this.state.isOn) ?
       null :

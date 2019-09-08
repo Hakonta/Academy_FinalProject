@@ -178,7 +178,7 @@ export default class MapBaseLayer extends Component {
                 style={{ backgroundColor: 'blue' }}
                 position={{ lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
                 onCloseClick={() => {
-                  this.setState({ selectedScooter: null })
+                  this.setState({ selectedScooter: null, showDefaultCard: true })
                 }}
 
               >
