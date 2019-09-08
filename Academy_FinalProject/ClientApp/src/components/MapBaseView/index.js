@@ -146,6 +146,7 @@ export default class MapBaseLayer extends Component {
               width: '100vw',
               margin: 0,
               padding: 0,
+              border: '0.6px solid #343a40'
             }}
           >
             {this.state.mapIsLoadiong ? <LoadingSpinner /> : null }

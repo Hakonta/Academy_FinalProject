@@ -17,9 +17,9 @@ export default class AppView extends Component {
 
   render() {
     return (
-      <div  >
+      <div>
         <HeaderBar />
-        <MapBase />
+        <MapBase  />
         <FooterBar />
       </div>
     )
