@@ -67,16 +67,14 @@ class CounterComponent extends React.Component {
               seconds: (this.state.time/1000).toFixed(0)
           }));
           this.setState({ 
-              seconds: (this.state.time/1000).toFixed(0), 
-              minutes: ((this.state.time/1000).toFixed(0)/120).toFixed(0),  
-              hours: (((this.state.time/1000)/60)/60).toFixed(0)  
+              seconds: Math.floor(((this.state.time)/1000)), 
+              minutes: Math.floor(((this.state.time)/1000/60)),  
+              hours: Math.floor(((((this.state.time)/1000)/60)/60))  
             
             }, () => {
             console.log(this.state.seconds, 'seconds')
             console.log(this.state.minutes, 'minutes')
             console.log(this.state.hours, 'hours');
-            ;
-            ;
           }); 
       }
       
@@ -120,6 +118,8 @@ class CounterComponent extends React.Component {
     //   <button onClick={this.resetTimer}>reset</button>
     return(
       <div>
+        <h1>Have a safe ride!</h1>
+        <h2>Time passed:</h2>
         <h3>{this.showSeconds()}s / {this.showMinutes()}m / {Math.floor(((((this.state.time)/1000)/60)/60))}h</h3>
         {start}
         {/* {resume} */}
