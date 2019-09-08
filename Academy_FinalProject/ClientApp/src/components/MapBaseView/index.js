@@ -12,7 +12,7 @@ import config from '../../config'
 //import { ThemeProvider } from 'react-bootstrap';
 import { ThemeProvider } from 'react-bootstrap';
 
-import RideCard from '../RideCard';
+import RideCard from '../RideCard/index_old';
 import FilterButton from '../FilterButton'
 
 
