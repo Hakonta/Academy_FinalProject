@@ -20,12 +20,20 @@ namespace Tests
         public void TestProviderNameTier()
         {
             FetchTierData tier = new FetchTierData();
-            var test = tier;
             FormattingDataTier formattingTier = new FormattingDataTier();
             var fetchTierTask = tier.FetchTierDataMethod();
             var scooters = formattingTier.CreateTierScooters(fetchTierTask.Result);
             Assert.AreEqual("Tier", scooters[0].ProviderName);
-
         }
+        [Test]
+        public void TestProviderNameVoi()
+        {
+            FetchVoiData tier = new FetchVoiData();
+            FormattingDataVoi formattingVoi = new FormattingDataVoi();
+            var fetchVoiTask = tier.FetchVoiDataMethod();
+            var scooters = formattingVoi.CreateVoiScooters(fetchVoiTask.Result);
+            Assert.AreEqual("Voi", scooters[0].ProviderName);
+        }
+
     }
 }
