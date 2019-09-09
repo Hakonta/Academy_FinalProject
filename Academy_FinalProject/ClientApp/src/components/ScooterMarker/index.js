@@ -1,8 +1,5 @@
 import React from 'react'
 import { Marker } from '@react-google-maps/api'
-// import TierIcon from '../../Assets/tier-dot.png'
-// import VoiIcon from '../../Assets/voi-dot.png'
-import FlasIcon from '../../Assets/yellow-dot.png'
 import markerTier from '../../Assets/markerTier.png'
 import markerVoi from '../../Assets/markerVoi.png'
 import markerCirc from '../../Assets/markerCirc.png'

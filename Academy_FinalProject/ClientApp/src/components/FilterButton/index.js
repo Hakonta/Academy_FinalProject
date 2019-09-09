@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import FilterIcon from '../../Assets/filterIcon.png'
 import Tier from '../../Assets/Tier.png'
 import Voi from '../../Assets/Voi.png'
-import BikeIcon from '../../Assets/CityBikeIcon.jpg'
+import BikeIcon from '../../Assets/markerBysykkel.png'
 import Circ from '../../Assets/circ.png'
 import Zvipp from '../../Assets/Zvipp.png'
 
