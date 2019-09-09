@@ -139,7 +139,8 @@ export default class MapBaseLayer extends Component {
               zoomControl: false, 
               mapTypeControl: false,
               streetViewControl: false,
-              clickableIcons: false
+              clickableIcons: false,
+              gestureHandling: 'greedy'
             }}
             zoom={18}
             center={
