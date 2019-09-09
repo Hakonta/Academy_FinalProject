@@ -13,6 +13,9 @@ import clusterBlue from '../../Assets/clusterBlue.png'
 import cluster20 from '../../Assets/cluster20.png'
 import cluster30 from '../../Assets/cluster30.png'
 import cluster50 from '../../Assets/cluster50.png'
+import bikecluster20 from '../../Assets/bikecluster20.png'
+import bikecluster30 from '../../Assets/bikecluster30.png'
+import bikecluster50 from '../../Assets/bikecluster50.png'
 import { HeaderBar } from '../../Components/HeaderBar';
 
 
@@ -29,6 +32,7 @@ export default class MapBaseLayer extends Component {
         citybikeChecked: true,
 
       },
+      showScooterFooter: false,
       mapIsLoadiong: true,
       showDefaultCard: true,
       bikeStations: [],
@@ -163,7 +167,7 @@ export default class MapBaseLayer extends Component {
                   <div key={index}>
                     {/* <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} /> */}
                     {this.state.filter.voiChecked && scooter.providerName === 'Voi' ?
-                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
+                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
                       : null}
                     {this.state.filter.tierChecked && scooter.providerName === 'Tier' ?
                       <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
@@ -177,15 +181,15 @@ export default class MapBaseLayer extends Component {
                   </div>
                 ))
               }
-
             </MarkerClusterer> 
             
+              {/* <CurrentPositionMarker position={{ lat: this.currentCenter.latitude, lng: this.currentCenter.longitude}}/> */}
 
-
-            {this.state.selectedScooter && (
+             {/* {this.state.selectedScooter && (
               <InfoWindow
                 style={{ backgroundColor: 'blue' }}
-                position={{ lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
+                // position={{ lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
+                position={ { lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
                 onCloseClick={() => {
                   this.setState({ selectedScooter: null, showDefaultCard: true })
                 }}
@@ -195,7 +199,7 @@ export default class MapBaseLayer extends Component {
                   <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
                   : <RideCard />}
               </InfoWindow>
-            )}
+            )} */}
 
 
 
@@ -203,7 +207,7 @@ export default class MapBaseLayer extends Component {
           <MarkerClusterer
               averageCenter
               minimumClusterSize={3}
-              styles={clusterIcons}
+              styles={bikeClusterIcons}
             >
               {
                 (clusterer) => this.state.bikeStations.map((bikeStation, index) => (
@@ -228,7 +232,10 @@ export default class MapBaseLayer extends Component {
                 </div>
               </InfoWindow>
             )}
-          <CurrentPositionMarker position={{lat: this.state.currentCenter.lat, lng: this.state.currentCenter.lng}}/>
+          {this.state.showScooterFooter ?
+                  <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
+                  : <RideCard />} : null}
+
           </GoogleMap>
         </LoadScript>
         <FilterButton
@@ -257,6 +264,32 @@ const clusterIcons = [
   },
   {
     url: cluster50,
+    height: 50,
+    width: 50,
+    //borderRadius: 20,
+    fontFamily: "Lato",
+    textColor: "#fff",
+  }
+]
+const bikeClusterIcons = [
+  {
+    url: bikecluster20,
+    height: 20,
+    width: 20,
+    //borderRadius: '50%',
+    fontFamily: "Lato",
+    textColor: "#fff",
+  },
+  {
+    url: bikecluster30,
+    height: 30,
+    width: 30,
+    //borderRadius: '20px',
+    fontFamily: "Lato",
+    textColor: "#fff",
+  },
+  {
+    url: bikecluster50,
     height: 50,
     width: 50,
     //borderRadius: 20,
