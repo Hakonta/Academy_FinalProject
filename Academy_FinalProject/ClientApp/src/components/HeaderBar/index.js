@@ -52,28 +52,24 @@ export class HeaderBar extends React.Component {
             &times;
           </a>
           <a>{<img src={logo} alt={''} height='60x' width='60px'/>}</a>
-          <h5>Hei Cez!</h5>
+          <h5>Hi Cez!</h5>
           <a href="/myAccount">My Account</a>
           <a href="/MyCardDetails">My Card Details</a>
           <a href="/MyRideHistory">My Ride History</a>
           <a href="/ContactUs">Contact us</a>
           <a href="/AboutUs">About us</a>
         </div>
-        <Button variant="dark" onClick={this.openNavClick}>
-          <i className="material-icons">
-            person
-          </i>
-           </Button>
-        <Button variant="dark" href="/">
-        {<img src={logo} alt={''} height='40px' width='40px'/>}
-          </Button>
-            <Button variant="dark">
-          <i className="material-icons">
-            menu
-          </i>
-          </Button>
+            <Button variant="dark" onClick={this.openNavClick}>
+              <i className="material-icons">
+                menu
+              </i>
+            </Button>
+      
+            <Button variant="dark" href="/">
+              {<img src={logo} alt={''} height='40px' width='40px'/>}
+            </Button>
+            
           </Navbar>
-     
       </div>
     )
   }
