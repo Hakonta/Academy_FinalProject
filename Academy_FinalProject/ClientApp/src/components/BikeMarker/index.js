@@ -7,6 +7,7 @@ const bikeMarker = (props) => {
     return (
         <Marker
             position={props.position}
+            clusterer={props.clusterer}
             onClick={() => { props.markerClicked() }}
             icon={{url:BysykkelIcon}}
             

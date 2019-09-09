@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer, } from '@react-google-maps/api'
 import ScooterMarker from '../ScooterMarker'
-import BikeStationMarker from '../BikeStationMarker'
+import BikeMarker from '../BikeMarker'
 import mapStyle from './mapStyle'
 import InfoCard from '../InfoCard'
 import config from '../../config'
@@ -200,13 +200,19 @@ export default class MapBaseLayer extends Component {
 
 
 
-            {this.state.filter.citybikeChecked ?
-              this.state.bikeStations.map((bikeStation, index) => {
-                return (
-                  <BikeStationMarker key={index} position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
-                )
-              }) : null}
-
+          <MarkerClusterer
+              averageCenter
+              minimumClusterSize={3}
+              styles={clusterIcons}
+            >
+              {
+                (clusterer) => this.state.bikeStations.map((bikeStation, index) => (
+                  <div key={index}>
+                    <BikeMarker position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
+                  </div>
+                ))
+              }
+            </MarkerClusterer>
             {this.state.selectedBikeStation && (
               <InfoWindow
                 style={{ backgroundColor: 'red' }}
