@@ -20,39 +20,41 @@ namespace Academy_FinalProject.Controllers {
         // GET: api/Scooter
         [HttpGet]
         public async Task<ActionResult<List<Scooter>>> Get() {
-            //----------      fetching data from Api's:       -----------//
-            // FLASH:
-   //         FetchFlashData flash = new FetchFlashData();
-   //         FormatingDataFlash formattingFlash = new FormatingDataFlash();
-   //         var fetchFlashTask = flash.FetchFlashDataMethod();
-            
-   //         // VOI:
-   //         FetchVoiData voi = new FetchVoiData();
-   //         FormattingDataVoi formattingVoi = new FormattingDataVoi();
-   //         var fetchVoiTask = voi.FetchVoiDataMethod();
+            ////----------      fetching data from Api's:       -----------//
+            //// FLASH:
+            //FetchFlashData flash = new FetchFlashData();
+            //FormatingDataFlash formattingFlash = new FormatingDataFlash();
+            //var fetchFlashTask = flash.FetchFlashDataMethod();
 
-   //         // TIER:
-   //         FetchTierData tier = new FetchTierData();
-   //         FormattingDataTier formattingTier = new FormattingDataTier();
-   //         var fetchTierTask = tier.FetchTierDataMethod();
+            //// VOI:
+            //FetchVoiData voi = new FetchVoiData();
+            //FormattingDataVoi formattingVoi = new FormattingDataVoi();
+            //var fetchVoiTask = voi.FetchVoiDataMethod();
 
-			//// ZVIPP:
-			//FetchZvippData zvipp = new FetchZvippData();
-			//FormattingDataZvipp formattingZvipp = new FormattingDataZvipp();
-			//var fetchZvippTask = zvipp.FetchZvippDataMethod();
+            //// TIER:
+            //FetchTierData tier = new FetchTierData();
+            //FormattingDataTier formattingTier = new FormattingDataTier();
+            //var fetchTierTask = tier.FetchTierDataMethod();
 
-			//// Running paralell fetch
-			//var allFlashScooters = formattingFlash.CreateFlashScooters(await fetchFlashTask);
-   //         var allVoiScooters = formattingVoi.CreateVoiScooters(await fetchVoiTask);
-   //         var allTierScooters = formattingTier.CreateTierScooters(await fetchTierTask);
-			//var allZvippScooters = formattingZvipp.CreateZvippScooters(await fetchZvippTask);
+            //// ZVIPP:
+            //FetchZvippData zvipp = new FetchZvippData();
+            //FormattingDataZvipp formattingZvipp = new FormattingDataZvipp();
+            //var fetchZvippTask = zvipp.FetchZvippDataMethod();
 
-			//// Concating all lists to one list
-			//var allScooters = allFlashScooters.Concat(allTierScooters).Concat(allVoiScooters).Concat(allZvippScooters).ToList();
-			//// 
+            //// Running paralell fetch
+            //var allFlashScooters = formattingFlash.CreateFlashScooters(await fetchFlashTask);
+            //var allVoiScooters = formattingVoi.CreateVoiScooters(await fetchVoiTask);
+            //var allTierScooters = formattingTier.CreateTierScooters(await fetchTierTask);
+            //var allZvippScooters = formattingZvipp.CreateZvippScooters(await fetchZvippTask);
 
-			// Returning list with all scooters
-			return Ok(Fetcher.Scooters);
+            //// Concating all lists to one list
+            //var allScooters = allFlashScooters.Concat(allTierScooters).Concat(allVoiScooters).Concat(allZvippScooters).ToList();
+            //// 
+
+            ////Returning list with all scooters
+            //return Ok(allScooters);
+
+            return Ok(Fetcher.Scooters);
         }
       
 

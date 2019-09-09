@@ -16,16 +16,16 @@ namespace Academy_FinalProject.Controllers
     {
         [HttpGet]
         public async Task<ActionResult<List<Bysykkel>>> Get() {
-            FetchBysykler bysykler = new FetchBysykler();
-            FormattingDataBysykkel formattingBysykkel = new FormattingDataBysykkel();
-            var fetchBysykkelTask = bysykler.FetchStationInfoData();
-            var fetchBysykkelTask2 = bysykler.FetchBikeData();
+            //FetchBysykler bysykler = new FetchBysykler();
+            //FormattingDataBysykkel formattingBysykkel = new FormattingDataBysykkel();
+            //var fetchBysykkelTask = bysykler.FetchStationInfoData();
+            //var fetchBysykkelTask2 = bysykler.FetchBikeData();
 
-            var allBysykkel = formattingBysykkel.CreateBikesInfo(await fetchBysykkelTask, await fetchBysykkelTask2);
+            //var allBysykkel = formattingBysykkel.CreateBikesInfo(await fetchBysykkelTask, await fetchBysykkelTask2);
 
-            var allBikes = allBysykkel.ToList();
+            //var allBikes = allBysykkel.ToList();
 
-            return Ok(allBikes);
+            return Ok(Fetcher.Bikes);
         }
 
     }
