@@ -29,6 +29,7 @@ export default class MapBaseLayer extends Component {
         citybikeChecked: true,
 
       },
+      showScooterFooter: false,
       mapIsLoadiong: true,
       showDefaultCard: true,
       bikeStations: [],
@@ -163,7 +164,7 @@ export default class MapBaseLayer extends Component {
                   <div key={index}>
                     {/* <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} /> */}
                     {this.state.filter.voiChecked && scooter.providerName === 'Voi' ?
-                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
+                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
                       : null}
                     {this.state.filter.tierChecked && scooter.providerName === 'Tier' ?
                       <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
@@ -182,11 +183,11 @@ export default class MapBaseLayer extends Component {
             
 
 
-             {this.state.selectedScooter && (
+             {/* {this.state.selectedScooter && (
               <InfoWindow
                 style={{ backgroundColor: 'blue' }}
                 // position={{ lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
-                position={{ lat: this.state.selectedScooter.latitude - 0.0012, lng: this.state.selectedScooter.longitude }}
+                position={ { lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
                 onCloseClick={() => {
                   this.setState({ selectedScooter: null, showDefaultCard: true })
                 }}
@@ -196,7 +197,7 @@ export default class MapBaseLayer extends Component {
                   <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
                   : <RideCard />}
               </InfoWindow>
-            )}
+            )} */}
 
 
 
@@ -229,7 +230,9 @@ export default class MapBaseLayer extends Component {
               </div>
               </InfoWindow>
             )}
-
+          {this.state.showScooterFooter ?
+                  <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
+                  : <RideCard />} : null}
 
           </GoogleMap>
         </LoadScript>
