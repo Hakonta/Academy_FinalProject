@@ -68,7 +68,7 @@ const styles = {
         left: '5%',
         bottom: '11%',
         boxShadow: ' 20px 21px 63px -9px rgba(0,0,0,0.58)',
-        zIndex: 100,
+        zIndex: 2,
         outline: 'none'
     },
     buttonClicked: {

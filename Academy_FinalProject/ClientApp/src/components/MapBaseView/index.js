@@ -142,8 +142,9 @@ export default class MapBaseLayer extends Component {
             }
             
             mapContainerStyle={{
-              height: '83vh',
+              height: '100vh',
               width: '100vw',
+              marginTop: '75px',
               margin: 0,
               padding: 0,
             }}
