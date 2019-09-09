@@ -13,6 +13,9 @@ import clusterBlue from '../../Assets/clusterBlue.png'
 import cluster20 from '../../Assets/cluster20.png'
 import cluster30 from '../../Assets/cluster30.png'
 import cluster50 from '../../Assets/cluster50.png'
+import bikecluster20 from '../../Assets/bikecluster20.png'
+import bikecluster30 from '../../Assets/bikecluster30.png'
+import bikecluster50 from '../../Assets/bikecluster50.png'
 import { HeaderBar } from '../../Components/HeaderBar';
 
 
@@ -177,10 +180,9 @@ export default class MapBaseLayer extends Component {
                   </div>
                 ))
               }
-
             </MarkerClusterer> 
             
-
+              {/* <CurrentPositionMarker position={{ lat: this.currentCenter.latitude, lng: this.currentCenter.longitude}}/> */}
 
              {this.state.selectedScooter && (
               <InfoWindow
@@ -203,7 +205,7 @@ export default class MapBaseLayer extends Component {
           <MarkerClusterer
               averageCenter
               minimumClusterSize={3}
-              styles={clusterIcons}
+              styles={bikeClusterIcons}
             >
               {
                 (clusterer) => this.state.bikeStations.map((bikeStation, index) => (
@@ -259,6 +261,32 @@ const clusterIcons = [
   },
   {
     url: cluster50,
+    height: 50,
+    width: 50,
+    //borderRadius: 20,
+    fontFamily: "Lato",
+    textColor: "#fff",
+  }
+]
+const bikeClusterIcons = [
+  {
+    url: bikecluster20,
+    height: 20,
+    width: 20,
+    //borderRadius: '50%',
+    fontFamily: "Lato",
+    textColor: "#fff",
+  },
+  {
+    url: bikecluster30,
+    height: 30,
+    width: 30,
+    //borderRadius: '20px',
+    fontFamily: "Lato",
+    textColor: "#fff",
+  },
+  {
+    url: bikecluster50,
     height: 50,
     width: 50,
     //borderRadius: 20,
