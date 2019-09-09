@@ -7,7 +7,7 @@ import Circ from '../../Assets/circ.png'
 
 const styles = {
 outerContainer: {
-    display:"flex"
+    display:"flex",
 },
 innerContainer: {
     display:"flex", flexDirection:"column", justifyContent:"center"

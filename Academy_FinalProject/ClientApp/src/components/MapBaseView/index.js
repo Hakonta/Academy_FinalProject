@@ -13,7 +13,6 @@ import RideCard from '../RideCard';
 import FilterButton from '../FilterButton'
 import LoadingSpinner from '../loadingspinner'
 import clusterBlue from '../../Assets/clusterBlue.png'
-import { HeaderBar } from '../../Components/HeaderBar';
 
 
 
@@ -125,7 +124,7 @@ export default class MapBaseLayer extends Component {
         >
           <GoogleMap
             id='example-map'
-            onTilesLoaded={()=>{this.setState({mapIsLoadiong: false}) ; console.log('map has loaded.')}}
+            onTilesLoaded={() => { this.setState({ mapIsLoadiong: false }); console.log('map has loaded.') }}
             options={{
               styles: mapStyle,
               //Toggle buttons on map
@@ -145,14 +144,13 @@ export default class MapBaseLayer extends Component {
               marginTop: '75px',
               margin: 0,
               padding: 0,
-             // border: '0.6px solid #343a40'
+              // border: '0.6px solid #343a40'
             }}
           >
-            <HeaderBar />
-             {this.state.mapIsLoadiong ? <LoadingSpinner /> : null }
+            {this.state.mapIsLoadiong ? <LoadingSpinner /> : null}
+
             <MarkerClusterer
               averageCenter
-              maxZoom={15}
               minimumClusterSize={3}
               styles={clusterIcons}
             >
@@ -176,10 +174,10 @@ export default class MapBaseLayer extends Component {
                 ))
               }
 
-            </MarkerClusterer> 
+            </MarkerClusterer>
 
 
-             {this.state.selectedScooter && (
+            {this.state.selectedScooter && (
               <InfoWindow
                 style={{ backgroundColor: 'blue' }}
                 position={{ lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
@@ -196,13 +194,18 @@ export default class MapBaseLayer extends Component {
 
 
 
-
-            {this.state.filter.citybikeChecked ?
-              this.state.bikeStations.map((bikeStation, index) => {
-                return (
-                  <BikeStationMarker key={index} position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
-                )
-              }) : null}
+            <MarkerClusterer
+              averageCenter
+              minimumClusterSize={3}
+              styles={clusterIcons}
+            >
+              {(clusterer) => this.state.bikeStations.map((bikeStation, index) => (
+                <div key={index}>
+                  <BikeMarker position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
+                </div>
+              )
+              )}
+            </MarkerClusterer>
 
             {this.state.selectedBikeStation && (
               <InfoWindow
@@ -213,10 +216,10 @@ export default class MapBaseLayer extends Component {
                 }} >
 
                 <div>
-                <h3>{this.state.selectedBikeStation.stationName} station</h3>
-                <h4>Bikes available: {this.state.selectedBikeStation.bikesAvailable}</h4>
-                <h4>Docks available: {this.state.selectedBikeStation.docksAvailable}</h4>
-              </div>
+                  <h3>{this.state.selectedBikeStation.stationName} station</h3>
+                  <h4>Bikes available: {this.state.selectedBikeStation.bikesAvailable}</h4>
+                  <h4>Docks available: {this.state.selectedBikeStation.docksAvailable}</h4>
+                </div>
               </InfoWindow>
             )}
 
@@ -244,7 +247,7 @@ const clusterIcons = [
     url: clusterPink,
     height: 20,
     width: 20,
-    borderRadius: 20/2,
+    borderRadius: 20 / 2,
     fontFamily: "Lato",
     textColor: "#fff",
   },
@@ -252,7 +255,7 @@ const clusterIcons = [
     url: clusterPink,
     height: 30,
     width: 30,
-    borderRadius: 30/2,
+    borderRadius: 30 / 2,
     fontFamily: "Lato",
     textColor: "#fff",
   },
@@ -260,7 +263,7 @@ const clusterIcons = [
     url: clusterBlue,
     height: 50,
     width: 50,
-    borderRadius: 50/2,
+    borderRadius: 50 / 2,
     fontFamily: "Lato",
     textColor: "#fff",
   },
