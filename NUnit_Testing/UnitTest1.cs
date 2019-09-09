@@ -34,6 +34,9 @@ namespace Tests
             var scooters = formattingVoi.CreateVoiScooters(fetchVoiTask.Result);
             Assert.AreEqual("Voi", scooters[0].ProviderName);
         }
+        // Due to the time constraints of this project, we haven't tested
+        // very extensively or for all the providers. 
+
 
     }
 }
