@@ -232,10 +232,10 @@ export default class MapBaseLayer extends Component {
               </div>
               </InfoWindow>
             )}
-            
-          {this.state.showScooterFooter ? <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} 
+            {this.state.showDefaultCard ?
+          this.state.showScooterFooter ? <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} 
           toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} /> 
-                  : null} {this.state.showDefaultCard && this.state.showScooterFooter ? null : <RideCard /> }
+                  : null : <RideCard/> }
 
           </GoogleMap>
         </LoadScript>
