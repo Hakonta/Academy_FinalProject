@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import FilterIcon from '../../Assets/filterIcon.png'
 import Tier from '../../Assets/Tier.png'
 import Voi from '../../Assets/Voi.png'
-import BikeIcon from '../../Assets/CityBikeIcon.jpg'
+import BikeIcon from '../../Assets/markerBysykkel.png'
 import Circ from '../../Assets/circ.png'
 import Zvipp from '../../Assets/Zvipp.png'
 
@@ -66,7 +66,7 @@ const styles = {
         padding: 2,
         position: 'fixed',
         left: '5%',
-        bottom: '11%',
+        bottom: '3%',
         boxShadow: ' 20px 21px 63px -9px rgba(0,0,0,0.58)',
         zIndex: 5,
         outline: 'none'

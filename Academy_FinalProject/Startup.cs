@@ -14,8 +14,8 @@ namespace Academy_FinalProject
         private readonly ILogger _logger;
         public Startup(IConfiguration configuration, ILogger<Startup> logger)
         {
-            Configuration = configuration;
             _logger = logger;
+            Configuration = configuration;
         }
 
         readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -39,9 +39,7 @@ namespace Academy_FinalProject
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
-            _logger.LogInformation("Added TodoRepository to services"); 
-
+            _logger.LogInformation("Added TodoRepository to services");
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

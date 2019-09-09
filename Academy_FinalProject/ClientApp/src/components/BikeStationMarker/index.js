@@ -1,6 +1,6 @@
 import React from 'react'
 import { Marker } from '@react-google-maps/api'
-import BikeIcon from '../../Assets/CityBikeIcon.jpg'
+import BysykkelIcon from '../../Assets/markerBysykkel.png'
 
 const bikeMarker = (props) => {
 
@@ -8,8 +8,8 @@ const bikeMarker = (props) => {
         <Marker
             position={props.position}
             onClick={() => { props.markerClicked() }}
-            icon={{url:BikeIcon}}
-            //  e
+            icon={{url:BysykkelIcon}}
+            
         />
     )
 }
