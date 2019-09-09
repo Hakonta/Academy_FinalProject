@@ -12,6 +12,7 @@ import { ThemeProvider } from 'react-bootstrap';
 import RideCard from '../RideCard';
 import FilterButton from '../FilterButton'
 import LoadingSpinner from '../loadingspinner'
+import clusterBlue from '../../Assets/clusterBlue.png'
 
 
 
@@ -253,7 +254,7 @@ const clusterIcons = [
     textColor: "#fff",
   },
   {
-    url: clusterPink,
+    url: clusterBlue,
     height: 50,
     width: 50,
     borderRadius: 50/2,
