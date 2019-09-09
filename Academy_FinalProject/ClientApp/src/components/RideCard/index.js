@@ -43,9 +43,11 @@ class RideCard extends React.Component {
   render() {
     let verifyMenu = (!this.state.isOn) ?
       <div style={styles.outerContainer}>
+        <div id="test"></div>
         <div style={styles.innerContainer}>
-          <h1>Almost there...</h1>
-          <h2>Please verify that you want to begin your ride and that you comply with the safety requirements</h2>
+          <h4>Almost there...</h4>
+          <p>Please verify that you want to begin your ride and that you comply with the safety requirements</p>
+          <a href="#test">Terms of agreement</a>
           <button style={styles.startButton} onClick={this.unlockScooter}>I agree</button></div></div> :
       null
     let verified = (!this.state.isOn) ?

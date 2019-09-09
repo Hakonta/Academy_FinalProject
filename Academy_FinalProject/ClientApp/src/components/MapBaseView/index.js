@@ -2,18 +2,17 @@ import React, { Component } from 'react'
 import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer, } from '@react-google-maps/api'
 import ScooterMarker from '../ScooterMarker'
 import BikeStationMarker from '../BikeStationMarker'
-import under10 from '../../Assets/Under10.png'
-import over10 from '../../Assets/Over10.png'
-import over100 from '../../Assets/Over100.png'
-import over1000 from '../../Assets/Over1000.png'
+import clusterPink from '../../Assets/clusterPink.png'
 import mapStyle from './mapStyle'
 import InfoCard from '../InfoCard'
 import config from '../../config'
 //import { ThemeProvider } from 'react-bootstrap';
+import { ThemeProvider } from 'react-bootstrap';
 //import CurrentPositionMarker from '../../Components/CurrentPositionMarker'
 import RideCard from '../RideCard';
 import FilterButton from '../FilterButton'
 import LoadingSpinner from '../loadingspinner'
+import clusterBlue from '../../Assets/clusterBlue.png'
 
 
 
@@ -30,6 +29,7 @@ export default class MapBaseLayer extends Component {
         citybikeChecked: true,
 
       },
+      mapIsLoadiong: true,
       showDefaultCard: true,
       bikeStations: [],
       scooters: [],
@@ -38,8 +38,7 @@ export default class MapBaseLayer extends Component {
       currentCenter: {
         lat: 60.92,
         lng: 10.723
-      },
-      mapIsLoadiong: true,
+      }
     }
   }
 
@@ -122,34 +121,33 @@ export default class MapBaseLayer extends Component {
         <LoadScript
           id="script-loader"
           googleMapsApiKey="AIzaSyAp2jh1zbAqgoQH8qpd8Af622VYmIdfeVY"
-          onLoad={()=>{console.log('loading..' + this.state.mapIsLoadiong)}}
         >
           <GoogleMap
             id='example-map'
-            onTilesLoaded={()=>{this.setState({mapIsLoadiong: false}) ;console.log('map has loaded.' + this.state.mapIsLoadiong)}}
+            onTilesLoaded={()=>{this.setState({mapIsLoadiong: false}) ; console.log('map has loaded.')}}
             options={{
               styles: mapStyle,
               //Toggle buttons on map
               fullscreenControl: false,
               mapTypeControl: false,
               streetViewControl: false,
-              clickableIcons: false,
-             // disableDefaultUI: true,
+              clickableIcons: false
             }}
             zoom={18}
             center={
               this.state.currentCenter
             }
-            
+
             mapContainerStyle={{
               height: '100vh',
               width: '100vw',
               marginTop: '75px',
               margin: 0,
               padding: 0,
+             // border: '0.6px solid #343a40'
             }}
           >
-            {this.state.mapIsLoadiong ? <LoadingSpinner /> : null }
+             {this.state.mapIsLoadiong ? <LoadingSpinner /> : null }
             <MarkerClusterer
               averageCenter
               maxZoom={15}
@@ -213,8 +211,9 @@ export default class MapBaseLayer extends Component {
                 }} >
 
                 <div>
-                  CITYBIKE STATION
-                  CARD COMPONENT HERE
+                <h3>{this.state.selectedBikeStation.stationName} station</h3>
+                <h4>Bikes available: {this.state.selectedBikeStation.bikesAvailable}</h4>
+                <h4>Docks available: {this.state.selectedBikeStation.docksAvailable}</h4>
               </div>
               </InfoWindow>
             )}
@@ -240,25 +239,28 @@ const clusterIcons = [
   //   textColor: "#96504b",
   // },
   {
-    url: under10,
+    url: clusterPink,
     height: 20,
     width: 20,
+    borderRadius: 20/2,
     fontFamily: "Lato",
-    textColor: "#96504b",
+    textColor: "#fff",
   },
   {
-    url: over10,
+    url: clusterPink,
     height: 30,
     width: 30,
+    borderRadius: 30/2,
     fontFamily: "Lato",
-    textColor: "#96504b",
+    textColor: "#fff",
   },
   {
-    url: over100,
+    url: clusterBlue,
     height: 50,
     width: 50,
+    borderRadius: 50/2,
     fontFamily: "Lato",
-    textColor: "#96504b",
+    textColor: "#fff",
   },
   // {
   //   url: over1000,

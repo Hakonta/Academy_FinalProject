@@ -2,6 +2,8 @@ import React from 'react'
 import Tier from '../../Assets/Tier.png'
 import Voi from '../../Assets/Voi.png'
 import Battery from '../../Assets/Battery.png'
+import Zvipp from '../../Assets/Zvipp.png' 
+import Circ from '../../Assets/circ.png'
 
 const styles = {
 outerContainer: {
@@ -23,7 +25,8 @@ const getProviderImage = (provider) => {
     switch (provider) {
         case 'Tier': return Tier
         case 'Voi': return Voi
-        // TODO: Add cases and images for Zvipp and Flash
+        case 'Zvipp': return Zvipp
+        case 'Flash': return Circ
 
     }
 }
@@ -34,7 +37,7 @@ export default function InfoCard(props)
     return (
         <div style={styles.outerContainer}><div style={styles.innerContainer}>
         <div style={styles.cardDiv}><img src={getProviderImage(props.providerName)} alt={props.providerName}></img>
-        <h1><img src={Battery}></img>&nbsp;{props.battery} %</h1><h3>10 kr + 2 kr/min<br></br></h3><button onClick={() => { props.toggleRideCard()}} style={styles.button}>Start Ride</button><br></br>
+        <h1><img src={Battery}></img>&nbsp;{props.battery} %</h1><h4>10 kr + 2 kr/min<br></br></h4><button onClick={() => { props.toggleRideCard()}} style={styles.button}>Start Ride</button><br></br>
         </div></div></div>
     )
 }
