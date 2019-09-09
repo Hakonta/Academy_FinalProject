@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Academy_FinalProject.FormatData;
 using Academy_FinalProject.ImportAPI;
 using Academy_FinalProject.Models;
+using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
 
 namespace Tests
@@ -14,14 +17,14 @@ namespace Tests
         }
 
         [Test]
-        public void Test1()
+        public void TestProviderNameTier()
         {
             FetchTierData tier = new FetchTierData();
             var test = tier;
             FormattingDataTier formattingTier = new FormattingDataTier();
-            Scooter scooter = new Scooter();
-            List<Scooter> scooters = new List<Scooter>();
-            Assert.AreEqual("Tier", tier);
+            var fetchTierTask = tier.FetchTierDataMethod();
+            var scooters = formattingTier.CreateTierScooters(fetchTierTask.Result);
+            Assert.AreEqual("Tier", scooters[0].ProviderName);
 
         }
     }
