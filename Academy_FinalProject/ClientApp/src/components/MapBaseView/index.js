@@ -146,9 +146,12 @@ export default class MapBaseLayer extends Component {
               margin: 0,
               padding: 0,
              // border: '0.6px solid #343a40'
-            }}
-          >      <HeaderBar />
+            }}>      
+
+            <HeaderBar />
+
              {this.state.mapIsLoadiong ? <LoadingSpinner /> : null }
+
             <MarkerClusterer
               averageCenter
               maxZoom={15}
@@ -227,7 +230,6 @@ export default class MapBaseLayer extends Component {
           setFilter={this.filter} />
       </div>
     )
-
   }
 }
 
