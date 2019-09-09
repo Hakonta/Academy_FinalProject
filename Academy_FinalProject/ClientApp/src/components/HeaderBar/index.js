@@ -1,7 +1,7 @@
 import React from "react"
 import "./sideNav.css"
 import {Navbar, Button} from 'react-bootstrap';
-import logo from '../../Assets/SQT.png'
+import logo from '../../Assets/FullLogo.png'
 export class HeaderBar extends React.Component {
   state = {
     state: {
@@ -51,7 +51,7 @@ export class HeaderBar extends React.Component {
           <a href="/" onClick={this.closeNavClick} className="close-nav">
             &times;
           </a>
-          <a>{<img src={logo} alt={''} height='60x' width='60px'/>}</a>
+          <a>{<img src={logo} alt={''} height='60x' width='100px'/>}</a>
           <h5>Hi Cez!</h5>
           <a href="/myAccount">My Account</a>
           <a href="/MyCardDetails">My Card Details</a>

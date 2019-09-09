@@ -179,6 +179,7 @@ export default class MapBaseLayer extends Component {
               }
 
             </MarkerClusterer> 
+            
 
 
              {this.state.selectedScooter && (
