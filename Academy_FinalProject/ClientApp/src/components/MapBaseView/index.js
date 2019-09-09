@@ -2,13 +2,10 @@ import React, { Component } from 'react'
 import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer, } from '@react-google-maps/api'
 import ScooterMarker from '../ScooterMarker'
 import BikeStationMarker from '../BikeStationMarker'
-import clusterPink from '../../Assets/clusterPink.png'
 import mapStyle from './mapStyle'
 import InfoCard from '../InfoCard'
 import config from '../../config'
-//import { ThemeProvider } from 'react-bootstrap';
-import { ThemeProvider } from 'react-bootstrap';
-//import CurrentPositionMarker from '../../Components/CurrentPositionMarker'
+import CurrentPositionMarker from '../../Components/CurrentPositionMarker'
 import RideCard from '../RideCard';
 import FilterButton from '../FilterButton'
 import LoadingSpinner from '../loadingspinner'
@@ -16,11 +13,7 @@ import clusterBlue from '../../Assets/clusterBlue.png'
 import cluster20 from '../../Assets/cluster20.png'
 import cluster30 from '../../Assets/cluster30.png'
 import cluster50 from '../../Assets/cluster50.png'
-
-
 import { HeaderBar } from '../../Components/HeaderBar';
-
-
 
 
 
@@ -239,18 +232,11 @@ export default class MapBaseLayer extends Component {
 }
 
 const clusterIcons = [
-  // {
-  //   url: under10,
-  //   height: 15,
-  //   width: 15,
-  //   fontFamily: "Lato",
-  //   textColor: "#96504b",
-  // },
   {
     url: cluster20,
     height: 20,
     width: 20,
-    borderRadius: '50%',
+    //borderRadius: '50%',
     fontFamily: "Lato",
     textColor: "#fff",
   },
@@ -258,7 +244,7 @@ const clusterIcons = [
     url: cluster30,
     height: 30,
     width: 30,
-    borderRadius: '20px',
+    //borderRadius: '20px',
     fontFamily: "Lato",
     textColor: "#fff",
   },
@@ -266,15 +252,8 @@ const clusterIcons = [
     url: cluster50,
     height: 50,
     width: 50,
-    borderRadius: 20,
+    //borderRadius: 20,
     fontFamily: "Lato",
     textColor: "#fff",
-  },
-  // {
-  //   url: over1000,
-  //   height: 100,
-  //   width: 100,
-  //   fontFamily: "Lato",
-  //   textColor: "#96504b",
-  // }
+  }
 ]
