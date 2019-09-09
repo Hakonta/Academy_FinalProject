@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer, } from '@react-google-maps/api'
+import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer } from '@react-google-maps/api'
 import ScooterMarker from '../ScooterMarker'
 import BikeMarker from '../BikeMarker'
 import mapStyle from './mapStyle'
@@ -228,11 +228,9 @@ export default class MapBaseLayer extends Component {
                 </div>
               </InfoWindow>
             )}
-
-
+          <CurrentPositionMarker position={{lat: this.state.currentCenter.lat, lng: this.state.currentCenter.lng}}/>
           </GoogleMap>
         </LoadScript>
-
         <FilterButton
           setFilter={this.filter} />
       </div>

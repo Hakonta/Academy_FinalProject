@@ -39,6 +39,7 @@ export class HeaderBar extends React.Component {
     let navCoverStyle = { width: showNav ? "70%" : "0" }
     let sideNavStyle = { width: showNav ? "70%" : "0" }
     return (
+
       <div style={{height: '100%', width: '100vw'}}>
       
          <Navbar bg="dark" expand="xl" class="open-nav">
@@ -60,7 +61,7 @@ export class HeaderBar extends React.Component {
           <a href="/AboutUs">About us</a>
         </div>
             <Button variant="dark" onClick={this.openNavClick}>
-              <i className="material-icons">
+              <i style={{fontSize:"40px"}} className="material-icons">
                 menu
               </i>
             </Button>
