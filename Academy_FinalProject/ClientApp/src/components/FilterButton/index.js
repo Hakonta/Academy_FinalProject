@@ -66,7 +66,7 @@ const styles = {
         padding: 2,
         position: 'fixed',
         left: '5%',
-        bottom: '11%',
+        bottom: '3%',
         boxShadow: ' 20px 21px 63px -9px rgba(0,0,0,0.58)',
         zIndex: 5,
         outline: 'none'

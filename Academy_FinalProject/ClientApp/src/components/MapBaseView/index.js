@@ -13,6 +13,8 @@ import RideCard from '../RideCard';
 import FilterButton from '../FilterButton'
 import LoadingSpinner from '../loadingspinner'
 import clusterBlue from '../../Assets/clusterBlue.png'
+import { HeaderBar } from '../../Components/HeaderBar';
+
 
 
 
@@ -129,6 +131,7 @@ export default class MapBaseLayer extends Component {
               styles: mapStyle,
               //Toggle buttons on map
               fullscreenControl: false,
+              zoomControl: false, 
               mapTypeControl: false,
               streetViewControl: false,
               clickableIcons: false
@@ -145,7 +148,7 @@ export default class MapBaseLayer extends Component {
               padding: 0,
              // border: '0.6px solid #343a40'
             }}
-          >
+          >      <HeaderBar />
              {this.state.mapIsLoadiong ? <LoadingSpinner /> : null }
             <MarkerClusterer
               averageCenter
