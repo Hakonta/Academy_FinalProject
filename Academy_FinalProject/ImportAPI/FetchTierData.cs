@@ -6,9 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace Academy_FinalProject.ImportAPI {
     public class FetchTierData {
+
 
         public async Task<TierResponse> FetchTierDataMethod() {
 
@@ -21,7 +23,6 @@ namespace Academy_FinalProject.ImportAPI {
                     var response = await httpClient.GetAsync(url);
                     var content = await response.Content.ReadAsStringAsync();
                     var tierResponse = JsonConvert.DeserializeObject<TierResponse>(content);
-
                     return tierResponse;
                 }
             }
