@@ -35,5 +35,16 @@ namespace Tests
             Assert.AreEqual("Voi", scooters[0].ProviderName);
         }
 
+        [Test]
+        public void TestingBysykkel()
+        {
+            FetchBysykler bysykler = new FetchBysykler();
+            var something = bysykler;
+            FormattingDataBysykkel formattingDataBysykkel = new FormattingDataBysykkel();
+            var fetchBysykkelTask = bysykler.FetchStationInfoData();
+            var bikes = formattingDataBysykkel.CreateBikesInfo(fetchBysykkelTask.Result, fetchBysykkelTask.Result);
+            Assert.GreaterOrEqual(bikes[0].StationCapacity, 1);
+        }
+
     }
 }
