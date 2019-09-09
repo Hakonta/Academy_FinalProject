@@ -124,7 +124,7 @@ export default class MapBaseLayer extends Component {
         >
           <GoogleMap
             id='example-map'
-            onTilesLoaded={()=>{this.setState({mapIsLoadiong: false}) ;console.log('map has loaded.')}}
+            onTilesLoaded={()=>{this.setState({mapIsLoadiong: false}) ; console.log('map has loaded.')}}
             options={{
               styles: mapStyle,
               //Toggle buttons on map
@@ -139,7 +139,7 @@ export default class MapBaseLayer extends Component {
             }
 
             mapContainerStyle={{
-              height: '83vh',
+              height: '100vh',
               width: '100vw',
               margin: 0,
               padding: 0,

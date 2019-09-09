@@ -29,12 +29,11 @@ app.post("/checkout", async (req, res) => {
     const charge = await stripe.charges.create(
       {
         amount: product.price * 100,
-        currency: "usd",
+        currency: "nok",
         customer: customer.id,
         receipt_email: token.email,
         description: `Purchased the ${product.name}`,
-        }
-      },
+        },
       {
         idempotency_key
       }
