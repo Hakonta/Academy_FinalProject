@@ -18,6 +18,20 @@ namespace Academy_FinalProject {
         public static void Main(string[] args) {
 
             CreateWebHostBuilder(args).Build().Run();
+            var webHost = new WebHostBuilder()
+                .ConfigureLogging((hostingContext, logging) =>
+                {
+                    // Requires `using Microsoft.Extensions.Logging;`
+                    logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+                    logging.AddConsole();
+                    logging.AddDebug();
+                    logging.AddEventSourceLogger();
+                    
+                })
+                .UseStartup<Startup>()
+                .Build();
+
+            webHost.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
