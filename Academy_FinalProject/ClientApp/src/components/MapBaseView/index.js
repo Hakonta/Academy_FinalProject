@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer, } from '@react-google-maps/api'
 import ScooterMarker from '../ScooterMarker'
-import BikeStationMarker from '../BikeStationMarker'
-import clusterPink from '../../Assets/clusterPink.png'
+import BikeMarker from '../BikeMarker'
 import mapStyle from './mapStyle'
 import InfoCard from '../InfoCard'
 import config from '../../config'
-//import { ThemeProvider } from 'react-bootstrap';
-import { ThemeProvider } from 'react-bootstrap';
-//import CurrentPositionMarker from '../../Components/CurrentPositionMarker'
+import CurrentPositionMarker from '../../Components/CurrentPositionMarker'
 import RideCard from '../RideCard';
 import FilterButton from '../FilterButton'
 import LoadingSpinner from '../loadingspinner'
 import clusterBlue from '../../Assets/clusterBlue.png'
-
+import cluster20 from '../../Assets/cluster20.png'
+import cluster30 from '../../Assets/cluster30.png'
+import cluster50 from '../../Assets/cluster50.png'
+import { HeaderBar } from '../../Components/HeaderBar';
 
 
 
@@ -129,9 +129,11 @@ export default class MapBaseLayer extends Component {
               styles: mapStyle,
               //Toggle buttons on map
               fullscreenControl: false,
+              zoomControl: false, 
               mapTypeControl: false,
               streetViewControl: false,
-              clickableIcons: false
+              clickableIcons: false,
+              gestureHandling: 'greedy'
             }}
             zoom={18}
             center={
@@ -144,10 +146,12 @@ export default class MapBaseLayer extends Component {
               marginTop: '75px',
               margin: 0,
               padding: 0,
-              // border: '0.6px solid #343a40'
-            }}
-          >
-            {this.state.mapIsLoadiong ? <LoadingSpinner /> : null}
+             // border: '0.6px solid #343a40'
+            }}>      
+
+            <HeaderBar />
+
+             {this.state.mapIsLoadiong ? <LoadingSpinner /> : null }
 
             <MarkerClusterer
               averageCenter
@@ -174,7 +178,8 @@ export default class MapBaseLayer extends Component {
                 ))
               }
 
-            </MarkerClusterer>
+            </MarkerClusterer> 
+            
 
 
             {this.state.selectedScooter && (
@@ -194,19 +199,20 @@ export default class MapBaseLayer extends Component {
 
 
 
-            <MarkerClusterer
+
+          <MarkerClusterer
               averageCenter
               minimumClusterSize={3}
               styles={clusterIcons}
             >
-              {(clusterer) => this.state.bikeStations.map((bikeStation, index) => (
-                <div key={index}>
-                  <BikeMarker position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
-                </div>
-              )
-              )}
+              {
+                (clusterer) => this.state.bikeStations.map((bikeStation, index) => (
+                  <div key={index}>
+                    <BikeMarker position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
+                  </div>
+                ))
+              }
             </MarkerClusterer>
-
             {this.state.selectedBikeStation && (
               <InfoWindow
                 style={{ backgroundColor: 'red' }}
@@ -231,47 +237,32 @@ export default class MapBaseLayer extends Component {
           setFilter={this.filter} />
       </div>
     )
-
   }
 }
 
 const clusterIcons = [
-  // {
-  //   url: under10,
-  //   height: 15,
-  //   width: 15,
-  //   fontFamily: "Lato",
-  //   textColor: "#96504b",
-  // },
   {
-    url: clusterPink,
+    url: cluster20,
     height: 20,
     width: 20,
-    borderRadius: 20 / 2,
+    //borderRadius: '50%',
     fontFamily: "Lato",
     textColor: "#fff",
   },
   {
-    url: clusterPink,
+    url: cluster30,
     height: 30,
     width: 30,
-    borderRadius: 30 / 2,
+    //borderRadius: '20px',
     fontFamily: "Lato",
     textColor: "#fff",
   },
   {
-    url: clusterBlue,
+    url: cluster50,
     height: 50,
     width: 50,
-    borderRadius: 50 / 2,
+    //borderRadius: 20,
     fontFamily: "Lato",
     textColor: "#fff",
-  },
-  // {
-  //   url: over1000,
-  //   height: 100,
-  //   width: 100,
-  //   fontFamily: "Lato",
-  //   textColor: "#96504b",
-  // }
+  }
 ]
