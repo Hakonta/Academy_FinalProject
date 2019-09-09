@@ -59,14 +59,14 @@ export class HeaderBar extends React.Component {
           <a href="/ContactUs">Contact us</a>
           <a href="/AboutUs">About us</a>
         </div>
-            <Button variant="dark" onClick={this.openNavClick}>
-              <i className="material-icons">
+            <Button variant="dark"  onClick={this.openNavClick}>
+              <i style ={{fontSize:'42px'}} className="material-icons">
                 menu
               </i>
             </Button>
       
             <Button variant="dark" href="/">
-              {<img src={logo} alt={''} height='40px' width='40px'/>}
+              {<img src={logo} alt={''} height='40px' width='80px'/>}
             </Button>
             
           </Navbar>

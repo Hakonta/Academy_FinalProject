@@ -1,5 +1,6 @@
 import React from 'react'
 import { Marker } from '@react-google-maps/api'
+
 import markerTier from '../../Assets/markerTier.png'
 import markerVoi from '../../Assets/markerVoi.png'
 import markerCirc from '../../Assets/markerCirc.png'
@@ -20,6 +21,7 @@ const decideMarkerIcon = (provider) => {
     }
 }
 const scooterMarker = (props) => {
+    
     return (
         <Marker
             position={props.position}
