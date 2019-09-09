@@ -27,6 +27,7 @@ namespace Academy_FinalProject
         public void ConfigureServices(IServiceCollection services)
         {
             Fetcher.FetchScooter();
+            Fetcher.Bikes();
             services.AddCors(options =>
             {
                 options.AddPolicy(MyAllowSpecificOrigins,
