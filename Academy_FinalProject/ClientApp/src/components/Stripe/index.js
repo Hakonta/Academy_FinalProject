@@ -1,10 +1,11 @@
+import StripeCheckout from 'react-stripe-checkout';
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { Navbar} from 'react-bootstrap';
-import StripeCheckout from 'react-stripe-checkout';
 
 
-const footerBar = (props) => {
+
+const paymentButton = (props) => {
   
   return (
       <div style={{height: '100%', width: '100vw'}}>
@@ -33,4 +34,4 @@ const footerBar = (props) => {
 );
 }
 
-export default footerBar
+export default paymentButton
