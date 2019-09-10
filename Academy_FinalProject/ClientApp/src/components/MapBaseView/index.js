@@ -182,7 +182,7 @@ export default class MapBaseLayer extends Component {
               }
             </MarkerClusterer> 
             
-              <CurrentPositionMarker currentPosition={this.state.currentCenter}/> 
+              <CurrentPositionMarker position={this.state.currentCenter}/> 
 
              {/* {this.state.selectedScooter && (
               <InfoWindow
