@@ -118,19 +118,25 @@ class CounterComponent extends React.Component {
       <p>Current cost: kr {this.showPrice()}</p><button style={styles.stopButton} onClick={this.stopTimer}>End and pay your ride</button></div>
     let endRide = (this.state.time === 0 || this.state.isOn) ?
       null :
-      <div><h4>Thank you for the ride!</h4><h4>Total ride cost: kr {this.showPrice()}</h4>{<StripeCheckout
-        amount="500"
+      <div><h4>Thank you for the ride!</h4><h4>Total ride cost: kr {this.showPrice()}</h4>
+      {<StripeCheckout
+        amount={this.showPrice()}
         billingAddress
         description="You will not be charged during checkout"
         image= "" // kanskje legge inn vår logo her?
         locale="auto"
+        currency="NOK"
         name="SQT - Find all rides"
         stripeKey="pk_test_7fR8mYhqOb4p5RkeTP2Qlb3a00u5AA68Uf"
         //token={this.onToken}
         zipCode
-        label="Pay with 💩" //Copy-paste emoji from https://getemoji.com/
-        panelLabel="Cost of your ride: kr 37,5"
-      />}</div>
+        label="" //Copy-paste emoji from https://getemoji.com/
+        bitcoin
+        alipay
+        panelLabel={this.amount}
+        >
+        <button className="btn btn-primary">Pay with card</button>
+      </StripeCheckout>}</div>
       
     // let reset = (this.state.time == 0 || this.state.isOn) ?
     //   null :
@@ -138,13 +144,10 @@ class CounterComponent extends React.Component {
     return(
       <div style={styles.outerContainer}>
           <div style={styles.innerContainer}>
-        
 
         {start}
         {stop}
         {endRide}
-        
-        
         
       </div></div>
     )
