@@ -141,11 +141,9 @@ class CounterComponent extends React.Component {
     return(
       <div className={'outerContainer'}>
           <div className={'innerContainer'}>
-        
-
-        {start}
-        {stop}
-        {endRide}
+            {start}
+            {stop}
+            {endRide}
         
       </div></div>
     )
