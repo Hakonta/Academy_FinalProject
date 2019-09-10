@@ -139,11 +139,10 @@ export default class MapBaseLayer extends Component {
           googleMapsApiKey="AIzaSyAp2jh1zbAqgoQH8qpd8Af622VYmIdfeVY"
         >
           <GoogleMap
-            onClick={() => {
-              if (this.state.showScooterFooter) {
-                 this.onMapClicked() 
-              }
-            }}
+            // The onClick method is used to call the method that hides the Footerbar menu
+            onClick={()=> {if(this.state.showScooterFooter){
+              {this.onMapClicked()}
+            }}}
             id='example-map'
             onTilesLoaded={() => { this.setState({ mapIsLoadiong: false }); console.log('map has loaded.') }}
             options={{
@@ -247,6 +246,7 @@ export default class MapBaseLayer extends Component {
                   <h4>Docks available: {this.state.selectedBikeStation.docksAvailable}</h4>
                 </div>
               </InfoWindow>
+              // The method belows calls the Footerbar
             )}
             {this.state.showDefaultCard ?
               this.state.showScooterFooter ? <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity}
