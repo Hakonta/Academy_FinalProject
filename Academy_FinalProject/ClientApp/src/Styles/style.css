@@ -1,8 +1,19 @@
 
-
-
 /*FILTERBUTTOM*/
 .filterButton {
+    height: 54px;
+    width: 61px;
+    border-radius: 10px 10px 10px 10px;
+    border: 1px solid white;
+    background-color: #343a40;
+    padding: 2;
+    position: fixed;
+    right: 3%;
+    top: 1%;
+    z-index: 5;
+    outline: none;
+}
+.filterButtonActive {
     height: 54px;
     width: 61px;
     border-radius: 10px 10px 10px 10px;
@@ -14,6 +25,7 @@
     top: 1%;
     z-index: 5;
     outline: none;
+
 }
 .filterCard {
     width: 61px;
