@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import FilterIcon from '../../Assets/filterIcon.png'
-import Tier from '../../Assets/Tier.png'
-import Voi from '../../Assets/Voi.png'
-import BikeIcon from '../../Assets/markerBysykkel.png'
-import Circ from '../../Assets/circ.png'
-import Zvipp from '../../Assets/Zvipp.png'
+import Tier from '../../Assets/logo_tier.png'
+import Voi from '../../Assets/logo_voi.png'
+import BikeIcon from '../../Assets/logo_bysykkel.png'
+import Circ from '../../Assets/logo_circ.png'
+import Zvipp from '../../Assets/logo_zvipp.png'
 
 const sortButton = (props) => {
 
@@ -61,8 +61,8 @@ const styles = {
         height: 54,
         width: 61,
         borderRadius: '10px 10px 10px 10px',
-        border: '1px solid grey',
-        backgroundColor: '#343a40',
+        border: '1px solid white',
+        backgroundColor: '#f8f9fa',
         padding: 2,
         position: 'fixed',
         right: '3%',
@@ -77,12 +77,12 @@ const styles = {
     },
     card: {
         width: 61,
-        height: 275,
+        height: 290,
         borderRadius: '10px 10px 10px 10px',
-        border: '1px solid grey',
+        border: '1px white',
         boxShadow: ' 20px 21px 63px -9px rgba(0,0,0,0.58)',
-        backgroundColor: '#343a40',
-        color: '#ffffff',
+        backgroundColor: '#f8f9fa',
+        color: '#f8f9fa',
         padding: 2,
         position: 'fixed',
         right: '3%',
@@ -94,9 +94,8 @@ const styles = {
         height: 50,
         width: 50,
         borderRadius: '10px 10px 10px 10px',
-        border: '1px solid grey',
         backgroundColor: '#343a40',
-        color: '#ffffff',
+        color: '#f8f9fa',
         padding: 2,
         position: 'fixed',
         left: '5%',
