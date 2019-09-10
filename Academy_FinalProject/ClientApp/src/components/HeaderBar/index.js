@@ -2,6 +2,8 @@ import React from "react"
 import "./sideNav.css"
 import {Navbar, Button} from 'react-bootstrap';
 import logo from '../../Assets/FullLogoOrange.png'
+import FilterButton from '../FilterButton'
+
 export class HeaderBar extends React.Component {
   state = {
     state: {

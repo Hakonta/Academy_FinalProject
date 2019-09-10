@@ -58,16 +58,15 @@ export default sortButton;
 
 const styles = {
     sortButton: {
-        height: 50,
-        width: 50,
+        height: 58,
+        width: 65,
         borderRadius: '10px 10px 10px 10px',
         border: '1px solid grey',
         backgroundColor: '#343a40',
         padding: 2,
         position: 'fixed',
-        left: '5%',
-        bottom: '3%',
-        boxShadow: ' 20px 21px 63px -9px rgba(0,0,0,0.58)',
+        right: '5%',
+        top: '1%',
         zIndex: 5,
         outline: 'none'
     },
@@ -77,8 +76,8 @@ const styles = {
         border: 'none'
     },
     card: {
-        width: 50,
-        height: 250,
+        width: 60,
+        height: 275,
         borderRadius: '10px 10px 10px 10px',
         border: '1px solid grey',
         boxShadow: ' 20px 21px 63px -9px rgba(0,0,0,0.58)',
@@ -86,8 +85,8 @@ const styles = {
         color: '#ffffff',
         padding: 2,
         position: 'fixed',
-        left: '5%',
-        bottom: '14%',
+        right: '6%',
+        top: '14%',
         opacity: '1',
         transition: '100ms ease-out'
     },

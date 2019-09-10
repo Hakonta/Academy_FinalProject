@@ -9,7 +9,7 @@ import {Button} from 'react-bootstrap';
 
 const styles = {
 outerContainer: {
-    display:"flex", position:"fixed", left:"0%", bottom:"0%", height:"22%", width:"100%", zIndex:"1000000", backgroundColor: "rgba(255, 255, 255, 0.75)", color:"black", justifyContent: "space-evenly", boxShadow: "0 -5px 5px -5px #B0B0B0"
+    display:"flex", position:"fixed", left:"0%", bottom:"0%", height:"22%", width:"100%", zIndex:"1000000", backgroundColor: "rgba(255, 255, 255, 0.8)", color:"black", justifyContent: "space-evenly", boxShadow: "0 -5px 5px -5px #D7D7D7"
 },
 innerContainer: {
     display:"flex", flexDirection:"row", marginTop: "20px"
