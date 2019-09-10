@@ -4,7 +4,7 @@ import Plx from 'react-plx';
 import about from '../../Assets/about.jpg'
 import '../../Styles/style.css'
 
-
+// A WIP. Must find something that works on both mobile and desktop
 const parallaxData = [
     {
       start: 0,
@@ -18,6 +18,7 @@ const parallaxData = [
       ],
     },
   ];
+  
 
 export default class AboutView extends Component {
     constructor(props) {
@@ -63,6 +64,7 @@ export default class AboutView extends Component {
                     </div>
                 </section>
             </div>
+            
         )
     }
 }
