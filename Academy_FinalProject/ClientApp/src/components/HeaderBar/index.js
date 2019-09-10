@@ -1,7 +1,7 @@
 import React from "react"
 import "./sideNav.css"
 import {Navbar, Button} from 'react-bootstrap';
-import logo from '../../Assets/FullLogo.png'
+import logo from '../../Assets/FullLogoOrange.png'
 export class HeaderBar extends React.Component {
   state = {
     state: {
@@ -41,7 +41,7 @@ export class HeaderBar extends React.Component {
     return (
       <div style={{height: '100%', width: '100vw'}}>
       
-         <Navbar bg="dark" expand="xl" class="open-nav">
+         <Navbar bg="dark" expand="xl" className="open-nav">
          <div
           onClick={this.navCoverClick}
           className="nav-cover"

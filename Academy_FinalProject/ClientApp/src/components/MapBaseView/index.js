@@ -9,7 +9,6 @@ import CurrentPositionMarker from '../../Components/CurrentPositionMarker'
 import RideCard from '../RideCard';
 import FilterButton from '../FilterButton'
 import LoadingSpinner from '../loadingspinner'
-import clusterBlue from '../../Assets/clusterBlue.png'
 import cluster20 from '../../Assets/cluster20.png'
 import cluster30 from '../../Assets/cluster30.png'
 import cluster50 from '../../Assets/cluster50.png'
@@ -39,7 +38,7 @@ export default class MapBaseLayer extends Component {
       selectedScooter: null,
       selectedBikeStation: null,
       currentCenter: {
-        lat: 60.92,
+        lat: 59.92,
         lng: 10.723
       }
     }
@@ -47,9 +46,9 @@ export default class MapBaseLayer extends Component {
 
   //ny get geo
   componentDidMount() {
+    this.getGeoLocation()
     this.fetchScooterData();
     this.fetchBikeData();
-    this.getGeoLocation()
   }
 
   fetchScooterData = () => {
@@ -189,7 +188,7 @@ export default class MapBaseLayer extends Component {
               }
             </MarkerClusterer> 
             
-              {/* <CurrentPositionMarker position={{ lat: this.currentCenter.latitude, lng: this.currentCenter.longitude}}/> */}
+              <CurrentPositionMarker currentPosition={this.state.currentCenter}/> 
 
              {/* {this.state.selectedScooter && (
               <InfoWindow
