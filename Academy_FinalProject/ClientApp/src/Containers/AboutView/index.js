@@ -1,4 +1,3 @@
-
 import { HeaderBar } from '../../Components/HeaderBar';
 import React, { Component } from 'react';
 import Plx from 'react-plx';
