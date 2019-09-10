@@ -2,6 +2,8 @@ import React from "react"
 import "./sideNav.css"
 import {Navbar, Button} from 'react-bootstrap';
 import logo from '../../Assets/FullLogoOrange.png'
+import FilterButton from '../FilterButton'
+
 export class HeaderBar extends React.Component {
   state = {
     state: {
@@ -39,9 +41,10 @@ export class HeaderBar extends React.Component {
     let navCoverStyle = { width: showNav ? "70%" : "0" }
     let sideNavStyle = { width: showNav ? "70%" : "0" }
     return (
+      
       <div style={{height: '100%', width: '100vw'}}>
       
-         <Navbar bg="dark" expand="xl" className="open-nav">
+         <Navbar expand="xl" className="open-nav">
          <div
           onClick={this.navCoverClick}
           className="nav-cover"
@@ -59,14 +62,10 @@ export class HeaderBar extends React.Component {
           <a href="/ContactUs">Contact us</a>
           <a href="/AboutUs">About us</a>
         </div>
-            <Button variant="dark"  onClick={this.openNavClick}>
-              <i style ={{fontSize:'42px'}} className="material-icons">
+            <Button variant="light"  onClick={this.openNavClick}>
+              <i style ={{fontSize:'35px'}} className="material-icons">
                 menu
               </i>
-            </Button>
-      
-            <Button variant="dark" href="/">
-              {<img src={logo} alt={''} height='40px' width='80px'/>}
             </Button>
             
           </Navbar>

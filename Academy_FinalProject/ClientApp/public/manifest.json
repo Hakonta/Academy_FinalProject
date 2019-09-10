@@ -1,15 +1,17 @@
+
 {
-  "short_name": "Academy_FinalProject",
-  "name": "Academy_FinalProject",
+  "name": "SQT",
+  "short_name": "SQT",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#2A3443",
+  "description": "A demo app for SQT",
+  "theme_color": "#2A3443",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "Vaultguy.png",
+      "sizes": "144x144",
+      "type": "image/png"
     }
-  ],
-  "start_url": "./index.html",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }

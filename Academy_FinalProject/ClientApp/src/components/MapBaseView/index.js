@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer, } from '@react-google-maps/api'
+import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer } from '@react-google-maps/api'
 import ScooterMarker from '../ScooterMarker'
 import BikeMarker from '../BikeMarker'
 import mapStyle from './mapStyle'
@@ -149,7 +149,7 @@ export default class MapBaseLayer extends Component {
               styles: mapStyle,
               //Toggle buttons on map
               fullscreenControl: false,
-              zoomControl: true, 
+              zoomControl: false, 
               mapTypeControl: false,
               streetViewControl: false,
               clickableIcons: false,
@@ -163,6 +163,7 @@ export default class MapBaseLayer extends Component {
             mapContainerStyle={{
               height: '100vh',
               width: '100vw',
+              marginTop: '75px',
               margin: 0,
               padding: 0,
               // border: '0.6px solid #343a40'
@@ -174,7 +175,6 @@ export default class MapBaseLayer extends Component {
 
             <MarkerClusterer
               averageCenter
-              maxZoom={15}
               minimumClusterSize={3}
               styles={clusterIcons}
             >
@@ -255,7 +255,6 @@ export default class MapBaseLayer extends Component {
 
           </GoogleMap>
         </LoadScript>
-
         <FilterButton
           setFilter={this.filter} />
       </div>
