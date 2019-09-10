@@ -39,7 +39,6 @@ class RideCard extends React.Component {
   }); 
   }
 
-// my functions
 
   render() {
     let verifyMenu = (!this.state.isOn) ?
@@ -55,7 +54,7 @@ class RideCard extends React.Component {
       null :
       <CounterComponent/>
       
-
+// Below is the order the menus that should appear on the Footerbar menu
     return(
       <div>
         {verifyMenu}
