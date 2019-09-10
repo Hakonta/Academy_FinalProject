@@ -42,7 +42,7 @@ export class HeaderBar extends React.Component {
       
       <div style={{height: '100%', width: '100vw'}}>
       
-         <Navbar bg="dark" expand="xl" class="open-nav">
+         <Navbar bg="dark" expand="xl" className="open-nav">
          <div
           onClick={this.navCoverClick}
           className="nav-cover"
