@@ -2,6 +2,7 @@ import React from 'react'
 import CounterComponent from '../CounterComponent'
 import StripeCheckout from 'react-stripe-checkout'
 import '../../Styles/style.css'
+import PaymentButton from '../PaymentButton'
 
 // const styles = {
 //     outerContainer: {
@@ -54,13 +55,15 @@ class RideCard extends React.Component {
     let verified = (!this.state.isOn) ?
       null :
       <CounterComponent/>
+   
       
 // Below is the order the menus that should appear on the Footerbar menu
     return(
       <div>
         {verifyMenu}
         {verified}
-        {/* {Payment} */}
+        {/* {paymentButton} */}
+        
       </div>
     )
   }
