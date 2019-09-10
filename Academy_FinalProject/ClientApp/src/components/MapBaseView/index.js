@@ -46,7 +46,7 @@ export default class MapBaseLayer extends Component {
     }
   }
 
-  
+
   //ny get geo
   componentDidMount() {
     this.getGeoLocation()
@@ -55,9 +55,9 @@ export default class MapBaseLayer extends Component {
   }
   shouldComponentUpdate(nextProps, nextState) {
     //LOOK AT THIS WITH MAGNUS. POTENTIAL FOR TWEAKS?
-    return deepEqual(this.state.scooters,nextState.scooters);
+    return deepEqual(this.state.scooters, nextState.scooters);
   }
-  
+
   fetchScooterData = () => {
     console.log(config.apiUrl)
     fetch(config.apiUrl + "/scooter",
@@ -121,13 +121,13 @@ export default class MapBaseLayer extends Component {
       default:
     }
   }
-  onMapClicked() {
-      this.setState({
-        showScooterFooter: false,
-        showDefaultCard: true
-      });
-    }
-  
+  onMapClicked = () => {
+    this.setState({
+      showScooterFooter: false,
+      showDefaultCard: true
+    })
+  }
+
 
 
 
@@ -149,7 +149,7 @@ export default class MapBaseLayer extends Component {
               styles: mapStyle,
               //Toggle buttons on map
               fullscreenControl: false,
-              zoomControl: false, 
+              zoomControl: false,
               mapTypeControl: false,
               streetViewControl: false,
               clickableIcons: false,
