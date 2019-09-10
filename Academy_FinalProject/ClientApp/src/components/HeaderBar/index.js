@@ -3,7 +3,6 @@ import "./sideNav.css"
 import {Navbar, Button} from 'react-bootstrap';
 import logo from '../../Assets/FullLogoOrange.png'
 
-
 export class HeaderBar extends React.Component {
   state = {
     state: {
