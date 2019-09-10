@@ -114,14 +114,13 @@ export default class MapBaseLayer extends Component {
       default:
     }
   }
-  onMapClicked(props) {
-    if (props) {
+  onMapClicked() {
       this.setState({
         showScooterFooter: false,
         showDefaultCard: true
       }),console.log('This is running like Forest Gump!');
     }
-  }
+  
 
 
   render() {
@@ -132,13 +131,16 @@ export default class MapBaseLayer extends Component {
           googleMapsApiKey="AIzaSyAp2jh1zbAqgoQH8qpd8Af622VYmIdfeVY"
         >
           <GoogleMap
+            onClick={()=> {if(this.state.showScooterFooter){
+              {this.onMapClicked()}
+            }}}
             id='example-map'
             onTilesLoaded={()=>{this.setState({mapIsLoadiong: false}) ; console.log('map has loaded.')}}
             options={{
               styles: mapStyle,
               //Toggle buttons on map
               fullscreenControl: false,
-              zoomControl: false, 
+              zoomControl: true, 
               mapTypeControl: false,
               streetViewControl: false,
               clickableIcons: false,
