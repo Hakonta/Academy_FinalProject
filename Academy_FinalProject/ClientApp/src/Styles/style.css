@@ -13,6 +13,7 @@
     z-index: 5;
     outline: none;
 }
+
 .filterButtonActive {
     height: 54px;
     width: 61px;
@@ -60,11 +61,14 @@
     width:100%;
     padding: 7px;
 }
+
 .filterImagesInactive{
     opacity:0.5;
     border-radius:10px 10px 10px 10px;
     width:100%;
     padding:7px;
+    position: relative;
+    top: 3px;
 }
 
 /*RIDECARD*/

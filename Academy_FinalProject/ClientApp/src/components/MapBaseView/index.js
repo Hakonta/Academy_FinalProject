@@ -17,20 +17,20 @@ import bikecluster30 from '../../Assets/bikecluster30.png'
 import bikecluster50 from '../../Assets/bikecluster50.png'
 import { HeaderBar } from '../../Components/HeaderBar';
 import deepEqual from 'deep-equal';
+import '../../Styles/style.css'
 
 
 export default class MapBaseLayer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      refresh: true,
+      map: null,
       filter: {
         voiChecked: true,
         tierChecked: true,
         circChecked: true,
         zvippChecked: true,
         citybikeChecked: true,
-
       },
       showScooterFooter: false,
       mapIsLoadiong: true,
@@ -55,11 +55,12 @@ export default class MapBaseLayer extends Component {
   }
   shouldComponentUpdate(nextProps, nextState) {
     //LOOK AT THIS WITH MAGNUS. POTENTIAL FOR TWEAKS?
-    return deepEqual(this.state.scooters, nextState.scooters);
+    console.log('checking for changes')
+    return deepEqual(this.state.scooters,nextState.scooters)
+   // return deepEqual(this.state.map, nextState.map);
   }
 
   fetchScooterData = () => {
-    console.log(config.apiUrl)
     fetch(config.apiUrl + "/scooter",
       {
         headers: {
@@ -93,7 +94,6 @@ export default class MapBaseLayer extends Component {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         position => {
-          console.log(position.coords);
           this.setState(prevState => ({
             currentCenter: {
               ...prevState.currentCenter,
@@ -143,6 +143,7 @@ export default class MapBaseLayer extends Component {
             onClick={() => {this.state.showScooterFooter ?  this.onMapClicked() : null}}
             id='example-map'
             onTilesLoaded={() => { this.setState({ mapIsLoadiong: false }); console.log('map has loaded.') }}
+            onLoad={(mapInstance)=> {this.setState(this.state.map = mapInstance) }}
             options={{
               styles: mapStyle,
               fullscreenControl: false,
@@ -156,7 +157,6 @@ export default class MapBaseLayer extends Component {
             center={
               this.state.currentCenter
             }
-
             mapContainerStyle={{
               height: '100vh',
               width: '100vw',
@@ -166,7 +166,6 @@ export default class MapBaseLayer extends Component {
             }}>
 
             <HeaderBar />
-
             {this.state.mapIsLoadiong ? <LoadingSpinner /> : null}
 
             <MarkerClusterer
@@ -176,7 +175,7 @@ export default class MapBaseLayer extends Component {
             >
               {
                 (clusterer) => this.state.scooters.map((scooter, index) => (
-                  <div key={index}>
+                  <React.Fragment key={index}>
                     {this.state.filter.voiChecked && scooter.providerName === 'Voi' ?
                       <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
                       : null}
@@ -189,7 +188,7 @@ export default class MapBaseLayer extends Component {
                     {this.state.filter.zvippChecked && scooter.providerName === 'Zvipp' ?
                       <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
                       : null}
-                  </div>
+                  </React.Fragment>
                 ))
               }
             </MarkerClusterer>
@@ -227,6 +226,7 @@ export default class MapBaseLayer extends Component {
               </InfoWindow>
               // The method belows calls the Footerbar
             )}
+            
             {this.state.showDefaultCard ?
               this.state.showScooterFooter ? <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity}
                 toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
