@@ -140,14 +140,11 @@ export default class MapBaseLayer extends Component {
         >
           <GoogleMap
             // The onClick method is used to call the method that hides the Footerbar menu
-            onClick={()=> {if(this.state.showScooterFooter){
-              {this.onMapClicked()}
-            }}}
+            onClick={() => {this.state.showScooterFooter ?  this.onMapClicked() : null}}
             id='example-map'
             onTilesLoaded={() => { this.setState({ mapIsLoadiong: false }); console.log('map has loaded.') }}
             options={{
               styles: mapStyle,
-              //Toggle buttons on map
               fullscreenControl: false,
               zoomControl: false,
               mapTypeControl: false,
@@ -166,7 +163,6 @@ export default class MapBaseLayer extends Component {
               marginTop: '75px',
               margin: 0,
               padding: 0,
-              // border: '0.6px solid #343a40'
             }}>
 
             <HeaderBar />
@@ -200,25 +196,6 @@ export default class MapBaseLayer extends Component {
 
             <CurrentPositionMarker position={this.state.currentCenter} />
 
-            {/* {this.state.selectedScooter && (
-              <InfoWindow
-                style={{ backgroundColor: 'blue' }}
-                // position={{ lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
-                position={ { lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
-                onCloseClick={() => {
-                  this.setState({ selectedScooter: null, showDefaultCard: true })
-                }}
-
-              >
-                {this.state.showDefaultCard ?
-                  <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
-                  : <RideCard />}
-              </InfoWindow>
-            )} */}
-
-
-
-
             <MarkerClusterer
               averageCenter
               minimumClusterSize={3}
@@ -226,9 +203,12 @@ export default class MapBaseLayer extends Component {
             >
               {
                 (clusterer) => this.state.bikeStations.map((bikeStation, index) => (
-                  <div key={index}>
-                    <BikeMarker position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
-                  </div>
+                  <BikeMarker
+                    key={index}
+                    position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }}
+                    clusterer={clusterer}
+                    markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }}
+                  />
                 ))
               }
             </MarkerClusterer>
