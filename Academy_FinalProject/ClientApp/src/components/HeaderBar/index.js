@@ -39,7 +39,7 @@ export class HeaderBar extends React.Component {
     let navCoverStyle = { width: showNav ? "70%" : "0" }
     let sideNavStyle = { width: showNav ? "70%" : "0" }
     return (
-
+      
       <div style={{height: '100%', width: '100vw'}}>
       
          <Navbar bg="dark" expand="xl" class="open-nav">
