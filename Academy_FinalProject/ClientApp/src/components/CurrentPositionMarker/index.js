@@ -15,10 +15,9 @@ export default currentPositionMarker;
 
 const styles = {
     markerwrapper : {
-        //backgroundColor: 'red',
         zIndex: 1000000,
-        width: 50,
-        height: 50
+        width: 20,
+        height: 20
         
     }
 }
