@@ -1,7 +1,7 @@
 import React from 'react'
 import Tier from '../../Assets/Tier.png'
 import Voi from '../../Assets/Voi.png'
-import Battery from '../../Assets/Battery_transp.png'
+import Battery from '../../Assets/Battery.png'
 import Zvipp from '../../Assets/Zvipp.png' 
 import Circ from '../../Assets/circ.png'
 import {Button} from 'react-bootstrap';
@@ -18,7 +18,7 @@ cardDiv:  {
     display:"flex", flexDirection:"column",  alignItems:"center", marginLeft: "25px"
 },
 }
-
+// This is image that is displayed on Footermenu
 const getProviderImage = (provider) => {
     switch (provider) {
         case 'Tier': return Tier
@@ -28,10 +28,9 @@ const getProviderImage = (provider) => {
 
     }
 }
-
+// The toggleRideCard get it props from the MapBaseView where it's called
 export default function InfoCard(props)
 {
-// TODO: Replace inline styling with an style variable. 
     return (
         <div style={styles.outerContainer}><div style={styles.innerContainer}><img src={getProviderImage(props.providerName)} alt={props.providerName} height="120px"></img>
         <div style={styles.cardDiv}>

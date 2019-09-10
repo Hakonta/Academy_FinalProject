@@ -125,7 +125,7 @@ export default class MapBaseLayer extends Component {
       this.setState({
         showScooterFooter: false,
         showDefaultCard: true
-      }),console.log('This is running like Forest Gump!');
+      });
     }
   
 
