@@ -91,9 +91,8 @@ export default class MapBaseLayer extends Component {
 
   getGeoLocation = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
+      navigator.geolocation.watchPosition(
         position => {
-          console.log(position.coords);
           this.setState(prevState => ({
             currentCenter: {
               ...prevState.currentCenter,

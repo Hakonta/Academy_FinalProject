@@ -16,11 +16,13 @@ const sortButton = (props) => {
     const [zvippIsClicked, setZvippIsClicked] = useState(true);
     const [citybikeIsClicked, setcitybikeIsClicked] = useState(true);
 
+
     return (
         <React.Fragment>
             <button
                 onClick={() => { setIsClicked(!isClicked) }}
-                className={isClicked ? 'filterButtonActive' : 'filterButton' }
+                style={{outline: "none"}}
+                className={isClicked ? 'filterButtonActive' : 'filterButton'}
             >
                 <img src={FilterIcon} alt={'sorticon'} style={{ width: 30 }} />
             </button>

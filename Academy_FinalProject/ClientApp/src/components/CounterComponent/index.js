@@ -137,8 +137,8 @@ class CounterComponent extends React.Component {
     //   null :
     //   <button onClick={this.resetTimer}>reset</button>
     return(
-      <div className={'outerContainer'}>
-          <div className={'innerContainer'}>
+      <div className={'infoCardOuterContainer'}>
+          <div className={'infoCardInnerContainer'}>
         
 
         {start}
