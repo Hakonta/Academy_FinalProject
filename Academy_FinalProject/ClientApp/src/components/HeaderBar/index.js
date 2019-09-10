@@ -39,7 +39,8 @@ export class HeaderBar extends React.Component {
   render() {
     const { showNav } = this.state
     let navCoverStyle = { width: showNav ? "70%" : "0" }
-    let sideNavStyle = { width: showNav ? "70%" : "0" }
+    let sideNavStyle = { width: showNav ? "70%" : "0"}
+    
     return (
       
       <div style={{height: '100%', width: '100vw'}}>
@@ -61,11 +62,15 @@ export class HeaderBar extends React.Component {
           <a href="/contact">Contact us</a>
 
         </div>
-            <Button variant="light"  onClick={this.openNavClick}>
-              <i style ={{fontSize:'35px'}} className="material-icons">
+        <div i style ={{bsStyle:"default", border: '2px solid',
+        borderColor: '#353a40',borderRadius: '10px 10px 10px 10px', color: '#ff7500',zIndex:'100'}} >
+
+            <Button variant="outline-dark" variant="light" onClick={this.openNavClick}>
+              <i style ={{fontSize:'35px', }} className="material-icons">
                 menu
               </i>
             </Button>
+        </div>
             
           </Navbar>
       </div>

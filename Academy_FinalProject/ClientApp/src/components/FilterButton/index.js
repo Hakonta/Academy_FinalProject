@@ -61,19 +61,22 @@ const styles = {
         height: 54,
         width: 61,
         borderRadius: '10px 10px 10px 10px',
-        border: '1px solid white',
-        backgroundColor: '#f8f9fa',
+        border: '2px solid',
+        borderColor: '#353a40',
+        backgroundColor: 'white',
         padding: 2,
         position: 'fixed',
         right: '3%',
         top: '1%',
         zIndex: 5,
-        outline: 'none'
+        outline: 'none',
+        opacity: '0.85'
     },
     buttonClicked: {
         
         boxShadow: ' 20px 21px 63px -9px rgba(0,0,0,0.58)',
-        border: 'none'
+        border: '2px solid',
+        borderColor: '#ff7500',
     },
     card: {
         width: 61,

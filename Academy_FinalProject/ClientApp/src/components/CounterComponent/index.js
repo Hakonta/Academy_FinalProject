@@ -1,4 +1,6 @@
 import React from 'react'
+import StripeCheckout from 'react-stripe-checkout'
+import PaymentButton from '../PaymentButton'
 
 const styles = {
     outerContainer: {
@@ -113,10 +115,23 @@ class CounterComponent extends React.Component {
     let stop = (this.state.time === 0 || !this.state.isOn) ?
       null :
       <div><h3>Ride in progress</h3><h4>Time passed:</h4><h4>{this.showSeconds()}s / {this.showMinutes()}m / {Math.floor(((((this.state.time)/1000)/60)/60))}h</h4>
-      <p>Current cost: {this.showPrice()}</p><button style={styles.stopButton} onClick={this.stopTimer}>End Ride</button></div>
+      <p>Current cost: kr {this.showPrice()}</p><button style={styles.stopButton} onClick={this.stopTimer}>End and pay your ride</button></div>
     let endRide = (this.state.time === 0 || this.state.isOn) ?
       null :
-      <div><h4>Thank you for the ride!</h4><h4>Total ride cost: kr {this.showPrice()}</h4></div>
+      <div><h4>Thank you for the ride!</h4><h4>Total ride cost: kr {this.showPrice()}</h4>{<StripeCheckout
+        amount="500"
+        billingAddress
+        description="You will not be charged during checkout"
+        image= "" // kanskje legge inn vår logo her?
+        locale="auto"
+        name="SQT - Find all rides"
+        stripeKey="pk_test_7fR8mYhqOb4p5RkeTP2Qlb3a00u5AA68Uf"
+        //token={this.onToken}
+        zipCode
+        label="Pay with 💩" //Copy-paste emoji from https://getemoji.com/
+        panelLabel="Cost of your ride: kr 37,5"
+      />}</div>
+      
     // let reset = (this.state.time == 0 || this.state.isOn) ?
     //   null :
     //   <button onClick={this.resetTimer}>reset</button>
@@ -126,12 +141,16 @@ class CounterComponent extends React.Component {
         
 
         {start}
-        
         {stop}
         {endRide}
-        {}
+        
+        
+        
       </div></div>
     )
   }
 }
 export default CounterComponent
+//             // cardNr: 4242424242424242
+//             // date: 12/12
+//             // CVC: 111
