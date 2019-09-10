@@ -114,7 +114,7 @@ export default class MapBaseLayer extends Component {
       default:
     }
   }
-  onMapClick(props) {
+  onMapClicked(props) {
     if (props) {
       this.setState({
         showScooterFooter: false,
