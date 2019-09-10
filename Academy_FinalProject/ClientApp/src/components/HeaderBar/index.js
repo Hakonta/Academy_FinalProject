@@ -67,7 +67,7 @@ export class HeaderBar extends React.Component {
         borderColor: '#353a40',borderRadius: '10px 10px 10px 10px', color: '#ff7500',zIndex:'100'}} >
 
             <Button variant="outline-dark" variant="light" onClick={this.openNavClick}>
-              <i style ={{fontSize:'35px', backgroundColor:'white'}} className="material-icons">
+              <i style ={{fontSize:'35px', }} className="material-icons">
                 menu
               </i>
             </Button>
