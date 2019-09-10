@@ -46,7 +46,7 @@ export default class MapBaseLayer extends Component {
     }
   }
 
-  
+
   //ny get geo
   componentDidMount() {
     this.getGeoLocation()
@@ -55,9 +55,9 @@ export default class MapBaseLayer extends Component {
   }
   shouldComponentUpdate(nextProps, nextState) {
     //LOOK AT THIS WITH MAGNUS. POTENTIAL FOR TWEAKS?
-    return deepEqual(this.state.scooters,nextState.scooters);
+    return deepEqual(this.state.scooters, nextState.scooters);
   }
-  
+
   fetchScooterData = () => {
     console.log(config.apiUrl)
     fetch(config.apiUrl + "/scooter",
@@ -121,13 +121,13 @@ export default class MapBaseLayer extends Component {
       default:
     }
   }
-  onMapClicked() {
-      this.setState({
-        showScooterFooter: false,
-        showDefaultCard: true
-      }),console.log('This is running like Forest Gump!');
-    }
-  
+  onMapClicked = () => {
+    this.setState({
+      showScooterFooter: false,
+      showDefaultCard: true
+    })
+  }
+
 
 
 
@@ -139,16 +139,18 @@ export default class MapBaseLayer extends Component {
           googleMapsApiKey="AIzaSyAp2jh1zbAqgoQH8qpd8Af622VYmIdfeVY"
         >
           <GoogleMap
-            onClick={()=> {if(this.state.showScooterFooter){
-              {this.onMapClicked()}
-            }}}
+            onClick={() => {
+              if (this.state.showScooterFooter) {
+                 this.onMapClicked() 
+              }
+            }}
             id='example-map'
             onTilesLoaded={() => { this.setState({ mapIsLoadiong: false }); console.log('map has loaded.') }}
             options={{
               styles: mapStyle,
               //Toggle buttons on map
               fullscreenControl: false,
-              zoomControl: false, 
+              zoomControl: false,
               mapTypeControl: false,
               streetViewControl: false,
               clickableIcons: false,
