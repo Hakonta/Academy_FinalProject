@@ -1,6 +1,6 @@
 :root {
-    --navcover-z-index: 99;
-    --sidenav-z-index: 100;
+    --navcover-z-index: 100;
+    --sidenav-z-index: 1000;
   }
   
   .nav-cover {

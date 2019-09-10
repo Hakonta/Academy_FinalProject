@@ -62,15 +62,12 @@ export class HeaderBar extends React.Component {
           <a href="/contact">Contact us</a>
 
         </div>
-        <div i style ={{bsStyle:"default", border: '2px solid',
-        borderColor: '#353a40',borderRadius: '10px 10px 10px 10px', color: '#ff7500',zIndex:'100'}} >
 
-            <Button variant="outline-dark" variant="light" onClick={this.openNavClick}>
+            <Button variant="dark" onClick={this.openNavClick}>
               <i style ={{fontSize:'35px', }} className="material-icons">
                 menu
               </i>
             </Button>
-        </div>
             
           </Navbar>
       </div>
