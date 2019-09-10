@@ -62,6 +62,7 @@ class RideCard extends React.Component {
         {verifyMenu}
         {verified}
         {/* {paymentButton} */}
+        
       </div>
     )
   }
