@@ -23,7 +23,7 @@ const sortButton = (props) => {
                 onClick={() => { setIsClicked(!isClicked) }}
                 className={isClicked ? 'filterButtonActive' : 'filterButton' }
             >
-                <img src={isClicked ? WhiteFilterIcon : FilterIcon} alt={'sorticon'} style={{ width: 30 }} />
+                <img src={isClicked ? FilterIcon : WhiteFilterIcon } alt={'sorticon'} style={{ width: 30 }} />
             </button>
             <div className={isClicked ? 'filterCard' : 'filterCardInActive'}>
                 <img
