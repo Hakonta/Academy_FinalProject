@@ -167,3 +167,40 @@
 .prizeText {
     color: red
 }
+
+/* AboutView */
+
+.MyAwesomeParallax {
+    background-color: #343a40;
+}
+
+.aboutViewContainerTop {
+    background-color:rgba(0,0,0,0.8);
+    opacity:0.8;
+    border-top-right-radius: 25px;
+    color: white;
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about {
+    background-color: #343a40;
+}
+
+.aboutViewContainerBottom {
+
+    color: white;
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rowBottom {
+    background-color:rgba(0,0,0,0.8);
+    opacity:0.8;
+}
+.bg-black {
+    background-color: #343a40;
+}
