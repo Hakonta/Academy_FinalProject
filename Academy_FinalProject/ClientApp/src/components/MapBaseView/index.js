@@ -16,12 +16,14 @@ import bikecluster20 from '../../Assets/bikecluster20.png'
 import bikecluster30 from '../../Assets/bikecluster30.png'
 import bikecluster50 from '../../Assets/bikecluster50.png'
 import { HeaderBar } from '../../Components/HeaderBar';
+import deepEqual from 'deep-equal';
 
 
 export default class MapBaseLayer extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      refresh: true,
       filter: {
         voiChecked: true,
         tierChecked: true,
@@ -44,13 +46,18 @@ export default class MapBaseLayer extends Component {
     }
   }
 
+  
   //ny get geo
   componentDidMount() {
     this.getGeoLocation()
     this.fetchScooterData();
     this.fetchBikeData();
   }
-
+  shouldComponentUpdate(nextProps, nextState) {
+    //LOOK AT THIS WITH MAGNUS. POTENTIAL FOR TWEAKS?
+    return deepEqual(this.state.scooters,nextState.scooters);
+  }
+  
   fetchScooterData = () => {
     console.log(config.apiUrl)
     fetch(config.apiUrl + "/scooter",
@@ -123,6 +130,7 @@ export default class MapBaseLayer extends Component {
   
 
 
+
   render() {
     return (
       <div>
@@ -157,12 +165,12 @@ export default class MapBaseLayer extends Component {
               marginTop: '75px',
               margin: 0,
               padding: 0,
-             // border: '0.6px solid #343a40'
-            }}>      
+              // border: '0.6px solid #343a40'
+            }}>
 
             <HeaderBar />
 
-             {this.state.mapIsLoadiong ? <LoadingSpinner /> : null }
+            {this.state.mapIsLoadiong ? <LoadingSpinner /> : null}
 
             <MarkerClusterer
               averageCenter
@@ -172,27 +180,26 @@ export default class MapBaseLayer extends Component {
               {
                 (clusterer) => this.state.scooters.map((scooter, index) => (
                   <div key={index}>
-                    {/* <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} /> */}
                     {this.state.filter.voiChecked && scooter.providerName === 'Voi' ?
                       <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
                       : null}
                     {this.state.filter.tierChecked && scooter.providerName === 'Tier' ?
-                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true  }) }} />
+                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
                       : null}
                     {this.state.filter.circChecked && scooter.providerName === 'Flash' ?
-                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true  }) }} />
+                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
                       : null}
                     {this.state.filter.zvippChecked && scooter.providerName === 'Zvipp' ?
-                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true  }) }} />
+                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
                       : null}
                   </div>
                 ))
               }
-            </MarkerClusterer> 
-            
-              <CurrentPositionMarker position={this.state.currentCenter}/> 
+            </MarkerClusterer>
 
-             {/* {this.state.selectedScooter && (
+            <CurrentPositionMarker position={this.state.currentCenter} />
+
+            {/* {this.state.selectedScooter && (
               <InfoWindow
                 style={{ backgroundColor: 'blue' }}
                 // position={{ lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
@@ -211,7 +218,7 @@ export default class MapBaseLayer extends Component {
 
 
 
-          <MarkerClusterer
+            <MarkerClusterer
               averageCenter
               minimumClusterSize={3}
               styles={bikeClusterIcons}
@@ -240,9 +247,9 @@ export default class MapBaseLayer extends Component {
               </InfoWindow>
             )}
             {this.state.showDefaultCard ?
-          this.state.showScooterFooter ? <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} 
-          toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} /> 
-                  : null : <RideCard/> }
+              this.state.showScooterFooter ? <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity}
+                toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
+                : null : <RideCard />}
 
           </GoogleMap>
         </LoadScript>
@@ -250,6 +257,7 @@ export default class MapBaseLayer extends Component {
           setFilter={this.filter} />
       </div>
     )
+
   }
 }
 
