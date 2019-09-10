@@ -133,7 +133,7 @@ export default class MapBaseLayer extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <LoadScript
           id="script-loader"
           googleMapsApiKey="AIzaSyAp2jh1zbAqgoQH8qpd8Af622VYmIdfeVY"
@@ -234,7 +234,6 @@ export default class MapBaseLayer extends Component {
             </MarkerClusterer>
             {this.state.selectedBikeStation && (
               <InfoWindow
-                style={{ backgroundColor: 'red' }}
                 position={{ lat: this.state.selectedBikeStation.latitude, lng: this.state.selectedBikeStation.longitude }}
                 onCloseClick={() => {
                   this.setState({ selectedBikeStation: null })
@@ -257,7 +256,7 @@ export default class MapBaseLayer extends Component {
         </LoadScript>
         <FilterButton
           setFilter={this.filter} />
-      </div>
+      </React.Fragment>
     )
 
   }
