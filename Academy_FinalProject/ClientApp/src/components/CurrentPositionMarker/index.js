@@ -9,6 +9,5 @@ const currentPositionMarker = (props) => {
            icon={{url:youAreHere}}/>
    )
 }
-
 export default currentPositionMarker;
 
