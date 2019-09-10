@@ -4,7 +4,7 @@ import StripeCheckout from 'react-stripe-checkout'
 
 const styles = {
     outerContainer: {
-      style: "flex", justifyContent:"center", alignItems:"center"
+      display:"flex", position:"fixed", left:"0%", bottom:"0%", height:"25%", width:"100%", zIndex:"1000000", backgroundColor:"#343a40", color:"white", justifyContent: "center"
     },
     innerContainer: {
       display:"flex", flexDirection:"column", justifyContent:"center", textAlign:"center"

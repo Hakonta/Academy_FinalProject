@@ -9,4 +9,14 @@ const currentPositionMarker = (props) => {
            icon={{url:youAreHere}}/>
    )
 }
+
 export default currentPositionMarker;
+
+const styles = {
+    markerwrapper : {
+        zIndex: 1000000,
+        width: 20,
+        height: 20
+        
+    }
+}

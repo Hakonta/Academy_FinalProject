@@ -9,7 +9,6 @@ import CurrentPositionMarker from '../../Components/CurrentPositionMarker'
 import RideCard from '../RideCard';
 import FilterButton from '../FilterButton'
 import LoadingSpinner from '../loadingspinner'
-import clusterBlue from '../../Assets/clusterBlue.png'
 import cluster20 from '../../Assets/cluster20.png'
 import cluster30 from '../../Assets/cluster30.png'
 import cluster50 from '../../Assets/cluster50.png'
@@ -32,6 +31,7 @@ export default class MapBaseLayer extends Component {
         citybikeChecked: true,
 
       },
+      showScooterFooter: false,
       mapIsLoadiong: true,
       showDefaultCard: true,
       bikeStations: [],
@@ -39,7 +39,7 @@ export default class MapBaseLayer extends Component {
       selectedScooter: null,
       selectedBikeStation: null,
       currentCenter: {
-        lat: 60.92,
+        lat: 59.92,
         lng: 10.723
       }
     }
@@ -47,9 +47,9 @@ export default class MapBaseLayer extends Component {
 
   //ny get geo
   componentDidMount() {
+    this.getGeoLocation()
     this.fetchScooterData();
     this.fetchBikeData();
-    this.getGeoLocation()
   }
 
   fetchScooterData = () => {
@@ -166,41 +166,29 @@ export default class MapBaseLayer extends Component {
                   <div key={index}>
                     {/* <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} /> */}
                     {this.state.filter.voiChecked && scooter.providerName === 'Voi' ?
-                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
+                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
                       : null}
                     {this.state.filter.tierChecked && scooter.providerName === 'Tier' ?
-                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
+                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true  }) }} />
                       : null}
                     {this.state.filter.circChecked && scooter.providerName === 'Flash' ?
-                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
+                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true  }) }} />
                       : null}
                     {this.state.filter.zvippChecked && scooter.providerName === 'Zvipp' ?
-                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter }) }} />
+                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true  }) }} />
                       : null}
                   </div>
                 ))
               }
             </MarkerClusterer> 
-            <MarkerClusterer
-              averageCenter
-              minimumClusterSize={3}
-              styles={clusterIcons}
-            >
-              {
-                (clusterer) => this.state.bikeStations.map((bikeStation, index) => (
-                  <div key={index}>
-                    <BikeMarker position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
-                  </div>
-                ))
-              }
-            </MarkerClusterer>
-              {/* <CurrentPositionMarker position={{ lat: this.currentCenter.latitude, lng: this.currentCenter.longitude}}/> */}
+            
+              <CurrentPositionMarker currentPosition={this.state.currentCenter}/> 
 
-             {this.state.selectedScooter && (
+             {/* {this.state.selectedScooter && (
               <InfoWindow
                 style={{ backgroundColor: 'blue' }}
                 // position={{ lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
-                position={{ lat: this.state.selectedScooter.latitude - 0.0008, lng: this.state.selectedScooter.longitude }}
+                position={ { lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
                 onCloseClick={() => {
                   this.setState({ selectedScooter: null, showDefaultCard: true })
                 }}
@@ -210,7 +198,7 @@ export default class MapBaseLayer extends Component {
                   <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
                   : <RideCard />}
               </InfoWindow>
-            )}
+            )} */}
 
 
 
@@ -243,8 +231,11 @@ export default class MapBaseLayer extends Component {
               </div>
               </InfoWindow>
             )}
+            {this.state.showDefaultCard ?
+          this.state.showScooterFooter ? <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} 
+          toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} /> 
+                  : null : <RideCard/> }
 
-<CurrentPositionMarker position={{lat: this.state.currentCenter.lat, lng: this.state.currentCenter.lng}}/>
           </GoogleMap>
         </LoadScript>
 

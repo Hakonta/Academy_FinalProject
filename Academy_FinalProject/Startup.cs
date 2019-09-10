@@ -1,3 +1,4 @@
+using Academy_FinalProject.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +26,8 @@ namespace Academy_FinalProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            Fetcher.FetchScooter();
+            Fetcher.FetchBikeStations();
             services.AddCors(options =>
             {
                 options.AddPolicy(MyAllowSpecificOrigins,
