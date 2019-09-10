@@ -5,6 +5,7 @@ import Battery from '../../Assets/Battery.png'
 import Zvipp from '../../Assets/Zvipp.png' 
 import Circ from '../../Assets/circ.png'
 
+
 const styles = {
 outerContainer: {
     display:"flex"
@@ -35,7 +36,9 @@ export default function InfoCard(props)
 {
 // TODO: Replace inline styling with an style variable. 
     return (
+        
         <div style={styles.outerContainer}><div style={styles.innerContainer}>
+       
         <div style={styles.cardDiv}><img src={getProviderImage(props.providerName)} alt={props.providerName}></img>
         <h1><img src={Battery}></img>&nbsp;{props.battery} %</h1><h4>10 kr + 2 kr/min<br></br></h4><button onClick={() => { props.toggleRideCard()}} style={styles.button}>Start Ride</button><br></br>
         </div></div></div>

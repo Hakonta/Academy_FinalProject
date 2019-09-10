@@ -181,7 +181,19 @@ export default class MapBaseLayer extends Component {
                 ))
               }
             </MarkerClusterer> 
-            
+            <MarkerClusterer
+              averageCenter
+              minimumClusterSize={3}
+              styles={clusterIcons}
+            >
+              {
+                (clusterer) => this.state.bikeStations.map((bikeStation, index) => (
+                  <div key={index}>
+                    <BikeMarker position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
+                  </div>
+                ))
+              }
+            </MarkerClusterer>
               {/* <CurrentPositionMarker position={{ lat: this.currentCenter.latitude, lng: this.currentCenter.longitude}}/> */}
 
              {this.state.selectedScooter && (
@@ -232,7 +244,7 @@ export default class MapBaseLayer extends Component {
               </InfoWindow>
             )}
 
-
+<CurrentPositionMarker position={{lat: this.state.currentCenter.lat, lng: this.state.currentCenter.lng}}/>
           </GoogleMap>
         </LoadScript>
 

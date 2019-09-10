@@ -21,7 +21,11 @@ const paymentButton = (props) => {
               label="Pay with 💩" //Copy-paste emoji from https://getemoji.com/
               panelLabel="Cost of your ride: kr 37,5"
             />
+            // cardNr: 4242424242424242
+            // date: 12/12
+            // CVC: 111
 );
 }
+
 
 export default paymentButton
