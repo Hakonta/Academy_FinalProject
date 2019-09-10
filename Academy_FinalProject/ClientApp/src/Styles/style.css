@@ -14,7 +14,18 @@
     outline: none;
 }
 .filterButtonActive {
+    height: 54px;
+    width: 61px;
+    border-radius: 10px 10px 10px 10px;
+    border: 1px solid white;
     background-color: #f8f9fa;
+    padding: 2;
+    position: fixed;
+    right: 3%;
+    top: 1%;
+    z-index: 5;
+    outline: none;
+
 }
 .filterCard {
     width: 61px;
