@@ -19,7 +19,6 @@ import bikecluster50 from '../../Assets/bikecluster50.png'
 import { HeaderBar } from '../../Components/HeaderBar';
 
 
-
 export default class MapBaseLayer extends Component {
   constructor(props) {
     super(props)
@@ -116,7 +115,14 @@ export default class MapBaseLayer extends Component {
       default:
     }
   }
-
+  onMapClick(props) {
+    if (props) {
+      this.setState({
+        showScooterFooter: false,
+        showDefaultCard: true
+      }),console.log('This is running like Forest Gump!');
+    }
+  }
 
 
   render() {
