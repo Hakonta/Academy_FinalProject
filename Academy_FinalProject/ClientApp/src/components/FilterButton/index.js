@@ -5,6 +5,7 @@ import Voi from '../../Assets/logo_voi.png'
 import BikeIcon from '../../Assets/logo_bysykkel.png'
 import Circ from '../../Assets/logo_circ.png'
 import Zvipp from '../../Assets/logo_zvipp.png'
+import '../../Styles/style.css'
 
 const sortButton = (props) => {
 
@@ -17,102 +18,100 @@ const sortButton = (props) => {
 
     return (
         <React.Fragment>
-                <button
-                    onClick={() => { setIsClicked(!isClicked) }}
-                    style={{
-                        ...styles.sortButton,
-                        ...(isClicked ? styles.buttonClicked : null)
-                    }}>
-                    <img src={FilterIcon} alt={'sorticon'} style={{ width: 30 }} />
-                </button>
-                <div style={isClicked ? styles.card : styles.cardInActive}>
-                    <img 
-                        src={Voi} 
-                        alt={'voi icon'}
-                        style={voiIsClicked ? styles.images : styles.imagesInactive}
-                        onClick={()=>{props.setFilter('voi'); setVoiIsClicked(!voiIsClicked)}} />
-                    <img
-                        src={Tier}
-                        alt={'tier icon'}
-                        style={tierIsClicked ? styles.images : styles.imagesInactive}
-                        onClick={()=>{props.setFilter('tier'); setTierIsClicked(!tierIsClicked)}} />
-                    <img
-                        src={Circ} alt={'circ icon'}
-                        style={circIsClicked ? styles.images : styles.imagesInactive}
-                        onClick={()=>{props.setFilter('circ'); setCircIsClicked(!circIsClicked)}} />
-                    <img
-                        src={Zvipp}
-                        alt={'zvipp icon'}
-                        style={zvippIsClicked ? styles.images : styles.imagesInactive}
-                        onClick={()=>{props.setFilter('zvipp'); setZvippIsClicked(!zvippIsClicked)}} />
-                    <img
-                        src={BikeIcon}
-                        alt={'citybike icon'}
-                        style={citybikeIsClicked ? styles.images : styles.imagesInactive}
-                        onClick={()=>{props.setFilter('citybike'); setcitybikeIsClicked(!citybikeIsClicked)}} />
-                </div>
+            <button
+                onClick={() => { setIsClicked(!isClicked) }}
+                className={'filterButton'}
+            >
+                <img src={FilterIcon} alt={'sorticon'} style={{ width: 30 }} />
+            </button>
+            <div className={isClicked ? 'filterCard' : 'filterCardInActive'}>
+                <img
+                    src={Voi}
+                    alt={'voi icon'}
+                    className={voiIsClicked ? 'filterImages' : 'filterImagesInactive'}
+                    onClick={() => { props.setFilter('voi'); setVoiIsClicked(!voiIsClicked) }} />
+                <img
+                    src={Tier}
+                    alt={'tier icon'}
+                    className={tierIsClicked ? 'filterImages' : 'filterImagesInactive'}
+                    onClick={() => { props.setFilter('tier'); setTierIsClicked(!tierIsClicked) }} />
+                <img
+                    src={Circ} alt={'circ icon'}
+                    className={circIsClicked ? 'filterImages' : 'filterImagesInactive'}
+                    onClick={() => { props.setFilter('circ'); setCircIsClicked(!circIsClicked) }} />
+                <img
+                    src={Zvipp}
+                    alt={'zvipp icon'}
+                    className={zvippIsClicked ? 'filterImages' : 'filterImagesInactive'}
+                    onClick={() => { props.setFilter('zvipp'); setZvippIsClicked(!zvippIsClicked) }} />
+                <img
+                    src={BikeIcon}
+                    alt={'citybike icon'}
+                    className={citybikeIsClicked ? 'filterImages' : 'filterImagesInactive'}
+                    onClick={() => { props.setFilter('citybike'); setcitybikeIsClicked(!citybikeIsClicked) }} />
+            </div>
         </React.Fragment>
     )
 }
 export default sortButton;
 
-const styles = {
-    sortButton: {
-        height: 54,
-        width: 61,
-        borderRadius: '10px 10px 10px 10px',
-        border: '1px solid white',
-        backgroundColor: '#f8f9fa',
-        padding: 2,
-        position: 'fixed',
-        right: '3%',
-        top: '1%',
-        zIndex: 5,
-        outline: 'none'
-    },
-    buttonClicked: {
-        
-        boxShadow: ' 20px 21px 63px -9px rgba(0,0,0,0.58)',
-        border: 'none'
-    },
-    card: {
-        width: 61,
-        height: 290,
-        borderRadius: '10px 10px 10px 10px',
-        border: '1px white',
-        boxShadow: ' 20px 21px 63px -9px rgba(0,0,0,0.58)',
-        backgroundColor: '#f8f9fa',
-        color: '#f8f9fa',
-        padding: 2,
-        position: 'fixed',
-        right: '3%',
-        top: '10%',
-        opacity: '1',
-        transition: '100ms ease-out'
-    },
-    cardInActive: {
-        height: 50,
-        width: 50,
-        borderRadius: '10px 10px 10px 10px',
-        backgroundColor: '#343a40',
-        color: '#f8f9fa',
-        padding: 2,
-        position: 'fixed',
-        left: '5%',
-        bottom: '15%',
-        zIndex: -100000,
-        opacity: '0',
-    },
-    images:{
-        borderRadius: '10px 10px 10px 10px',
-        width: '100%', 
-        padding: 10
-    },
-    imagesInactive:{
-        opacity: '0.5',
-        borderRadius: '10px 10px 10px 10px',
-        width: '100%', 
-        padding: 10
-    }
-}
+// const styles = {
+//     sortButton: {
+//         height: 54,
+//         width: 61,
+//         borderRadius: '10px 10px 10px 10px',
+//         border: '1px solid white',
+//         backgroundColor: '#f8f9fa',
+//         padding: 2,
+//         position: 'fixed',
+//         right: '3%',
+//         top: '1%',
+//         zIndex: 5,
+//         outline: 'none'
+//     },
+//     buttonClicked: {
+
+//         boxShadow: ' 20px 21px 63px -9px rgba(0,0,0,0.58)',
+//         border: 'none'
+//     },
+//     card: {
+//         width: 61,
+//         height: 290,
+//         borderRadius: '10px 10px 10px 10px',
+//         border: '1px white',
+//         boxShadow: ' 20px 21px 63px -9px rgba(0,0,0,0.58)',
+//         backgroundColor: '#f8f9fa',
+//         color: '#f8f9fa',
+//         padding: 2,
+//         position: 'fixed',
+//         right: '3%',
+//         top: '10%',
+//         opacity: '1',
+//         transition: '100ms ease-out'
+//     },
+//     cardInActive: {
+//         height: 50,
+//         width: 50,
+//         borderRadius: '10px 10px 10px 10px',
+//         backgroundColor: '#343a40',
+//         color: '#f8f9fa',
+//         padding: 2,
+//         position: 'fixed',
+//         left: '5%',
+//         bottom: '15%',
+//         zIndex: -100000,
+//         opacity: '0',
+//     },
+//     images:{
+//         borderRadius: '10px 10px 10px 10px',
+//         width: '100%', 
+//         padding: 10
+//     },
+//     imagesInactive:{
+//         opacity: '0.5',
+//         borderRadius: '10px 10px 10px 10px',
+//         width: '100%', 
+//         padding: 10
+//     }
+// }
 

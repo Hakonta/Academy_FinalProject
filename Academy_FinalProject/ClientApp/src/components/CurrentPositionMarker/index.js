@@ -1,7 +1,7 @@
 import React from 'react'
 import { Marker } from '@react-google-maps/api'
 import Here from '../../Assets/newMarker2.png'
-import './Marker.css'
+import '../../Styles/style.css'
 
 
 const currentPositionMarker = (props) => {
@@ -11,17 +11,17 @@ const currentPositionMarker = (props) => {
                         <Marker
                         position={props.position}
                         icon={{url:Here}}
-                        style={Styles.marker}/>
+                        className={'myPositionMarker'}/>
                 </span>
            </div> 
    )
 }
-const Styles={
-        marker:{
-        height: 20,
-        width: 20,
-        zIndex: 100,
-        }
-    }
+// const Styles={
+//         marker:{
+//         height: 20,
+//         width: 20,
+//         zIndex: 100,
+//         }
+//     }
 export default currentPositionMarker;
 
