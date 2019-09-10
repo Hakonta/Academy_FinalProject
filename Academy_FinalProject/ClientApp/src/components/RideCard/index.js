@@ -37,7 +37,6 @@ class RideCard extends React.Component {
   unlockScooter()
   {
     this.setState({isOn: true}, () => {
-    console.log(this.state.isOn, 'Is it on?')
   }); 
   }
 

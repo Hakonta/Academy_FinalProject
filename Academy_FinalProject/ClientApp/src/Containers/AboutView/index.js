@@ -2,6 +2,8 @@ import { HeaderBar } from '../../Components/HeaderBar';
 import React, { Component } from 'react';
 import Plx from 'react-plx';
 import about from '../../Assets/about.jpg'
+import '../../Styles/style.css'
+
 
 const parallaxData = [
     {
@@ -36,10 +38,10 @@ export default class AboutView extends Component {
                 <img src={about} width="100%"/>
                 </Plx>
 
-                <section id="about">
-                    <div class="container">
+                <section id={'about'}>
+                    <div class={'aboutViewContainerTop'}>
                         <div class="row">
-                            <div class="col-lg-8 mx-auto">
+                            <div class={'col-lg-8 mx-auto'}>
                                 <br></br>
                                 <h2>Our solution</h2>
                                 <p class="lead">Lorizzle ipsizzle dolizzle dang amet, yo adipiscing elit.</p>
@@ -50,9 +52,9 @@ export default class AboutView extends Component {
                     </div>
                 </section>
 
-                <section id="services" class="bg-white">
-                    <div class="container">
-                        <div class="row">
+                <section id="services" class={'bg-black'}>
+                    <div class={'aboutViewContainerBottom'}>
+                        <div class={'rowBottom'}>
                             <div class="col-lg-8 mx-auto">
                                 <h2>Our Team</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
