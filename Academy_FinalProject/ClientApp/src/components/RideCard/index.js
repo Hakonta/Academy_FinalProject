@@ -1,5 +1,6 @@
 import React from 'react'
 import CounterComponent from '../CounterComponent'
+import StripeCheckout from 'react-stripe-checkout'
 
 const styles = {
     outerContainer: {
@@ -53,6 +54,7 @@ class RideCard extends React.Component {
     let verified = (!this.state.isOn) ?
       null :
       <CounterComponent/>
+      
 
     return(
       <div>
