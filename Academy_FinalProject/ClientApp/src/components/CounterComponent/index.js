@@ -61,7 +61,6 @@ class CounterComponent extends React.Component {
 //   }
   calculateSeconds() {
       let checkSeconds = (this.state.time/1000).toFixed(0);
-      console.log(checkSeconds)
       
       if (checkSeconds >= 60 )
       {
@@ -78,9 +77,6 @@ class CounterComponent extends React.Component {
               hours: Math.floor(((((this.state.time)/1000)/60)/60))  
             
             }, () => {
-            console.log(this.state.seconds, 'seconds')
-            console.log(this.state.minutes, 'minutes')
-            console.log(this.state.hours, 'hours');
           }); 
       }
       
@@ -130,7 +126,6 @@ class CounterComponent extends React.Component {
         
 
         {start}
-        {/* {resume} */}
         
         {stop}
         {endRide}
