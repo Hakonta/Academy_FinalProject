@@ -20,7 +20,7 @@ const sortButton = (props) => {
         <React.Fragment>
             <button
                 onClick={() => { setIsClicked(!isClicked) }}
-                className={'filterButton'}
+                className={isClicked ? 'filterButtonActive' : 'filterButton' }
             >
                 <img src={FilterIcon} alt={'sorticon'} style={{ width: 30 }} />
             </button>
