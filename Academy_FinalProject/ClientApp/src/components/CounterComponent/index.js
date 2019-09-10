@@ -143,14 +143,9 @@ class CounterComponent extends React.Component {
     //   null :
     //   <button onClick={this.resetTimer}>reset</button>
     return(
-<<<<<<< HEAD
-      <div style={styles.outerContainer}>
-          <div style={styles.innerContainer}>
-=======
       <div className={'outerContainer'}>
           <div className={'innerContainer'}>
         
->>>>>>> 58f42ebcbd770bed6dbe19850fc7a95ac5ffa165
 
         {start}
         {stop}
