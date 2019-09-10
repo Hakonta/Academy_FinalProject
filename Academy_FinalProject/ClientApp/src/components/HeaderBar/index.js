@@ -2,7 +2,6 @@ import React from "react"
 import "./sideNav.css"
 import {Navbar, Button} from 'react-bootstrap';
 import logo from '../../Assets/FullLogoOrange.png'
-import FilterButton from '../FilterButton'
 
 export class HeaderBar extends React.Component {
   state = {
@@ -56,12 +55,11 @@ export class HeaderBar extends React.Component {
             &times;
           </a>
           <a>{<img src={logo} alt={''} height='60x' width='100px'/>}</a>
-          <h5>Hi Cez!</h5>
-          <a href="/myAccount">My Account</a>
-          <a href="/MyCardDetails">My Card Details</a>
-          <a href="/MyRideHistory">My Ride History</a>
-          <a href="/ContactUs">Contact us</a>
-          <a href="/AboutUs">About us</a>
+          <a href="/account">My Account</a>
+          <a href="/safety">Safety</a>
+          <a href="/about">About SQT</a>
+          <a href="/contact">Contact us</a>
+
         </div>
         <div i style ={{bsStyle:"default", border: '2px solid',
         borderColor: '#353a40',borderRadius: '10px 10px 10px 10px', color: '#ff7500',zIndex:'100'}} >
