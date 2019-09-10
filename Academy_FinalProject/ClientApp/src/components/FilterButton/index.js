@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import FilterIcon from '../../Assets/filterIcon.png'
-import WhiteFilterIcon from '../../Assets/'
+import WhiteFilterIcon from '../../Assets/whiteFunnel.png'
 import Tier from '../../Assets/logo_tier.png'
 import Voi from '../../Assets/logo_voi.png'
 import BikeIcon from '../../Assets/logo_bysykkel.png'
@@ -23,7 +23,7 @@ const sortButton = (props) => {
                 onClick={() => { setIsClicked(!isClicked) }}
                 className={isClicked ? 'filterButtonActive' : 'filterButton' }
             >
-                <img src={FilterIcon} alt={'sorticon'} style={{ width: 30 }} />
+                <img src={isClicked ? WhiteFilterIcon : FilterIcon} alt={'sorticon'} style={{ width: 30 }} />
             </button>
             <div className={isClicked ? 'filterCard' : 'filterCardInActive'}>
                 <img
