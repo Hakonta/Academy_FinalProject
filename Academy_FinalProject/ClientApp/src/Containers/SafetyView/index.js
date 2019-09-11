@@ -1,12 +1,13 @@
-
 import React, { Component } from 'react';
 import Plx from 'react-plx';
 import about from '../../Assets/about.jpg'
 import '../../Styles/style.css'
 import CardNavBar from '../../Components/CardNavbar'
+import safetyPoster from '../../Assets/safetyPoster.png'
+import safe from '../../Assets/safe.png'
+import safe2 from '../../Assets/safe2.png'
 
 // A WIP. Must find something that works on both mobile and desktop
-
 
 const parallaxData = [
     {
@@ -22,56 +23,24 @@ const parallaxData = [
     },
 ];
 
-
 export default class safetyView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
         }
     }
 
     render() {
         return (
             <div class={'outerContainersafety'}>
-                <CardNavBar />
-                <Plx
-                    className='MyAwesomeParallax'
-                    parallaxData={parallaxData} // your parallax effects, see documentation
-                >
-                    <img class={'testImagesafety'} src={about} width="100%" />
-                </Plx>
+                <CardNavBar/>
+                <body className='safetyBody'>
+                    <a>{<img src={safe} alt={'safetyPhoto'}/>}</a><br></br>
+                    <a>{<img src={safe2} alt={'safetyPhoto'}/>}</a><br></br>
+                </body>
+                                
 
-                <section id={'safety'}>
-                    <div class={'safetyViewContainerTop'}>
-                        <div class={'rowTop'}>
-                            <div className={'wrappersafety'}>
-                                <br></br>
-                                <h2 className={'safetyHeader'}>About</h2>
-                                <p class="lead"><b>So what's this about?</b></p>
-                                <p>SQT is the lovechild of a couple of students who attended <a className={'safetyLinks'} href="https://www.academy.no/">Academy</a>(summer of 2019). It was developed in a two week project for our finals.
-                                Prior to the three months we've spent learning coding during our time at Academy, most of us had none or almost no experience with coding.
-                                It's been a fun ride and we hope you like our little project! If you're curious about the techincal aspects of things, you can check out our Github page <a className={'safetyLinks'} href="https://github.com/Hakonta/Academy_FinalProject">here</a>.
-                                <br></br>
-                                </p>
-                                <p class="lead"><b>Why SQT?</b></p>
-                                <p>If you've ever tried to book an e-scooter before, you've most likely ran into to this problem: So many providers(and apps!),
-                                    but you just want the scooter that's the closest to where you are at the moment.
-                                    It'd be so much easier if you could have them all on the same map. Well, now you can!</p>
-
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="services" class={'bg-black'}>
-                    <div class={'safetyViewContainerBottom'}>
-                        <div class={'rowBottom'}>
-                            <div class="col-lg-8 mx-auto">
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                
             </div>
         )
     }

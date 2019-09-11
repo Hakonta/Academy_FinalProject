@@ -290,6 +290,15 @@
     color:white;
 } 
 
+/* SAFETY VIEW*/
+.safetyBody{
+background-color: #FF7500;
+display: flex;
+flex-direction: column;
+width:100vw;
+}
+
+
 */
 
 /* .rideCardStartButton,.startButton {
