@@ -225,21 +225,43 @@
     opacity:0.8;
     border-radius: 25px;
     color: white;
-    width:70%;
+    width:50%;
     display: flex;
     justify-content: center;
     align-items: center;
     top: 20%;
     position: absolute;
-    margin-left: 15%;
-    margin-right:15%;
+    margin-left: 25%;
+    margin-right:25%;
     text-align: center;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+.aboutLinks {
+    color: gold;
+    text-decoration-line: underline;
+}
+.aboutHeader {
+    color: gold;
+}
+
+.aboutLinks:hover {
+    color: yellow;
 }
 
 #about {
     background-color: #343a40;
 }
+@media only screen and (max-width: 600px) {
+    .aboutViewContainerTop {
+        padding-right: 3%;
+        padding-left: 3%;
+        width:70%;
+        margin-left: 15%;
+        margin-right:15%;
 
+    }
+  }
 
 .aboutViewContainerBottom {
 
@@ -261,5 +283,26 @@
     background-color: #343a40;
 }
 html{
-    background-color: #343a40;
+    background: linear-gradient(179deg, #343a40, #eb9151);
+background-size: 400% 400%;
+
+-webkit-animation: AnimationName 30s ease infinite;
+-moz-animation: AnimationName 30s ease infinite;
+animation: AnimationName 30s ease infinite;
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
+@keyframes AnimationName { 
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
 }

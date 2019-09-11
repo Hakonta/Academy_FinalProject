@@ -45,11 +45,19 @@ export default class AboutView extends Component {
                 <section id={'about'}>
                     <div class={'aboutViewContainerTop'}>
                         <div class={'rowTop'}>
-                            <div class={'wrapperAbout'}>
+                            <div className={'wrapperAbout'}>
                                 <br></br>
-                                <h2>Our solution</h2>
-                                <p class="lead">Lorizzle ipsizzle dolizzle dang amet, yo adipiscing elit.</p>
-                                <p>Nullizzle sapizzle velizzle, aliquet volutpizzle, suscipit quis, gravida vizzle, nizzle. Pellentesque egizzle bling bling. Fo erizzle. I'm in the shizzle at dolor shiznit black tempus bling bling. Maurizzle pellentesque shizznit hizzle turpizzle. Izzle in i saw beyonces tizzles and my pizzle went crizzle. Black bizzle rhoncizzle break yo neck, yall. In fo shizzle my nizzle sheezy platea fo shizzle mah nizzle fo rizzle, mah home g-dizzle. Tellivizzle dapibizzle. Curabitur tellus urna, pretizzle ma nizzle, mattizzle funky fresh, eleifend vitae, nizzle. Sheezy suscipizzle. Check it out sempizzle mofo yo fo shizzle.</p>
+                                <h2 className={'aboutHeader'}>About</h2>
+                                <p class="lead"><b>So what's this about?</b></p>
+                                <p>SQT is the lovechild of a couple of students who attended <a className={'aboutLinks'} href="https://www.academy.no/">Academy</a>(summer of 2019). It was developed in a two week project for our finals. 
+                                Prior to the three months we've spent learning coding during our time at Academy, most of us had none or almost no experience with coding. 
+                                It's been a fun ride and we hope you like our little project! If you're curious about the techincal aspects of things, you can check out our Github page <a className={'aboutLinks'} href="https://github.com/Hakonta/Academy_FinalProject">here</a>.
+                                <br></br>
+                                </p>
+                                <p class="lead"><b>Why SQT?</b></p>
+                                <p>If you've ever tried to book an e-scooter before, you've most likely ran into to this problem: So many providers(and apps!), 
+                                    but you just want the scooter that's the closest to where you are at the moment. 
+                                    It'd be so much easier if you could have them all on the same map. Well, now you can!</p>
 
                             </div>
                         </div>
