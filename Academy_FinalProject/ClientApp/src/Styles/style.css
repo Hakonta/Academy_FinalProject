@@ -30,7 +30,7 @@
 }
 .filterCard {
     width: 65px;
-    height: 307px;
+    height: 325px;
     border-radius: 10px 10px 10px 10px;
     border: 1px white;
     box-shadow:20px 21px 63px -9px rgba(0,0,0,0.58);
@@ -41,7 +41,8 @@
     right:3%;
     top:10%;
     opacity:1;
-    transition:100ms ease-out
+    transition:100ms ease-out;
+    z-index: 5;
 }
 .filterCardInActive{
     height: 50px;
@@ -79,7 +80,7 @@
     bottom: 0%;
     height: 25%;
     width: 100%;
-    z-index: 1000000;
+    z-index: 3;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
     justify-content: center
@@ -108,7 +109,7 @@
     bottom: 0%;
     height: 22%;
     width: 100%;
-    z-index: 1000000;
+    z-index: 3;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
     justify-content: space-evenly;
@@ -147,7 +148,7 @@
     bottom: 0%;
     height: 25%;
     width: 100%;
-    z-index: 1000000;
+    z-index: 3;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
     justify-content: center

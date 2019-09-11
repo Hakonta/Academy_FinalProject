@@ -18,6 +18,7 @@ import bikecluster50 from '../../Assets/bikecluster50.png'
 import { HeaderBar } from '../../Components/HeaderBar';
 import deepEqual from 'deep-equal';
 import '../../Styles/style.css'
+import RefreshButton from '../Refreshbutton'
 
 
 export default class MapBaseLayer extends Component {
@@ -167,7 +168,9 @@ export default class MapBaseLayer extends Component {
 
             <HeaderBar />
             {this.state.mapIsLoadiong ? <LoadingSpinner /> : null}
-
+            <FilterButton
+            setFilter={this.filter} />
+            <RefreshButton/>
             <MarkerClusterer
               averageCenter
               minimumClusterSize={3}
@@ -234,8 +237,6 @@ export default class MapBaseLayer extends Component {
 
           </GoogleMap>
         </LoadScript>
-        <FilterButton
-          setFilter={this.filter} />
       </React.Fragment>
     )
 
