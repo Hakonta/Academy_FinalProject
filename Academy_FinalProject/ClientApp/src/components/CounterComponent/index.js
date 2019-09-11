@@ -100,19 +100,17 @@ class CounterComponent extends React.Component {
       if (Math.floor((((this.state.time)/1000/60)) - (60 * tickerMinutes)) === 60)
       {
           tickerMinutes += 1;
-
       }
-
       return Math.floor((((this.state.time)/1000/60)) - (60 * tickerMinutes));
   }
 
   render() {
     let start = (this.state.time === 0) ?
-        <div><h3>Have a safe ride!</h3><p>(Press the unlock button to begin your ride)</p><button className={'startButton'} onClick={this.startTimer}>Unlock Scooter</button></div> :
+        <div><h4>Have a safe ride!</h4><p>(Press the unlock button to begin your ride)</p><button className={'startButton'} onClick={this.startTimer}>Unlock Scooter</button></div> :
         null
     let stop = (this.state.time === 0 || !this.state.isOn) ?
         null :
-        <div><h3>Ride in progress</h3><h4>Time passed:</h4><h4>{this.showSeconds()}s / {this.showMinutes()}m / {Math.floor(((((this.state.time)/1000)/60)/60))}h</h4>
+        <div>Ride in progress<h4>Time passed:</h4><h4> {this.showSeconds()}s   {this.showMinutes()}m   {Math.floor(((((this.state.time)/1000)/60)/60))}h</h4>
         <p>Current cost: kr {this.showPrice()}</p><button className={'stopButton'} onClick={this.stopTimer}>End and pay your ride</button></div>
     let endRide = (this.state.time === 0 || this.state.isOn) ?
         null :
@@ -132,6 +130,7 @@ class CounterComponent extends React.Component {
           panelLabel={this.amount}
           >
           <button className="btn btn-primary">Pay with card</button>
+          {/* <button className="btnprimary">Pay with card</button> */}
         </StripeCheckout>}</div>
       
     // let reset = (this.state.time == 0 || this.state.isOn) ?

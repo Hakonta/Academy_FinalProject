@@ -151,8 +151,6 @@
     color: black;
     box-shadow: 0 -5px 5px -5px #D7D7D7;
     border-top-color: #ff7500;
-    
-
 }
 
 .infoCardinnerContainer {
@@ -176,8 +174,6 @@
     flex-direction: column;
     align-content: center;
     align-items: center;
-
-
 }
 
 /* .infoCardDiv {
@@ -224,6 +220,11 @@
     text-align: center;
 }
 
+.TermsOfUseBox{
+    justify-content: center;
+    text-align: center;
+}
+
 .rideCardStartButton, .startButton, .startRideButton, .stopButton {
     background-color: white;
     color: black;
@@ -242,6 +243,10 @@
     position: relative;
     top: 1px;
 }
+/* .btnprimary{ // Aktiver denne (samt en linje i counterComp for å redigere knappen
+background-color:yellow;
+color:black;
+} */
 
 /* .rideCardStartButton,.startButton {
     background-color: darkRed;
