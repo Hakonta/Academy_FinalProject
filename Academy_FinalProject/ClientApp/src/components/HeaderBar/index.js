@@ -44,7 +44,7 @@ export class HeaderBar extends React.Component {
     let sideNavStyle = { width: showNav ? "70%" : "0" }
 
     return (
-      <Navbar expand="xl" className="open-nav">
+      <div>
         <div name="side-nav" className="side-nav" style={sideNavStyle}>
           <a href="/" onClick={this.closeNavClick} className="close-nav">
             &times;
@@ -64,8 +64,7 @@ export class HeaderBar extends React.Component {
                   
               <img src= {menu} height="45px"/>
             </button>
-          </Navbar>
-      
+      </div>
     )
   }
 }

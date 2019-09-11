@@ -1,4 +1,4 @@
-import { HeaderBar } from '../../Components/HeaderBar';
+
 import React, { Component } from 'react';
 import Plx from 'react-plx';
 import about from '../../Assets/about.jpg'
@@ -35,7 +35,6 @@ export default class AboutView extends Component {
         return (
             <div class={'outerContainerAbout'}>
                 <CardNavBar />
-                <HeaderBar />
                 <Plx
                     className='MyAwesomeParallax'
                     parallaxData={parallaxData} // your parallax effects, see documentation
