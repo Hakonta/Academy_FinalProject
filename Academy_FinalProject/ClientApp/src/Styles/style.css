@@ -1,5 +1,25 @@
+/*CARDNAVBAR*/
 
-/*FILTERBUTTOM*/
+.cardNavbar {
+    width: 100%;
+    height: 15%;
+    background-color: #343a40;
+    color: #fff
+}
+
+.cardNavbarLink {
+    margin: 2px;
+    background-color: #fff;
+    color: #343a40
+}
+
+.cardNavbarLinkActive {
+    background-color: #343a40;
+    color: #fff
+}
+
+/*FILTERBUTTON*/
+
 .filterButton {
     height: 54px;
     width: 65px;
@@ -26,16 +46,16 @@
     top: 1%;
     z-index: 5;
     outline: none;
-
 }
+
 .filterCard {
     width: 65px;
     height: 325px;
     border-radius: 10px 10px 10px 10px;
     border: 1px white;
-    box-shadow:20px 21px 63px -9px rgba(0,0,0,0.58);
-    background-color:#f8f9fa;
-    color:#f8f9fa;
+    box-shadow: 20px 21px 63px -9px rgba(0, 0, 0, 0.58);
+    background-color: #f8f9fa;
+    color: #f8f9fa;
     padding: 2;
     position:fixed;
     right:3%;
@@ -44,35 +64,38 @@
     transition:100ms ease-out;
     z-index: 5;
 }
-.filterCardInActive{
+
+.filterCardInActive {
     height: 50px;
     width: 50px;
-    border-radius:10px 10px 10px 10px;
-    background-color:#343a40;
-    color:#f8f9fa;
-    padding: 2;
-    position:fixed;
-    left:5%;
-    bottom:15%;
-    z-index: -100000;
-    opacity:0;
-}
-.filterImages{
     border-radius: 10px 10px 10px 10px;
-    width:100%;
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 2;
+    position: fixed;
+    left: 5%;
+    bottom: 15%;
+    z-index: -100000;
+    opacity: 0;
+}
+
+.filterImages {
+    border-radius: 10px 10px 10px 10px;
+    width: 100%;
     padding: 7px;
 }
 
-.filterImagesInactive{
-    opacity:0.5;
-    border-radius:10px 10px 10px 10px;
-    width:100%;
-    padding:7px;
+.filterImagesInactive {
+    opacity: 0.5;
+    border-radius: 10px 10px 10px 10px;
+    width: 100%;
+    padding: 7px;
     position: relative;
     top: 3px;
 }
 
 /*RIDECARD*/
+
 .rideCardOuterContainer {
     display: flex;
     position: fixed;
@@ -97,8 +120,6 @@
     background-color:darkRed;
      color:white;
 } */
-
-
 
 /*INFOCARD*/
 
@@ -209,7 +230,7 @@
     opacity:0.8;
     border-radius: 25px;
     color: white;
-    width:50%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -248,15 +269,15 @@
   }
 
 .aboutViewContainerBottom {
-
     color: white;
-    width:50%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left:25%;
     margin-right: 25%;
 }
+
 .rowBottom {
     background-color:rgba(0,0,0,0.8);
     opacity:0.8;

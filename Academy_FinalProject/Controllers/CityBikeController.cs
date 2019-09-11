@@ -15,7 +15,7 @@ namespace Academy_FinalProject.Controllers
     public class CityBikeController : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<List<Bysykkel>>> Get() {
+        public ActionResult<List<Bysykkel>> Get() {
             //FetchBysykler bysykler = new FetchBysykler();
             //FormattingDataBysykkel formattingBysykkel = new FormattingDataBysykkel();
             //var fetchBysykkelTask = bysykler.FetchStationInfoData();
