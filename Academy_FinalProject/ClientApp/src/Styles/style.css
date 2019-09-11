@@ -2,20 +2,36 @@
 
 .cardNavbar {
     width: 100%;
-    height: 15%;
+    height: 16%;
     background-color: #343a40;
-    color: #fff
+    padding: 1%;
+    display: flex;
 }
 
 .cardNavbarLink {
-    margin: 2px;
-    background-color: #fff;
-    color: #343a40
+    margin: auto;
+    margin: 2%;
+    padding: 1%;
+    color: #fff
+}
+
+.cardNavbarLink:visited {
+    color: #fff;
+    text-decoration-style: none
+}
+
+.cardNavbarLink:active {
+    color: #FF7F50
 }
 
 .cardNavbarLinkActive {
     background-color: #343a40;
     color: #fff
+}
+.cardNavbarExitIcon{
+    padding: 1%;
+    margin: 2%;
+    margin-top: 10%
 }
 
 /*FILTERBUTTON*/
@@ -24,8 +40,8 @@
     height: 54px;
     width: 65px;
     border-radius: 10px 10px 10px 10px;
-    border: 1px solid #FF7F50	;
-    background-color: #FF7F50	;
+    border: 1px solid #FF7F50;
+    background-color: #FF7F50;
     padding: 2;
     position: fixed;
     right: 3%;
@@ -57,11 +73,11 @@
     background-color: #f8f9fa;
     color: #f8f9fa;
     padding: 2;
-    position:fixed;
-    right:3%;
-    top:10%;
-    opacity:1;
-    transition:100ms ease-out;
+    position: fixed;
+    right: 3%;
+    top: 10%;
+    opacity: 1;
+    transition: 100ms ease-out;
     z-index: 5;
 }
 
@@ -160,8 +176,6 @@
 
 /*COUNTER COMPONENT*/
 
-
-
 .outerContainer {
     display: flex;
     position: fixed;
@@ -182,27 +196,24 @@
     text-align: center
 }
 
-
-.rideCardStartButton,.startButton,.startRideButton,.stopButton {
+.rideCardStartButton, .startButton, .startRideButton, .stopButton {
     background-color: white;
     color: black;
     border: 2px solid #ff7500;
     -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s; 
-	padding:5px 17px;
-
+    transition-duration: 0.4s;
+    padding: 5px 17px;
 }
 
-.rideCardStartButton:hover,.startButton:hover,.stopButton:hover,.startRideButton:hover {
+.rideCardStartButton:hover, .startButton:hover, .stopButton:hover, .startRideButton:hover {
     background-color: #ff7500;
     color: black;
-   
-}
-.rideCardStartButton.startButton.startRideButton.stopButton:active {
-    position:relative;
-    top:1px;
 }
 
+.rideCardStartButton.startButton.startRideButton.stopButton:active {
+    position: relative;
+    top: 1px;
+}
 
 /* .rideCardStartButton,.startButton {
     background-color: darkRed;
@@ -219,10 +230,9 @@
     background-color: #343a40;
 }
 
-
 .aboutViewContainerTop {
-    background-color:rgba(0,0,0,0.8);
-    opacity:0.8;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0.8;
     border-radius: 25px;
     color: white;
     width: 50%;
@@ -232,15 +242,17 @@
     top: 20%;
     position: absolute;
     margin-left: 25%;
-    margin-right:25%;
+    margin-right: 25%;
     text-align: center;
     padding-right: 10%;
     padding-left: 10%;
 }
+
 .aboutLinks {
     color: gold;
     text-decoration-line: underline;
 }
+
 .aboutHeader {
     color: gold;
 }
@@ -252,16 +264,16 @@
 #about {
     background-color: #343a40;
 }
+
 @media only screen and (max-width: 600px) {
     .aboutViewContainerTop {
         padding-right: 3%;
         padding-left: 3%;
-        width:70%;
+        width: 70%;
         margin-left: 15%;
-        margin-right:15%;
-
+        margin-right: 15%;
     }
-  }
+}
 
 .aboutViewContainerBottom {
     color: white;
@@ -269,40 +281,57 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left:25%;
+    margin-left: 25%;
     margin-right: 25%;
 }
 
 .rowBottom {
-    background-color:rgba(0,0,0,0.8);
-    opacity:0.8;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0.8;
     border-radius: 25px;
 }
 
 .bg-black {
     background-color: #343a40;
 }
-html{
+
+html {
     background: linear-gradient(179deg, #343a40, #eb9151);
-background-size: 400% 400%;
-
--webkit-animation: AnimationName 30s ease infinite;
--moz-animation: AnimationName 30s ease infinite;
-animation: AnimationName 30s ease infinite;
-
-@-webkit-keyframes AnimationName {
-    0%{background-position:50% 0%}
-    50%{background-position:51% 100%}
-    100%{background-position:50% 0%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:50% 0%}
-    50%{background-position:51% 100%}
-    100%{background-position:50% 0%}
-}
-@keyframes AnimationName { 
-    0%{background-position:50% 0%}
-    50%{background-position:51% 100%}
-    100%{background-position:50% 0%}
-}
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+    @-webkit-keyframes AnimationName {
+        0% {
+            background-position: 50% 0%
+        }
+        50% {
+            background-position: 51% 100%
+        }
+        100% {
+            background-position: 50% 0%
+        }
+    }
+    @-moz-keyframes AnimationName {
+        0% {
+            background-position: 50% 0%
+        }
+        50% {
+            background-position: 51% 100%
+        }
+        100% {
+            background-position: 50% 0%
+        }
+    }
+    @keyframes AnimationName {
+        0% {
+            background-position: 50% 0%
+        }
+        50% {
+            background-position: 51% 100%
+        }
+        100% {
+            background-position: 50% 0%
+        }
+    }
 }
