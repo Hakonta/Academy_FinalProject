@@ -216,23 +216,23 @@ export default class MapBaseLayer extends Component {
               }
             </MarkerClusterer>
             {this.state.selectedBikeStation && (
-              <div className= "infoCardOuterContainer"
+              <InfoWindow
                 position={{ lat: this.state.selectedBikeStation.latitude, lng: this.state.selectedBikeStation.longitude }}
                 onCloseClick={() => {
                   this.setState({ selectedBikeStation: null })
                 }} >
 
-                <div className= "infoCardinnerContainer">
+                <div>
                   <h3>{this.state.selectedBikeStation.stationName} station</h3>
                   <h4>Bikes available: {this.state.selectedBikeStation.bikesAvailable}</h4>
                   <h4>Docks available: {this.state.selectedBikeStation.docksAvailable}</h4>
                 </div>
-              </div>
+              </InfoWindow>
               // The method belows calls the Footerbar
             )}
             
             {this.state.showDefaultCard ?
-              this.state.showScooterFooter ? <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} showBikeInfo={this.state.showBikeFooter}
+              this.state.showScooterFooter ? <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} 
                 toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
                 : null : <RideCard />}
 
