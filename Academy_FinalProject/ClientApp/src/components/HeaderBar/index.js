@@ -1,7 +1,7 @@
 import React from "react"
 import "./sideNav.css"
 import {Navbar} from 'react-bootstrap';
-import logo from '../../Assets/FullLogoOrange.png'
+import logo from '../../Assets/FullLogoOrangeBlack.png'
 import menu from '../../Assets/menu.png'
 import {Link} from 'react-router-dom'
 import '../../Styles/style.css'
@@ -44,12 +44,14 @@ export class HeaderBar extends React.Component {
     let sideNavStyle = { width: showNav ? "70%" : "0" }
 
     return (
-      <Navbar expand="xl" className="open-nav">
+      <div>
         <div name="side-nav" className="side-nav" style={sideNavStyle}>
           <a href="/" onClick={this.closeNavClick} className="close-nav">
             &times;
+
           </a>
-          <a>{<img src={logo} alt={''} height='60x' width='100px'/>}</a>
+          <a>{<img src={logo} alt={''} height='60x'/>}</a>
+          <br></br>
           <Link to="/account">My Account</Link>
           <Link to="/safety">Safety</Link>
           <Link to="/about">About SQT</Link>
@@ -62,8 +64,7 @@ export class HeaderBar extends React.Component {
                   
               <img src= {menu} height="45px"/>
             </button>
-          </Navbar>
-      
+      </div>
     )
   }
 }
