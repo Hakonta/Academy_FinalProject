@@ -1,6 +1,6 @@
 import React from 'react'
 import { Marker } from '@react-google-maps/api'
-import Here from '../../Assets/newMarker2.png'
+import Here from '../../Assets/newMarker3.png'
 import '../../Styles/style.css'
 
 
