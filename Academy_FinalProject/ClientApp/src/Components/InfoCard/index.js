@@ -47,7 +47,7 @@ export default function InfoCard(props)
         <div className={'infoCardOuterContainer'}>
             <div className={'infoCardinnerContainer'}>
                 <div className='box1'>
-                    <img src={getProviderImage(props.providerName)} alt={props.providerName} height="62%"></img>
+                    <img src={getProviderImage(props.providerName)} alt={props.providerName} height="75%"></img>
                 </div>
                 <div className='box2'>
                         <div>
@@ -59,9 +59,9 @@ export default function InfoCard(props)
                         </div>
                 </div>
                 <div className='box3'>
-                    <button style = {{fontFamily:"'Red Hat Display', sans-serif"}} className={'startRideButton'} block onClick={() => { props.toggleRideCard()}}>Start Ride</button>
+                    <button style = {{fontFamily:"'Red Hat Display', sans-serif"}} className={'btncards'} block onClick={() => { props.toggleRideCard()}}>Start Ride</button>
                     <br></br>
-                    <button className={'startRideButton'}>
+                    <button style = {{fontFamily:"'Red Hat Display', sans-serif"}} className={'btncards'}>
                          <a className={'providerLinks'} href={getProviderApp(props.providerName)}>Go to {props.providerName}</a>
                         </button>
                 </div>
