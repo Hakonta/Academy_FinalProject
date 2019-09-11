@@ -29,7 +29,7 @@ class RideCard extends React.Component {
     super(props)
     this.state = {
       fare: null,
-      isOn: false
+      isOn: true
     }
     this.unlockScooter = this.unlockScooter.bind(this)
   }
@@ -62,7 +62,7 @@ class RideCard extends React.Component {
 // Below is the order the menus that should appear on the Footerbar menu
     return(
       <div>
-        {verifyMenu}
+        {/* {verifyMenu} */}
         {verified}
         {/* {paymentButton} */}
         

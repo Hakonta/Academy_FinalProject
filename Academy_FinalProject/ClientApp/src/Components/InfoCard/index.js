@@ -43,14 +43,16 @@ const getProviderApp = (provider) => {
 export default function InfoCard(props)
 {
     return (
+
         <div className={'infoCardOuterContainer'}>
             <div className={'infoCardinnerContainer'}>
                 <div className='box1'>
-                    <img src={getProviderImage(props.providerName)} alt={props.providerName} height="75%"></img>
+                    <img src={getProviderImage(props.providerName)} alt={props.providerName} height="62%"></img>
                 </div>
                 <div className='box2'>
                         <div>
-                        <p><img src={Battery}></img>&nbsp;{props.battery} %</p> 
+                            <br></br>
+                        <h4><img src={Battery} height="15px"></img>&nbsp;{props.battery}%</h4> 
                         </div>
                         <div>
                         <p>10 kr + 2 kr/min</p> 
