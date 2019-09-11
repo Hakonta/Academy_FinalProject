@@ -200,7 +200,7 @@
     align-content: center;
     align-items: center;
     text-align: center;
-    margin-left:-100px;
+    margin-left:-75px;
 }
 .box3{
     flex-direction: column;
