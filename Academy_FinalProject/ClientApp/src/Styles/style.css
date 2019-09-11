@@ -16,11 +16,15 @@
     font-size: 16px;
 }
 .cardNavbarLink:visited {
+    text-decoration-style: none;
     color: #fff;
-    text-decoration-style: none
+    background-color: #43474b;
 }
 .cardNavbarLink:active {
-    color: #FF7F50
+    text-decoration-style: none;
+    color: #FF7F50;
+    background-color: #43474b;
+    
 }
 .cardNavbarExitIcon{
     padding: 1%;
@@ -135,6 +139,7 @@
 
 .infoCardOuterContainer {
     display: flex;
+    justify-content: space-between; 
     /* justify-content: space-between; */
     position: fixed; 
     left: 0%;
@@ -146,17 +151,30 @@
     color: black;
     box-shadow: 0 -5px 5px -5px #D7D7D7;
     border-top-color: #ff7500;
+    
+
 }
 
 .infoCardinnerContainer {
+    width:100%;
     display: flex;
-    justify-content: space-between;
+   justify-content: space-around;
     flex-direction: row;
-    margin-top: 20px
+    margin-top: 20px;
+    margin-left:10px;
+    margin-right:10px;
+    
+}
+.box2{
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left:-30px;
 }
 .box3{
     display: flex;
     flex-direction: column;
+
 }
 
 /* .infoCardDiv {
@@ -166,6 +184,13 @@
     margin-left: "25px"
 } */
 
+.providerLinks {
+    color:black;
+}
+.providerLinks:hover{
+    color:black;
+    text-decoration: none;
+}
 /*CURRENT POSITON MARKER*/
 
 .myPositionMarker {

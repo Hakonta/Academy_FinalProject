@@ -29,6 +29,14 @@ const getProviderImage = (provider) => {
 
     }
 }
+const getProviderApp = (provider) => {
+    switch (provider) {
+        case 'Tier': return "https://app.adjust.com/93rqtl6?redirect_android=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.tier.app&amp;redirect_ios=https%3A%2F%2Fitunes.apple.com%2Fde%2Fapp%2Ftier%2Fid1436140272"
+        case 'Voi': return "https://app.adjust.com/48s7k5x"
+        case 'Zvipp': return Zvipp
+        case 'Flash': return Circ
+    }
+ }
 // The toggleRideCard get it props from the MapBaseView where it's called
 export default function InfoCard(props)
 {
@@ -39,11 +47,22 @@ export default function InfoCard(props)
                     <img src={getProviderImage(props.providerName)} alt={props.providerName} height="75%"></img>
                 </div>
                 <div className='box2'>
-                    <h5><img src={Battery}></img>&nbsp;{props.battery} %</h5><p>10 kr + 2 kr/min<br></br></p>
+                    <br></br>
+                        <div>
+                        <p><img src={Battery}></img>&nbsp;{props.battery} %</p> 
+                        </div>
+                        <div>
+                        <p>
+                            10 kr + 2 kr/min
+                            </p> 
+                        </div>
                 </div>
                 <div className='box3'>
                     <button className={'startRideButton'} block onClick={() => { props.toggleRideCard()}}>Start Ride</button>
-                    <a href="/account">Go to Provider</a>
+                    <br></br>
+                    <button className={'startRideButton'}>
+                         <a className={'providerLinks'} href={getProviderApp(props.providerName)}>Go to {props.providerName}</a>
+                        </button>
                 </div>
             </div>
         </div>
