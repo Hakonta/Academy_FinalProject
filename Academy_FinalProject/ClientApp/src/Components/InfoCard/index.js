@@ -41,9 +41,10 @@ const getProviderApp = (provider) => {
 export default function InfoCard(props)
 {
     return (
+
         <div className={'infoCardOuterContainer'}>
             <div className={'infoCardinnerContainer'}>
-                <div className='box1'>
+                    <div className='box1'>
                     <img src={getProviderImage(props.providerName)} alt={props.providerName} height="75%"></img>
                 </div>
                 <div className='box2'>
