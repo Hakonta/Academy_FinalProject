@@ -47,7 +47,7 @@ export default function InfoCard(props)
         <div className={'infoCardOuterContainer'}>
             <div className={'infoCardinnerContainer'}>
                 <div className='box1'>
-                    <img src={getProviderImage(props.providerName)} alt={props.providerName} height="75%" width="relative"></img>
+                    <img src={getProviderImage(props.providerName)} alt={props.providerName} height="90vh" width="90vw"></img>
                 </div>
                 <div className='box2'>
                         <div>

@@ -197,11 +197,17 @@
     margin-right:10px;
     
 }
+
+.box1{
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .box2{
     align-content: center;
     align-items: center;
     text-align: center;
-    margin-left:-75px;
 }
 .box3{
     flex-direction: column;
