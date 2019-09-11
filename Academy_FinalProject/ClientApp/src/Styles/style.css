@@ -162,40 +162,40 @@
 
 
 .rideCardStartButton,.startButton,.startRideButton,.stopButton {
-    -moz-box-shadow: 0px 9px 13px -7px #c46c20;
-    -webkit-box-shadow: 0px 9px 13px -7px #c46c20;
-    box-shadow: 0px 9px 13px -7px #c46c20;
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff7700), color-stop(1, #ff6f08));
-    background:-moz-linear-gradient(top, #ff7700 5%, #ff6f08 100%);
-    background:-webkit-linear-gradient(top, #ff7700 5%, #ff6f08 100%);
-    background:-o-linear-gradient(top, #ff7700 5%, #ff6f08 100%);
-    background:-ms-linear-gradient(top, #ff7700 5%, #ff6f08 100%);
-    background:linear-gradient(to bottom, #ff7700 5%, #ff6f08 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff7700', endColorstr='#ff6f08',GradientType=0);
-    background-color:#ff7700;
-    -moz-border-radius:13px;
-    -webkit-border-radius:13px;
-    border-radius:13px;
-    border:2px solid #ff7700;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:20px;
-    font-weight:bold;
-    padding:13px 32px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #0e0f0f;
+    -moz-box-shadow:inset 0px 1px 0px 0px #f0a33e;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f0a33e;
+	box-shadow:inset 0px 1px 0px 0px #f0a33e;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff7700), color-stop(1, #ffab23));
+	background:-moz-linear-gradient(top, #ff7700 5%, #ffab23 100%);
+	background:-webkit-linear-gradient(top, #ff7700 5%, #ffab23 100%);
+	background:-o-linear-gradient(top, #ff7700 5%, #ffab23 100%);
+	background:-ms-linear-gradient(top, #ff7700 5%, #ffab23 100%);
+	background:linear-gradient(to bottom, #ff7700 5%, #ffab23 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff7700', endColorstr='#ffab23',GradientType=0);
+	background-color:#ff7700;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:5px 17px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffee66;
 }
 .rideCardStartButton,.startButton,.startRideButton,.stopButton :hover {
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff6f08), color-stop(1, #ff7700));
-    background:-moz-linear-gradient(top, #ff6f08 5%, #ff7700 100%);
-    background:-webkit-linear-gradient(top, #ff6f08 5%, #ff7700 100%);
-    background:-o-linear-gradient(top, #ff6f08 5%, #ff7700 100%);
-    background:-ms-linear-gradient(top, #ff6f08 5%, #ff7700 100%);
-    background:linear-gradient(to bottom, #ff6f08 5%, #ff7700 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6f08', endColorstr='#ff7700',GradientType=0);
-    background-color:#ff6f08;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ff7700));
+	background:-moz-linear-gradient(top, #ffab23 5%, #ff7700 100%);
+	background:-webkit-linear-gradient(top, #ffab23 5%, #ff7700 100%);
+	background:-o-linear-gradient(top, #ffab23 5%, #ff7700 100%);
+	background:-ms-linear-gradient(top, #ffab23 5%, #ff7700 100%);
+	background:linear-gradient(to bottom, #ffab23 5%, #ff7700 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ff7700',GradientType=0);
+	background-color:#ffab23;
 }
 .rideCardStartButton,.startButton,.startRideButton,.stopButton :active {
     position:relative;
