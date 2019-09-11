@@ -152,20 +152,24 @@
 }
 
 .btnbysykkel{
-    height: 45px;
-    width: 150px;
-    border-radius: 10px 10px 10px 10px;
-    border: none;
-    background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
-    color:white;
+    height: 35px;
+    width: 200px;
+    border-radius: 20px 20px 20px 20px;
+    border: 2px solid #ff7500;
+    background: white;
+    color: #ff7500;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     text-align: center;
 }
 
 .bysykkelLinks {
-    color:white;
+    color: #ff7500;;
 }
 .bysykkelLinks:hover{
-    color:white;
+    color:#ff7500;
     text-decoration: none;
 }
 /*INFOCARD*/
@@ -205,10 +209,12 @@
 }
 
 .box2{
-    align-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    height: 90px
+    height: 90px;
+    margin-top: 20px
 
 }
 .box3{
@@ -236,6 +242,14 @@
 }
 .providerLinks:hover{
     color:white;
+    text-decoration: none;
+}
+
+.whiteproviderLinks {
+    color:#ff7500;
+}
+.whiteproviderLinks:hover{
+    color:#ff7500;
     text-decoration: none;
 }
 
@@ -308,24 +322,41 @@
 .btncards{
     height: 35px;
     width: 105px;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 20px 20px 20px 20px;
     border: none;
     background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
     color:white;
-    padding-block-start: 10px;
+    margin: 5px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     text-align: center;
 } 
-.btncards:hover{
+
+.btncards{
     height: 35px;
-    width: 105px;
-    border-radius: 10px 10px 10px 10px;
+    width: 100%;
+    border-radius: 20px 20px 20px 20px;
     border: none;
     background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
     color:white;
-    padding-block-start: 10px;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+} 
+
+.whitebtncards{
+    height: 35px;
+    width: 100%;
+    border-radius: 20px 20px 20px 20px;
+    border: 2px solid #ff7500;
+    background: white;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     text-align: center;
 } 
 
