@@ -2,7 +2,6 @@ import React from 'react'
 import CounterComponent from '../CounterComponent'
 import StripeCheckout from 'react-stripe-checkout'
 import '../../Styles/style.css'
-import PaymentButton from '../PaymentButton'
 
 // const styles = {
 //     outerContainer: {

@@ -1,7 +1,9 @@
 import React from "react"
 import "./sideNav.css"
-import {Navbar, Button} from 'react-bootstrap';
+import {Navbar} from 'react-bootstrap';
 import logo from '../../Assets/FullLogoOrange.png'
+import menu from '../../Assets/menu.png'
+import '../../Styles/style.css'
 
 export class HeaderBar extends React.Component {
   state = {
@@ -63,11 +65,13 @@ export class HeaderBar extends React.Component {
 
         </div>
 
-            <Button variant="dark" onClick={this.openNavClick}>
-              <i style ={{fontSize:'35px', }} className="material-icons">
-                menu
-              </i>
-            </Button>
+          <button
+                onClick={this.openNavClick}
+                style={{outline: "none", left: "3%", padding:"0"}}
+                className={'filterButton'}
+            >
+              <img src= {menu} height="45px"/>
+            </button>
             
           </Navbar>
       </div>
