@@ -7,7 +7,7 @@ import '../../Styles/style.css'
 const currentPositionMarker = (props) => {
    return (
           <div className='container'>
-                <span className='pulse-button'>
+                <span className={'pulse-button'}>
                         <Marker
                         position={props.position}
                         icon={{url:Here}}
