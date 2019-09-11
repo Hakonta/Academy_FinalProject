@@ -126,7 +126,8 @@ export default class MapBaseLayer extends Component {
   onMapClicked = () => {
     this.setState({
       showScooterFooter: false,
-      showDefaultCard: true
+      showDefaultCard: true,
+      showBikeFooter: false
     })
   }
 
@@ -142,7 +143,7 @@ export default class MapBaseLayer extends Component {
         >
           <GoogleMap
             // The onClick method is used to call the method that hides the Footerbar menu
-            onClick={() => {this.state.showScooterFooter ?  this.onMapClicked() : null}}
+            onClick={() => {this.state.showScooterFooter || this.state.showBikeFooter ?  this.onMapClicked() : null}}
             id='example-map'
             onTilesLoaded={() => { this.setState({ mapIsLoadiong: false }); console.log('map has loaded.') }}
             onLoad={(mapInstance)=> {this.setState(this.state.map = mapInstance) }}
@@ -210,24 +211,24 @@ export default class MapBaseLayer extends Component {
                     key={index}
                     position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }}                    
                     clusterer={clusterer}
-                    markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }}
+                    markerClicked={() => { this.setState({ selectedBikeStation: bikeStation, showScooterFooter: false, showDefaultCard: true, showBikeFooter: true }) }}
                   />
                 ))
               }
             </MarkerClusterer>
-            {this.state.selectedBikeStation && (
-              <div className= "infoCardOuterContainer"
+            {this.state.selectedBikeStation && ( this.state.showBikeFooter ? <div><div className= "infoCardOuterContainer"
                 position={{ lat: this.state.selectedBikeStation.latitude, lng: this.state.selectedBikeStation.longitude }}
                 onCloseClick={() => {
                   this.setState({ selectedBikeStation: null })
                 }} >
-
+                  {this.state.showBikeFooter ? this.onMapClicked : null}
                 <div className= "infoCardinnerContainer">
                   <h3>{this.state.selectedBikeStation.stationName} station</h3>
                   <h4>Bikes available: {this.state.selectedBikeStation.bikesAvailable}</h4>
                   <h4>Docks available: {this.state.selectedBikeStation.docksAvailable}</h4>
                 </div>
-                </div>
+                </div></div> : null 
+
               // The method belows calls the Footerbar
             )}
             
