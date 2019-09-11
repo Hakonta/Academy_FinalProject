@@ -61,8 +61,6 @@ export class HeaderBar extends React.Component {
           <a href="/safety">Safety</a>
           <a href="/about">About SQT</a>
           <a href="/contact">Report a problem</a>
-          
-
         </div>
 
           <button

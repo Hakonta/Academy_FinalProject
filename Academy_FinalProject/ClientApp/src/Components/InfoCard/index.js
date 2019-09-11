@@ -33,11 +33,20 @@ const getProviderImage = (provider) => {
 export default function InfoCard(props)
 {
     return (
-        <div className={'infoCardOuterContainer'}><div className={'infoCardinnerContainer'}><img src={getProviderImage(props.providerName)} alt={props.providerName} height="120px"></img>
-        <div className={'infoCardDiv'}>
-        <h4><img src={Battery}></img>&nbsp;{props.battery} %</h4><p>10 kr + 2 kr/min<br></br></p>
-        <button className={'startRideButton'} block onClick={() => { props.toggleRideCard()}}>Start Ride</button>
-        </div></div></div>
+        <div className={'infoCardOuterContainer'}>
+            <div className={'infoCardinnerContainer'}>
+                <div className='box1'>
+                    <img src={getProviderImage(props.providerName)} alt={props.providerName} height="120px"></img>
+                </div>
+                <div className='box2'>
+                    <h4><img src={Battery}></img>&nbsp;{props.battery} %</h4><p>10 kr + 2 kr/min<br></br></p>
+                </div>
+                <div className='box3'>
+                    <button className={'startRideButton'} block onClick={() => { props.toggleRideCard()}}>Start Ride</button>
+                    <a href="/account">Go to Provider</a>
+                </div>
+            </div>
+        </div>
         
         
         
