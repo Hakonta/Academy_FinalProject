@@ -361,7 +361,27 @@
 } 
 
 
-*/
+/* SAFETY VIEW*/
+.safetyBody{
+background-color: #FF7500;
+display: flex;
+flex-direction: column;
+width:100vw;
+}
+.safetyPart1{
+display:flex;
+justify-content: start;
+max-width: 100%;
+height: auto;
+}
+.safetyPart2{
+display:flex;
+justify-content: end;
+max-width: 100%;
+height: auto;
+}
+
+
 
 /* .rideCardStartButton,.startButton {
     background-color: darkRed;
