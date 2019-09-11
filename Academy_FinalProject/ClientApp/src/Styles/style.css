@@ -25,7 +25,7 @@
     width: 65px;
     border-radius: 10px 10px 10px 10px;
     border: 1px solid #FF7F50	;
-    background-color: #FF7F50	;
+    background-image: linear-gradient(to bottom, #ff9966 0%, #ff6666 100%);
     padding: 2;
     position: fixed;
     right: 3%;
