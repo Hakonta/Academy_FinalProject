@@ -57,7 +57,7 @@ export default function InfoCard(props)
                         </div>
                 </div>
                 <div className='box3'>
-                    <button className={'startRideButton'} block onClick={() => { props.toggleRideCard()}}>Start Ride</button>
+                    <button style = {{fontFamily:"'Red Hat Display', sans-serif"}} className={'startRideButton'} block onClick={() => { props.toggleRideCard()}}>Start Ride</button>
                     <br></br>
                     <button className={'startRideButton'}>
                          <a className={'providerLinks'} href={getProviderApp(props.providerName)}>Go to {props.providerName}</a>
