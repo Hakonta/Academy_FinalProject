@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import MapBase from '../../Components/MapBaseView';
+import RefreshButton from '../../Components/Refreshbutton'
+import { HeaderBar } from '../../Components/HeaderBar'
 
 export default class AppView extends Component {
   constructor(props) {
@@ -11,6 +13,8 @@ export default class AppView extends Component {
   render() {
     return (
       <React.Fragment>
+        <RefreshButton/>
+        <HeaderBar />
         <MapBase/>
       </React.Fragment>
     )
