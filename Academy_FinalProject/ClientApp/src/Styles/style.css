@@ -15,11 +15,15 @@
     color: #fff
 }
 .cardNavbarLink:visited {
+    text-decoration-style: none;
     color: #fff;
-    text-decoration-style: none
+    background-color: #43474b;
 }
 .cardNavbarLink:active {
-    color: #FF7F50
+    text-decoration-style: none;
+    color: #FF7F50;
+    background-color: #43474b;
+    
 }
 .cardNavbarExitIcon{
     padding: 1%;
