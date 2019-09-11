@@ -53,6 +53,7 @@ export class HeaderBar extends React.Component {
         <div name="side-nav" className="side-nav" style={sideNavStyle}>
           <a href="/" onClick={this.closeNavClick} className="close-nav">
             &times;
+
           </a>
           <a>{<img src={logo} alt={''} height='60x' width='100px'/>}</a>
           <br></br>
