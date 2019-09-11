@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import FilterIcon from '../../Assets/filterIcon.png'
-import WhiteFilterIcon from '../../Assets/whiteFunnel.png'
+import WhiteFilterIcon from '../../Assets/filterIcon2.png'
 import Tier from '../../Assets/logo_tier.png'
 import Voi from '../../Assets/logo_voi.png'
 import BikeIcon from '../../Assets/logo_bysykkel.png'

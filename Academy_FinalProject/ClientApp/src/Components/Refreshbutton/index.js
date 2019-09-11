@@ -1,12 +1,12 @@
 import React from "react"
-import refresh from '../../Assets/refresh.png'
+import refresh from '../../Assets/refreshNew.png'
 import '../../Styles/style.css'
 
 const RefreshButton = (props) => {
 
     return (
         <button
-                style={{outline: "none", top:"10%", backgroundColor: "rgba(200, 54, 54, 0)", border: "0px"	}}
+                style={{outline: "none", top:"10%", background: "rgba(200, 54, 54, 0)", border: "0px"	}}
                 className={'filterButton'}
             >
                 <a href="/">

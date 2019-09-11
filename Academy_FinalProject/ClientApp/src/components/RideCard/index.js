@@ -29,7 +29,7 @@ class RideCard extends React.Component {
     super(props)
     this.state = {
       fare: null,
-      isOn: false
+      isOn: true
     }
     this.unlockScooter = this.unlockScooter.bind(this)
   }
@@ -43,12 +43,16 @@ class RideCard extends React.Component {
   render() {
     let verifyMenu = (!this.state.isOn) ?
       <div className={'infoCardOuterContainer'}>
-        <div id="test"></div>
+        {/* <div id="test"></div> */}
         <div className={'infoCardInnerContainer'}>
-          <h4>Almost there...</h4>
-          <p>Please verify that you want to begin your ride and that you comply with the safety requirements</p>
-          <a href="#test">Terms of agreement</a>
-          <button className={'rideCardStartButton'} onClick={this.unlockScooter}>I agree</button></div></div> :
+          <div className='TermsOfUseBox'>
+            <h4>Almost there...</h4>
+          Please verify that you want to begin your ride and that you comply with the safety requirements <p></p>
+          <button className={'rideCardStartButton'} onClick={this.unlockScooter}>I agree</button>
+          <br></br>
+          <a href="#TermsOfAgreement">Terms of Agreement</a></div>
+          </div>
+          </div> :
       null
     let verified = (!this.state.isOn) ?
       null :
@@ -58,7 +62,7 @@ class RideCard extends React.Component {
 // Below is the order the menus that should appear on the Footerbar menu
     return(
       <div>
-        {verifyMenu}
+        {/* {verifyMenu} */}
         {verified}
         {/* {paymentButton} */}
         
