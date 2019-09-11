@@ -47,7 +47,7 @@ export default function InfoCard(props)
         <div className={'infoCardOuterContainer'}>
             <div className={'infoCardinnerContainer'}>
                 <div className='box1'>
-                    <img src={getProviderImage(props.providerName)} alt={props.providerName} height="75%"></img>
+                    <img src={getProviderImage(props.providerName)} alt={props.providerName} height="75%" width="75%"></img>
                 </div>
                 <div className='box2'>
                         <div>
@@ -55,7 +55,7 @@ export default function InfoCard(props)
                         <h4><img src={Battery} height="15px"></img>&nbsp;{props.battery}%</h4> 
                         </div>
                         <div>
-                        <p>10 kr + 2 kr/min</p> 
+                        <p>10 kr + 2kr/min</p> 
                         </div>
                 </div>
                 <div className='box3'>
