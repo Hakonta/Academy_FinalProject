@@ -2,16 +2,19 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../../Styles/style.css'
 import ExitIcon from '../../Assets/exitIcon.png'
+import { HeaderBar } from '../../Components/HeaderBar';
 
 const cardNavbar = () => {
 
     return (
         <div className={'cardNavbar'}>
+            <HeaderBar />
+            <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
             <Link
                 to="/account"
                 className={'cardNavbarLink'}
             >
-                My Account
+                Account
             </Link>
             <Link
                 to="/safety"
@@ -22,13 +25,13 @@ const cardNavbar = () => {
                 to="/about"
                 className={'cardNavbarLink'}
             >
-                About SQT
+                SQT
              </Link>
             <Link
                 to="/contact"
                 className={'cardNavbarLink'}
             >
-                Contact us
+                Contact
             </Link>
             <Link
                 to="/"

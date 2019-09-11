@@ -48,8 +48,12 @@ export default function InfoCard(props)
                     <img src={getProviderImage(props.providerName)} alt={props.providerName} height="75%"></img>
                 </div>
                 <div className='box2'>
-                    <br></br>
-                    <h5><img src={Battery}></img>&nbsp;{props.battery} %</h5><p>10 kr + 2 kr/min<br></br></p>
+                        <div>
+                        <p><img src={Battery}></img>&nbsp;{props.battery} %</p> 
+                        </div>
+                        <div>
+                        <p>10 kr + 2 kr/min</p> 
+                        </div>
                 </div>
                 <div className='box3'>
                     <button className={'startRideButton'} block onClick={() => { props.toggleRideCard()}}>Start Ride</button>
@@ -60,8 +64,5 @@ export default function InfoCard(props)
                 </div>
             </div>
         </div>
-        
-        
-        
     )
 }

@@ -11,7 +11,8 @@ const currentPositionMarker = (props) => {
                         <Marker
                         position={props.position}
                         icon={{url:Here}}
-                        className={'myPositionMarker'}/>
+                        className={'myPositionMarker'}
+                        animation={2} />
                 </span>
            </div> 
    )
