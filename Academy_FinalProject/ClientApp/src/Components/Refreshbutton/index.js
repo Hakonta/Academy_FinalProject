@@ -1,5 +1,5 @@
 import React from "react"
-import refresh from '../../Assets/refresh.png'
+import refresh from '../../Assets/refreshNew.png'
 import '../../Styles/style.css'
 
 const RefreshButton = (props) => {
