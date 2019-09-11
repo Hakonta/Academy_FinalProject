@@ -1,7 +1,8 @@
 import React from "react"
 import "./sideNav.css"
-import {Navbar, Button} from 'react-bootstrap';
+import { Navbar, Button } from 'react-bootstrap';
 import logo from '../../Assets/FullLogoOrange.png'
+import { Link } from "react-router-dom";
 
 export class HeaderBar extends React.Component {
   state = {
@@ -38,14 +39,11 @@ export class HeaderBar extends React.Component {
   render() {
     const { showNav } = this.state
     let navCoverStyle = { width: showNav ? "70%" : "0" }
-    let sideNavStyle = { width: showNav ? "70%" : "0"}
-    
+    let sideNavStyle = { width: showNav ? "70%" : "0" }
+
     return (
-      
-      <div style={{height: '100%', width: '100vw'}}>
-      
-         <Navbar expand="xl" className="open-nav">
-         <div
+      <Navbar expand="xl" className="open-nav">
+        <div
           onClick={this.navCoverClick}
           className="nav-cover"
           style={navCoverStyle}
@@ -54,22 +52,21 @@ export class HeaderBar extends React.Component {
           <a href="/" onClick={this.closeNavClick} className="close-nav">
             &times;
           </a>
-          <a>{<img src={logo} alt={''} height='60x' width='100px'/>}</a>
-          <a href="/account">My Account</a>
-          <a href="/safety">Safety</a>
-          <a href="/about">About SQT</a>
-          <a href="/contact">Contact us</a>
+          <a>{<img src={logo} alt={''} height='60x' width='100px' />}</a>
 
+          <Link to="/account">My Account</Link>
+          <Link to="/safety">Safety</Link>
+          <Link to="/about">About SQT</Link>
+          <Link to="/contact">Contact us</Link>
         </div>
 
-            <Button variant="dark" onClick={this.openNavClick}>
-              <i style ={{fontSize:'35px', }} className="material-icons">
-                menu
-              </i>
-            </Button>
-            
-          </Navbar>
-      </div>
+        <Button variant="dark" onClick={this.openNavClick}>
+          <i style={{ fontSize: '35px', }} className="material-icons">
+            menu
+          </i>
+        </Button>
+      </Navbar>
+
     )
   }
 }
