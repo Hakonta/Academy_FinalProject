@@ -165,6 +165,12 @@
     margin-right:10px;
     
 }
+.box2{
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left:-30px;
+}
 .box3{
     display: flex;
     flex-direction: column;
