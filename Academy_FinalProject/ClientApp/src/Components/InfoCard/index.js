@@ -41,6 +41,7 @@ const getProviderApp = (provider) => {
 export default function InfoCard(props)
 {
     return (
+
         <div className={'infoCardOuterContainer'}>
             <div className={'infoCardinnerContainer'}>
                 <div className='box1'>
