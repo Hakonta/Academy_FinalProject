@@ -134,7 +134,39 @@
     background-color:darkRed;
      color:white;
 } */
+/*BYSYKKEL*/
+.bicycleInfo {
+    display: flex;
+    position: fixed;
+    left: 0%;
+    bottom: 0%;
+    height: 25%;
+    width: 100%;
+    z-index: 3;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center
+}
 
+.btnbysykkel{
+    height: 45px;
+    width: 150px;
+    border-radius: 10px 10px 10px 10px;
+    border: none;
+    background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
+    color:white;
+}
+
+.bysykkelLinks {
+    color:white;
+}
+.bysykkelLinks:hover{
+    color:white;
+    text-decoration: none;
+}
 /*INFOCARD*/
 
 .infoCardOuterContainer {
@@ -151,6 +183,7 @@
     color: black;
     box-shadow: 0 -5px 5px -5px #D7D7D7;
     border-top-color: #ff7500;
+    
 }
 
 .infoCardinnerContainer {
@@ -194,6 +227,7 @@
     color:black;
     text-decoration: none;
 }
+
 /*CURRENT POSITON MARKER*/
 
 .myPositionMarker {
@@ -247,10 +281,16 @@
     position: relative;
     top: 1px;
 }
-/* .btnprimary{ // Aktiver denne (samt en linje i counterComp for å redigere knappen
-background-color:yellow;
-color:black;
-} */
+ .btnprimary{
+    height: 45px;
+    width: 150px;
+    border-radius: 10px 10px 10px 10px;
+    border: none;
+    background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
+    color:white;
+} 
+
+*/
 
 /* .rideCardStartButton,.startButton {
     background-color: darkRed;
@@ -333,7 +373,7 @@ color:black;
 }
 
 html {
-    background: linear-gradient(179deg, #343a40, #eb9151);
+    background: white;
     background-size: 400% 400%;
     -webkit-animation: AnimationName 30s ease infinite;
     -moz-animation: AnimationName 30s ease infinite;

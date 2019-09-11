@@ -235,13 +235,15 @@ allScooters = () =>{
                   this.setState({ selectedBikeStation: null })
                 }} >
                   {this.state.showBikeFooter ? this.onMapClicked : null}
-                <div className= "infoCardinnerContainer">
-                  <h3>{this.state.selectedBikeStation.stationName} station</h3>
-                  <h4>Bikes available: {this.state.selectedBikeStation.bikesAvailable}</h4>
-                  <h4>Docks available: {this.state.selectedBikeStation.docksAvailable}</h4>
-                  <button className={'startRideButton'}><a href= "oslobysykkel:stations">Go To App</a></button>
+                <div className= "bicycleInfo">
+                  <h4 style={{fontFamily: "'Red Hat Display', sans-serif"}}>
+                  {this.state.selectedBikeStation.stationName} station</h4>
+                  <h6>Bikes available: {this.state.selectedBikeStation.bikesAvailable}</h6>
+                  <h6>Docks available: {this.state.selectedBikeStation.docksAvailable}</h6>
+                  <button className={'btnbysykkel'}><a href= "oslobysykkel:stations" className={'bysykkelLinks'}>Go To App</a></button>
+                  </div>
                 </div>
-                </div></div> : null 
+                </div> : null 
 
               // The method belows calls the Footerbar
             )}
