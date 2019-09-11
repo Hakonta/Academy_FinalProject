@@ -186,21 +186,43 @@
     opacity:0.8;
     border-radius: 25px;
     color: white;
-    width:70%;
+    width:50%;
     display: flex;
     justify-content: center;
     align-items: center;
     top: 20%;
     position: absolute;
-    margin-left: 15%;
-    margin-right:15%;
+    margin-left: 25%;
+    margin-right:25%;
     text-align: center;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+.aboutLinks {
+    color: gold;
+    text-decoration-line: underline;
+}
+.aboutHeader {
+    color: gold;
+}
+
+.aboutLinks:hover {
+    color: yellow;
 }
 
 #about {
     background-color: #343a40;
 }
+@media only screen and (max-width: 600px) {
+    .aboutViewContainerTop {
+        padding-right: 3%;
+        padding-left: 3%;
+        width:70%;
+        margin-left: 15%;
+        margin-right:15%;
 
+    }
+  }
 
 .aboutViewContainerBottom {
 
