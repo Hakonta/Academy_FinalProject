@@ -138,6 +138,8 @@
 
 /*COUNTER COMPONENT*/
 
+
+
 .outerContainer {
     display: flex;
     position: fixed;
@@ -174,27 +176,31 @@
 
 /* AboutView */
 
-.MyAwesomeParallax {
+.outerContainerAbout {
     background-color: #343a40;
 }
+
 
 .aboutViewContainerTop {
     background-color:rgba(0,0,0,0.8);
     opacity:0.8;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-radius: 25px;
     color: white;
-    width:50%;
+    width:70%;
     display: flex;
     justify-content: center;
     align-items: center;
     top: 20%;
     position: absolute;
+    margin-left: 15%;
+    margin-right:15%;
+    text-align: center;
 }
 
 #about {
     background-color: #343a40;
 }
+
 
 .aboutViewContainerBottom {
 
@@ -203,16 +209,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 20%;
-    position: absolute;
-    margin-left:50%;
+    margin-left:25%;
+    margin-right: 25%;
 }
 .rowBottom {
     background-color:rgba(0,0,0,0.8);
     opacity:0.8;
-    border-top-left-radius: 25px;
-
+    border-radius: 25px;
 }
+
 .bg-black {
+    background-color: #343a40;
+}
+html{
     background-color: #343a40;
 }

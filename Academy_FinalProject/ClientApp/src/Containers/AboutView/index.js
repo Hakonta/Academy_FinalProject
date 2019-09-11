@@ -5,6 +5,8 @@ import about from '../../Assets/about.jpg'
 import '../../Styles/style.css'
 
 // A WIP. Must find something that works on both mobile and desktop
+
+
 const parallaxData = [
     {
       start: 0,
@@ -30,19 +32,20 @@ export default class AboutView extends Component {
       
     render() {
         return (
-            <div>
+            
+            <div class={'outerContainerAbout'}>
                 <HeaderBar/>
                 <Plx
                     className='MyAwesomeParallax'
                     parallaxData={ parallaxData } // your parallax effects, see documentation
                 >
-                <img src={about} width="100%"/>
+                <img class={'testImageAbout'} src={about} width="100%"/>
                 </Plx>
 
                 <section id={'about'}>
                     <div class={'aboutViewContainerTop'}>
-                        <div class="row">
-                            <div class={'col-lg-8 mx-auto'}>
+                        <div class={'rowTop'}>
+                            <div class={'wrapperAbout'}>
                                 <br></br>
                                 <h2>Our solution</h2>
                                 <p class="lead">Lorizzle ipsizzle dolizzle dang amet, yo adipiscing elit.</p>
@@ -57,14 +60,11 @@ export default class AboutView extends Component {
                     <div class={'aboutViewContainerBottom'}>
                         <div class={'rowBottom'}>
                             <div class="col-lg-8 mx-auto">
-                                <h2>Our Team</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
-            
         )
     }
 }
