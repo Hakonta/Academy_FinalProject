@@ -54,7 +54,17 @@ export class HeaderBar extends React.Component {
           <a href="/" onClick={this.closeNavClick} className="close-nav">
             &times;
           </a>
+<<<<<<< HEAD
           <a>{<img src={logo} alt={''} height='60x' width='100px' />}</a>
+=======
+          <a>{<img src={logo} alt={''} height='60x' width='100px'/>}</a>
+          <br></br>
+          <a href="/account">My Account</a>
+          <a href="/safety">Safety</a>
+          <a href="/about">About SQT</a>
+          <a href="/contact">Report a problem</a>
+          
+>>>>>>> Added font to menu
 
           <Link to="/account">My Account</Link>
           <Link to="/safety">Safety</Link>

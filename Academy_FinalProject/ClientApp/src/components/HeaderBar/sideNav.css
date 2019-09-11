@@ -20,7 +20,7 @@
     z-index: var(--sidenav-z-index);
     top: 0;
     left: 0;
-    background: #353a40;
+    background: rgba(255, 255, 255);
     padding-top: 3.5rem;
     transition: 0.5s;
   }
@@ -28,8 +28,9 @@
   .side-nav a, h5{
     padding: 0.5rem 0.5rem 0.5rem 1rem;
     text-decoration: none;
-    font-size: 1rem;
-    color: white;
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 1.5rem;
+    color: black;
     display: block;
     transition: 0.53s;
   }
