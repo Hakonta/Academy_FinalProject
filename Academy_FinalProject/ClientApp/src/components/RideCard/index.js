@@ -2,7 +2,6 @@ import React from 'react'
 import CounterComponent from '../CounterComponent'
 import StripeCheckout from 'react-stripe-checkout'
 import '../../Styles/style.css'
-import PaymentButton from '../PaymentButton'
 
 // const styles = {
 //     outerContainer: {
@@ -43,9 +42,9 @@ class RideCard extends React.Component {
 
   render() {
     let verifyMenu = (!this.state.isOn) ?
-      <div className={'rideCardOuterContainer'}>
+      <div className={'infoCardOuterContainer'}>
         <div id="test"></div>
-        <div className={'rideCardInnerContainer'}>
+        <div className={'infoCardInnerContainer'}>
           <h4>Almost there...</h4>
           <p>Please verify that you want to begin your ride and that you comply with the safety requirements</p>
           <a href="#test">Terms of agreement</a>

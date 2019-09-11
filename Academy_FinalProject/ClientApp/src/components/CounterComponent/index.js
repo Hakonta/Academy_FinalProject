@@ -1,7 +1,6 @@
 import React from 'react'
 import '../../Styles/style.css'
 import StripeCheckout from 'react-stripe-checkout'
-import PaymentButton from '../PaymentButton'
 
 // const styles = {
 //     outerContainer: {
@@ -119,8 +118,8 @@ class CounterComponent extends React.Component {
         null :
         <div><h4>Thank you for the ride!</h4><h4>Total ride cost: kr {this.showPrice()}</h4>
         {<StripeCheckout
-          amount={this.showPrice()}
-          billingAddress
+          amount={this.showPrice()*100}
+          //billingAddress
           description="You will not be charged during checkout"
           image= "" // kanskje legge inn vår logo her?
           locale="auto"
