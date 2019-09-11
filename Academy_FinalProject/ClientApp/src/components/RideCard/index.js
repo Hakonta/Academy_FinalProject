@@ -29,7 +29,7 @@ class RideCard extends React.Component {
     super(props)
     this.state = {
       fare: null,
-      isOn: false
+      isOn: true
     }
     this.unlockScooter = this.unlockScooter.bind(this)
   }
