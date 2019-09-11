@@ -216,18 +216,18 @@ export default class MapBaseLayer extends Component {
               }
             </MarkerClusterer>
             {this.state.selectedBikeStation && (
-              <InfoWindow
+              <div className= "infoCardOuterContainer"
                 position={{ lat: this.state.selectedBikeStation.latitude, lng: this.state.selectedBikeStation.longitude }}
                 onCloseClick={() => {
                   this.setState({ selectedBikeStation: null })
                 }} >
 
-                <div>
+                <div className= "infoCardinnerContainer">
                   <h3>{this.state.selectedBikeStation.stationName} station</h3>
                   <h4>Bikes available: {this.state.selectedBikeStation.bikesAvailable}</h4>
                   <h4>Docks available: {this.state.selectedBikeStation.docksAvailable}</h4>
                 </div>
-              </InfoWindow>
+                </div>
               // The method belows calls the Footerbar
             )}
             
