@@ -34,6 +34,7 @@ export default class MapBaseLayer extends Component {
         citybikeChecked: true,
       },
       showScooterFooter: false,
+      showBikeFooter: false,
       mapIsLoadiong: true,
       showDefaultCard: true,
       bikeStations: [],
@@ -231,7 +232,7 @@ export default class MapBaseLayer extends Component {
             )}
             
             {this.state.showDefaultCard ?
-              this.state.showScooterFooter ? <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity}
+              this.state.showScooterFooter ? <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} showBikeInfo={this.state.showBikeFooter}
                 toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
                 : null : <RideCard />}
 
