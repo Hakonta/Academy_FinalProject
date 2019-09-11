@@ -208,12 +208,16 @@
     align-content: center;
     align-items: center;
     text-align: center;
+    height: 90px
+
 }
 .box3{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center
+    text-align: center;
+    height: 90px
+
 }
 .box3{
     display: flex;
