@@ -58,7 +58,8 @@ export default class MapBaseLayer extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     //LOOK AT THIS WITH MAGNUS. POTENTIAL FOR TWEAKS?
     console.log('checking for changes')
-    return deepEqual(this.state.mapInstance,nextState.mapInstance)
+    
+    return deepEqual(this.state.scooters,nextState.scooters)
    // return deepEqual(this.state.map, nextState.map);
   }
 
@@ -132,7 +133,34 @@ export default class MapBaseLayer extends Component {
   }
 
 
-
+allScooters = () =>{
+  return(
+    <MarkerClusterer
+    averageCenter
+    minimumClusterSize={3}
+    styles={clusterIcons}
+  >
+    {
+      (clusterer) => this.state.scooters.map((scooter, index) => (
+        <React.Fragment key={index}>
+          {this.state.filter.voiChecked && scooter.providerName === 'Voi' ?
+            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
+            : null}
+          {this.state.filter.tierChecked && scooter.providerName === 'Tier' ?
+            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
+            : null}
+          {this.state.filter.circChecked && scooter.providerName === 'Flash' ?
+            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
+            : null}
+          {this.state.filter.zvippChecked && scooter.providerName === 'Zvipp' ?
+            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
+            : null}
+        </React.Fragment>
+      ))
+    }
+  </MarkerClusterer>
+  )
+}
 
   render() {
     return (
@@ -145,7 +173,6 @@ export default class MapBaseLayer extends Component {
             // The onClick method is used to call the method that hides the Footerbar menu
             onClick={() => {this.state.showScooterFooter || this.state.showBikeFooter ?  this.onMapClicked() : null}}
             id='SQT MAP'
-            //ref={map => this.setState(this.state.mapInstance = map )}
             onTilesLoaded={() => { this.setState({ mapIsLoadiong: false }); console.log('map has loaded.') }}
             options={{
               styles: mapStyle,
@@ -173,30 +200,10 @@ export default class MapBaseLayer extends Component {
             <FilterButton
             setFilter={this.filter} />
             <RefreshButton/>
-            <MarkerClusterer
-              averageCenter
-              minimumClusterSize={3}
-              styles={clusterIcons}
-            >
-              {
-                (clusterer) => this.state.scooters.map((scooter, index) => (
-                  <React.Fragment key={index}>
-                    {this.state.filter.voiChecked && scooter.providerName === 'Voi' ?
-                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
-                      : null}
-                    {this.state.filter.tierChecked && scooter.providerName === 'Tier' ?
-                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
-                      : null}
-                    {this.state.filter.circChecked && scooter.providerName === 'Flash' ?
-                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
-                      : null}
-                    {this.state.filter.zvippChecked && scooter.providerName === 'Zvipp' ?
-                      <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
-                      : null}
-                  </React.Fragment>
-                ))
-              }
-            </MarkerClusterer>
+           
+
+            {this.state.mapIsLoadiong ? null : this.allScooters() }
+
 
             <CurrentPositionMarker position={this.state.currentCenter} />
 
