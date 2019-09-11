@@ -92,10 +92,10 @@
     text-align: center
 }
 
-.rideCardStartButton {
+/* .rideCardStartButton {
     background-color:darkRed;
      color:white;
-}
+} */
 
 
 
@@ -160,15 +160,53 @@
     text-align: center
 }
 
-.startButton {
-    background-color: darkGreen;
-    color: white
+
+.rideCardStartButton,.startButton,.startRideButton,.stopButton {
+    -moz-box-shadow: 0px 9px 13px -7px #c46c20;
+    -webkit-box-shadow: 0px 9px 13px -7px #c46c20;
+    box-shadow: 0px 9px 13px -7px #c46c20;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff7700), color-stop(1, #ff6f08));
+    background:-moz-linear-gradient(top, #ff7700 5%, #ff6f08 100%);
+    background:-webkit-linear-gradient(top, #ff7700 5%, #ff6f08 100%);
+    background:-o-linear-gradient(top, #ff7700 5%, #ff6f08 100%);
+    background:-ms-linear-gradient(top, #ff7700 5%, #ff6f08 100%);
+    background:linear-gradient(to bottom, #ff7700 5%, #ff6f08 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff7700', endColorstr='#ff6f08',GradientType=0);
+    background-color:#ff7700;
+    -moz-border-radius:13px;
+    -webkit-border-radius:13px;
+    border-radius:13px;
+    border:2px solid #ff7700;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:20px;
+    font-weight:bold;
+    padding:13px 32px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #0e0f0f;
+}
+.rideCardStartButton,.startButton,.startRideButton,.stopButton :hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff6f08), color-stop(1, #ff7700));
+    background:-moz-linear-gradient(top, #ff6f08 5%, #ff7700 100%);
+    background:-webkit-linear-gradient(top, #ff6f08 5%, #ff7700 100%);
+    background:-o-linear-gradient(top, #ff6f08 5%, #ff7700 100%);
+    background:-ms-linear-gradient(top, #ff6f08 5%, #ff7700 100%);
+    background:linear-gradient(to bottom, #ff6f08 5%, #ff7700 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6f08', endColorstr='#ff7700',GradientType=0);
+    background-color:#ff6f08;
+}
+.rideCardStartButton,.startButton,.startRideButton,.stopButton :active {
+    position:relative;
+    top:1px;
 }
 
-.stopButton {
+
+/* .rideCardStartButton,.startButton {
     background-color: darkRed;
     color: white
-}
+} */
 
 .prizeText {
     color: red
