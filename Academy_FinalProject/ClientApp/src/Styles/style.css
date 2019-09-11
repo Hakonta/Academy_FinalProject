@@ -135,6 +135,7 @@
 
 .infoCardOuterContainer {
     display: flex;
+    justify-content: space-between; 
     /* justify-content: space-between; */
     position: fixed; 
     left: 0%;
@@ -149,14 +150,17 @@
 }
 
 .infoCardinnerContainer {
+    width:100%;
     display: flex;
-    justify-content: space-between;
+   justify-content: space-around;
     flex-direction: row;
+
     margin-top: 20px
 }
 .box3{
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 /* .infoCardDiv {
