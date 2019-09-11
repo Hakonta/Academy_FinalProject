@@ -4,8 +4,8 @@ import about from '../../Assets/about.jpg'
 import '../../Styles/style.css'
 import CardNavBar from '../../Components/CardNavbar'
 import safetyPoster from '../../Assets/safetyPoster.png'
-import safe from '../../Assets/safe.png'
-import safe2 from '../../Assets/safe2.png'
+import safe from '../../Assets/safe1a.png'
+import safe2 from '../../Assets/safe2a.png'
 
 // A WIP. Must find something that works on both mobile and desktop
 
@@ -34,9 +34,14 @@ export default class safetyView extends Component {
         return (
             <div class={'outerContainersafety'}>
                 <CardNavBar/>
+                <Plx
+                    className='MyAwesomeParallax'
+                    parallaxData={parallaxData} // your parallax effects, see documentation
+                >
+                </Plx>
                 <body className='safetyBody'>
-                    <a>{<img src={safe} alt={'safetyPhoto'}/>}</a><br></br>
-                    <a>{<img src={safe2} alt={'safetyPhoto'}/>}</a><br></br>
+                    <div className='safetyPart1'>{<img src={safe} alt={'safetyPhoto'}/>}</div><br></br>
+                    <div className='safetyPart2'>{<img src={safe2} alt={'safetyPhoto'}/>}</div><br></br>
                 </body>
                                 
 
