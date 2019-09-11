@@ -45,11 +45,6 @@ export class HeaderBar extends React.Component {
 
     return (
       <Navbar expand="xl" className="open-nav">
-        <div
-          onClick={this.navCoverClick}
-          className="nav-cover"
-          style={navCoverStyle}
-        />
         <div name="side-nav" className="side-nav" style={sideNavStyle}>
           <a href="/" onClick={this.closeNavClick} className="close-nav">
             &times;
