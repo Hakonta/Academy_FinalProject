@@ -1,9 +1,9 @@
 import React from "react"
 import "./sideNav.css"
 import {Navbar} from 'react-bootstrap';
-import { Navbar, Button } from 'react-bootstrap';
 import logo from '../../Assets/FullLogoOrange.png'
 import menu from '../../Assets/menu.png'
+import {Link} from 'react-router-dom'
 import '../../Styles/style.css'
 
 export class HeaderBar extends React.Component {
@@ -71,7 +71,7 @@ export class HeaderBar extends React.Component {
             </button>
             
           </Navbar>
-      </div>
+      
     )
   }
 }
