@@ -40,8 +40,8 @@ export default class safetyView extends Component {
                 >
                 </Plx>
                 <body className='safetyBody'>
-                    <div className='safetyPart1'>{<img src={safe} alt={'safetyPhoto'}/>}</div><br></br>
-                    <div className='safetyPart2'>{<img src={safe2} alt={'safetyPhoto'}/>}</div><br></br>
+                    <div className='safetyPart1'>{<img src={safe} alt={'safetyPhoto'} width="100%"/>}</div><br></br>
+                    <div className='safetyPart2'>{<img src={safe2} alt={'safetyPhoto'} width="100%"/>}</div><br></br>
                 </body>
                                 
 

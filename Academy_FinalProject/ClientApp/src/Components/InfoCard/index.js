@@ -44,25 +44,19 @@ export default function InfoCard(props)
 {
     return (
 
-        <div className={'infoCardOuterContainer'}>
+        <div className={'infoCardOuterContainer' } style = {{fontFamily:"'Red Hat Display', sans-serif"}}>
             <div className={'infoCardinnerContainer'}>
                 <div className='box1'>
                     <img src={getProviderImage(props.providerName)} alt={props.providerName} height="90vh" width="90vw"></img>
                 </div>
                 <div className='box2'>
-                        <div>
-                            <br></br>
                         <h4><img src={Battery} height="15px"></img>&nbsp;{props.battery}%</h4> 
-                        </div>
-                        <div>
                         <p>10 kr + 2kr/min</p> 
-                        </div>
                 </div>
                 <div className='box3'>
                     <button style = {{fontFamily:"'Red Hat Display', sans-serif"}} className={'btncards'} block onClick={() => { props.toggleRideCard()}}>Start Ride</button>
-                    <br></br>
-                    <button style = {{fontFamily:"'Red Hat Display', sans-serif"}} className={'btncards'}>
-                         <a className={'providerLinks'} href={getProviderApp(props.providerName)}>Go to {props.providerName}</a>
+                    <button style = {{fontFamily:"'Red Hat Display', sans-serif"}} className={'whitebtncards'}>
+                         <a className={'whiteproviderLinks'} href={getProviderApp(props.providerName)}>Go to {props.providerName}</a>
                         </button>
                 </div>
             </div>
