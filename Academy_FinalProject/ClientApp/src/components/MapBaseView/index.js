@@ -25,7 +25,6 @@ export default class MapBaseLayer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      map: null,
       filter: {
         voiChecked: true,
         tierChecked: true,
@@ -44,7 +43,8 @@ export default class MapBaseLayer extends Component {
       currentCenter: {
         lat: 59.92,
         lng: 10.723
-      }
+      },
+      mapInstance: {}
     }
   }
 
@@ -58,7 +58,7 @@ export default class MapBaseLayer extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     //LOOK AT THIS WITH MAGNUS. POTENTIAL FOR TWEAKS?
     console.log('checking for changes')
-    return deepEqual(this.state.scooters,nextState.scooters)
+    return deepEqual(this.state.mapInstance,nextState.mapInstance)
    // return deepEqual(this.state.map, nextState.map);
   }
 
@@ -144,9 +144,9 @@ export default class MapBaseLayer extends Component {
           <GoogleMap
             // The onClick method is used to call the method that hides the Footerbar menu
             onClick={() => {this.state.showScooterFooter || this.state.showBikeFooter ?  this.onMapClicked() : null}}
-            id='example-map'
+            id='SQT MAP'
+            //ref={map => this.setState(this.state.mapInstance = map )}
             onTilesLoaded={() => { this.setState({ mapIsLoadiong: false }); console.log('map has loaded.') }}
-            onLoad={(mapInstance)=> {this.setState(this.state.map = mapInstance) }}
             options={{
               styles: mapStyle,
               fullscreenControl: false,
