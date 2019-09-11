@@ -2,21 +2,21 @@
 /*FILTERBUTTOM*/
 .filterButton {
     height: 54px;
-    width: 61px;
+    width: 65px;
     border-radius: 10px 10px 10px 10px;
-    border: 1px solid white;
-    background-color: #343a40;
+    border: 1px solid #FF7F50	;
+    background-color: #FF7F50	;
     padding: 2;
     position: fixed;
     right: 3%;
     top: 1%;
-    z-index: 1000;
+    z-index: 3;
     outline: none;
 }
 
 .filterButtonActive {
     height: 54px;
-    width: 61px;
+    width: 65px;
     border-radius: 10px 10px 10px 10px;
     border: 1px solid white;
     background-color: #f8f9fa;
@@ -29,7 +29,7 @@
 
 }
 .filterCard {
-    width: 61px;
+    width: 65px;
     height: 307px;
     border-radius: 10px 10px 10px 10px;
     border: 1px white;
