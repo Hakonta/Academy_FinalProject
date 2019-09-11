@@ -151,7 +151,7 @@ export default class MapBaseLayer extends Component {
               mapTypeControl: false,
               streetViewControl: false,
               clickableIcons: false,
-              gestureHandling: 'greedy'
+              gestureHandling: 'greedy',
             }}
             zoom={18}
             center={
@@ -204,7 +204,7 @@ export default class MapBaseLayer extends Component {
                 (clusterer) => this.state.bikeStations.map((bikeStation, index) => (
                   <BikeMarker
                     key={index}
-                    position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }}
+                    position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }}                    
                     clusterer={clusterer}
                     markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }}
                   />
