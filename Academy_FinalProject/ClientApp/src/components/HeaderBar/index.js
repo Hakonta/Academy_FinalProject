@@ -1,7 +1,7 @@
 import React from "react"
 import "./sideNav.css"
 import {Navbar} from 'react-bootstrap';
-import logo from '../../Assets/FullLogoOrange.png'
+import logo from '../../Assets/FullLogoOrangeBlack.png'
 import menu from '../../Assets/menu.png'
 import {Link} from 'react-router-dom'
 import '../../Styles/style.css'
@@ -50,7 +50,7 @@ export class HeaderBar extends React.Component {
             &times;
 
           </a>
-          <a>{<img src={logo} alt={''} height='60x' width='100px'/>}</a>
+          <a>{<img src={logo} alt={''} height='60x'/>}</a>
           <br></br>
           <Link to="/account">My Account</Link>
           <Link to="/safety">Safety</Link>
