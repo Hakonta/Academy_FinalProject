@@ -1,11 +1,40 @@
+/*CARDNAVBAR*/
 
-/*FILTERBUTTOM*/
+.cardNavbar {
+    width: 100%;
+    height: 16%;
+    background-color: #343a40;
+    padding: 1%;
+    display: flex;
+}
+
+.cardNavbarLink {
+    margin: auto;
+    margin: 2%;
+    padding: 1%;
+    color: #fff
+}
+.cardNavbarLink:visited {
+    color: #fff;
+    text-decoration-style: none
+}
+.cardNavbarLink:active {
+    color: #FF7F50
+}
+.cardNavbarExitIcon{
+    padding: 1%;
+    margin: 2%;
+    margin-top: 10%
+}
+
+/*FILTERBUTTON*/
+
 .filterButton {
     height: 54px;
     width: 65px;
     border-radius: 10px 10px 10px 10px;
-    border: 1px solid #FF7F50	;
-    background-color: #FF7F50	;
+    border: 1px solid #FF7F50;
+    background-color: #FF7F50;
     padding: 2;
     position: fixed;
     right: 3%;
@@ -26,52 +55,56 @@
     top: 1%;
     z-index: 5;
     outline: none;
-
 }
+
 .filterCard {
     width: 65px;
-    height: 307px;
+    height: 325px;
     border-radius: 10px 10px 10px 10px;
     border: 1px white;
-    box-shadow:20px 21px 63px -9px rgba(0,0,0,0.58);
-    background-color:#f8f9fa;
-    color:#f8f9fa;
+    box-shadow: 20px 21px 63px -9px rgba(0, 0, 0, 0.58);
+    background-color: #f8f9fa;
+    color: #f8f9fa;
     padding: 2;
-    position:fixed;
-    right:3%;
-    top:10%;
-    opacity:1;
-    transition:100ms ease-out
+    position: fixed;
+    right: 3%;
+    top: 10%;
+    opacity: 1;
+    transition: 100ms ease-out;
+    z-index: 5;
 }
-.filterCardInActive{
+
+.filterCardInActive {
     height: 50px;
     width: 50px;
-    border-radius:10px 10px 10px 10px;
-    background-color:#343a40;
-    color:#f8f9fa;
-    padding: 2;
-    position:fixed;
-    left:5%;
-    bottom:15%;
-    z-index: -100000;
-    opacity:0;
-}
-.filterImages{
     border-radius: 10px 10px 10px 10px;
-    width:100%;
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 2;
+    position: fixed;
+    left: 5%;
+    bottom: 15%;
+    z-index: -100000;
+    opacity: 0;
+}
+
+.filterImages {
+    border-radius: 10px 10px 10px 10px;
+    width: 100%;
     padding: 7px;
 }
 
-.filterImagesInactive{
-    opacity:0.5;
-    border-radius:10px 10px 10px 10px;
-    width:100%;
-    padding:7px;
+.filterImagesInactive {
+    opacity: 0.5;
+    border-radius: 10px 10px 10px 10px;
+    width: 100%;
+    padding: 7px;
     position: relative;
     top: 3px;
 }
 
 /*RIDECARD*/
+
 .rideCardOuterContainer {
     display: flex;
     position: fixed;
@@ -79,7 +112,7 @@
     bottom: 0%;
     height: 25%;
     width: 100%;
-    z-index: 1000000;
+    z-index: 3;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
     justify-content: center
@@ -97,8 +130,6 @@
      color:white;
 } */
 
-
-
 /*INFOCARD*/
 
 .infoCardOuterContainer {
@@ -108,7 +139,7 @@
     bottom: 0%;
     height: 22%;
     width: 100%;
-    z-index: 1000000;
+    z-index: 3;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
     justify-content: space-evenly;
@@ -138,8 +169,6 @@
 
 /*COUNTER COMPONENT*/
 
-
-
 .outerContainer {
     display: flex;
     position: fixed;
@@ -147,7 +176,7 @@
     bottom: 0%;
     height: 25%;
     width: 100%;
-    z-index: 1000000;
+    z-index: 3;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
     justify-content: center
@@ -160,48 +189,24 @@
     text-align: center
 }
 
-
-.rideCardStartButton,.startButton,.startRideButton,.stopButton {
-    -moz-box-shadow:inset 0px 1px 0px 0px #f0a33e;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #f0a33e;
-	box-shadow:inset 0px 1px 0px 0px #f0a33e;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff7700), color-stop(1, #ffab23));
-	background:-moz-linear-gradient(top, #ff7700 5%, #ffab23 100%);
-	background:-webkit-linear-gradient(top, #ff7700 5%, #ffab23 100%);
-	background:-o-linear-gradient(top, #ff7700 5%, #ffab23 100%);
-	background:-ms-linear-gradient(top, #ff7700 5%, #ffab23 100%);
-	background:linear-gradient(to bottom, #ff7700 5%, #ffab23 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff7700', endColorstr='#ffab23',GradientType=0);
-	background-color:#ff7700;
-	-moz-border-radius:4px;
-	-webkit-border-radius:4px;
-	border-radius:4px;
-	border:1px solid #ffaa22;
-	display:inline-block;
-	cursor:pointer;
-	color:#333333;
-	font-family:Arial;
-	font-size:13px;
-	font-weight:bold;
-	padding:5px 17px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffee66;
-}
-.rideCardStartButton,.startButton,.startRideButton,.stopButton :hover {
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ff7700));
-	background:-moz-linear-gradient(top, #ffab23 5%, #ff7700 100%);
-	background:-webkit-linear-gradient(top, #ffab23 5%, #ff7700 100%);
-	background:-o-linear-gradient(top, #ffab23 5%, #ff7700 100%);
-	background:-ms-linear-gradient(top, #ffab23 5%, #ff7700 100%);
-	background:linear-gradient(to bottom, #ffab23 5%, #ff7700 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ff7700',GradientType=0);
-	background-color:#ffab23;
-}
-.rideCardStartButton,.startButton,.startRideButton,.stopButton :active {
-    position:relative;
-    top:1px;
+.rideCardStartButton, .startButton, .startRideButton, .stopButton {
+    background-color: white;
+    color: black;
+    border: 2px solid #ff7500;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    padding: 5px 17px;
 }
 
+.rideCardStartButton:hover, .startButton:hover, .stopButton:hover, .startRideButton:hover {
+    background-color: #ff7500;
+    color: black;
+}
+
+.rideCardStartButton.startButton.startRideButton.stopButton:active {
+    position: relative;
+    top: 1px;
+}
 
 /* .rideCardStartButton,.startButton {
     background-color: darkRed;
@@ -218,28 +223,29 @@
     background-color: #343a40;
 }
 
-
 .aboutViewContainerTop {
-    background-color:rgba(0,0,0,0.8);
-    opacity:0.8;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0.8;
     border-radius: 25px;
     color: white;
-    width:50%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     top: 20%;
     position: absolute;
     margin-left: 25%;
-    margin-right:25%;
+    margin-right: 25%;
     text-align: center;
     padding-right: 10%;
     padding-left: 10%;
 }
+
 .aboutLinks {
     color: gold;
     text-decoration-line: underline;
 }
+
 .aboutHeader {
     color: gold;
 }
@@ -251,57 +257,74 @@
 #about {
     background-color: #343a40;
 }
+
 @media only screen and (max-width: 600px) {
     .aboutViewContainerTop {
         padding-right: 3%;
         padding-left: 3%;
-        width:70%;
+        width: 70%;
         margin-left: 15%;
-        margin-right:15%;
-
+        margin-right: 15%;
     }
-  }
+}
 
 .aboutViewContainerBottom {
-
     color: white;
-    width:50%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left:25%;
+    margin-left: 25%;
     margin-right: 25%;
 }
+
 .rowBottom {
-    background-color:rgba(0,0,0,0.8);
-    opacity:0.8;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0.8;
     border-radius: 25px;
 }
 
 .bg-black {
     background-color: #343a40;
 }
-html{
+
+html {
     background: linear-gradient(179deg, #343a40, #eb9151);
-background-size: 400% 400%;
-
--webkit-animation: AnimationName 30s ease infinite;
--moz-animation: AnimationName 30s ease infinite;
-animation: AnimationName 30s ease infinite;
-
-@-webkit-keyframes AnimationName {
-    0%{background-position:50% 0%}
-    50%{background-position:51% 100%}
-    100%{background-position:50% 0%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:50% 0%}
-    50%{background-position:51% 100%}
-    100%{background-position:50% 0%}
-}
-@keyframes AnimationName { 
-    0%{background-position:50% 0%}
-    50%{background-position:51% 100%}
-    100%{background-position:50% 0%}
-}
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+    @-webkit-keyframes AnimationName {
+        0% {
+            background-position: 50% 0%
+        }
+        50% {
+            background-position: 51% 100%
+        }
+        100% {
+            background-position: 50% 0%
+        }
+    }
+    @-moz-keyframes AnimationName {
+        0% {
+            background-position: 50% 0%
+        }
+        50% {
+            background-position: 51% 100%
+        }
+        100% {
+            background-position: 50% 0%
+        }
+    }
+    @keyframes AnimationName {
+        0% {
+            background-position: 50% 0%
+        }
+        50% {
+            background-position: 51% 100%
+        }
+        100% {
+            background-position: 50% 0%
+        }
+    }
 }
