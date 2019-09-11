@@ -86,12 +86,12 @@ class CounterComponent extends React.Component {
 
   render() {
     let start = (this.state.time === 0) ?
-        <div><h4 style={{fontFamily: "'Red Hat Display', sans-serif"}}>Have a safe ride!</h4><p>(Press the unlock button to begin your ride)</p><button style={{fontFamily: "'Red Hat Display', sans-serif"}} className={'startButton'} onClick={this.startTimer}>Unlock Scooter</button></div> :
+        <div><h4 style={{fontFamily: "'Red Hat Display', sans-serif"}}>Have a safe ride!</h4><p>(Press the unlock button to begin your ride)</p><button style = {{fontFamily:"'Red Hat Display', sans-serif"}} className={'btncards'} onClick={this.startTimer}>Unlock Scooter</button></div> :
         null
     let stop = (this.state.time === 0 || !this.state.isOn) ?
         null :
-        <div>Ride in progress<h4 style={{fontFamily: "'Red Hat Display', sans-serif"}}>Time passed:</h4><h4 style={{fontFamily: "'Red Hat Display', sans-serif"}} > {this.showSeconds()}s   {this.showMinutes()}m   {Math.floor(((((this.state.time)/1000)/60)/60))}h</h4>
-        <p>Current cost: kr {this.showPrice()}</p><button className={'stopButton'} onClick={this.stopTimer}>End and pay your ride</button></div>
+        <div><h4 style={{fontFamily: "'Red Hat Display', sans-serif"}}>Time passed:</h4><h4 style={{fontFamily: "'Red Hat Display', sans-serif"}} > {this.showSeconds()}s   {this.showMinutes()}m   {Math.floor(((((this.state.time)/1000)/60)/60))}h</h4>
+        <p>Current cost: kr {this.showPrice()}</p><button style = {{fontFamily:"'Red Hat Display', sans-serif"}} className={'btncards'} onClick={this.stopTimer}>End and pay your ride</button></div>
     let endRide = (this.state.time === 0 || this.state.isOn) ?
         null :
         <div ><h4 style={{fontFamily: "'Red Hat Display', sans-serif"}}>Thank you for the ride!</h4><h4>Total ride cost: kr {this.showPrice()}</h4>

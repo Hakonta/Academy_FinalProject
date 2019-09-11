@@ -158,6 +158,7 @@
     border: none;
     background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
     color:white;
+    text-align: center;
 }
 
 .bysykkelLinks {
@@ -196,17 +197,27 @@
     margin-right:10px;
     
 }
+
+.box1{
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .box2{
     align-content: center;
     align-items: center;
     text-align: center;
-    margin-left:-55px;
+    height: 90px
+
 }
 .box3{
-    display: flex;
     flex-direction: column;
-    align-content: center;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 90px
+
 }
 .box3{
     display: flex;
@@ -221,10 +232,10 @@
 } */
 
 .providerLinks {
-    color:black;
+    color:white;
 }
 .providerLinks:hover{
-    color:black;
+    color:white;
     text-decoration: none;
 }
 
@@ -282,13 +293,42 @@
     top: 1px;
 }
  .btnprimary{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     height: 45px;
     width: 150px;
     border-radius: 10px 10px 10px 10px;
     border: none;
     background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
     color:white;
+    text-align: center;
 } 
+
+.btncards{
+    height: 35px;
+    width: 105px;
+    border-radius: 10px 10px 10px 10px;
+    border: none;
+    background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
+    color:white;
+    padding-block-start: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+} 
+.btncards:hover{
+    height: 35px;
+    width: 105px;
+    border-radius: 10px 10px 10px 10px;
+    border: none;
+    background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
+    color:white;
+    padding-block-start: 10px;
+    text-align: center;
+} 
+
 
 /* SAFETY VIEW*/
 .safetyBody{
