@@ -45,11 +45,6 @@ export class HeaderBar extends React.Component {
 
     return (
       <Navbar expand="xl" className="open-nav">
-        <div
-          onClick={this.navCoverClick}
-          className="nav-cover"
-          style={navCoverStyle}
-        />
         <div name="side-nav" className="side-nav" style={sideNavStyle}>
           <a href="/" onClick={this.closeNavClick} className="close-nav">
             &times;
@@ -60,17 +55,15 @@ export class HeaderBar extends React.Component {
           <Link to="/account">My Account</Link>
           <Link to="/safety">Safety</Link>
           <Link to="/about">About SQT</Link>
-          <Link to="/contact">Contact us</Link>
+          <Link to="/contact">Report a problem</Link>
         </div>
-
           <button
                 onClick={this.openNavClick}
                 style={{outline: "none", left: "3%", padding:"0"}}
-                className={'filterButton'}
-            >
+                className={'filterButton'}>
+                  
               <img src= {menu} height="45px"/>
             </button>
-            
           </Navbar>
       
     )
