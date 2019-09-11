@@ -15,10 +15,10 @@ import cluster50 from '../../Assets/cluster50.png'
 import bikecluster20 from '../../Assets/bikecluster20.png'
 import bikecluster30 from '../../Assets/bikecluster30.png'
 import bikecluster50 from '../../Assets/bikecluster50.png'
-import { HeaderBar } from '../../Components/HeaderBar';
+
 import deepEqual from 'deep-equal';
 import '../../Styles/style.css'
-import RefreshButton from '../Refreshbutton'
+
 
 
 export default class MapBaseLayer extends Component {
@@ -132,6 +132,26 @@ export default class MapBaseLayer extends Component {
     })
   }
 
+  allBikestation = () =>{
+    return(
+      <MarkerClusterer
+      averageCenter
+      minimumClusterSize={3}
+      styles={bikeClusterIcons}
+    >
+      {
+        (clusterer) => this.state.bikeStations.map((bikeStation, index) => (
+          <BikeMarker
+            key={index}
+            position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }}                    
+            clusterer={clusterer}
+            markerClicked={() => { this.setState({ selectedBikeStation: bikeStation, showScooterFooter: false, showDefaultCard: true, showBikeFooter: true }) }}
+          />
+        ))
+      }
+    </MarkerClusterer>
+    )
+  }
 
 allScooters = () =>{
   return(
@@ -144,16 +164,16 @@ allScooters = () =>{
       (clusterer) => this.state.scooters.map((scooter, index) => (
         <React.Fragment key={index}>
           {this.state.filter.voiChecked && scooter.providerName === 'Voi' ?
-            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
+            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true, showBikeFooter: false }) }} />
             : null}
           {this.state.filter.tierChecked && scooter.providerName === 'Tier' ?
-            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
+            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true, showBikeFooter: false }) }} />
             : null}
           {this.state.filter.circChecked && scooter.providerName === 'Flash' ?
-            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
+            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true, showBikeFooter: false }) }} />
             : null}
           {this.state.filter.zvippChecked && scooter.providerName === 'Zvipp' ?
-            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
+            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true, showBikeFooter: false }) }} />
             : null}
         </React.Fragment>
       ))
@@ -195,34 +215,20 @@ allScooters = () =>{
               padding: 0,
             }}>
 
-            <HeaderBar />
+          
+
             {this.state.mapIsLoadiong ? <LoadingSpinner /> : null}
-            <FilterButton
-            setFilter={this.filter} />
-            <RefreshButton/>
+            <FilterButton setFilter={this.filter} />
+
+            
            
 
             {this.state.mapIsLoadiong ? null : this.allScooters() }
 
-
+            {this.state.mapIsLoadiong ? null : this.allBikestation()}
             <CurrentPositionMarker position={this.state.currentCenter} />
 
-            <MarkerClusterer
-              averageCenter
-              minimumClusterSize={3}
-              styles={bikeClusterIcons}
-            >
-              {
-                (clusterer) => this.state.bikeStations.map((bikeStation, index) => (
-                  <BikeMarker
-                    key={index}
-                    position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }}                    
-                    clusterer={clusterer}
-                    markerClicked={() => { this.setState({ selectedBikeStation: bikeStation, showScooterFooter: false, showDefaultCard: true, showBikeFooter: true }) }}
-                  />
-                ))
-              }
-            </MarkerClusterer>
+           
             {this.state.selectedBikeStation && ( this.state.showBikeFooter ? <div><div className= "infoCardOuterContainer"
                 position={{ lat: this.state.selectedBikeStation.latitude, lng: this.state.selectedBikeStation.longitude }}
                 onCloseClick={() => {
