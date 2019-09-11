@@ -2,23 +2,6 @@ import React from 'react'
 import '../../Styles/style.css'
 import StripeCheckout from 'react-stripe-checkout'
 
-// const styles = {
-//     outerContainer: {
-//       display:"flex", position:"fixed", left:"0%", bottom:"0%", height:"25%", width:"100%", zIndex:"1000000", backgroundColor:"#343a40", color:"white", justifyContent: "center"
-//       },
-//       innerContainer: {
-//         display:"flex", flexDirection:"column", justifyContent:"center", textAlign:"center"
-//     },
-//     startButton: {
-//         backgroundColor:"darkGreen", color:"white"
-//     },
-//     stopButton: {
-//         backgroundColor:"darkRed", color:"white"
-//     },
-//     prizeText: {
-//         color: "red"
-//     }
-// }
 let tickerSeconds = 0;
 let tickerMinutes = 0;
 let fareTicker = 0;
@@ -40,7 +23,6 @@ class CounterComponent extends React.Component {
     }
     this.startTimer = this.startTimer.bind(this)
     this.stopTimer = this.stopTimer.bind(this)
-    // this.resetTimer = this.resetTimer.bind(this)
   }
   startTimer() {
     this.setState({
@@ -58,9 +40,7 @@ class CounterComponent extends React.Component {
     clearInterval(this.timer)
 
   }
-//   resetTimer() {
-//     this.setState({time: 0, isOn: false})
-//   }
+
   calculateSeconds() {
       let checkSeconds = (this.state.time/1000).toFixed(0);
       
@@ -133,9 +113,6 @@ class CounterComponent extends React.Component {
           {/* <button className="btnprimary">Pay with card</button> */}
         </StripeCheckout>}</div>
       
-    // let reset = (this.state.time == 0 || this.state.isOn) ?
-    //   null :
-    //   <button onClick={this.resetTimer}>reset</button>
     return(
       <div className={'outerContainer'}>
           <div className={'innerContainer'}>
