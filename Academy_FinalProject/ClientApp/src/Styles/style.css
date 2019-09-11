@@ -4,7 +4,7 @@
 .cardNavbar {
     width: 100%;
     height: 65px;
-    background-image: linear-gradient(to bottom, #ff9966 0%, #ff6666 100%);
+    background-image: linear-gradient(to bottom, #ff7500 0%, #ff6666 100%);
     padding: 1%;
     display: flex;
 }
@@ -22,7 +22,7 @@
 }
 .cardNavbarLink:active {
     text-decoration-style: none;
-    color: #FF7F50;
+    color: #FF7500;
     background-color: #43474b;
     
 }
@@ -38,8 +38,8 @@
     height: 54px;
     width: 65px;
     border-radius: 10px 10px 10px 10px;
-    border: 1px solid #FF7F50	;
-    background-image: linear-gradient(to bottom, #ff9966 0%, #ff6666 100%);
+    border: 1px solid #FF7500	;
+    background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
     padding: 2;
     position: fixed;
     right: 3%;
