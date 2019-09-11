@@ -36,10 +36,10 @@ export default function InfoCard(props)
         <div className={'infoCardOuterContainer'}>
             <div className={'infoCardinnerContainer'}>
                 <div className='box1'>
-                    <img src={getProviderImage(props.providerName)} alt={props.providerName} height="120px"></img>
+                    <img src={getProviderImage(props.providerName)} alt={props.providerName} height="75%"></img>
                 </div>
                 <div className='box2'>
-                    <h4><img src={Battery}></img>&nbsp;{props.battery} %</h4><p>10 kr + 2 kr/min<br></br></p>
+                    <h5><img src={Battery}></img>&nbsp;{props.battery} %</h5><p>10 kr + 2 kr/min<br></br></p>
                 </div>
                 <div className='box3'>
                     <button className={'startRideButton'} block onClick={() => { props.toggleRideCard()}}>Start Ride</button>
