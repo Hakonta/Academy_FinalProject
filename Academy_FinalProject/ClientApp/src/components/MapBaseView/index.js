@@ -225,6 +225,7 @@ export default class MapBaseLayer extends Component {
                   <h3>{this.state.selectedBikeStation.stationName} station</h3>
                   <h4>Bikes available: {this.state.selectedBikeStation.bikesAvailable}</h4>
                   <h4>Docks available: {this.state.selectedBikeStation.docksAvailable}</h4>
+                  <button className={'startRideButton'}><a href= "oslobysykkel:stations">Go To App</a></button>
                 </div>
               </div>
               // The method belows calls the Footerbar
