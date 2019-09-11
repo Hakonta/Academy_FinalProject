@@ -30,7 +30,7 @@
 }
 .filterCard {
     width: 65px;
-    height: 307px;
+    height: 325px;
     border-radius: 10px 10px 10px 10px;
     border: 1px white;
     box-shadow:20px 21px 63px -9px rgba(0,0,0,0.58);
@@ -41,7 +41,8 @@
     right:3%;
     top:10%;
     opacity:1;
-    transition:100ms ease-out
+    transition:100ms ease-out;
+    z-index: 5;
 }
 .filterCardInActive{
     height: 50px;
@@ -79,7 +80,7 @@
     bottom: 0%;
     height: 25%;
     width: 100%;
-    z-index: 1000000;
+    z-index: 3;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
     justify-content: center
@@ -108,7 +109,7 @@
     bottom: 0%;
     height: 22%;
     width: 100%;
-    z-index: 1000000;
+    z-index: 3;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
     justify-content: space-evenly;
@@ -147,7 +148,7 @@
     bottom: 0%;
     height: 25%;
     width: 100%;
-    z-index: 1000000;
+    z-index: 3;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
     justify-content: center
@@ -203,21 +204,43 @@
     opacity:0.8;
     border-radius: 25px;
     color: white;
-    width:70%;
+    width:50%;
     display: flex;
     justify-content: center;
     align-items: center;
     top: 20%;
     position: absolute;
-    margin-left: 15%;
-    margin-right:15%;
+    margin-left: 25%;
+    margin-right:25%;
     text-align: center;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+.aboutLinks {
+    color: gold;
+    text-decoration-line: underline;
+}
+.aboutHeader {
+    color: gold;
+}
+
+.aboutLinks:hover {
+    color: yellow;
 }
 
 #about {
     background-color: #343a40;
 }
+@media only screen and (max-width: 600px) {
+    .aboutViewContainerTop {
+        padding-right: 3%;
+        padding-left: 3%;
+        width:70%;
+        margin-left: 15%;
+        margin-right:15%;
 
+    }
+  }
 
 .aboutViewContainerBottom {
 
@@ -239,5 +262,26 @@
     background-color: #343a40;
 }
 html{
-    background-color: #343a40;
+    background: linear-gradient(179deg, #343a40, #eb9151);
+background-size: 400% 400%;
+
+-webkit-animation: AnimationName 30s ease infinite;
+-moz-animation: AnimationName 30s ease infinite;
+animation: AnimationName 30s ease infinite;
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
+@keyframes AnimationName { 
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
 }
