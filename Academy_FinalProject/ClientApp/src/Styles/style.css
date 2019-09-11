@@ -80,8 +80,8 @@
     height: 25%;
     width: 100%;
     z-index: 1000000;
-    background-color: #343a40;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
     justify-content: center
 }
 
@@ -148,8 +148,8 @@
     height: 25%;
     width: 100%;
     z-index: 1000000;
-    background-color: #343a40;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
     justify-content: center
 }
 
