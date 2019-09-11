@@ -15,6 +15,7 @@ import cluster50 from '../../Assets/cluster50.png'
 import bikecluster20 from '../../Assets/bikecluster20.png'
 import bikecluster30 from '../../Assets/bikecluster30.png'
 import bikecluster50 from '../../Assets/bikecluster50.png'
+import Bysykkel from '../../Assets/bysykkel.jpg'
 
 import deepEqual from 'deep-equal';
 import '../../Styles/style.css'
@@ -236,11 +237,21 @@ allScooters = () =>{
                 }} >
                   {this.state.showBikeFooter ? this.onMapClicked : null}
                 <div className= "bicycleInfo">
-                  <h4 style={{fontFamily: "'Red Hat Display', sans-serif"}}>
+                  <div className = {'bicycleInnerContainer'}>
+
+                  <div className= {'bySykkelBox1'}>
+                    <h4 className={'logoText'}>Oslo Bysykkel</h4> 
+                    <img src = {Bysykkel} height = "90px"></img>
+                  </div>
+                  <div className={'bySykkelBox2'}>
+
+                  <h4 style={{fontFamily: "'Red Hat Display', 'Helvetica Neue', sans-serif"}}>
                   {this.state.selectedBikeStation.stationName} station</h4>
                   <h6>Bikes available: {this.state.selectedBikeStation.bikesAvailable}</h6>
                   <h6>Docks available: {this.state.selectedBikeStation.docksAvailable}</h6>
                   <button className={'btnbysykkel'}><a href= "oslobysykkel:stations" className={'bysykkelLinks'}>Go To App</a></button>
+                  </div>
+                  </div>
                   </div>
                 </div>
                 </div> : null 

@@ -145,6 +145,7 @@
     z-index: 3;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
+    align-content: center;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -160,6 +161,28 @@
     color:white;
     text-align: center;
 }
+.bicycleInnerContainer {
+    width:100%;
+    display: flex;
+   justify-content: space-around;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left:10px;
+    margin-right:10px;
+    
+}
+.bySykkelBox1{
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.bySykkelBox2{
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
 
 .bysykkelLinks {
     color:white;
@@ -167,6 +190,12 @@
 .bysykkelLinks:hover{
     color:white;
     text-decoration: none;
+}
+.logoText{
+    color: #005FC9;
+    font-family: 'Urban Grotesk', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    
 }
 /*INFOCARD*/
 
