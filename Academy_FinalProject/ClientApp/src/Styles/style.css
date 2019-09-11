@@ -13,6 +13,7 @@
     z-index: 1000;
     outline: none;
 }
+
 .filterButtonActive {
     height: 54px;
     width: 61px;
@@ -60,11 +61,14 @@
     width:100%;
     padding: 7px;
 }
+
 .filterImagesInactive{
     opacity:0.5;
     border-radius:10px 10px 10px 10px;
     width:100%;
     padding:7px;
+    position: relative;
+    top: 3px;
 }
 
 /*RIDECARD*/
@@ -166,4 +170,49 @@
 
 .prizeText {
     color: red
+}
+
+/* AboutView */
+
+.MyAwesomeParallax {
+    background-color: #343a40;
+}
+
+.aboutViewContainerTop {
+    background-color:rgba(0,0,0,0.8);
+    opacity:0.8;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    color: white;
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20%;
+    position: absolute;
+}
+
+#about {
+    background-color: #343a40;
+}
+
+.aboutViewContainerBottom {
+
+    color: white;
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20%;
+    position: absolute;
+    margin-left:50%;
+}
+.rowBottom {
+    background-color:rgba(0,0,0,0.8);
+    opacity:0.8;
+    border-top-left-radius: 25px;
+
+}
+.bg-black {
+    background-color: #343a40;
 }

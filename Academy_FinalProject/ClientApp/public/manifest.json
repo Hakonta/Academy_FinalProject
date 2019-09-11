@@ -9,8 +9,8 @@
   "theme_color": "#2A3443",
   "icons": [
     {
-      "src": "Vaultguy.png",
-      "sizes": "144x144",
+      "src": "../Assets/SQT.png",
+      "sizes": "516x438",
       "type": "image/png"
     }
   ]

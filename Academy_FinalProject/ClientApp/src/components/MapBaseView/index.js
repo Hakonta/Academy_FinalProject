@@ -17,20 +17,20 @@ import bikecluster30 from '../../Assets/bikecluster30.png'
 import bikecluster50 from '../../Assets/bikecluster50.png'
 import { HeaderBar } from '../../Components/HeaderBar';
 import deepEqual from 'deep-equal';
+import '../../Styles/style.css'
 
 
 export default class MapBaseLayer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      refresh: true,
+      map: null,
       filter: {
         voiChecked: true,
         tierChecked: true,
         circChecked: true,
         zvippChecked: true,
         citybikeChecked: true,
-
       },
       showScooterFooter: false,
       mapIsLoadiong: true,
@@ -55,11 +55,12 @@ export default class MapBaseLayer extends Component {
   }
   shouldComponentUpdate(nextProps, nextState) {
     //LOOK AT THIS WITH MAGNUS. POTENTIAL FOR TWEAKS?
-    return deepEqual(this.state.scooters, nextState.scooters);
+    console.log('checking for changes')
+    return deepEqual(this.state.scooters,nextState.scooters)
+   // return deepEqual(this.state.map, nextState.map);
   }
 
   fetchScooterData = () => {
-    console.log(config.apiUrl)
     fetch(config.apiUrl + "/scooter",
       {
         headers: {
@@ -132,21 +133,19 @@ export default class MapBaseLayer extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <LoadScript
           id="script-loader"
           googleMapsApiKey="AIzaSyAp2jh1zbAqgoQH8qpd8Af622VYmIdfeVY"
         >
           <GoogleMap
             // The onClick method is used to call the method that hides the Footerbar menu
-            onClick={()=> {if(this.state.showScooterFooter){
-              {this.onMapClicked()}
-            }}}
+            onClick={() => {this.state.showScooterFooter ?  this.onMapClicked() : null}}
             id='example-map'
             onTilesLoaded={() => { this.setState({ mapIsLoadiong: false }); console.log('map has loaded.') }}
+            onLoad={(mapInstance)=> {this.setState(this.state.map = mapInstance) }}
             options={{
               styles: mapStyle,
-              //Toggle buttons on map
               fullscreenControl: false,
               zoomControl: false,
               mapTypeControl: false,
@@ -158,18 +157,15 @@ export default class MapBaseLayer extends Component {
             center={
               this.state.currentCenter
             }
-
             mapContainerStyle={{
               height: '100vh',
               width: '100vw',
               marginTop: '75px',
               margin: 0,
               padding: 0,
-              // border: '0.6px solid #343a40'
             }}>
 
             <HeaderBar />
-
             {this.state.mapIsLoadiong ? <LoadingSpinner /> : null}
 
             <MarkerClusterer
@@ -179,7 +175,7 @@ export default class MapBaseLayer extends Component {
             >
               {
                 (clusterer) => this.state.scooters.map((scooter, index) => (
-                  <div key={index}>
+                  <React.Fragment key={index}>
                     {this.state.filter.voiChecked && scooter.providerName === 'Voi' ?
                       <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
                       : null}
@@ -192,31 +188,12 @@ export default class MapBaseLayer extends Component {
                     {this.state.filter.zvippChecked && scooter.providerName === 'Zvipp' ?
                       <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
                       : null}
-                  </div>
+                  </React.Fragment>
                 ))
               }
             </MarkerClusterer>
 
             <CurrentPositionMarker position={this.state.currentCenter} />
-
-            {/* {this.state.selectedScooter && (
-              <InfoWindow
-                style={{ backgroundColor: 'blue' }}
-                // position={{ lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
-                position={ { lat: this.state.selectedScooter.latitude, lng: this.state.selectedScooter.longitude }}
-                onCloseClick={() => {
-                  this.setState({ selectedScooter: null, showDefaultCard: true })
-                }}
-
-              >
-                {this.state.showDefaultCard ?
-                  <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
-                  : <RideCard />}
-              </InfoWindow>
-            )} */}
-
-
-
 
             <MarkerClusterer
               averageCenter
@@ -225,15 +202,17 @@ export default class MapBaseLayer extends Component {
             >
               {
                 (clusterer) => this.state.bikeStations.map((bikeStation, index) => (
-                  <div key={index}>
-                    <BikeMarker position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }} />
-                  </div>
+                  <BikeMarker
+                    key={index}
+                    position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }}
+                    clusterer={clusterer}
+                    markerClicked={() => { this.setState({ selectedBikeStation: bikeStation }) }}
+                  />
                 ))
               }
             </MarkerClusterer>
             {this.state.selectedBikeStation && (
               <InfoWindow
-                style={{ backgroundColor: 'red' }}
                 position={{ lat: this.state.selectedBikeStation.latitude, lng: this.state.selectedBikeStation.longitude }}
                 onCloseClick={() => {
                   this.setState({ selectedBikeStation: null })
@@ -247,6 +226,7 @@ export default class MapBaseLayer extends Component {
               </InfoWindow>
               // The method belows calls the Footerbar
             )}
+            
             {this.state.showDefaultCard ?
               this.state.showScooterFooter ? <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity}
                 toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
@@ -256,7 +236,7 @@ export default class MapBaseLayer extends Component {
         </LoadScript>
         <FilterButton
           setFilter={this.filter} />
-      </div>
+      </React.Fragment>
     )
 
   }
