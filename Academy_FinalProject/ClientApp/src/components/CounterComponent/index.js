@@ -118,6 +118,7 @@ class CounterComponent extends React.Component {
             {start}
             {stop}
             {endRide}
+
         
       </div></div>
     )
