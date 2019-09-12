@@ -61,7 +61,7 @@ export class HeaderBar extends React.Component {
         </div>
           <button
                 onClick={this.openNavClick}
-                style={{outline: "none", left: "3%", padding:"0"}}
+                style={{outline: "none", left: "3%", padding:"0", zIndex: 3}}
                 className={'filterButton'}>
                   
               <img src= {menu} height="45px"/>
