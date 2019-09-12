@@ -1,11 +1,9 @@
-
 import React, { Component } from 'react';
 import Plx from 'react-plx';
-import about from '../../Assets/about.jpg'
+import about from '../../Assets/city.jpg'
 import '../../Styles/style.css'
-import CardNavBar from '../../Components/CardNavbar'
-
-// A WIP. Must find something that works on both mobile and desktop
+import { HeaderBar } from '../../Components/HeaderBar';
+import BackToMap from '../../Components/BackBtn';
 
 
 const parallaxData = [
@@ -33,8 +31,13 @@ export default class AboutView extends Component {
 
     render() {
         return (
+            <div>
+            <HeaderBar/> 
+            <BackToMap/>
+
             <div class={'outerContainerAbout'}>
-                <CardNavBar />
+                
+
                 <Plx
                     className='MyAwesomeParallax'
                     parallaxData={parallaxData} // your parallax effects, see documentation
@@ -47,7 +50,7 @@ export default class AboutView extends Component {
                         <div class={'rowTop'}>
                             <div className={'wrapperAbout'}>
                                 <br></br>
-                                <h2 className={'aboutHeader'}>About</h2>
+                                <h2 className={'aboutHeader'} style = {{fontFamily:"'Red Hat Display', sans-serif"}}>About</h2>
                                 <p class="lead"><b>So what's this about?</b></p>
                                 <p>SQT is the lovechild of a couple of students who attended <a className={'aboutLinks'} href="https://www.academy.no/">Academy</a>(summer of 2019). It was developed in a two week project for our finals.
                                 Prior to the three months we've spent learning coding during our time at Academy, most of us had none or almost no experience with coding.
@@ -72,6 +75,7 @@ export default class AboutView extends Component {
                         </div>
                     </div>
                 </section>
+            </div>
             </div>
         )
     }

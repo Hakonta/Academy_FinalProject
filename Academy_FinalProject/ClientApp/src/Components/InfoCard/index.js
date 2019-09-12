@@ -4,7 +4,6 @@ import Voi from '../../Assets/Voi.png'
 import Battery from '../../Assets/Battery.png'
 import Zvipp from '../../Assets/Zvipp.png' 
 import Circ from '../../Assets/circ.png'
-import {Button} from 'react-bootstrap';
 import '../../Styles/style.css'
 
 
