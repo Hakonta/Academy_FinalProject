@@ -59,17 +59,13 @@ export default class safetyView extends Component {
                         <div class={'rowTop'}>
                             <div className={'wrappersafety'}>
                                 <br></br>
-                                <h2 className={'safetyHeader'}>About</h2>
-                                <p class="lead"><b>So what's this about?</b></p>
-                                <p>SQT is the lovechild of a couple of students who attended <a className={'safetyLinks'} href="https://www.academy.no/">Academy</a>(summer of 2019). It was developed in a two week project for our finals.
-                                Prior to the three months we've spent learning coding during our time at Academy, most of us had none or almost no experience with coding.
-                                It's been a fun ride and we hope you like our little project! If you're curious about the techincal aspects of things, you can check out our Github page <a className={'safetyLinks'} href="https://github.com/Hakonta/Academy_FinalProject">here</a>.
-                                <br></br>
-                                </p>
-                                <p class="lead"><b>Why SQT?</b></p>
-                                <p>If you've ever tried to book an e-scooter before, you've most likely ran into to this problem: So many providers(and apps!),
-                                    but you just want the scooter that's the closest to where you are at the moment.
-                                    It'd be so much easier if you could have them all on the same map. Well, now you can!</p>
+                                <h2 className={'safetyHeader'}>Welcome Ania</h2>
+                                <p class="lead"><b>My recent rides:</b></p><ul>
+                                    <li><b>13/11/2019 15:11 - 15:12 <br></br></b>Rode a Tier - <a href="">More info</a></li><li><b>12/11/2019 17:42 - 17:56 <br></br></b>Rode a Zvipp - <a href="">More info</a></li><li><b>09/11/2019 10:40 - 10:58 <br></br></b>Rode a Voi - <a href="">More info</a></li>
+                                </ul>
+                                <p class="lead"><b>You have earned <b>560</b> points. Earn more points for a free ride!</b></p>
+                                <p>As a registered member, you'll earn points after each paid ride. Use your points to unlock free minutes of ride time. <br></br>
+                                Ride safe and keep being awesome!</p>
 
                             </div>
                         </div>
