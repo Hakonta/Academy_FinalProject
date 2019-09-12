@@ -155,6 +155,7 @@ export default class MapBaseLayer extends React.PureComponent {
   }
   allBikestation = () => {
     return (
+      this.state.filter.citybikeChecked ? 
       <MarkerClusterer
         averageCenter
         minimumClusterSize={3}
@@ -171,7 +172,7 @@ export default class MapBaseLayer extends React.PureComponent {
           ))
         }
       </MarkerClusterer>
-    )
+    : null)
   }
   render() {
     return (
