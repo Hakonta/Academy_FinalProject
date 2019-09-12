@@ -90,7 +90,7 @@ class CounterComponent extends React.Component {
         null
     let stop = (this.state.time === 0 || !this.state.isOn) ?
         null :
-        <div><h4 style={{fontFamily: "'Red Hat Display', sans-serif"}}>Time passed:</h4><h4 style={{fontFamily: "'Red Hat Display', sans-serif"}} > {this.showSeconds()}s   {this.showMinutes()}m   {Math.floor(((((this.state.time)/1000)/60)/60))}h</h4>
+        <div><h4 style={{fontFamily: "'Red Hat Display', sans-serif"}}>Time passed:</h4><h4 style={{fontFamily: "'Red Hat Display', sans-serif"}} >  {Math.floor(((((this.state.time)/1000)/60)/60))}h {this.showMinutes()}m {this.showSeconds()}s     </h4>
         <p>Current cost: kr {this.showPrice()}</p><button style = {{fontFamily:"'Red Hat Display', sans-serif"}} className={'btncards'} onClick={this.stopTimer}>End and pay your ride</button></div>
     let endRide = (this.state.time === 0 || this.state.isOn) ?
         null :
