@@ -59,11 +59,16 @@ export default class safetyView extends Component {
                         <div class={'rowTop'}>
                             <div className={'wrappersafety'}>
                                 <br></br>
-                                <h2 className={'safetyHeader' }style = {{fontFamily:"'Red Hat Display', sans-serif"}}>Welcome Ania</h2>
-                                <p class="lead"><b>My recent rides:</b></p><ul>
-                                    <li style = {{fontFamily:"'Red Hat Display', sans-serif"}}><b>13/11/2019 15:11 - 15:12 <br></br></b>Rode a Tier - <a href="">More info</a></li><li><b>12/11/2019 17:42 - 17:56 <br></br></b>Rode a Zvipp - <a href="">More info</a></li><li><b>09/11/2019 10:40 - 10:58 <br></br></b>Rode a Voi - <a href="">More info</a></li>
+                                <h2 className={'safetyHeader'} style = {{fontFamily:"'Red Hat Display', sans-serif"}}>Welcome Ania</h2>
+                                <p class="lead" style = {{fontFamily:"'Red Hat Display', sans-serif"}}><b>My recent rides:</b></p>
+                                <ul>
+                                    <li ><b> Fri 13.09 - 17 min <br></br></b> Rode a Tier - <span style={{color: 'orange'}}>More info</span></li>
+                                    <br></br>
+                                    <li><b> Thu 12.09 - 12 min <br></br></b>Rode a Zvipp - <span style={{color: 'orange'}}>More info</span></li>
+                                    <br></br>
+                                    <li><b> Mon 9.9 - 24 min <br></br></b>Rode a Voi - <span style={{color: 'orange'}}>More info</span></li>
                                 </ul>
-                                <p class="lead"><b>You have earned <b>560</b> points. Earn more points for a free ride!</b></p>
+                                <p class="lead" style = {{fontFamily:"'Red Hat Display', sans-serif"}}><b>You have earned <b>560</b> points. Earn more points for a free ride!</b></p>
                                 <p>As a registered member, you'll earn points after each paid ride. Use your points to unlock free minutes of ride time. <br></br>
                                 Ride safe and keep being awesome!</p>
 

@@ -49,7 +49,7 @@ export default class safetyView extends Component {
                         <div class={'rowTop'}>
                             <div className={'wrappersafety'}>
                                 <br></br>
-                                <h2 className={'safetyHeader'}>THE SQT RULES TO KNOW BEFORE YOU GO</h2>
+                                <h2 className={'safetyHeader'} style = {{fontFamily:"'Red Hat Display', sans-serif"}}>THE SQT RULES TO KNOW BEFORE YOU GO</h2>
                             
                                 <p><br></br></p>
                                 <p class="lead"><b>BE SAFE.</b></p>

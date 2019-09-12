@@ -428,8 +428,8 @@ height: auto;
 }
 
 .aboutViewContainerTop {
-    background-color: rgba(0, 0, 0, 0.8);
-    opacity: 0.8;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.85;
     border-radius: 25px;
     color: white;
     width: 50%;
@@ -446,16 +446,16 @@ height: auto;
 }
 
 .aboutLinks {
-    color: gold;
+    color: #ff7500;
     text-decoration-line: underline;
 }
 
 .aboutHeader {
-    color: gold;
+    color: #ff7500;
 }
 
 .aboutLinks:hover {
-    color: yellow;
+    color: #ff7500;
 }
 
 #about {
@@ -492,46 +492,6 @@ height: auto;
     background-color: #343a40;
 }
 
-html {
-    background: white;
-    background-size: 400% 400%;
-    -webkit-animation: AnimationName 30s ease infinite;
-    -moz-animation: AnimationName 30s ease infinite;
-    animation: AnimationName 30s ease infinite;
-    @-webkit-keyframes AnimationName {
-        0% {
-            background-position: 50% 0%
-        }
-        50% {
-            background-position: 51% 100%
-        }
-        100% {
-            background-position: 50% 0%
-        }
-    }
-    @-moz-keyframes AnimationName {
-        0% {
-            background-position: 50% 0%
-        }
-        50% {
-            background-position: 51% 100%
-        }
-        100% {
-            background-position: 50% 0%
-        }
-    }
-    @keyframes AnimationName {
-        0% {
-            background-position: 50% 0%
-        }
-        50% {
-            background-position: 51% 100%
-        }
-        100% {
-            background-position: 50% 0%
-        }
-    }
-}
 
 /*safety*/
 
@@ -540,8 +500,8 @@ html {
 }
 
 .safetyViewContainerTop {
-    background-color: rgb(0, 0, 0, 0.8);
-    opacity: 0.8;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.85;
     border-radius: 25px;
     color: white;
     width: 50%;
@@ -558,16 +518,16 @@ html {
 }
 
 .safetyLinks {
-    color: gold;
+    color: #ff7500;
     text-decoration-line: underline;
 }
 
 .safetyHeader {
-    color: gold;
+    color: #ff7500;
 }
 
 .safetyLinks:hover {
-    color: yellow;
+    color: #ff7500;
 }
 
 #safety {
@@ -604,30 +564,6 @@ html {
     background-color: #343a40;
 }
 
-html {
-    background: linear-gradient(179deg, #343a40, #eb9151);
-background-size: 400% 400%;
-
--webkit-animation: AnimationName 30s ease infinite;
--moz-animation: AnimationName 30s ease infinite;
-animation: AnimationName 30s ease infinite;
-
-@-webkit-keyframes AnimationName {
-    0%{background-position:50% 0%}
-    50%{background-position:51% 100%}
-    100%{background-position:50% 0%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:50% 0%}
-    50%{background-position:51% 100%}
-    100%{background-position:50% 0%}
-}
-@keyframes AnimationName { 
-    0%{background-position:50% 0%}
-    50%{background-position:51% 100%}
-    100%{background-position:50% 0%}
-}
-}
 /**/
 
 

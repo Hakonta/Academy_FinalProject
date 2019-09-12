@@ -23,7 +23,7 @@
     background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
     padding-top: 3.5rem;
     transition: 0.5s;
-    box-shadow: 50px 0px 200px grey;
+    box-shadow: 50px 0px 400px black;
   }
   
   .side-nav a, h5{

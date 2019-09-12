@@ -49,14 +49,14 @@ export default class ContactView extends Component {
                         <div class={'rowTop'}>
                             <div className={'wrapperAbout'}>
                                 <br></br>
-                                <h2 className={'aboutHeader'}>Contact us</h2>
-                                <p class="lead"><b>Questions? Wanna chat? Unhappy with SQT?</b></p>
+                                <h2 className={'aboutHeader'} style = {{fontFamily:"'Red Hat Display', sans-serif"}}>Contact us</h2>
+                                <p class="lead" style = {{fontFamily:"'Red Hat Display', sans-serif"}}><b>Questions? Wanna chat? Unhappy with SQT?</b></p>
                                 <p>Roses are read<br></br>Violets are blue<br></br>You are hereby warned
                                 <br></br>We might not have a clue</p>
                                
                                 <br></br>
                                 
-                                <p class="lead"><b>Contact Info:</b></p>
+                                <p class="lead" style = {{fontFamily:"'Red Hat Display', sans-serif"}}><b>Contact Info:</b></p>
                                 <p>Phone: +42 42 42 42 42
                                     <br></br>
                                     Mail: meg@ryan.com

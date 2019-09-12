@@ -54,7 +54,7 @@ export default class AboutView extends Component {
                             <div className={'wrapperAbout'}>
                                 <br></br>
                                 <h2 className={'aboutHeader'} style = {{fontFamily:"'Red Hat Display', sans-serif"}}>About</h2>
-                                <p class="lead"><b>So what's this about?</b></p>
+                                <p class="lead" style = {{fontFamily:"'Red Hat Display', sans-serif"}}><b>So what's this about?</b></p>
                                 <p>SQT is the lovechild of a couple of students who attended <a className={'aboutLinks'} href="https://www.academy.no/">Academy</a>(summer of 2019). It was developed in a two week project for our finals.
                                 Prior to the three months we've spent learning coding during our time at Academy, most of us had none or almost no experience with coding.
                                 It's been a fun ride and we hope you like our little project! If you're curious about the techincal aspects of things, you can check out our Github page <a className={'aboutLinks'} href="https://github.com/Hakonta/Academy_FinalProject">here</a>.
