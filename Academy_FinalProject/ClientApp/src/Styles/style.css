@@ -44,7 +44,7 @@
     position: fixed;
     right: 3%;
     top: 1%;
-    z-index: 3;
+    z-index: 1000;
     outline: none;
 }
 
