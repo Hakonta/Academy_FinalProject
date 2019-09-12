@@ -145,6 +145,7 @@
     z-index: 3;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
+    align-content: center;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -152,20 +153,53 @@
 }
 
 .btnbysykkel{
-    height: 45px;
-    width: 150px;
-    border-radius: 10px 10px 10px 10px;
-    border: none;
-    background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
-    color:white;
+    height: 35px;
+    width: 200px;
+    border-radius: 20px 20px 20px 20px;
+    border: 2px solid #ff7500;
+    background: white;
+    color: #ff7500;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+.bicycleInnerContainer {
+    width:100%;
+    display: flex;
+   justify-content: space-around;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left:10px;
+    margin-right:10px;
+    
+}
+.bySykkelBox1{
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.bySykkelBox2{
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
 }
 
 .bysykkelLinks {
-    color:white;
+    color: #ff7500;;
 }
 .bysykkelLinks:hover{
-    color:white;
+    color:#ff7500;
     text-decoration: none;
+}
+.logoText{
+    color: #005FC9;
+    font-family: 'Urban Grotesk', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    
 }
 /*INFOCARD*/
 
@@ -196,17 +230,29 @@
     margin-right:10px;
     
 }
-.box2{
+
+.box1{
     align-content: center;
     align-items: center;
     text-align: center;
-    margin-left:-55px;
+}
+
+.box2{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 90px;
+    margin-top: 20px
+
 }
 .box3{
-    display: flex;
     flex-direction: column;
-    align-content: center;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 90px
+
 }
 .box3{
     display: flex;
@@ -221,10 +267,18 @@
 } */
 
 .providerLinks {
-    color:black;
+    color:white;
 }
 .providerLinks:hover{
-    color:black;
+    color:white;
+    text-decoration: none;
+}
+
+.whiteproviderLinks {
+    color:#ff7500;
+}
+.whiteproviderLinks:hover{
+    color:#ff7500;
     text-decoration: none;
 }
 
@@ -282,15 +336,81 @@
     top: 1px;
 }
  .btnprimary{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     height: 45px;
     width: 150px;
     border-radius: 10px 10px 10px 10px;
     border: none;
     background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
     color:white;
+    text-align: center;
 } 
 
-*/
+.btncards{
+    height: 35px;
+    width: 105px;
+    border-radius: 20px 20px 20px 20px;
+    border: none;
+    background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
+    color:white;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+} 
+
+.btncards{
+    height: 35px;
+    width: 100%;
+    border-radius: 20px 20px 20px 20px;
+    border: none;
+    background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
+    color:white;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+} 
+
+.whitebtncards{
+    height: 35px;
+    width: 100%;
+    border-radius: 20px 20px 20px 20px;
+    border: 2px solid #ff7500;
+    background: white;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+} 
+
+
+/* SAFETY VIEW*/
+.safetyBody{
+background-color: #FF7500;
+display: flex;
+flex-direction: column;
+width:100vw;
+}
+.safetyPart1{
+display:flex;
+justify-content: start;
+max-width: 100%;
+height: auto;
+}
+.safetyPart2{
+display:flex;
+justify-content: end;
+max-width: 100%;
+height: auto;
+}
+
+
 
 /* .rideCardStartButton,.startButton {
     background-color: darkRed;

@@ -48,8 +48,7 @@ class RideCard extends React.Component {
           <div className='TermsOfUseBox'>
             <h4>Almost there...</h4>
           Please verify that you want to begin your ride and that you comply with the safety requirements <p></p>
-          <button className={'rideCardStartButton'} onClick={this.unlockScooter}>I agree</button>
-          <br></br>
+          <button className={'btncards'} onClick={this.unlockScooter}>I agree</button>
           <a href="#TermsOfAgreement">Terms of Agreement</a></div>
           </div>
           </div> :

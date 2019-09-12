@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer } from '@react-google-maps/api'
+import React from 'react'
+import { MarkerClusterer } from '@react-google-maps/api'
 import ScooterMarker from '../ScooterMarker'
 import BikeMarker from '../BikeMarker'
 import mapStyle from './mapStyle'
@@ -15,13 +15,12 @@ import cluster50 from '../../Assets/cluster50.png'
 import bikecluster20 from '../../Assets/bikecluster20.png'
 import bikecluster30 from '../../Assets/bikecluster30.png'
 import bikecluster50 from '../../Assets/bikecluster50.png'
-
 import deepEqual from 'deep-equal';
 import '../../Styles/style.css'
+import MapComponent from '../MapComponent'
 
 
-
-export default class MapBaseLayer extends Component {
+export default class MapBaseLayer extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
@@ -43,8 +42,7 @@ export default class MapBaseLayer extends Component {
       currentCenter: {
         lat: 59.92,
         lng: 10.723
-      },
-      mapInstance: {}
+      }
     }
   }
 
@@ -55,13 +53,7 @@ export default class MapBaseLayer extends Component {
     this.fetchScooterData();
     this.fetchBikeData();
   }
-  shouldComponentUpdate(nextProps, nextState) {
-    //LOOK AT THIS WITH MAGNUS. POTENTIAL FOR TWEAKS?
-    console.log('checking for changes')
-    
-    return deepEqual(this.state.scooters,nextState.scooters)
-   // return deepEqual(this.state.map, nextState.map);
-  }
+  
 
   fetchScooterData = () => {
     fetch(config.apiUrl + "/scooter",
@@ -87,7 +79,7 @@ export default class MapBaseLayer extends Component {
       .then(response => response.json())
       .then((result) => {
 
-        this.setState({ bikeStations: result });
+        this.setState({ bikeStations: result, mapIsLoadiong: false });
       })
       .catch((error) => { console.log(error); });
   }
@@ -125,139 +117,111 @@ export default class MapBaseLayer extends Component {
     }
   }
   onMapClicked = () => {
+    this.state.showScooterFooter || this.state.showBikeFooter ? 
     this.setState({
       showScooterFooter: false,
       showDefaultCard: true,
       showBikeFooter: false
-    })
+    }) : null
   }
 
-  allBikestation = () =>{
-    return(
+  allBikestation = () => {
+    return (
       <MarkerClusterer
-      averageCenter
-      minimumClusterSize={3}
-      styles={bikeClusterIcons}
-    >
-      {
-        (clusterer) => this.state.bikeStations.map((bikeStation, index) => (
-          <BikeMarker
-            key={index}
-            position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }}                    
-            clusterer={clusterer}
-            markerClicked={() => { this.setState({ selectedBikeStation: bikeStation, showScooterFooter: false, showDefaultCard: true, showBikeFooter: true }) }}
-          />
-        ))
-      }
-    </MarkerClusterer>
+        averageCenter
+        minimumClusterSize={3}
+        styles={bikeClusterIcons}
+      >
+        {
+          (clusterer) => this.state.bikeStations.map((bikeStation, index) => (
+            <BikeMarker
+              key={index}
+              position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }}
+              clusterer={clusterer}
+              markerClicked={() => { this.setState({ selectedBikeStation: bikeStation, showScooterFooter: false, showDefaultCard: true, showBikeFooter: true }) }}
+            />
+          ))
+        }
+      </MarkerClusterer>
     )
   }
 
-allScooters = () =>{
-  return(
-    <MarkerClusterer
-    averageCenter
-    minimumClusterSize={3}
-    styles={clusterIcons}
-  >
-    {
-      (clusterer) => this.state.scooters.map((scooter, index) => (
-        <React.Fragment key={index}>
-          {this.state.filter.voiChecked && scooter.providerName === 'Voi' ?
-            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
-            : null}
-          {this.state.filter.tierChecked && scooter.providerName === 'Tier' ?
-            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
-            : null}
-          {this.state.filter.circChecked && scooter.providerName === 'Flash' ?
-            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
-            : null}
-          {this.state.filter.zvippChecked && scooter.providerName === 'Zvipp' ?
-            <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true }) }} />
-            : null}
-        </React.Fragment>
-      ))
-    }
-  </MarkerClusterer>
-  )
-}
+  allScooters = () => {
+    return (
+      <MarkerClusterer
+        averageCenter
+        minimumClusterSize={3}
+        styles={clusterIcons}
+      >
+        {
+          (clusterer) => this.state.scooters.map((scooter, index) => (
+            <React.Fragment key={index}>
+              {this.state.filter.voiChecked && scooter.providerName === 'Voi' ?
+                <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true, showBikeFooter: false }) }} />
+                : null}
+              {this.state.filter.tierChecked && scooter.providerName === 'Tier' ?
+                <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true, showBikeFooter: false }) }} />
+                : null}
+              {this.state.filter.circChecked && scooter.providerName === 'Flash' ?
+                <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true, showBikeFooter: false }) }} />
+                : null}
+              {this.state.filter.zvippChecked && scooter.providerName === 'Zvipp' ?
+                <ScooterMarker provider={scooter.providerName} position={{ lat: scooter.latitude, lng: scooter.longitude }} clusterer={clusterer} markerClicked={() => { this.setState({ selectedScooter: scooter, showScooterFooter: true, showBikeFooter: false }) }} />
+                : null}
+            </React.Fragment>
+          ))
+        }
+      </MarkerClusterer>
+    )
+  }
 
   render() {
     return (
       <React.Fragment>
-        <LoadScript
-          id="script-loader"
-          googleMapsApiKey="AIzaSyAp2jh1zbAqgoQH8qpd8Af622VYmIdfeVY"
-        >
-          <GoogleMap
+        {this.state.mapIsLoadiong ? <LoadingSpinner /> : null}
+       
+          <MapComponent
             // The onClick method is used to call the method that hides the Footerbar menu
-            onClick={() => {this.state.showScooterFooter || this.state.showBikeFooter ?  this.onMapClicked() : null}}
-            id='SQT MAP'
-            onTilesLoaded={() => { this.setState({ mapIsLoadiong: false }); console.log('map has loaded.') }}
-            options={{
-              styles: mapStyle,
-              fullscreenControl: false,
-              zoomControl: false,
-              mapTypeControl: false,
-              streetViewControl: false,
-              clickableIcons: false,
-              gestureHandling: 'greedy',
-            }}
-            zoom={18}
-            center={
-              this.state.currentCenter
-            }
-            mapContainerStyle={{
-              height: '100vh',
-              width: '100vw',
-              marginTop: '75px',
-              margin: 0,
-              padding: 0,
-            }}>
+            onClickMap={this.onMapClicked }
+            center={this.state.currentCenter}
+            >
 
-          
-
-            {this.state.mapIsLoadiong ? <LoadingSpinner /> : null}
-            <FilterButton setFilter={this.filter} />
-
-            
-           
-
-            {this.state.mapIsLoadiong ? null : this.allScooters() }
-
+            {this.state.mapIsLoadiong ? null : this.allScooters()}
             {this.state.mapIsLoadiong ? null : this.allBikestation()}
-            <CurrentPositionMarker position={this.state.currentCenter} />
-
-           
-            {this.state.selectedBikeStation && ( this.state.showBikeFooter ? <div><div className= "infoCardOuterContainer"
-                position={{ lat: this.state.selectedBikeStation.latitude, lng: this.state.selectedBikeStation.longitude }}
-                onCloseClick={() => {
-                  this.setState({ selectedBikeStation: null })
-                }} >
-                  {this.state.showBikeFooter ? this.onMapClicked : null}
-                <div className= "bicycleInfo">
-                  <h4 style={{fontFamily: "'Red Hat Display', sans-serif"}}>
-                  {this.state.selectedBikeStation.stationName} station</h4>
-                  <h6>Bikes available: {this.state.selectedBikeStation.bikesAvailable}</h6>
-                  <h6>Docks available: {this.state.selectedBikeStation.docksAvailable}</h6>
-                  <button className={'btnbysykkel'}><a href= "oslobysykkel:stations" className={'bysykkelLinks'}>Go To App</a></button>
-                  </div>
-                </div>
-                </div> : null 
-
-              // The method belows calls the Footerbar
-            )}
             
-            {this.state.showDefaultCard ?
-              this.state.showScooterFooter ? <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity} 
-                toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
-                : null : <RideCard />}
+            
+            <CurrentPositionMarker position={this.state.currentCenter} />
+          </MapComponent>
+        
 
-          </GoogleMap>
-        </LoadScript>
+        {this.state.selectedBikeStation && (this.state.showBikeFooter ?
+          
+            <div
+              className="infoCardOuterContainer"
+              onCloseClick={() => { this.setState({ selectedBikeStation: null }) }} 
+              >
+              {this.state.showBikeFooter ? this.onMapClicked : null}
+              <div className="bicycleInfo">
+                <h5 style={{ fontFamily: "'Red Hat Display', sans-serif" }}>{this.state.selectedBikeStation.stationName} station</h5>
+                <h6>Bikes available: {this.state.selectedBikeStation.bikesAvailable}</h6>
+                <h6>Docks available: {this.state.selectedBikeStation.docksAvailable}</h6>
+                <button className={'btnbysykkel'}><a href="oslobysykkel:stations" className={'bysykkelLinks'}>Go To App</a></button>
+              </div>
+            </div>
+           : null
+
+          // The method belows calls the Footerbar
+        )}
+
+        {this.state.showDefaultCard ?
+          this.state.showScooterFooter ? <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity}
+            toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
+            : null : <RideCard />}
+
+
+        <FilterButton setFilter={this.filter} />
       </React.Fragment>
     )
-
   }
 }
 
