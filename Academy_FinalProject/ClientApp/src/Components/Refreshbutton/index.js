@@ -6,7 +6,7 @@ const RefreshButton = (props) => {
 
     return (
         <button
-                style={{outline: "none", top:"10%", background: "rgba(200, 54, 54, 0)", border: "0px"	}}
+                style={{outline: "none", top:"10%", background: "rgba(200, 54, 54, 0)", border: "0px", zIndex: 3}}
                 className={'filterButton'}
             >
                 <a href="/">
