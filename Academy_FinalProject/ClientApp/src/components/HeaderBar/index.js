@@ -1,10 +1,11 @@
 import React from "react"
 import "./sideNav.css"
 import {Navbar} from 'react-bootstrap';
-import logo from '../../Assets/FullLogoOrangeBlack.png'
+import logo from '../../Assets/newLogo.png'
 import menu from '../../Assets/menu.png'
 import {Link} from 'react-router-dom'
 import '../../Styles/style.css'
+
 
 export class HeaderBar extends React.Component {
   state = {

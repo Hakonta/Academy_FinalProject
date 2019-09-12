@@ -1,5 +1,5 @@
 import React from "react"
-import refresh from '../../Assets/refreshNew.png'
+import mapIcon from '../../Assets/map.png'
 import '../../Styles/style.css'
 
 const BackToMap = (props) => {
@@ -11,7 +11,7 @@ const BackToMap = (props) => {
                 className={'filterButton'}
             >
                 <a href="/">
-              <img src= {refresh} height="30px"/>
+              <img src= {mapIcon} height="30px"/>
               </a>
         </button>
         </div>
