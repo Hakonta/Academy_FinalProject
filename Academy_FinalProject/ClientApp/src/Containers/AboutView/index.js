@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import Plx from 'react-plx';
-import about from '../../Assets/about.jpg'
+import about from '../../Assets/city.jpg'
 import '../../Styles/style.css'
 import CardNavBar from '../../Components/CardNavbar'
 
