@@ -202,7 +202,7 @@ export default class MapBaseLayer extends React.PureComponent {
               >
               {this.state.showBikeFooter ? this.onMapClicked : null}
               <div className="bicycleInfo">
-                <h4 style={{ fontFamily: "'Red Hat Display', sans-serif" }}>{this.state.selectedBikeStation.stationName} station</h4>
+                <h5 style={{ fontFamily: "'Red Hat Display', sans-serif" }}>{this.state.selectedBikeStation.stationName} station</h5>
                 <h6>Bikes available: {this.state.selectedBikeStation.bikesAvailable}</h6>
                 <h6>Docks available: {this.state.selectedBikeStation.docksAvailable}</h6>
                 <button className={'btnbysykkel'}><a href="oslobysykkel:stations" className={'bysykkelLinks'}>Go To App</a></button>
