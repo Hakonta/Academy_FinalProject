@@ -215,13 +215,6 @@ export default class MapBaseLayer extends Component {
               padding: 0,
             }}>
 
-
-
-
-
-
-
-
             {this.state.mapIsLoadiong ? null : this.allScooters()}
 
             {this.state.mapIsLoadiong ? null : this.allBikestation()}
@@ -230,10 +223,11 @@ export default class MapBaseLayer extends Component {
         </LoadScript>
 
         {this.state.selectedBikeStation && (this.state.showBikeFooter ?
-          <div>
+          
             <div
               className="infoCardOuterContainer"
-              onCloseClick={() => { this.setState({ selectedBikeStation: null }) }} >
+              onCloseClick={() => { this.setState({ selectedBikeStation: null }) }} 
+              >
               {this.state.showBikeFooter ? this.onMapClicked : null}
               <div className="bicycleInfo">
                 <h4 style={{ fontFamily: "'Red Hat Display', sans-serif" }}>{this.state.selectedBikeStation.stationName} station</h4>
@@ -242,7 +236,7 @@ export default class MapBaseLayer extends Component {
                 <button className={'btnbysykkel'}><a href="oslobysykkel:stations" className={'bysykkelLinks'}>Go To App</a></button>
               </div>
             </div>
-          </div> : null
+           : null
 
           // The method belows calls the Footerbar
         )}
