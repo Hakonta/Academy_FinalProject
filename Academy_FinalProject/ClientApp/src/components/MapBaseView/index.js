@@ -15,14 +15,12 @@ import cluster50 from '../../Assets/cluster50.png'
 import bikecluster20 from '../../Assets/bikecluster20.png'
 import bikecluster30 from '../../Assets/bikecluster30.png'
 import bikecluster50 from '../../Assets/bikecluster50.png'
-import Bysykkel from '../../Assets/bysykkel.jpg'
-
 import deepEqual from 'deep-equal';
 import '../../Styles/style.css'
+import MapComponent from '../MapComponent'
 
 
-
-export default class MapBaseLayer extends Component {
+export default class MapBaseLayer extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
@@ -44,8 +42,7 @@ export default class MapBaseLayer extends Component {
       currentCenter: {
         lat: 59.92,
         lng: 10.723
-      },
-      mapInstance: {}
+      }
     }
   }
 
@@ -56,13 +53,7 @@ export default class MapBaseLayer extends Component {
     this.fetchScooterData();
     this.fetchBikeData();
   }
-  shouldComponentUpdate(nextProps, nextState) {
-    //LOOK AT THIS WITH MAGNUS. POTENTIAL FOR TWEAKS?
-    console.log('checking for changes')
-
-    return deepEqual(this.state.scooters, nextState.scooters)
-    // return deepEqual(this.state.map, nextState.map);
-  }
+  
 
   fetchScooterData = () => {
     fetch(config.apiUrl + "/scooter",
@@ -88,7 +79,7 @@ export default class MapBaseLayer extends Component {
       .then(response => response.json())
       .then((result) => {
 
-        this.setState({ bikeStations: result });
+        this.setState({ bikeStations: result, mapIsLoadiong: false });
       })
       .catch((error) => { console.log(error); });
   }
@@ -126,11 +117,12 @@ export default class MapBaseLayer extends Component {
     }
   }
   onMapClicked = () => {
+    this.state.showScooterFooter || this.state.showBikeFooter ? 
     this.setState({
       showScooterFooter: false,
       showDefaultCard: true,
       showBikeFooter: false
-    })
+    }) : null
   }
 
   allBikestation = () => {
@@ -187,40 +179,20 @@ export default class MapBaseLayer extends Component {
     return (
       <React.Fragment>
         {this.state.mapIsLoadiong ? <LoadingSpinner /> : null}
-        <LoadScript
-          id="script-loader"
-          googleMapsApiKey="AIzaSyAp2jh1zbAqgoQH8qpd8Af622VYmIdfeVY"
-        >
-          <GoogleMap
+       
+          <MapComponent
             // The onClick method is used to call the method that hides the Footerbar menu
-            onClick={() => { this.state.showScooterFooter || this.state.showBikeFooter ? this.onMapClicked() : null }}
-            id='SQT MAP'
-            onTilesLoaded={() => { this.setState({ mapIsLoadiong: false }); console.log('map has loaded.') }}
-            options={{
-              styles: mapStyle,
-              fullscreenControl: false,
-              zoomControl: false,
-              mapTypeControl: false,
-              streetViewControl: false,
-              clickableIcons: false,
-              gestureHandling: 'greedy',
-            }}
-            zoom={18}
+            onClickMap={this.onMapClicked }
             center={this.state.currentCenter}
-            mapContainerStyle={{
-              height: '100vh',
-              width: '100vw',
-              marginTop: '75px',
-              margin: 0,
-              padding: 0,
-            }}>
+            >
 
             {this.state.mapIsLoadiong ? null : this.allScooters()}
-
             {this.state.mapIsLoadiong ? null : this.allBikestation()}
+            
+            
             <CurrentPositionMarker position={this.state.currentCenter} />
-          </GoogleMap>
-        </LoadScript>
+          </MapComponent>
+        
 
         {this.state.selectedBikeStation && (this.state.showBikeFooter ?
           
