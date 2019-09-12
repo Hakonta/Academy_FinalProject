@@ -85,7 +85,7 @@ export default class MapBaseLayer extends React.PureComponent {
 
   getGeoLocation = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(
+      navigator.geolocation.getCurrentPosition(
         position => {
           this.setState(prevState => ({
             currentCenter: {
