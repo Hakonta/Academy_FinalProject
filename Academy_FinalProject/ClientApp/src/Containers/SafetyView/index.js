@@ -7,6 +7,7 @@ import safetyPoster from '../../Assets/safetyPoster.png'
 import safe from '../../Assets/safe1a.png'
 import safe2 from '../../Assets/safe2a.png'
 import { HeaderBar } from '../../Components/HeaderBar';
+import BackToMap from '../../Components/BackBtn';
 
 // A WIP. Must find something that works on both mobile and desktop
 
@@ -35,6 +36,7 @@ export default class safetyView extends Component {
         return (
             <div class={'outerContainersafety'}>
                 <HeaderBar/>
+                <BackToMap/>
                 <Plx
                     className='MyAwesomeParallax'
                     parallaxData={parallaxData} // your parallax effects, see documentation
