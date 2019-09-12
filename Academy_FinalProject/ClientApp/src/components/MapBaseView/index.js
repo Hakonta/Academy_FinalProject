@@ -103,6 +103,8 @@ export default class MapBaseLayer extends React.PureComponent {
 
   filter = (provider) => {
     switch (provider) {
+      case 'citybike': this.setState(prevState => ({ filter: { ...prevState.filter, citybikeChecked: !this.state.filter.citybikeChecked } }))
+        break;
       case 'voi': this.setState(prevState => ({ filter: { ...prevState.filter, voiChecked: !this.state.filter.voiChecked } }))
         break;
       case 'tier': this.setState(prevState => ({ filter: { ...prevState.filter, tierChecked: !this.state.filter.tierChecked } }))
@@ -110,8 +112,6 @@ export default class MapBaseLayer extends React.PureComponent {
       case 'circ': this.setState(prevState => ({ filter: { ...prevState.filter, circChecked: !this.state.filter.circChecked } }))
         break;
       case 'zvipp': this.setState(prevState => ({ filter: { ...prevState.filter, zvippChecked: !this.state.filter.zvippChecked } }))
-        break;
-      case 'citybike': this.setState(prevState => ({ filter: { ...prevState.filter, citybikeChecked: !this.state.filter.citybikeChecked } }))
         break;
       default:
     }
@@ -125,26 +125,7 @@ export default class MapBaseLayer extends React.PureComponent {
     }) : null
   }
 
-  allBikestation = () => {
-    return (
-      <MarkerClusterer
-        averageCenter
-        minimumClusterSize={3}
-        styles={bikeClusterIcons}
-      >
-        {
-          (clusterer) => this.state.bikeStations.map((bikeStation, index) => (
-            <BikeMarker
-              key={index}
-              position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }}
-              clusterer={clusterer}
-              markerClicked={() => { this.setState({ selectedBikeStation: bikeStation, showScooterFooter: false, showDefaultCard: true, showBikeFooter: true }) }}
-            />
-          ))
-        }
-      </MarkerClusterer>
-    )
-  }
+ 
 
   allScooters = () => {
     return (
@@ -174,7 +155,26 @@ export default class MapBaseLayer extends React.PureComponent {
       </MarkerClusterer>
     )
   }
-
+  allBikestation = () => {
+    return (
+      <MarkerClusterer
+        averageCenter
+        minimumClusterSize={3}
+        styles={bikeClusterIcons}
+      >
+        {
+          (clusterer) => this.state.bikeStations.map((bikeStation, index) => (
+            <BikeMarker
+              key={index}
+              position={{ lat: bikeStation.latitude, lng: bikeStation.longitude }}
+              clusterer={clusterer}
+              markerClicked={() => { this.setState({ selectedBikeStation: bikeStation, showScooterFooter: false, showDefaultCard: true, showBikeFooter: true }) }}
+            />
+          ))
+        }
+      </MarkerClusterer>
+    )
+  }
   render() {
     return (
       <React.Fragment>
@@ -186,8 +186,8 @@ export default class MapBaseLayer extends React.PureComponent {
             center={this.state.currentCenter}
             >
 
-            {this.state.mapIsLoadiong ? null : this.allScooters()}
             {this.state.mapIsLoadiong ? null : this.allBikestation()}
+            {this.state.mapIsLoadiong ? null : this.allScooters()}
             
             
             <CurrentPositionMarker position={this.state.currentCenter} />
@@ -225,32 +225,6 @@ export default class MapBaseLayer extends React.PureComponent {
   }
 }
 
-const clusterIcons = [
-  {
-    url: cluster20,
-    height: 20,
-    width: 20,
-    //borderRadius: '50%',
-    fontFamily: "Lato",
-    textColor: "#fff",
-  },
-  {
-    url: cluster30,
-    height: 30,
-    width: 30,
-    //borderRadius: '20px',
-    fontFamily: "Lato",
-    textColor: "#fff",
-  },
-  {
-    url: cluster50,
-    height: 50,
-    width: 50,
-    //borderRadius: 20,
-    fontFamily: "Lato",
-    textColor: "#fff",
-  }
-]
 const bikeClusterIcons = [
   {
     url: bikecluster20,
@@ -259,6 +233,7 @@ const bikeClusterIcons = [
     //borderRadius: '50%',
     fontFamily: "Lato",
     textColor: "#fff",
+    zIndex: 2
   },
   {
     url: bikecluster30,
@@ -267,6 +242,8 @@ const bikeClusterIcons = [
     //borderRadius: '20px',
     fontFamily: "Lato",
     textColor: "#fff",
+    zIndex: 2
+   
   },
   {
     url: bikecluster50,
@@ -275,5 +252,36 @@ const bikeClusterIcons = [
     //borderRadius: 20,
     fontFamily: "Lato",
     textColor: "#fff",
+    zIndex: 2
+    
+  }
+]
+const clusterIcons = [
+  {
+    url: cluster20,
+    height: 20,
+    width: 20,
+    //borderRadius: '50%',
+    fontFamily: "Lato",
+    textColor: "#fff",
+    zIndex: 100
+  },
+  {
+    url: cluster30,
+    height: 30,
+    width: 30,
+    //borderRadius: '20px',
+    fontFamily: "Lato",
+    textColor: "#fff",
+    zIndex: 100
+  },
+  {
+    url: cluster50,
+    height: 50,
+    width: 50,
+    //borderRadius: 20,
+    fontFamily: "Lato",
+    textColor: "#fff",
+    zIndex: 100
   }
 ]
