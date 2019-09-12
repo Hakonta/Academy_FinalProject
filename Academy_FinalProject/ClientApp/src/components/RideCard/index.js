@@ -22,17 +22,17 @@ class RideCard extends React.Component {
 
 
   render() {
-    let verifyMenu = (!this.state.isOn) ?
-      <div className={'infoCardOuterContainer'}>
-        <div className={'infoCardInnerContainer'}>
-          <div className='TermsOfUseBox'>
-            <h4>Almost there...</h4>
-          Please verify that you want to begin your ride and that you comply with the safety requirements <p></p>
-          <button className={'btncards'} onClick={this.unlockScooter}>I agree</button>
-          <a href="#TermsOfAgreement">Terms of Agreement</a></div>
-          </div>
-          </div> :
-      null
+    // let verifyMenu = (!this.state.isOn) ?
+    //   <div className={'infoCardOuterContainer'}>
+    //     <div className={'infoCardInnerContainer'}>
+    //       <div className='TermsOfUseBox'>
+    //         <h4>Almost there...</h4>
+    //       Please verify that you want to begin your ride and that you comply with the safety requirements <p></p>
+    //       <button className={'btncards'} onClick={this.unlockScooter}>I agree</button>
+    //       <a href="#TermsOfAgreement">Terms of Agreement</a></div>
+    //       </div>
+    //       </div> :
+    //   null
     let verified = (!this.state.isOn) ?
       null :
       <CounterComponent/>

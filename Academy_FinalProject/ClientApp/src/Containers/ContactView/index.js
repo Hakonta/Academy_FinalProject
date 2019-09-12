@@ -37,7 +37,7 @@ export default class ContactView extends Component {
                     className='MyAwesomeParallax'
                     parallaxData={parallaxData} // your parallax effects, see documentation
                 >
-                    <img class={'testImageAbout'} src={about} width="100%" />
+                    <img class={'testImageAbout'} src={about} width="100%" alt=""/>
                 </Plx>
 
                 <section id={'about'}>

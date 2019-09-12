@@ -7,17 +7,6 @@ import Circ from '../../Assets/circ.png'
 import '../../Styles/style.css'
 
 
-// const styles = {
-// outerContainer: {
-//     display:"flex", position:"fixed", left:"0%", bottom:"0%", height:"22%", width:"100%", zIndex:"1000000", backgroundColor: "rgba(255, 255, 255, 0.8)", color:"black", justifyContent: "space-evenly", boxShadow: "0 -5px 5px -5px #D7D7D7"
-// },
-// innerContainer: {
-//     display:"flex", flexDirection:"row", marginTop: "20px"
-// },
-// cardDiv:  { 
-//     display:"flex", flexDirection:"column",  alignItems:"center", marginLeft: "25px"
-// },
-// }
 // This is image that is displayed on Footermenu
 const getProviderImage = (provider) => {
     switch (provider) {
@@ -25,7 +14,7 @@ const getProviderImage = (provider) => {
         case 'Voi': return Voi
         case 'Zvipp': return Zvipp
         case 'Flash': return Circ
-
+        default: return null
     }
 }
 const getProviderApp = (provider) => {
@@ -34,6 +23,7 @@ const getProviderApp = (provider) => {
         case 'Voi': return "https://app.adjust.com/48s7k5x"
         case 'Zvipp': return Zvipp
         case 'Flash': return Circ
+        default: return null
     }
  }
 
@@ -49,7 +39,7 @@ export default function InfoCard(props)
                     <img src={getProviderImage(props.providerName)} alt={props.providerName} height="90vh" width="90vw"></img>
                 </div>
                 <div className='box2'>
-                        <h4><img src={Battery} height="15px"></img>&nbsp;{props.battery}%</h4> 
+                        <h4><img src={Battery} height="15px" alt="battery icon" ></img>&nbsp;{props.battery}%</h4> 
                         <p>10 kr + 2kr/min</p> 
                 </div>
                 <div className='box3'>

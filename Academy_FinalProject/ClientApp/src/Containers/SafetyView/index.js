@@ -36,7 +36,7 @@ export default class safetyView extends Component {
                     className='MyAwesomeParallax'
                     parallaxData={parallaxData} // your parallax effects, see documentation
                 >
-                    <img class={'testImagesafety'} src={about} width="100%" />
+                    <img class={'testImagesafety'} src={about} width="100%" alt="" />
                 </Plx>
 
                 <section id={'safety'}>
