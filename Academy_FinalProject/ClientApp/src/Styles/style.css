@@ -145,6 +145,7 @@
     z-index: 3;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
+    align-content: center;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -152,21 +153,53 @@
 }
 
 .btnbysykkel{
-    height: 45px;
-    width: 150px;
-    border-radius: 10px 10px 10px 10px;
-    border: none;
-    background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
-    color:white;
+    height: 35px;
+    width: 200px;
+    border-radius: 20px 20px 20px 20px;
+    border: 2px solid #ff7500;
+    background: white;
+    color: #ff7500;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     text-align: center;
+}
+.bicycleInnerContainer {
+    width:100%;
+    display: flex;
+   justify-content: space-around;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left:10px;
+    margin-right:10px;
+    
+}
+.bySykkelBox1{
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.bySykkelBox2{
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
 }
 
 .bysykkelLinks {
-    color:white;
+    color: #ff7500;;
 }
 .bysykkelLinks:hover{
-    color:white;
+    color:#ff7500;
     text-decoration: none;
+}
+.logoText{
+    color: #005FC9;
+    font-family: 'Urban Grotesk', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    
 }
 /*INFOCARD*/
 
@@ -205,10 +238,12 @@
 }
 
 .box2{
-    align-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    height: 90px
+    height: 90px;
+    margin-top: 20px
 
 }
 .box3{
@@ -236,6 +271,14 @@
 }
 .providerLinks:hover{
     color:white;
+    text-decoration: none;
+}
+
+.whiteproviderLinks {
+    color:#ff7500;
+}
+.whiteproviderLinks:hover{
+    color:#ff7500;
     text-decoration: none;
 }
 
@@ -308,24 +351,41 @@
 .btncards{
     height: 35px;
     width: 105px;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 20px 20px 20px 20px;
     border: none;
     background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
     color:white;
-    padding-block-start: 10px;
+    margin: 5px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     text-align: center;
 } 
-.btncards:hover{
+
+.btncards{
     height: 35px;
-    width: 105px;
-    border-radius: 10px 10px 10px 10px;
+    width: 100%;
+    border-radius: 20px 20px 20px 20px;
     border: none;
     background-image: linear-gradient(to bottom, #ff7500 0%, #f35151 100%);
     color:white;
-    padding-block-start: 10px;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+} 
+
+.whitebtncards{
+    height: 35px;
+    width: 100%;
+    border-radius: 20px 20px 20px 20px;
+    border: 2px solid #ff7500;
+    background: white;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     text-align: center;
 } 
 

@@ -15,6 +15,7 @@ import cluster50 from '../../Assets/cluster50.png'
 import bikecluster20 from '../../Assets/bikecluster20.png'
 import bikecluster30 from '../../Assets/bikecluster30.png'
 import bikecluster50 from '../../Assets/bikecluster50.png'
+import Bysykkel from '../../Assets/bysykkel.jpg'
 
 import deepEqual from 'deep-equal';
 import '../../Styles/style.css'
