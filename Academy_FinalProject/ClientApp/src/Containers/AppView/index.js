@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MapBase from '../../Components/MapBaseView';
 import RefreshButton from '../../Components/Refreshbutton'
 import { HeaderBar } from '../../Components/HeaderBar'

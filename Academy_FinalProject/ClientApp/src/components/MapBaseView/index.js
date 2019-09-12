@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { GoogleMap, LoadScript, InfoWindow, MarkerClusterer } from '@react-google-maps/api'
+import React from 'react'
+import { MarkerClusterer } from '@react-google-maps/api'
 import ScooterMarker from '../ScooterMarker'
 import BikeMarker from '../BikeMarker'
 import mapStyle from './mapStyle'
