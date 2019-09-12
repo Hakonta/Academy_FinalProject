@@ -9,7 +9,7 @@
   "theme_color": "#2A3443",
   "icons": [
     {
-      "src": "../Assets/SQT.png",
+      "src": "../Assets/circ",
       "sizes": "516x438",
       "type": "image/png"
     }
