@@ -53,6 +53,7 @@ export class HeaderBar extends React.Component {
           <a href="/">{<img src={logo} alt={''} height='60x'/>}
           </a>
           <br></br>
+          <Link to="/">Find ride</Link>
           <Link to="/account">My Account</Link>
           <Link to="/safety">Safety</Link>
           <Link to="/about">About SQT</Link>

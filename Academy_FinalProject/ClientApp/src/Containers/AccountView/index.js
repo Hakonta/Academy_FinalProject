@@ -16,6 +16,8 @@ import Plx from 'react-plx';
 import about from '../../Assets/city.jpg'
 import '../../Styles/style.css'
 import CardNavBar from '../../Components/CardNavbar'
+import { HeaderBar } from '../../Components/HeaderBar';
+import BackToMap from '../../Components/BackBtn';
 
 // A WIP. Must find something that works on both mobile and desktop
 
@@ -43,7 +45,8 @@ export default class safetyView extends Component {
     render() {
         return (
             <div class={'outerContainersafety'}>
-                <CardNavBar />
+                <HeaderBar/>
+                <BackToMap/>
                 <Plx
                     className='MyAwesomeParallax'
                     parallaxData={parallaxData} // your parallax effects, see documentation
