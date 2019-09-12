@@ -1,12 +1,9 @@
-
 import React, { Component } from 'react';
 import Plx from 'react-plx';
 import about from '../../Assets/city.jpg'
 import '../../Styles/style.css'
 import { HeaderBar } from '../../Components/HeaderBar';
 import BackToMap from '../../Components/BackBtn';
-
-// A WIP. Must find something that works on both mobile and desktop
 
 
 const parallaxData = [

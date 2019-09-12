@@ -5,7 +5,6 @@ import '../../Styles/style.css'
 import { HeaderBar } from '../../Components/HeaderBar';
 import BackToMap from '../../Components/BackBtn';
 
-// A WIP. Must find something that works on both mobile and desktop
 
 const parallaxData = [
     {
@@ -46,7 +45,6 @@ export default class safetyView extends Component {
                             <div className={'wrappersafety'}>
                                 <br></br>
                                 <h2 className={'safetyHeader'}>THE SQT RULES TO KNOW BEFORE YOU GO</h2>
-                            
                                 <p><br></br></p>
                                 <p class="lead"><b>BE SAFE.</b></p>
                                 <p class="lead"><b>WEAR A <strong>HELMET</strong>.</b></p>
@@ -54,7 +52,6 @@ export default class safetyView extends Component {
                                 <p class="lead"><b>SCOOT <strong>SOLO</strong>.</b></p>
                                 <p class="lead"><b>DON'T DRINK AND DRIVE</b></p>
                                 <p><br></br></p>
-
                             </div>
                         </div>
                     </div>
