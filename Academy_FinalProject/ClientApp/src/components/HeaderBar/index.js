@@ -40,7 +40,7 @@ export class HeaderBar extends React.Component {
 
   render() {
     const { showNav } = this.state
-    let navCoverStyle = { width: showNav ? "70%" : "0" }
+    //let navCoverStyle = { width: showNav ? "70%" : "0" }
     let sideNavStyle = { width: showNav ? "70%" : "0" }
 
     return (
@@ -64,7 +64,7 @@ export class HeaderBar extends React.Component {
                 style={{outline: "none", left: "3%", padding:"0", zIndex: 3}}
                 className={'filterButton'}>
                   
-              <img src= {menu} height="45px"/>
+              <img src= {menu} height="45px" alt="menu icon"/>
             </button>
       </div>
     )
