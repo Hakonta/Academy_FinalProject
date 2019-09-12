@@ -1,12 +1,9 @@
-
 import React, { Component } from 'react';
 import Plx from 'react-plx';
 import about from '../../Assets/city.jpg'
 import '../../Styles/style.css'
 import { HeaderBar } from '../../Components/HeaderBar';
 import BackToMap from '../../Components/BackBtn';
-
-// A WIP. Must find something that works on both mobile and desktop
 
 
 const parallaxData = [
@@ -34,19 +31,12 @@ export default class AboutView extends Component {
 
     render() {
         return (
-            <div>
-            <HeaderBar/> 
-            <BackToMap/>
+            <React.Fragment>
+                <HeaderBar />
+                <BackToMap />
 
-            <div class={'outerContainerAbout'}>
-                
+                <div class={'outerContainerAbout'}>
 
-                <Plx
-                    className='MyAwesomeParallax'
-                    parallaxData={parallaxData} // your parallax effects, see documentation
-                >
-                    <img class={'testImageAbout'} src={about} width="100%" />
-                </Plx>
 
                 <section id={'about'}>
                     <div class={'aboutViewContainerTop'}>
@@ -59,27 +49,27 @@ export default class AboutView extends Component {
                                 Prior to the three months we've spent learning coding during our time at Academy, most of us had none or almost no experience with coding.
                                 It's been a fun ride and we hope you like our little project! If you're curious about the techincal aspects of things, you can check out our Github page <a className={'aboutLinks'} href="https://github.com/Hakonta/Academy_FinalProject">here</a>.
                                 <br></br>
-                                </p>
-                                <p class="lead"><b>Why SQT?</b></p>
-                                <p>If you've ever tried to book an e-scooter before, you've most likely ran into to this problem: So many providers(and apps!),
-                                    but you just want the scooter that's the closest to where you are at the moment.
+                                    </p>
+                                    <p class="lead"><b>Why SQT?</b></p>
+                                    <p>If you've ever tried to book an e-scooter before, you've most likely ran into to this problem: So many providers(and apps!),
+                                        but you just want the scooter that's the closest to where you are at the moment.
                                     It'd be so much easier if you could have them all on the same map. Well, now you can!</p>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                <section id="services" class={'bg-black'}>
-                    <div class={'aboutViewContainerBottom'}>
-                        <div class={'rowBottom'}>
-                            <div class="col-lg-8 mx-auto">
+                    <section id="services" class={'bg-black'}>
+                        <div class={'aboutViewContainerBottom'}>
+                            <div class={'rowBottom'}>
+                                <div class="col-lg-8 mx-auto">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-            </div>
-            </div>
+                    </section>
+                </div>
+            </React.Fragment>
         )
     }
 }

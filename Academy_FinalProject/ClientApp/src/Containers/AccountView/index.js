@@ -1,25 +1,10 @@
-// import React from 'react'
-// import CardNavBar from '../../Components/CardNavbar'
-
-// const accountView = () => {
-//     return (
-//         <div>
-//             <CardNavBar />
-//         </div>
-
-//     )
-// }
-// export default accountView;
-
 import React, { Component } from 'react';
 import Plx from 'react-plx';
 import about from '../../Assets/city.jpg'
 import '../../Styles/style.css'
-import CardNavBar from '../../Components/CardNavbar'
 import { HeaderBar } from '../../Components/HeaderBar';
 import BackToMap from '../../Components/BackBtn';
 
-// A WIP. Must find something that works on both mobile and desktop
 
 const parallaxData = [
     {
@@ -51,7 +36,7 @@ export default class safetyView extends Component {
                     className='MyAwesomeParallax'
                     parallaxData={parallaxData} // your parallax effects, see documentation
                 >
-                    <img class={'testImagesafety'} src={about} width="100%" />
+                    <img class={'testImagesafety'} src={about} width="100%" alt="" />
                 </Plx>
 
                 <section id={'safety'}>

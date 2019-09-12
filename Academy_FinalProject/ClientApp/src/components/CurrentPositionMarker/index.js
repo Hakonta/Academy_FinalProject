@@ -17,12 +17,6 @@ const currentPositionMarker = (props) => {
            </div> 
    )
 }
-// const Styles={
-//         marker:{
-//         height: 20,
-//         width: 20,
-//         zIndex: 100,
-//         }
-//     }
+
 export default currentPositionMarker;
 

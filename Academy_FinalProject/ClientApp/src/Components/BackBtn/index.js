@@ -11,7 +11,7 @@ const BackToMap = (props) => {
                 className={'filterButton'}
             >
                 <a href="/">
-              <img src= {mapIcon} height="30px"/>
+              <img src= {mapIcon} height="30px" alt="Back button icon"/>
               </a>
         </button>
         </div>

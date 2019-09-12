@@ -5,10 +5,7 @@ import '../../Styles/style.css'
 
 
 export default class MapComponent extends React.PureComponent {
-    constructor(props) {
-        super(props)
-    }
-
+    
     render() {
 
         return (

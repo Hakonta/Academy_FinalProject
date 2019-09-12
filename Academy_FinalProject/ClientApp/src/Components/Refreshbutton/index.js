@@ -10,7 +10,7 @@ const RefreshButton = (props) => {
                 className={'filterButton'}
             >
                 <a href="/">
-              <img src= {refresh} height="30px"/>
+              <img src= {refresh} height="30px" alt="refresh icon"/>
               </a>
         </button>
     )
