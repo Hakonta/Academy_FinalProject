@@ -47,11 +47,11 @@ export default class safetyView extends Component {
                                 <h2 className={'safetyHeader'} style = {{fontFamily:"'Red Hat Display', sans-serif"}}>THE SQT RULES TO KNOW BEFORE YOU GO</h2>
                             
                                 <p><br></br></p>
-                                <p class="lead"><b>BE SAFE.</b></p>
-                                <p class="lead"><b>WEAR A <strong>HELMET</strong>.</b></p>
-                                <p class="lead"><b>PARK RESPECTFULLY.</b></p>
-                                <p class="lead"><b>SCOOT <strong>SOLO</strong>.</b></p>
-                                <p class="lead"><b>DON'T DRINK AND DRIVE</b></p>
+                                <p class="lead"><b>Be safe.</b></p>
+                                <p class="lead"><b>Wear a <strong>helmet</strong>.</b></p>
+                                <p class="lead"><b>Park respectfully.</b></p>
+                                <p class="lead"><b>Scoot <strong>solo</strong>.</b></p>
+                                <p class="lead"><b>Don't drink and drive.</b></p>
                                 <p><br></br></p>
                             </div>
                         </div>
