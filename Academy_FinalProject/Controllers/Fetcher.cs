@@ -47,7 +47,7 @@ namespace Academy_FinalProject.Controllers {
 
                 Scooters = allFlashScooters.Concat(allTierScooters).Concat(allVoiScooters).Concat(allZvippScooters).ToList();
 
-                System.Threading.Thread.Sleep(900000);
+                System.Threading.Thread.Sleep(90000);
             }
         }
         public static async Task<Action> FetchBikeStations() {
