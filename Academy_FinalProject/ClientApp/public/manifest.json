@@ -2,16 +2,21 @@
 {
   "name": "SQT",
   "short_name": "SQT",
-  "start_url": ".",
+  "icons": [
+    {
+      "src": "/assets/icon192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/icon512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#2A3443",
   "description": "A demo app for SQT",
-  "theme_color": "#2A3443",
-  "icons": [
-    {
-      "src": "../Assets/circ",
-      "sizes": "516x438",
-      "type": "image/png"
-    }
-  ]
+  "theme_color": "#2A3443"
 }
