@@ -215,7 +215,7 @@ export default class MapBaseLayer extends React.PureComponent {
         {this.state.showDefaultCard ?
           this.state.showScooterFooter ? <InfoCard providerName={this.state.selectedScooter.providerName} battery={this.state.selectedScooter.batteryCapacity}
             toggleRideCard={() => { this.setState({ showDefaultCard: !this.state.showDefaultCard }) }} />
-            : null : <RideCard />}
+            : null : <RideCard exitFooter={this.onMapClicked} />}
 
 
         <FilterButton setFilter={this.filter} />

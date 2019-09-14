@@ -35,7 +35,7 @@ class RideCard extends React.Component {
     //   null
     let verified = (!this.state.isOn) ?
       null :
-      <CounterComponent/>
+      <CounterComponent exitFooterOnClick={this.props.exitFooter}/>
    
       
 // Below is the order the menus that should appear on the Footerbar menu

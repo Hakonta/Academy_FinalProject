@@ -109,7 +109,7 @@ class CounterComponent extends React.Component {
           label="" //Copy-paste emoji from https://getemoji.com/
           panelLabel={this.amount}
           >
-          <button className="btncards">Pay with card</button> 
+          <button className="btncards" onClick={this.props.exitFooterOnClick}>Pay with card</button> 
         </StripeCheckout>}</div>
       
     return(
