@@ -12,6 +12,7 @@ namespace Academy_FinalProject.Models
         public double Longitude { get; set; }
         public int BatteryCapacity { get; set; }
         public bool IsAvailable { get; set; }
+        public bool IsVisible {get; set; } = true;
 
     }
 }

@@ -62,6 +62,7 @@ export default class MapBaseLayer extends React.PureComponent {
       })
       .then(response => response.json())
       .then((result) => {
+        console.log(result);
         this.setState({ scooters: result });
       })
       .catch((error) => { console.log(error); });
