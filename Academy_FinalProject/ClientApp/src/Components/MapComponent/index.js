@@ -12,7 +12,7 @@ export default class MapComponent extends React.PureComponent {
             <React.Fragment>
                 <LoadScript
                     id="script-loader"
-                    googleMapsApiKey="AIzaSyAp2jh1zbAqgoQH8qpd8Af622VYmIdfeVY"
+                    googleMapsApiKey="AIzaSyAooUPBzTGsLMvMXUvUsLxSBR0D6gTAQk8"
                 >
                     <GoogleMap
                         onClick={() => { this.props.onClickMap() }}

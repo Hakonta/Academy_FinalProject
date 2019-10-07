@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../Styles/style.css'
-import StripeCheckout from 'react-stripe-checkout'
+import Checkout from '../PayexCheckout'
 
 let tickerSeconds = 0;
 let tickerMinutes = 0;
@@ -95,22 +95,9 @@ class CounterComponent extends React.Component {
     let endRide = (this.state.time === 0 || this.state.isOn) ?
         null :
         <div ><h4 style={{fontFamily: "'Red Hat Display', sans-serif"}}>Thank you for the ride!</h4><h4>Total ride cost: kr {this.showPrice()}</h4>
-        {<StripeCheckout
-          amount={this.showPrice()*100}
-          //billingAddress
-          description="You will not be charged during checkout"
-          image= "" // kanskje legge inn vår logo her?
-          locale="auto"
-          currency="NOK"
-          name="SQT - Find all rides"
-          stripeKey="pk_test_7fR8mYhqOb4p5RkeTP2Qlb3a00u5AA68Uf"
-          //token={this.onToken}
-          zipCode
-          label="" //Copy-paste emoji from https://getemoji.com/
-          panelLabel={this.amount}
-          >
-          <button className="btncards">Pay with card</button> 
-        </StripeCheckout>}</div>
+        {
+          <Checkout/>
+        }</div>
       
     return(
       <div className={'outerContainer'}>

@@ -46,7 +46,7 @@ namespace Academy_FinalProject.Controllers {
                 // Concating all lists to one list
 
                 Scooters = allFlashScooters.Concat(allTierScooters).Concat(allVoiScooters).Concat(allZvippScooters).ToList();
-
+                Console.Writeline("done fetching scooters");
                 System.Threading.Thread.Sleep(90000);
             }
         }
