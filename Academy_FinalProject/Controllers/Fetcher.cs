@@ -41,12 +41,12 @@ namespace Academy_FinalProject.Controllers {
                 var allFlashScooters = formattingFlash.CreateFlashScooters(await fetchFlashTask);
                 var allVoiScooters = formattingVoi.CreateVoiScooters(await fetchVoiTask);
                 var allTierScooters = formattingTier.CreateTierScooters(await fetchTierTask);
-                var allZvippScooters = formattingZvipp.CreateZvippScooters(await fetchZvippTask);
+                // var allZvippScooters = formattingZvipp.CreateZvippScooters(await fetchZvippTask);.Concat(allZvippScooters)
 
                 // Concating all lists to one list
 
-                Scooters = allFlashScooters.Concat(allTierScooters).Concat(allVoiScooters).Concat(allZvippScooters).ToList();
-                Console.Writeline("done fetching scooters");
+                Scooters = allFlashScooters.Concat(allTierScooters).Concat(allVoiScooters).ToList();
+                Console.WriteLine("done fetching scooters");
                 System.Threading.Thread.Sleep(90000);
             }
         }

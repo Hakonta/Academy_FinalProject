@@ -19,22 +19,22 @@ namespace Academy_FinalProject.Controllers {
 
         // GET: api/Scooter
         [HttpGet]
-        public ActionResult<List<Scooter>> Get() {
+        public async Task<ActionResult<List<Scooter>>> GetAsync() {
             ////----------      fetching data from Api's:       -----------//
             //// FLASH:
-            //FetchFlashData flash = new FetchFlashData();
-            //FormatingDataFlash formattingFlash = new FormatingDataFlash();
-            //var fetchFlashTask = flash.FetchFlashDataMethod();
+            FetchFlashData flash = new FetchFlashData();
+            FormatingDataFlash formattingFlash = new FormatingDataFlash();
+            var fetchFlashTask = flash.FetchFlashDataMethod();
 
-            //// VOI:
-            //FetchVoiData voi = new FetchVoiData();
-            //FormattingDataVoi formattingVoi = new FormattingDataVoi();
-            //var fetchVoiTask = voi.FetchVoiDataMethod();
+            ////// VOI:
+            FetchVoiData voi = new FetchVoiData();
+            FormattingDataVoi formattingVoi = new FormattingDataVoi();
+            var fetchVoiTask = voi.FetchVoiDataMethod();
 
-            //// TIER:
-            //FetchTierData tier = new FetchTierData();
-            //FormattingDataTier formattingTier = new FormattingDataTier();
-            //var fetchTierTask = tier.FetchTierDataMethod();
+            ////// TIER:
+            FetchTierData tier = new FetchTierData();
+            FormattingDataTier formattingTier = new FormattingDataTier();
+            var fetchTierTask = tier.FetchTierDataMethod();
 
             //// ZVIPP:
             //FetchZvippData zvipp = new FetchZvippData();
@@ -42,16 +42,16 @@ namespace Academy_FinalProject.Controllers {
             //var fetchZvippTask = zvipp.FetchZvippDataMethod();
 
             //// Running paralell fetch
-            //var allFlashScooters = formattingFlash.CreateFlashScooters(await fetchFlashTask);
-            //var allVoiScooters = formattingVoi.CreateVoiScooters(await fetchVoiTask);
-            //var allTierScooters = formattingTier.CreateTierScooters(await fetchTierTask);
+            var allFlashScooters = formattingFlash.CreateFlashScooters(await fetchFlashTask);
+             var allVoiScooters = formattingVoi.CreateVoiScooters(await fetchVoiTask);
+            var allTierScooters = formattingTier.CreateTierScooters(await fetchTierTask);
             //var allZvippScooters = formattingZvipp.CreateZvippScooters(await fetchZvippTask);
-
+            //.Concat(allZvippScooters)
             //// Concating all lists to one list
-            //var allScooters = allFlashScooters.Concat(allTierScooters).Concat(allVoiScooters).Concat(allZvippScooters).ToList();
-            //// 
+            var allScooters = allFlashScooters.Concat(allVoiScooters).Concat(allTierScooters).ToList();
+            // 
 
-            ////Returning list with all scooters
+            //Returning list with all scooters
             //return Ok(allScooters);
 
             return Ok(Fetcher.Scooters);

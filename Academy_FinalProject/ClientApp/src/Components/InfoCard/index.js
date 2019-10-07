@@ -43,7 +43,7 @@ export default function InfoCard(props)
                         <p>10 kr + 2kr/min</p> 
                 </div>
                 <div className='box3'>
-                    <button style = {{fontFamily:"'Red Hat Display', sans-serif"}} className={'btncards'} block onClick={() => { props.toggleRideCard()}}>Start Ride</button>
+                    <button style = {{fontFamily:"'Red Hat Display', sans-serif"}} className={'btncards'}  onClick={() => { props.toggleRideCard()}}>Start Ride</button>
                     <button style = {{fontFamily:"'Red Hat Display', sans-serif"}} className={'whitebtncards'}>
                          <a className={'whiteproviderLinks'} href={getProviderApp(props.providerName)}>Go to {props.providerName}</a>
                         </button>

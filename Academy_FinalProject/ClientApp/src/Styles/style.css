@@ -1,6 +1,15 @@
+.payexContainer{
+    border: solid 3px #FF7500;
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 50%;
+    width: 90%;
+    position: fixed;
+    top: 15%;
+    left: 5%;
+}
+
+
 /*CARDNAVBAR*/
-
-
 .cardNavbar {
     width: 100%;
     height: 65px;
