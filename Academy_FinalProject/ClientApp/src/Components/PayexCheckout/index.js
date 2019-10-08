@@ -10,15 +10,11 @@ export default class CheckOut extends React.PureComponent {
             paymentSuccessfull: false
         }
     }
-
+    
 
     componentDidMount() {
-
         this.getCheckinUrl();
-
-
-
-
+        
     }
 
     getCheckinUrl = async () => {
@@ -36,6 +32,9 @@ export default class CheckOut extends React.PureComponent {
     }
 
     renderCheckin = () => {
+        //TODO: POST PRICE WITH CONSUMERPROFILEREF
+        let price = this.props.price
+        //-------------------------------------
         let script = document.createElement('script');
         script.async = true;
         console.log(this.state.checkinUrl)
@@ -65,7 +64,10 @@ export default class CheckOut extends React.PureComponent {
                                     console.log(paymentCompletedEvent);
                                     let payexMenu = document.getElementById('payexMenu');
                                     payexMenu.remove();
-                                    
+                                    let paymentCompleted = document.getElementById('paymentSuccessfull')
+                                        paymentCompleted.className ='paymentSuccessfullText';
+                                        paymentCompleted.innerHTML ='<h3> payment succsessfull </h3>';
+
                                 },
                                 onPaymentFailed: function (paymentFailedEvent) {
                                     console.log(paymentFailedEvent);
@@ -83,7 +85,37 @@ export default class CheckOut extends React.PureComponent {
                                 onError: function (error) {
                                     console.error(error);
                                 },
+                                style: {
+                                    body: {
+                                        backgroundColor: "transparent",
+                                    },
+                                    input: {
+                                        backgroundColor: "white",
 
+                                        focus: {
+                                            border: 'green'
+                                        },
+                                        invalid: {
+                                            border: 'dotted 1px #FF7500'
+                                        }
+                                    },
+                                    button: {
+                                        borderRadius: '10px 10px 10px 10px',
+                                        color: '#fff',
+                                        backgroundColor: '#FF7500',
+                                        font: "Arial",
+                                        fontSize: '18px',
+                                        width: '200px'
+                                    },
+                                    secondaryButton: {
+                                        borderRadius: '10px 10px 10px 10px',
+                                        color: '#fff',
+                                        backgroundColor: '#FF7500',
+                                        font: "Arial",
+                                        fontSize: '18px',
+                                        width: '200px',
+                                    }
+                                },
                             }).open();
                         };
                         var head = document.getElementsByTagName('head')[0];
@@ -97,19 +129,37 @@ export default class CheckOut extends React.PureComponent {
                 },
                 onShippingDetailsAvailable: function (shippingDetailsAvailableEvent) {
                     console.log(shippingDetailsAvailableEvent)
-                }
+                },
+                style: {
+                    body: {
+                        backgroundColor: "transparent",
+
+                    },
+                    input: {
+                        backgroundColor: "white",
+                        border: 'solid 4px #FF7500',
+
+                        focus: {
+                            border: 'green'
+                        },
+                        invalid: {
+                            border: 'dotted 1px #f35151'
+                        }
+                    },
+                    button: {
+                        borderRadius: '10px 10px 10px 10px',
+                        color: '#fff',
+                        backgroundColor: '#FF7500',
+                        font: "Arial",
+                        fontSize: '18px',
+                        width: '200px'
+                    }
+
+                },
             }).open();
         })
         document.getElementsByTagName('head')[0].appendChild(script);
     }
-
-
-
-
-
-
-
-
 
 
     render() {
@@ -118,11 +168,8 @@ export default class CheckOut extends React.PureComponent {
                 <div id='checkin'></div>
                 <div id='payment-menu'></div>
                 {this.renderCheckin()}
-                {this.state.paymentSuccessfull ? <div id='PaymentSuccessfull' >
-                    takk for betalingen
-                    </div> : null }
-                
             </div>
         )
     }
 }
+

@@ -89,8 +89,9 @@ class CounterComponent extends React.Component {
     let endRide = (this.state.time === 0 || this.state.isOn) ?
       null :
       <div >
-        <h4 style={{ fontFamily: "'Red Hat Display', sans-serif" }}>Thank you for the ride!</h4><h4>Total ride cost: kr {this.showPrice()}</h4>
-        <CheckOut />
+        <h4 style={{ fontFamily: "'Red Hat Display', sans-serif" }}>Thank you for the ride!</h4><h4>Total ride cost: kr {this.showPrice()}</h4> <div id='paymentSuccessfull' ></div>
+        
+        <CheckOut price={this.state.price}/>
       </div>
 
     return (

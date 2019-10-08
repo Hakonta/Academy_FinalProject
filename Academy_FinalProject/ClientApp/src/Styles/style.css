@@ -1,3 +1,11 @@
+.paymentSuccessfullText{
+    color: rgb(105, 199, 93);
+    border: solid 1px #FF7500;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
 .payexContainer{
     border: solid 3px #FF7500;
     background-color: rgba(255, 255, 255, 0.8);
@@ -6,6 +14,8 @@
     position: fixed;
     top: 15%;
     left: 5%;
+    border-radius: 10px 10px 10px 10px;
+    padding: 3%
 }
 
 
@@ -122,6 +132,7 @@
 .rideCardOuterContainer {
     display: flex;
     position: fixed;
+    border-top: solid 1px #FF7500;
     left: 0%;
     bottom: 0%;
     height: 25%;
@@ -225,7 +236,7 @@
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
     box-shadow: 0 -5px 5px -5px #D7D7D7;
-    border-top-color: #ff7500;
+    border-top: solid 1px #FF7500;
     
 }
 
@@ -304,6 +315,7 @@
 .outerContainer {
     display: flex;
     position: fixed;
+    border-top: solid 1px #FF7500;
     left: 0%;
     bottom: 0%;
     height: 25%;
