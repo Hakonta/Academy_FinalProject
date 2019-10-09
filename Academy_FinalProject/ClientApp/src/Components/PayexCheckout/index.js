@@ -18,7 +18,7 @@ export default class CheckOut extends React.PureComponent {
     }
 
     getCheckinUrl = async () => {
-        fetch('https:https://sqtpay.azurewebsites.net/api/Checkout/GetConsumerSession',
+        fetch('https://sqtpay.azurewebsites.net/api/Checkout/GetConsumerSession',
             {
                 headers: {
                     'Content-Type': 'application/json'
