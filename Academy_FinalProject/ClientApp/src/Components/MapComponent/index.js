@@ -18,7 +18,7 @@ export default class MapComponent extends React.PureComponent {
                         onClick={() => { this.props.onClickMap() }}
                         id='SQT MAP'
                         options={mapOption}
-                        zoom={8}
+                        zoom={18}
                         center={this.props.center}
                         mapContainerStyle={containerStyle}
                     >
