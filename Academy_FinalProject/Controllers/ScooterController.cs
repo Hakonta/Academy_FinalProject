@@ -19,7 +19,7 @@ namespace Academy_FinalProject.Controllers {
 
         // GET: api/Scooter
         [HttpGet]
-        public Task<ActionResult<List<Scooter>>> GetAsync() {
+        public ActionResult<List<Scooter>> GetAsync() {
             ////----------      fetching data from Api's:       -----------//
             //// FLASH:
             //FetchFlashData flash = new FetchFlashData();

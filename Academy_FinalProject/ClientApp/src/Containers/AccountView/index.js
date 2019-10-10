@@ -47,7 +47,9 @@ export default class safetyView extends Component {
                                 <h2 className={'safetyHeader'} style = {{fontFamily:"'Red Hat Display', sans-serif"}}>Welcome Ania</h2>
                                 <p class="lead" style = {{fontFamily:"'Red Hat Display', sans-serif"}}><b>My recent rides:</b></p>
                                 <ul>
-                                    <li ><b> Thur 10.10 - 17 min <br></br></b> Rode a Tier - <span style={{color: 'orange'}}>More info</span></li>
+                                    <li ><b> Thur 10.10 - 1 min <br></br></b> Rode a Tier - <span style={{ color: 'orange' }}>More info</span></li>
+                                    <br></br>
+                                    <li ><b> Thur 10.10 - 17 min <br></br></b> Rode a Tier - <span style={{ color: 'orange' }}>More info</span></li>
                                     <br></br>
                                     <li><b> Mon 07.10 - 12 min <br></br></b>Rode a Zvipp - <span style={{color: 'orange'}}>More info</span></li>
                                     <br></br>

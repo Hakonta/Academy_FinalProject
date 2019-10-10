@@ -122,7 +122,7 @@ export default class CheckOut extends React.PureComponent {
                         head.appendChild(script);
                     })
 
-                    request.open('POST', 'https://https://sqtpay.azurewebsites.net/api/checkout/SQTPaymentMenu', true);
+                    request.open('POST', 'https://sqtpay.azurewebsites.net/api/checkout/SQTPaymentMenu', true);
                     request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
                     request.send(JSON.stringify(consumerIdentifiedEvent.consumerProfileRef));
 
