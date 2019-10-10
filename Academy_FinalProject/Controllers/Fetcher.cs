@@ -33,21 +33,23 @@ namespace Academy_FinalProject.Controllers {
                 var fetchTierTask = tier.FetchTierDataMethod();
 
                 // ZVIPP:
-                FetchZvippData zvipp = new FetchZvippData();
-                FormattingDataZvipp formattingZvipp = new FormattingDataZvipp();
-                var fetchZvippTask = zvipp.FetchZvippDataMethod();
+                //FetchZvippData zvipp = new FetchZvippData();
+                //FormattingDataZvipp formattingZvipp = new FormattingDataZvipp();
+                //var fetchZvippTask = zvipp.FetchZvippDataMethod();
 
                 // Running paralell fetch
                 var allFlashScooters = formattingFlash.CreateFlashScooters(await fetchFlashTask);
                 var allVoiScooters = formattingVoi.CreateVoiScooters(await fetchVoiTask);
                 var allTierScooters = formattingTier.CreateTierScooters(await fetchTierTask);
-                // var allZvippScooters = formattingZvipp.CreateZvippScooters(await fetchZvippTask);.Concat(allZvippScooters)
+                // var allZvippScooters = formattingZvipp.CreateZvippScooters(await fetchZvippTask);
+                
+                //.Concat(allZvippScooters)
 
                 // Concating all lists to one list
 
                 Scooters = allFlashScooters.Concat(allTierScooters).Concat(allVoiScooters).ToList();
                 Console.WriteLine("done fetching scooters");
-                System.Threading.Thread.Sleep(90000);
+                System.Threading.Thread.Sleep(900000);
             }
         }
         public static async Task<Action> FetchBikeStations() {

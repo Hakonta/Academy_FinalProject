@@ -47,11 +47,11 @@ export default class safetyView extends Component {
                                 <h2 className={'safetyHeader'} style = {{fontFamily:"'Red Hat Display', sans-serif"}}>Welcome Ania</h2>
                                 <p class="lead" style = {{fontFamily:"'Red Hat Display', sans-serif"}}><b>My recent rides:</b></p>
                                 <ul>
-                                    <li ><b> Fri 13.09 - 17 min <br></br></b> Rode a Tier - <span style={{color: 'orange'}}>More info</span></li>
+                                    <li ><b> Thur 10.10 - 17 min <br></br></b> Rode a Tier - <span style={{color: 'orange'}}>More info</span></li>
                                     <br></br>
-                                    <li><b> Thu 12.09 - 12 min <br></br></b>Rode a Zvipp - <span style={{color: 'orange'}}>More info</span></li>
+                                    <li><b> Mon 07.10 - 12 min <br></br></b>Rode a Zvipp - <span style={{color: 'orange'}}>More info</span></li>
                                     <br></br>
-                                    <li><b> Mon 9.9 - 24 min <br></br></b>Rode a Voi - <span style={{color: 'orange'}}>More info</span></li>
+                                    <li><b> Wed 2.19 - 24 min <br></br></b>Rode a Voi - <span style={{color: 'orange'}}>More info</span></li>
                                 </ul>
                                 <p class="lead" style = {{fontFamily:"'Red Hat Display', sans-serif"}}><b>You have earned <b>560</b> points. Earn more points for a free ride!</b></p>
                                 <p>As a registered member, you'll earn points after each paid ride. Use your points to unlock free minutes of ride time. <br></br>
